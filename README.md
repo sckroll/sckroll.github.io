@@ -1,8 +1,8 @@
 sckroll.github.io
 ---
 
-> Sckroll 개인 웹 사이트   
-> (Nuxt로 구현하여 push-dir로 배포)
+Sckroll 개인 웹 사이트  
+(Nuxt로 구현하여 push-dir로 배포)
 
 ### Yarn 사용법
 ```bash
@@ -26,7 +26,7 @@ $ yarn generate
 $ yarn add push-dir --dev
 
 # package.json 파일 scripts 객체에 다음 요소 추가
-"deploy": "push-dir --dir=dist --branch=dist --cleanup"
+"deploy": "nuxt generate && push-dir --dir=dist --branch=dist --cleanup"
 
 # git 초기화 후 커밋, 푸시
 $ git init
@@ -40,6 +40,10 @@ $ git checkout -b dist
 $ git checkout master
 
 # 정적 사이트 생성 및 배포
-$ yarn generate
 $ yarn deploy
 ```
+
+### 주의할 점
+- `dist` 브랜치 생성 후 배포할 것
+- 배포하기 전에 변경 내용을 `master` 브랜치에 커밋 & 푸시 후 배포할 것
+  - 그렇지 않으면 `aborted: git not clean` 에러가 뜨면서 배포가 중단됨
