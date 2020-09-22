@@ -1,0 +1,45 @@
+sckroll.github.io
+---
+
+> Sckroll 개인 웹 사이트   
+> (Nuxt로 구현하여 push-dir로 배포)
+
+### Yarn 사용법
+```bash
+# dependencies 설치
+$ yarn install
+
+# localhost:3000 서버 실행
+$ yarn dev
+
+# 프로덕션 빌드 & 서버 실행
+$ yarn build
+$ yarn start
+
+# 정적 사이트 생성
+$ yarn generate
+```
+
+### push-dir를 통한 정적 웹 사이트 업데이트
+```bash
+# push-dir 설치
+$ yarn add push-dir --dev
+
+# package.json 파일 scripts 객체에 다음 요소 추가
+"deploy": "push-dir --dir=dist --branch=dist --cleanup"
+
+# git 초기화 후 커밋, 푸시
+$ git init
+$ git add .
+$ git commit -m "init"
+$ git remote add origin https://github.com/sckroll/sckroll.github.io.git
+$ git push -u origin master
+
+# 브랜치 생성
+$ git checkout -b dist
+$ git checkout master
+
+# 정적 사이트 생성 및 배포
+$ yarn generate
+$ yarn deploy
+```
