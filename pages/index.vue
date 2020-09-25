@@ -1,63 +1,32 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">sckroll</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div>
+    <h1>블로그 포스트</h1>
+    <app-search-input />
+    <ul>
+      <li v-for="post of posts" :key="post.slug">
+        <nuxt-link :to="{ name: 'posts-slug', params: { slug: post.slug } }">
+          <img :src="post.img" />
+          <div>
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.description }}</p>
+          </div>
+        </nuxt-link>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  async asyncData({ $content, params }) {
+    const posts = await $content('posts', params.slug)
+      .only(['title', 'description', 'img', 'slug', 'tags'])
+      .sortBy('createdBy', 'asc')
+      .fetch()
+
+    return {
+      posts,
+    }
+  },
+}
 </script>
-
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
