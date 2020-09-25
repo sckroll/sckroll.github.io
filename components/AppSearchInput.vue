@@ -8,7 +8,7 @@
     />
     <ul v-if="posts.length">
       <li v-for="post of posts" :key="post.slug">
-        <nuxt-link :to="{ name: 'posts-slug', params: { slug: post.slug } }">{{
+        <nuxt-link :to="{ name: 'posts/slug', params: { slug: post.slug } }">{{
           post.title
         }}</nuxt-link>
       </li>
