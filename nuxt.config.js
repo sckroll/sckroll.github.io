@@ -57,4 +57,7 @@ export default {
   router: {
     routeNameSplitter: '/',
   },
+  generate: {
+    fallback: true,
+  },
 }
