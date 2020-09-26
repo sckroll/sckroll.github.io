@@ -29,16 +29,20 @@
 
 <script>
 export default {
-  async asyncData({ $content, params }) {
-    const post = await $content('posts', params.slug).fetch()
+  async asyncData({ $content, params, error }) {
+    try {
+      const post = await $content('posts', params.slug).fetch()
 
-    const [prev, next] = await $content('posts')
-      .only(['title', 'slug'])
-      .sortBy('createdBy', 'asc')
-      .surround(params.slug)
-      .fetch()
+      const [prev, next] = await $content('posts')
+        .only(['title', 'slug'])
+        .sortBy('createdBy', 'asc')
+        .surround(params.slug)
+        .fetch()
 
-    return { post, prev, next }
+      return { post, prev, next }
+    } catch (e) {
+      error({ statusCode: 404 })
+    }
   },
   methods: {
     formatDate(date) {
