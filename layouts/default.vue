@@ -24,7 +24,7 @@
             <fa-icon :icon="['far', 'envelope']" />
           </a>
         </div>
-        <div class="copyright">ⓒ{{ new Date().getFullYear() }} Sckroll.</div>
+        <div class="author-info">Designed by Sckroll</div>
       </div>
     </footer>
   </div>
@@ -134,6 +134,7 @@ a {
 .nav-menu li {
   margin: 0 10px;
   display: inline;
+  transition: all 0.2s ease;
 }
 
 .nav-menu li:first-child {
@@ -144,8 +145,9 @@ a {
   margin-right: 0;
 }
 
-.nav-menu li a:hover {
-  font-weight: 700;
+.nav-menu li:hover {
+  color: #ffffff;
+  transition: all 0.2s ease;
 }
 
 .footer-area {
@@ -166,7 +168,7 @@ a {
   margin-bottom: 10px;
 }
 
-.copyright {
+.author-info {
   font-size: 20px;
   font-family: 'NanumSquare', sans-serif;
 }
