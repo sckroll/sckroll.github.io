@@ -2,7 +2,7 @@
   <div class="container">
     <header ref="navbar" class="navbar">
       <div class="header-wrapper">
-        <h1 class="logo">Sckroll</h1>
+        <span class="logo">Sckroll</span>
         <nav class="nav-menu">
           <ul>
             <li><a>About</a></li>
@@ -34,7 +34,7 @@
 export default {
   data() {
     return {
-      scrollThreshold: 120,
+      scrollThreshold: 86,
     }
   },
   mounted() {
@@ -171,5 +171,9 @@ a {
 .author-info {
   font-size: 20px;
   font-family: 'NanumSquare', sans-serif;
+}
+
+.content {
+  margin: 50px 300px 50px 300px;
 }
 </style>

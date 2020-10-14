@@ -1,5 +1,5 @@
 <template>
-  <div class="content-container">
+  <div class="index-container">
     <header class="landing-header">
       <div class="header-wrapper">
         <h1 class="landing-title">
@@ -35,16 +35,11 @@ export default {
 </script>
 
 <style>
-/* .content-container {
-  min-height: 200vh;
-} */
-
 .landing-header {
   background-image: url('/landingPageImg.jpg');
   background-size: cover;
   background-position-y: 95%;
   height: 700px;
-  color: #ffffff;
   padding-top: 60px;
   font-family: 'NanumSquare', sans-serif;
 }
@@ -54,6 +49,11 @@ export default {
   font-size: 32px;
   font-weight: 500;
   text-align: left;
+  color: #ffffff;
+}
+
+.landing-header .nav-menu {
+  color: #ffffffaa;
 }
 
 /* br 태그 간격(행간)을 증가 */
@@ -61,10 +61,6 @@ export default {
   display: block;
   content: '';
   margin: 5px 0;
-}
-
-.content {
-  margin: 50px 300px 50px 300px;
 }
 
 .recent-posts {
