@@ -1,10 +1,10 @@
 <template>
   <div class="content-container">
-    <div class="landing">
+    <header class="landing-header">
       <div class="header-wrapper">
-        <span class="landing-title">
+        <h1 class="landing-title">
           {{ title1 }}<br />{{ title2 }}<br />{{ title3 }}
-        </span>
+        </h1>
         <nav class="nav-menu">
           <ul>
             <li><a>About</a></li>
@@ -14,7 +14,11 @@
           </ul>
         </nav>
       </div>
-    </div>
+    </header>
+    <main class="content">
+      <h2 class="recent-posts">최근 포스트</h2>
+      <div class="recent-posts-temp">최근 포스트 영역</div>
+    </main>
   </div>
 </template>
 
@@ -31,11 +35,11 @@ export default {
 </script>
 
 <style>
-.content-container {
+/* .content-container {
   min-height: 200vh;
-}
+} */
 
-.landing {
+.landing-header {
   background-image: url('/landingPageImg.jpg');
   background-size: cover;
   background-position-y: 95%;
@@ -49,8 +53,30 @@ export default {
   float: left;
   font-size: 32px;
   font-weight: 500;
-  margin-left: 10px;
-  margin-right: 10px;
   text-align: left;
+}
+
+/* br 태그 간격(행간)을 증가 */
+.landing-title br {
+  display: block;
+  content: '';
+  margin: 5px 0;
+}
+
+.content {
+  margin: 50px 300px 50px 300px;
+}
+
+.recent-posts {
+  margin-bottom: 20px;
+}
+
+.recent-posts-temp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 600px;
+  background: #cccccc;
 }
 </style>

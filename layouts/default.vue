@@ -2,7 +2,7 @@
   <div class="container">
     <header ref="navbar" class="navbar">
       <div class="header-wrapper">
-        <span class="logo">Sckroll</span>
+        <h1 class="logo">Sckroll</h1>
         <nav class="nav-menu">
           <ul>
             <li><a>About</a></li>
@@ -14,8 +14,18 @@
       </div>
     </header>
     <Nuxt />
-    <footer>
-      <div class="copyright">ⓒ{{ new Date().getFullYear() }} Sckroll.</div>
+    <footer class="footer-area">
+      <div class="footer-wrapper">
+        <div class="icon-links">
+          <a href="https://github.com/sckroll">
+            <fa-icon :icon="['fab', 'github']" />
+          </a>
+          <a href="mailto://kimsc0714@gmail.com">
+            <fa-icon :icon="['far', 'envelope']" />
+          </a>
+        </div>
+        <div class="copyright">ⓒ{{ new Date().getFullYear() }} Sckroll.</div>
+      </div>
     </footer>
   </div>
 </template>
@@ -82,6 +92,10 @@ h2 {
   font-size: 32px;
 }
 
+a {
+  color: inherit;
+}
+
 .navbar {
   position: fixed;
   z-index: 100;
@@ -96,16 +110,13 @@ h2 {
 
 .header-wrapper {
   overflow: hidden;
-  margin-left: 300px;
-  margin-right: 300px;
+  margin: 0 300px;
 }
 
 .header-wrapper .logo {
   float: left;
   font-size: 32px;
   font-weight: 700;
-  margin-left: 10px;
-  margin-right: 10px;
 }
 
 .header-wrapper .nav-menu {
@@ -116,13 +127,47 @@ h2 {
   font-weight: 500;
 }
 
+.nav-menu ul {
+  padding: 0;
+}
+
 .nav-menu li {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 0 10px;
   display: inline;
+}
+
+.nav-menu li:first-child {
+  margin-left: 0;
+}
+
+.nav-menu li:last-child {
+  margin-right: 0;
 }
 
 .nav-menu li a:hover {
   font-weight: 700;
+}
+
+.footer-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: #dddddd;
+}
+
+.footer-wrapper {
+  display: inline-block;
+  margin: 50px 0;
+}
+
+.icon-links {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.copyright {
+  font-size: 20px;
+  font-family: 'NanumSquare', sans-serif;
 }
 </style>

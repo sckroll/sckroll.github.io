@@ -64,6 +64,6 @@ export default {
   fontawesome: {
     component: 'Fa',
     suffix: true,
-    icons: { regular: ['faSun', 'faMoon'] },
+    icons: { regular: ['faSun', 'faMoon', 'faEnvelope'], brands: ['faGithub'] },
   },
 }
