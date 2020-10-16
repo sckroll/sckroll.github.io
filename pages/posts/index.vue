@@ -19,11 +19,12 @@
       <ul>
         <li v-for="post of posts" :key="post.slug">
           <nuxt-link :to="{ name: 'posts/slug', params: { slug: post.slug } }">
-            <img :src="post.img" />
+            <post-preview :post="post" />
+            <!-- <img :src="post.img" />
             <div>
               <h2>{{ post.title }}</h2>
               <p>{{ post.description }}</p>
-            </div>
+            </div> -->
           </nuxt-link>
         </li>
       </ul>
@@ -35,8 +36,8 @@
 export default {
   async asyncData({ $content, params }) {
     const posts = await $content('posts', params.slug)
-      .only(['title', 'description', 'img', 'slug', 'tags'])
-      .sortBy('createdBy', 'asc')
+      .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
+      .sortBy('createdAt', 'asc')
       .fetch()
 
     return {
