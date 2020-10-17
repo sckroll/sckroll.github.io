@@ -1,9 +1,9 @@
 ---
-title: 테스트 포스트 2
+title: 테스트 포스트 2 (기이이이이이이이이인 제목)
 description: Nuxt/content 동작 테스트 22222
 img: https://picsum.photos/id/3/300/200
 alt: asdf
-tags: [test, 테스트, ㅁㄴㅇㄹ]
+tags: [test, 테스트, ㅁㄴㅇㄹ, 태그를, 일부러, 쓸데없이, 늘려봤습니다]
 ---
 
 포스트가 제대로 출력되는지 확인하고자 파일을 **또** 만들었습니다.

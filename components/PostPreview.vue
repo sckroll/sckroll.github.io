@@ -2,11 +2,11 @@
   <figure ref="preview" class="preview-container">
     <img :src="post.img" :alt="post.title" class="preview-img" />
     <figcaption class="preview-info">
-      <h3 class="preview-title">{{ post.title }}</h3>
+      <h3 class="preview-title">{{ trimTitle(post.title) }}</h3>
       <p class="preview-description">{{ post.description }}</p>
       <div class="preview-other">
         <div
-          v-for="(tag, index) in post.tags"
+          v-for="(tag, index) in trimTags(post.tags)"
           :key="index"
           class="preview-tags"
         >
@@ -36,6 +36,18 @@ export default {
       const formattedTime = new Date(date).toLocaleDateString('kr', options)
       return formattedTime.replace(/. /g, '/').slice(0, -1)
     },
+    trimTitle(title) {
+      if (title.length > 14) {
+        return title.slice(0, 14).concat('...')
+      }
+      return title
+    },
+    trimTags(tags) {
+      if (tags.length > 3) {
+        return tags.slice(0, 3)
+      }
+      return tags
+    },
   },
 }
 </script>
@@ -48,15 +60,16 @@ export default {
   height: 300px;
 }
 
-.preview-container:hover .preview-description {
-  display: block;
-  animation: fadeIn ease-out 0.4s;
+.preview-container:hover .preview-info {
+  height: 50%;
+  transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
 }
 
-/* *:hover .preview-description {
-  animation: fadeOut ease-out 0.4s;
-  display: none;
-} */
+.preview-container:hover .preview-description {
+  opacity: 1;
+  height: auto;
+  transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
+}
 
 .preview-img {
   width: 300px;
@@ -69,10 +82,12 @@ export default {
   left: 0;
   bottom: 0;
   width: 100%;
-  background-color: #ffffff88;
+  height: 30%;
+  background-color: #eeeeee66;
   /* color: #ffffff; */
   font-family: 'NanumSquare', sans-serif;
   padding: 15px;
+  transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
   backdrop-filter: blur(3px);
 }
 
@@ -81,30 +96,14 @@ export default {
 }
 
 .preview-description {
-  display: none;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-  }
+  opacity: 0;
+  height: 0;
+  transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
 }
 
 .preview-other {
   font-size: 14px;
-  color: #444444;
+  color: #333333;
 }
 
 .preview-tags {
