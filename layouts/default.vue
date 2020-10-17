@@ -155,7 +155,7 @@ a {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: #dddddd;
+  background-color: #dddddd;
 }
 
 .footer-wrapper {
