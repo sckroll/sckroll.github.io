@@ -64,7 +64,7 @@ export default {
 .post-list {
   display: grid;
   justify-content: space-between;
-  grid-template-columns: repeat(3, 300px);
+  grid-template-columns: repeat(3, var(--post-preview-width));
 }
 
 /* .post-preview {

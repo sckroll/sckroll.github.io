@@ -30,8 +30,8 @@ export default {
   },
   data() {
     return {
-      maxTitleLength: 14,
-      maxTagsLength: 3,
+      maxTitleLength: 16,
+      maxTagsLength: 4,
       maxDescriptionLength: 80,
     }
   },
@@ -47,13 +47,13 @@ export default {
     },
     trimTitle(title) {
       if (title.length > this.maxTitleLength) {
-        return title.slice(0, 14).concat('...')
+        return title.slice(0, this.maxTitleLength).concat('...')
       }
       return title
     },
     trimTags(tags) {
       if (tags.length > this.maxTagsLength) {
-        return tags.slice(0, 3)
+        return tags.slice(0, this.maxTagsLength)
       }
       return tags
     },

@@ -77,7 +77,7 @@ html {
 }
 
 :root {
-  --post-preview-width: 300px;
+  --post-preview-width: 350px;
 }
 
 body {
