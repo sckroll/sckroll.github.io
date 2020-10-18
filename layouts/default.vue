@@ -76,6 +76,10 @@ html {
   margin: 0;
 }
 
+:root {
+  --post-preview-width: 300px;
+}
+
 body {
   background-color: #eeeeee;
 }
@@ -98,6 +102,8 @@ a {
 
 .navbar {
   position: fixed;
+  display: flex;
+  justify-content: center;
   z-index: 100;
   width: 100%;
   top: -120px;
@@ -110,7 +116,7 @@ a {
 
 .header-wrapper {
   overflow: hidden;
-  margin: 0 300px;
+  width: 1200px;
 }
 
 .header-wrapper .logo {
@@ -150,6 +156,12 @@ a {
   transition: all 0.2s ease;
 }
 
+.content {
+  margin: 50px 0;
+  display: flex;
+  justify-content: center;
+}
+
 .footer-area {
   display: flex;
   align-items: center;
@@ -171,9 +183,5 @@ a {
 .author-info {
   font-size: 20px;
   font-family: 'NanumSquare', sans-serif;
-}
-
-.content {
-  margin: 50px 300px 50px 300px;
 }
 </style>

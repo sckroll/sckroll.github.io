@@ -14,20 +14,20 @@
       </div>
     </header>
     <main class="content">
-      <h2>블로그 포스트</h2>
-      <app-search-input />
-      <ul>
-        <li v-for="post of posts" :key="post.slug">
-          <nuxt-link :to="{ name: 'posts/slug', params: { slug: post.slug } }">
-            <post-preview :post="post" />
-            <!-- <img :src="post.img" />
-            <div>
-              <h2>{{ post.title }}</h2>
-              <p>{{ post.description }}</p>
-            </div> -->
-          </nuxt-link>
-        </li>
-      </ul>
+      <div class="post-content-wrapper">
+        <h2>블로그 포스트</h2>
+        <app-search-input />
+        <div class="post-list">
+          <div v-for="post in posts" :key="post.slug" class="post-preview">
+            <nuxt-link
+              :to="{ name: 'posts/slug', params: { slug: post.slug } }"
+              class="post-link"
+            >
+              <post-preview :post="post" />
+            </nuxt-link>
+          </div>
+        </div>
+      </div>
     </main>
   </div>
 </template>
@@ -37,7 +37,7 @@ export default {
   async asyncData({ $content, params }) {
     const posts = await $content('posts', params.slug)
       .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
-      .sortBy('createdAt', 'asc')
+      .sortBy('createdAt', 'desc')
       .fetch()
 
     return {
@@ -48,11 +48,31 @@ export default {
 </script>
 
 <style>
+.post-content-wrapper {
+  width: 1200px;
+}
+
 .post-list-header {
-  width: 100%;
+  display: flex;
+  justify-content: center;
   padding: 60px 0 20px 0;
   font-family: 'NanumSquare', sans-serif;
   transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
   backdrop-filter: blur(3px);
+}
+
+.post-list {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: repeat(3, 300px);
+}
+
+/* .post-preview {
+  height: 300px;
+} */
+
+.post-link {
+  display: inline-block;
+  height: 0;
 }
 </style>

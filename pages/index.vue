@@ -16,8 +16,10 @@
       </div>
     </header>
     <main class="content">
-      <h2 class="recent-posts">최근 포스트</h2>
-      <div class="recent-posts-temp">최근 포스트 영역</div>
+      <div class="index-content-wrapper">
+        <h2 class="recent-posts-label">최근 포스트</h2>
+        <div class="recent-posts-temp">최근 포스트 영역</div>
+      </div>
     </main>
   </div>
 </template>
@@ -36,6 +38,8 @@ export default {
 
 <style>
 .landing-header {
+  display: flex;
+  justify-content: center;
   background-image: url('/landingPageImg.jpg');
   background-size: cover;
   background-position-y: 95%;
@@ -63,7 +67,11 @@ export default {
   margin: 5px 0;
 }
 
-.recent-posts {
+.index-content-wrapper {
+  width: 1200px;
+}
+
+.recent-posts-label {
   margin-bottom: 20px;
 }
 

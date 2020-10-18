@@ -65,8 +65,8 @@ export default {
 .preview-container {
   display: inline-block;
   position: relative;
-  width: 300px;
-  height: 300px;
+  width: var(--post-preview-width);
+  height: var(--post-preview-width);
 }
 
 .preview-container:hover .preview-info {
@@ -81,8 +81,8 @@ export default {
 }
 
 .preview-img {
-  width: 300px;
-  height: 300px;
+  width: var(--post-preview-width);
+  height: var(--post-preview-width);
   object-fit: cover;
 }
 
