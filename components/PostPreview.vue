@@ -2,8 +2,10 @@
   <figure ref="preview" class="preview-container">
     <img :src="post.img" :alt="post.title" class="preview-img" />
     <figcaption class="preview-info">
-      <h3 class="preview-title">{{ trimTitle(post.title) }}</h3>
-      <p class="preview-description">{{ post.description }}</p>
+      <div class="preview-title-wrapper">
+        <h3 class="preview-title">{{ trimTitle(post.title) }}</h3>
+        <p class="preview-description">{{ post.description }}</p>
+      </div>
       <div class="preview-other">
         <div
           v-for="(tag, index) in trimTags(post.tags)"
@@ -26,6 +28,13 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      maxTitleLength: 14,
+      maxTagsLength: 3,
+      maxDescriptionLength: 80,
+    }
+  },
   methods: {
     formatDate(date) {
       const options = {
@@ -37,13 +46,13 @@ export default {
       return formattedTime.replace(/. /g, '/').slice(0, -1)
     },
     trimTitle(title) {
-      if (title.length > 14) {
+      if (title.length > this.maxTitleLength) {
         return title.slice(0, 14).concat('...')
       }
       return title
     },
     trimTags(tags) {
-      if (tags.length > 3) {
+      if (tags.length > this.maxTagsLength) {
         return tags.slice(0, 3)
       }
       return tags
@@ -79,7 +88,9 @@ export default {
 
 .preview-info {
   position: absolute;
-  left: 0;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
   bottom: 0;
   width: 100%;
   height: 30%;
@@ -116,5 +127,17 @@ export default {
 
 .preview-date {
   float: right;
+}
+
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 992px) {
+}
+
+@media screen and (max-width: 768px) {
+}
+
+@media screen and (max-width: 576px) {
 }
 </style>
