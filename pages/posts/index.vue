@@ -64,7 +64,8 @@ export default {
 .post-list {
   display: grid;
   justify-content: space-between;
-  grid-template-columns: repeat(3, var(--post-preview-width));
+  grid-template-columns: repeat(4, var(--post-preview-width));
+  row-gap: 10px;
 }
 
 /* .post-preview {

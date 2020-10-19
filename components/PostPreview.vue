@@ -1,6 +1,11 @@
 <template>
   <figure ref="preview" class="preview-container">
-    <img :src="post.img" :alt="post.title" class="preview-img" />
+    <img
+      :src="post.img"
+      :alt="post.title"
+      class="preview-img"
+      draggable="false"
+    />
     <figcaption class="preview-info">
       <div class="preview-title-wrapper">
         <h3 class="preview-title">{{ trimTitle(post.title) }}</h3>
@@ -35,10 +40,10 @@ export default {
   },
   data() {
     return {
-      maxTitleLength: 16,
-      maxActiveTitleLength: 31,
-      maxTagsLength: 4,
-      maxDescriptionLength: 83,
+      maxTitleLength: 13,
+      maxActiveTitleLength: 24,
+      maxTagsLength: 3,
+      maxDescriptionLength: 46,
     }
   },
   methods: {
@@ -90,11 +95,13 @@ export default {
 .preview-container:hover .preview-title {
   opacity: 0;
   height: 0;
+  animation: titleFadeOut 0.05s ease;
 }
 
 .preview-container:hover .preview-title-active {
   opacity: 1;
   height: auto;
+  animation: titleFadeIn 0.05s ease;
 }
 
 .preview-container:hover .preview-info {
@@ -113,9 +120,39 @@ export default {
     opacity: 0;
     height: 0;
   }
+  20% {
+    opacity: 0;
+    height: 0;
+  }
   100% {
     opacity: 1;
     height: auto;
+  }
+}
+
+@keyframes titleFadeIn {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+  10% {
+    opacity: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    height: auto;
+  }
+}
+
+@keyframes titleFadeOut {
+  0% {
+    opacity: 1;
+    height: auto;
+  }
+  100% {
+    opacity: 0;
+    height: 0;
   }
 }
 
@@ -161,7 +198,7 @@ export default {
 .preview-other {
   font-size: 14px;
   color: #333333;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .preview-tags {
