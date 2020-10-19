@@ -4,7 +4,12 @@
     <figcaption class="preview-info">
       <div class="preview-title-wrapper">
         <h3 class="preview-title">{{ trimTitle(post.title) }}</h3>
-        <p class="preview-description">{{ post.description }}</p>
+        <h3 class="preview-title preview-title-active">
+          {{ trimActiveTitle(post.title) }}
+        </h3>
+        <p class="preview-description">
+          {{ trimDescription(post.description) }}
+        </p>
       </div>
       <div class="preview-other">
         <div
@@ -31,8 +36,9 @@ export default {
   data() {
     return {
       maxTitleLength: 16,
+      maxActiveTitleLength: 31,
       maxTagsLength: 4,
-      maxDescriptionLength: 80,
+      maxDescriptionLength: 83,
     }
   },
   methods: {
@@ -51,11 +57,23 @@ export default {
       }
       return title
     },
+    trimActiveTitle(title) {
+      if (title.length > this.maxActiveTitleLength) {
+        return title.slice(0, this.maxActiveTitleLength).concat('...')
+      }
+      return title
+    },
     trimTags(tags) {
       if (tags.length > this.maxTagsLength) {
         return tags.slice(0, this.maxTagsLength)
       }
       return tags
+    },
+    trimDescription(description) {
+      if (description.length > this.maxDescriptionLength) {
+        return description.slice(0, this.maxDescriptionLength).concat('...')
+      }
+      return description
     },
   },
 }
@@ -69,6 +87,16 @@ export default {
   height: var(--post-preview-width);
 }
 
+.preview-container:hover .preview-title {
+  opacity: 0;
+  height: 0;
+}
+
+.preview-container:hover .preview-title-active {
+  opacity: 1;
+  height: auto;
+}
+
 .preview-container:hover .preview-info {
   height: 50%;
   transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
@@ -77,7 +105,18 @@ export default {
 .preview-container:hover .preview-description {
   opacity: 1;
   height: auto;
-  transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
+  animation: descriptionFadeIn 0.5s ease;
+}
+
+@keyframes descriptionFadeIn {
+  0% {
+    opacity: 0;
+    height: 0;
+  }
+  100% {
+    opacity: 1;
+    height: auto;
+  }
 }
 
 .preview-img {
@@ -95,7 +134,6 @@ export default {
   width: 100%;
   height: 30%;
   background-color: #eeeeee66;
-  /* color: #ffffff; */
   font-family: 'NanumSquare', sans-serif;
   padding: 15px;
   transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
@@ -103,6 +141,14 @@ export default {
 }
 
 .preview-title {
+  opacity: 1;
+  height: auto;
+  font-size: 24px;
+}
+
+.preview-title-active {
+  opacity: 0;
+  height: 0;
   font-size: 24px;
 }
 
@@ -115,6 +161,7 @@ export default {
 .preview-other {
   font-size: 14px;
   color: #333333;
+  z-index: 1;
 }
 
 .preview-tags {
