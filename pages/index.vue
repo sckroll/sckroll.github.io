@@ -69,6 +69,7 @@ export default {
 
 .index-content-wrapper {
   width: var(--container-xl);
+  padding: 0 30px;
 }
 
 .recent-posts-temp {
@@ -78,5 +79,26 @@ export default {
   text-align: center;
   height: 600px;
   background-color: #cccccc;
+}
+
+@media screen and (max-width: 1200px) {
+  .index-content-wrapper {
+    width: var(--container-lg);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .index-content-wrapper {
+    width: var(--container-md);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .index-content-wrapper {
+    width: var(--container-sm);
+  }
+}
+
+@media screen and (max-width: 576px) {
 }
 </style>
