@@ -43,7 +43,7 @@ export default {
       maxTitleLength: 13,
       maxActiveTitleLength: 24,
       maxTagsLength: 3,
-      maxDescriptionLength: 46,
+      maxDescriptionLength: 44,
     }
   },
   methods: {
@@ -88,14 +88,14 @@ export default {
 .preview-container {
   display: inline-block;
   position: relative;
-  width: var(--post-preview-width);
-  height: var(--post-preview-width);
+  width: var(--post-preview-width-xl);
+  height: var(--post-preview-width-xl);
 }
 
 .preview-container:hover .preview-title {
   opacity: 0;
   height: 0;
-  animation: titleFadeOut 0.05s ease;
+  animation: fadeOut 0.05s ease;
 }
 
 .preview-container:hover .preview-title-active {
@@ -105,22 +105,18 @@ export default {
 }
 
 .preview-container:hover .preview-info {
-  height: 50%;
+  height: 60%;
   transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
 }
 
 .preview-container:hover .preview-description {
   opacity: 1;
   height: auto;
-  animation: descriptionFadeIn 0.5s ease;
+  animation: FadeIn 0.5s ease;
 }
 
-@keyframes descriptionFadeIn {
+@keyframes FadeIn {
   0% {
-    opacity: 0;
-    height: 0;
-  }
-  20% {
     opacity: 0;
     height: 0;
   }
@@ -145,7 +141,7 @@ export default {
   }
 }
 
-@keyframes titleFadeOut {
+@keyframes fadeOut {
   0% {
     opacity: 1;
     height: auto;
@@ -157,8 +153,8 @@ export default {
 }
 
 .preview-img {
-  width: var(--post-preview-width);
-  height: var(--post-preview-width);
+  width: inherit;
+  height: inherit;
   object-fit: cover;
 }
 
@@ -192,13 +188,12 @@ export default {
 .preview-description {
   opacity: 0;
   height: 0;
-  transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
+  animation: fadeOut 0.3s ease;
 }
 
 .preview-other {
   font-size: 14px;
   color: #333333;
-  /* z-index: 1; */
 }
 
 .preview-tags {
@@ -214,12 +209,27 @@ export default {
 }
 
 @media screen and (max-width: 1200px) {
+  .preview-container {
+    width: var(--post-preview-width-lg);
+    height: var(--post-preview-width-lg);
+  }
 }
 
 @media screen and (max-width: 992px) {
+  .preview-container {
+    width: var(--post-preview-width-md);
+    height: var(--post-preview-width-md);
+  }
+  .preview-container:hover .preview-info {
+    height: 50%;
+  }
 }
 
 @media screen and (max-width: 768px) {
+  .preview-container {
+    width: calc(var(--container-sm) - 60px);
+    height: calc(var(--container-sm) - 60px);
+  }
 }
 
 @media screen and (max-width: 576px) {

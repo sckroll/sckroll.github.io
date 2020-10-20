@@ -77,7 +77,13 @@ html {
 }
 
 :root {
-  --post-preview-width: 290px;
+  --container-xl: 1200px;
+  --container-lg: 992px;
+  --container-md: 768px;
+  --container-sm: 576px;
+  --post-preview-width-xl: 275px;
+  --post-preview-width-lg: 300px;
+  --post-preview-width-md: 345px;
 }
 
 body {
@@ -116,7 +122,8 @@ a {
 
 .header-wrapper {
   overflow: hidden;
-  width: 1200px;
+  width: var(--container-xl);
+  padding: 0 30px;
 }
 
 .header-wrapper .logo {
@@ -183,5 +190,30 @@ a {
 .author-info {
   font-size: 20px;
   font-family: 'NanumSquare', sans-serif;
+}
+
+.component-label {
+  margin-bottom: 20px;
+}
+
+@media screen and (max-width: 1200px) {
+  .header-wrapper {
+    width: var(--container-lg);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .header-wrapper {
+    width: var(--container-md);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .header-wrapper {
+    width: var(--container-sm);
+  }
+}
+
+@media screen and (max-width: 576px) {
 }
 </style>

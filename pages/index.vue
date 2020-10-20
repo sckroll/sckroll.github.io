@@ -17,7 +17,7 @@
     </header>
     <main class="content">
       <div class="index-content-wrapper">
-        <h2 class="recent-posts-label">최근 포스트</h2>
+        <h2 class="component-label">최근 포스트</h2>
         <div class="recent-posts-temp">최근 포스트 영역</div>
       </div>
     </main>
@@ -68,11 +68,7 @@ export default {
 }
 
 .index-content-wrapper {
-  width: 1200px;
-}
-
-.recent-posts-label {
-  margin-bottom: 20px;
+  width: var(--container-xl);
 }
 
 .recent-posts-temp {
