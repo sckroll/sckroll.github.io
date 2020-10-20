@@ -198,7 +198,6 @@ export default {
 .preview-description {
   opacity: 0;
   height: 0;
-  animation: fadeOut 0.3s ease;
 }
 
 .preview-other {
