@@ -2,12 +2,20 @@
   <div class="content-container">
     <header class="post-list-header">
       <div class="header-wrapper">
-        <span class="logo">Sckroll</span>
+        <span class="logo">
+          <nuxt-link :to="{ name: 'index' }">Sckroll</nuxt-link>
+        </span>
         <nav class="nav-menu">
           <ul>
-            <li><a>About</a></li>
-            <li><a>Posts</a></li>
-            <li><a>Projects</a></li>
+            <li>
+              <nuxt-link :to="{ name: 'about' }">About</nuxt-link>
+            </li>
+            <li>
+              <nuxt-link :to="{ name: 'posts' }">Posts</nuxt-link>
+            </li>
+            <li>
+              <nuxt-link :to="{ name: 'projects' }">Projects</nuxt-link>
+            </li>
             <li><fa-icon :icon="['far', 'moon']" /></li>
           </ul>
         </nav>
