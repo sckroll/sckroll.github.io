@@ -19,12 +19,7 @@
         <!-- <app-search-input /> -->
         <div class="post-list">
           <div v-for="post in posts" :key="post.slug" class="post-preview">
-            <nuxt-link
-              :to="{ name: 'posts/slug', params: { slug: post.slug } }"
-              class="post-link"
-            >
-              <post-preview :post="post" />
-            </nuxt-link>
+            <post-preview :post="post" />
           </div>
         </div>
       </div>
@@ -67,11 +62,6 @@ export default {
   justify-content: space-between;
   grid-template-columns: repeat(4, var(--post-preview-width-xl));
   row-gap: 10px;
-}
-
-.post-link {
-  display: inline-block;
-  height: 0;
 }
 
 @media screen and (max-width: 1200px) {

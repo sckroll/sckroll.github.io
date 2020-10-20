@@ -1,33 +1,38 @@
 <template>
-  <figure ref="preview" class="preview-container">
-    <img
-      :src="post.img"
-      :alt="post.title"
-      class="preview-img"
-      draggable="false"
-    />
-    <figcaption class="preview-info">
-      <div class="preview-title-wrapper">
-        <h3 class="preview-title">{{ trimTitle(post.title) }}</h3>
-        <h3 class="preview-title preview-title-active">
-          {{ trimActiveTitle(post.title) }}
-        </h3>
-        <p class="preview-description">
-          {{ trimDescription(post.description) }}
-        </p>
-      </div>
-      <div class="preview-other">
-        <div
-          v-for="(tag, index) in trimTags(post.tags)"
-          :key="index"
-          class="preview-tags"
-        >
-          <span class="preview-tag">#{{ tag }}</span>
+  <nuxt-link
+    :to="{ name: 'posts/slug', params: { slug: post.slug } }"
+    class="post-link"
+  >
+    <figure ref="preview" class="preview-container">
+      <img
+        :src="post.img"
+        :alt="post.title"
+        class="preview-img"
+        draggable="false"
+      />
+      <figcaption class="preview-info">
+        <div class="preview-title-wrapper">
+          <h3 class="preview-title">{{ trimTitle(post.title) }}</h3>
+          <h3 class="preview-title preview-title-active">
+            {{ trimActiveTitle(post.title) }}
+          </h3>
+          <p class="preview-description">
+            {{ trimDescription(post.description) }}
+          </p>
         </div>
-        <span class="preview-date">{{ formatDate(post.createdAt) }}</span>
-      </div>
-    </figcaption>
-  </figure>
+        <div class="preview-other">
+          <div
+            v-for="(tag, index) in trimTags(post.tags)"
+            :key="index"
+            class="preview-tags"
+          >
+            <span class="preview-tag">#{{ tag }}</span>
+          </div>
+          <span class="preview-date">{{ formatDate(post.createdAt) }}</span>
+        </div>
+      </figcaption>
+    </figure>
+  </nuxt-link>
 </template>
 
 <script>
@@ -85,6 +90,11 @@ export default {
 </script>
 
 <style>
+.post-link {
+  display: inline-block;
+  height: 0;
+}
+
 .preview-container {
   display: inline-block;
   position: relative;
