@@ -1,25 +1,7 @@
 <template>
   <div class="container">
     <header ref="navbar" class="navbar">
-      <div class="header-wrapper">
-        <span class="logo">
-          <nuxt-link :to="{ name: 'index' }">Sckroll</nuxt-link>
-        </span>
-        <nav class="nav-menu">
-          <ul>
-            <li>
-              <nuxt-link :to="{ name: 'about' }">About</nuxt-link>
-            </li>
-            <li>
-              <nuxt-link :to="{ name: 'posts' }">Posts</nuxt-link>
-            </li>
-            <li>
-              <nuxt-link :to="{ name: 'projects' }">Projects</nuxt-link>
-            </li>
-            <li><fa-icon :icon="['far', 'moon']" /></li>
-          </ul>
-        </nav>
-      </div>
+      <header-menu />
     </header>
     <Nuxt />
     <footer class="footer-area">
@@ -129,49 +111,6 @@ a {
   backdrop-filter: blur(3px);
 }
 
-.header-wrapper {
-  overflow: hidden;
-  width: var(--container-xl);
-  padding: 0 30px;
-}
-
-.header-wrapper .logo {
-  float: left;
-  font-size: 32px;
-  font-weight: 700;
-}
-
-.header-wrapper .nav-menu {
-  float: right;
-  list-style: none;
-  padding: 0;
-  font-size: 24px;
-  font-weight: 500;
-}
-
-.nav-menu ul {
-  padding: 0;
-}
-
-.nav-menu li {
-  margin: 0 10px;
-  display: inline;
-  transition: all 0.2s ease;
-}
-
-.nav-menu li:first-child {
-  margin-left: 0;
-}
-
-.nav-menu li:last-child {
-  margin-right: 0;
-}
-
-.nav-menu li:hover {
-  color: #ffffff;
-  transition: all 0.2s ease;
-}
-
 .content {
   margin: 50px 0;
   display: flex;
@@ -203,26 +142,5 @@ a {
 
 .component-label {
   margin-bottom: 20px;
-}
-
-@media screen and (max-width: 1200px) {
-  .header-wrapper {
-    width: var(--container-lg);
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .header-wrapper {
-    width: var(--container-md);
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .header-wrapper {
-    width: var(--container-sm);
-  }
-}
-
-@media screen and (max-width: 576px) {
 }
 </style>

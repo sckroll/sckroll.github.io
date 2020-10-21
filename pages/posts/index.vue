@@ -1,25 +1,7 @@
 <template>
   <div class="content-container">
-    <header class="post-list-header">
-      <div class="header-wrapper">
-        <span class="logo">
-          <nuxt-link :to="{ name: 'index' }">Sckroll</nuxt-link>
-        </span>
-        <nav class="nav-menu">
-          <ul>
-            <li>
-              <nuxt-link :to="{ name: 'about' }">About</nuxt-link>
-            </li>
-            <li>
-              <nuxt-link :to="{ name: 'posts' }">Posts</nuxt-link>
-            </li>
-            <li>
-              <nuxt-link :to="{ name: 'projects' }">Projects</nuxt-link>
-            </li>
-            <li><fa-icon :icon="['far', 'moon']" /></li>
-          </ul>
-        </nav>
-      </div>
+    <header class="page-header">
+      <header-menu />
     </header>
     <main class="content">
       <div class="post-content-wrapper">
@@ -51,18 +33,16 @@ export default {
 </script>
 
 <style>
-.post-content-wrapper {
-  width: var(--container-xl);
-  padding: 0 30px;
-}
-
-.post-list-header {
+.page-header {
   display: flex;
   justify-content: center;
   padding: 60px 0 20px 0;
   font-family: 'NanumSquare', sans-serif;
-  transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
-  backdrop-filter: blur(3px);
+}
+
+.post-content-wrapper {
+  width: var(--container-xl);
+  padding: 0 30px;
 }
 
 .post-list {
