@@ -4,7 +4,7 @@
       <header-menu />
     </header>
     <main class="content">
-      <div class="post-content-wrapper">
+      <div class="post-list-wrapper">
         <h2 class="component-label">블로그 포스트</h2>
         <!-- <app-search-input /> -->
         <div class="post-list">
@@ -40,7 +40,7 @@ export default {
   font-family: 'NanumSquare', sans-serif;
 }
 
-.post-content-wrapper {
+.post-list-wrapper {
   width: var(--container-xl);
   padding: 0 30px;
 }
@@ -53,7 +53,7 @@ export default {
 }
 
 @media screen and (max-width: 1200px) {
-  .post-content-wrapper {
+  .post-list-wrapper {
     width: var(--container-lg);
   }
   .post-list {
@@ -63,7 +63,7 @@ export default {
 }
 
 @media screen and (max-width: 992px) {
-  .post-content-wrapper {
+  .post-list-wrapper {
     width: var(--container-md);
   }
   .post-list {
@@ -73,7 +73,7 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
-  .post-content-wrapper {
+  .post-list-wrapper {
     width: var(--container-sm);
   }
   .post-list {

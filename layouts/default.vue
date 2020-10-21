@@ -118,16 +118,13 @@ a {
 }
 
 .footer-area {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   text-align: center;
   background-color: #dddddd;
 }
 
 .footer-wrapper {
   display: inline-block;
-  margin: 50px 0;
+  margin: 30px 0;
 }
 
 .icon-links {
