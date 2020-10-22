@@ -7,11 +7,11 @@
       <div class="post-list-wrapper">
         <h2 class="component-label">블로그 포스트</h2>
         <!-- <app-search-input /> -->
-        <div class="post-list">
-          <div v-for="post in posts" :key="post.slug" class="post-preview">
+        <section class="post-list">
+          <article v-for="post in posts" :key="post.slug" class="post-preview">
             <post-preview :post="post" />
-          </div>
-        </div>
+          </article>
+        </section>
       </div>
     </main>
   </div>
