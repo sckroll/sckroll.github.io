@@ -6,9 +6,10 @@
     <figure ref="preview" class="preview-container">
       <img
         :src="post.img"
-        :alt="post.title"
+        :alt="post.alt"
         class="preview-img"
         draggable="false"
+        onContextMenu="return false"
       />
       <figcaption class="preview-info">
         <div class="preview-title-wrapper">
