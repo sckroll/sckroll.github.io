@@ -3,34 +3,86 @@
     <header class="page-header">
       <header-menu />
     </header>
-    <!-- <div class="post-main-img"> -->
-    <img
-      :src="post.img"
-      :alt="post.alt"
-      class="post-main-img"
-      draggable="false"
-      onContextMenu="return false"
-    />
-    <!-- </div> -->
-    <main class="content">
-      <article class="post-content">
-        <h1>{{ post.title }}</h1>
-        <p>{{ post.description }}</p>
-        <p>업데이트 날짜: {{ formatDate(post.updatedAt) }}</p>
-        <div class="tags">
-          <span v-for="tag in post.tags" :key="tag"> {{ tag }} </span>
+    <main class="post-article">
+      <article class="post-article-wrapper">
+        <div class="post-img-wrapper">
+          <img
+            :src="post.img"
+            :alt="post.alt"
+            class="post-img"
+            draggable="false"
+            onContextMenu="return false"
+          />
+          <div class="post-img-overlay"></div>
+          <div class="post-info-main">
+            <div class="post-info-main-wrapper">
+              <h1>{{ post.title }}</h1>
+              <p>{{ post.description }}</p>
+            </div>
+          </div>
         </div>
-
-        <nav>
-          <ul>
-            <li v-for="link of post.toc" :key="link.id">
-              <nuxt-link :to="`#${link.id}`">{{ link.text }}</nuxt-link>
-            </li>
-          </ul>
+        <div class="post-info-sub">
+          <div class="post-info-sub-wrapper">
+            <div v-for="tag in post.tags" :key="tag" class="tags">
+              <span class="single-tag">#{{ tag }}</span>
+            </div>
+            <div class="posted-date">
+              <span class="created-date">{{ formatDate(post.createdAt) }}</span>
+              <span
+                v-if="diffDate(post.createdAt, post.updatedAt) > 0"
+                class="updated-date"
+              >
+                (수정: {{ formatDate(post.updatedAt) }})
+              </span>
+            </div>
+          </div>
+        </div>
+        <nav v-if="post.toc.length > 0" class="post-toc">
+          <div class="post-toc-wrapper">
+            <h4>목차</h4>
+            <!-- <div v-for="link of post.toc" :key="link.id" class="toc-list">
+              <nuxt-link
+                v-if="link.depth === 2"
+                :to="`#${link.id}`"
+                class="toc-link-2"
+              >
+                {{ link.text }}
+              </nuxt-link>
+              <nuxt-link
+                v-else-if="link.depth === 3"
+                :to="`#${link.id}`"
+                class="toc-link-3"
+              >
+                {{ link.text }}
+              </nuxt-link>
+              <nuxt-link v-else :to="`#${link.id}`" class="toc-link-4">
+                {{ link.text }}
+              </nuxt-link>
+            </div> -->
+            <ul v-for="link of post.toc" :key="link.id" class="toc-list">
+              <li v-if="link.depth === 2" class="toc-link-2">
+                <nuxt-link :to="`#${link.id}`">
+                  {{ link.text }}
+                </nuxt-link>
+              </li>
+              <li v-else-if="link.depth === 3" class="toc-link-3">
+                <nuxt-link :to="`#${link.id}`">
+                  {{ link.text }}
+                </nuxt-link>
+              </li>
+              <li v-else class="toc-link-4">
+                <nuxt-link :to="`#${link.id}`">
+                  {{ link.text }}
+                </nuxt-link>
+              </li>
+            </ul>
+          </div>
         </nav>
-
-        <nuxt-content :document="post" />
-
+        <div class="post-content">
+          <div class="post-content-wrapper">
+            <nuxt-content :document="post" />
+          </div>
+        </div>
         <prev-next :prev="prev" :next="next" />
       </article>
     </main>
@@ -57,43 +109,171 @@ export default {
   methods: {
     formatDate(date) {
       const options = {
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        weekday: 'long',
+        year: '2-digit',
+        month: '2-digit',
+        day: '2-digit',
       }
-      return new Date(date).toLocaleDateString('kr', options)
+      const formattedTime = new Date(date).toLocaleDateString('kr', options)
+      return formattedTime.replace(/. /g, '/').slice(0, -1)
+    },
+    diffDate(createdAtString, updatedAtString) {
+      const createdAt = new Date(createdAtString)
+      const updatedAt = new Date(updatedAtString)
+      const createdDate = new Date(
+        createdAt.getYear(),
+        createdAt.getMonth(),
+        createdAt.getDate(),
+      )
+      const updatedDate = new Date(
+        updatedAt.getYear(),
+        updatedAt.getMonth(),
+        updatedAt.getDate(),
+      )
+      return updatedDate - createdDate
     },
   },
 }
 </script>
 
 <style>
-.post-main-img {
+.post-article {
+  display: flex;
+  justify-content: center;
+}
+
+.post-img-wrapper {
+  position: relative;
   width: 100%;
   height: 600px;
+  background-color: #00000055;
+}
+
+.post-img-wrapper .post-img-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #00000066;
+}
+
+.post-img {
+  width: inherit;
+  height: inherit;
   object-fit: cover;
 }
 
-.post-content {
-  position: absolute;
+.post-info-main {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  bottom: 25%;
+  color: #ffffff;
+}
+
+.post-info-main-wrapper {
   width: var(--container-xl);
   padding: 0 30px;
 }
 
-.nuxt-content h2 {
-  font-family: 'NanumSquare', sans-serif;
-  font-weight: bold;
-  font-size: 28px;
+.post-info-main-wrapper h1 {
+  font-size: 44px;
 }
 
-.nuxt-content h2 {
+.post-info-main-wrapper p {
   font-family: 'NanumSquare', sans-serif;
-  font-weight: bold;
-  font-size: 22px;
+  font-size: 28px;
+  margin-top: 10px;
+}
+
+.post-info-sub {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  background-color: #cccccc;
+}
+
+.post-info-sub-wrapper {
+  width: var(--container-xl);
+  padding: 15px 30px;
+  font-family: 'NanumSquare', sans-serif;
+  font-size: 20px;
+  color: #444444;
+}
+
+.tags {
+  display: inline;
+  margin-right: 10px;
+}
+
+.tags:last-child {
+  margin-right: 0;
+}
+
+.posted-date {
+  float: right;
+}
+
+.post-toc {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  background-color: #dddddd;
+}
+
+.post-content {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+.post-toc-wrapper {
+  width: var(--container-xl);
+  padding: 10px 30px;
+}
+
+.post-toc-wrapper h4 {
+  margin: 5px 0;
+}
+
+.toc-list {
+  padding: 5px 0 5px 20px;
+  width: 50%;
+  transition: all 0.1s ease;
+}
+
+.toc-list:hover {
+  background-color: #eeeeee;
+  transition: all 0.1s ease;
+}
+
+.toc-link-2 {
+  list-style-type: square;
+}
+
+.toc-link-3 {
+  margin-left: 2em;
+  list-style-type: disc;
+}
+
+.toc-link-4 {
+  margin-left: 4em;
+  list-style-type: circle;
+}
+
+.post-content-wrapper {
+  width: var(--container-xl);
+  padding: 30px 30px;
 }
 
 .nuxt-content p {
   margin-bottom: 20px;
+}
+
+.nuxt-content p code {
+  padding: 2px;
+  background-color: #cccccc;
 }
 </style>

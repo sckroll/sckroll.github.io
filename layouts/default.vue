@@ -88,8 +88,20 @@ h1 {
 
 h2 {
   font-family: 'NanumSquare', sans-serif;
-  font-weight: 500;
+  font-weight: 700;
   font-size: 32px;
+}
+
+h3 {
+  font-family: 'NanumSquare', sans-serif;
+  font-weight: 500;
+  font-size: 28px;
+}
+
+h4 {
+  font-family: 'NanumSquare', sans-serif;
+  font-weight: 500;
+  font-size: 24px;
 }
 
 a {

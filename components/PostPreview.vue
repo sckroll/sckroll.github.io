@@ -23,8 +23,8 @@
         </div>
         <div class="preview-other">
           <div
-            v-for="(tag, index) in trimTags(post.tags)"
-            :key="index"
+            v-for="tag in trimTags(post.tags)"
+            :key="tag"
             class="preview-tags"
           >
             <span class="preview-tag">#{{ tag }}</span>
@@ -46,10 +46,10 @@ export default {
   },
   data() {
     return {
-      maxTitleLength: 13,
-      maxActiveTitleLength: 24,
+      maxTitleLength: 10,
+      maxActiveTitleLength: 21,
       maxTagsLength: 3,
-      maxDescriptionLength: 44,
+      maxDescriptionLength: 32,
     }
   },
   methods: {
@@ -208,10 +208,11 @@ export default {
 
 .preview-tags {
   display: inline;
+  margin-right: 5px;
 }
 
-.preview-tag {
-  margin-right: 5px;
+.preview-tags:last-child {
+  margin-right: 0;
 }
 
 .preview-date {
