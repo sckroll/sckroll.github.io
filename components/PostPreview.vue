@@ -113,6 +113,7 @@ export default {
   opacity: 1;
   height: auto;
   animation: titleFadeIn 0.05s ease;
+  font-size: 24px;
 }
 
 .preview-container:hover .preview-info {
@@ -188,12 +189,13 @@ export default {
   opacity: 1;
   height: auto;
   font-size: 24px;
+  font-weight: 700;
 }
 
 .preview-title-active {
   opacity: 0;
   height: 0;
-  font-size: 24px;
+  font-size: 0;
 }
 
 .preview-description {
