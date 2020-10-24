@@ -258,4 +258,8 @@ export default {
   padding: 2px;
   background-color: #cccccc;
 }
+
+.nuxt-content p:last-child {
+  margin-bottom: 0;
+}
 </style>
