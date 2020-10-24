@@ -3,7 +3,7 @@
     <header class="page-header">
       <header-menu />
     </header>
-    <main class="post-article">
+    <section class="post-article">
       <article class="post-article-wrapper">
         <div class="post-img-wrapper">
           <img
@@ -40,25 +40,6 @@
         <nav v-if="post.toc.length > 0" class="post-toc">
           <div class="post-toc-wrapper">
             <h4>목차</h4>
-            <!-- <div v-for="link of post.toc" :key="link.id" class="toc-list">
-              <nuxt-link
-                v-if="link.depth === 2"
-                :to="`#${link.id}`"
-                class="toc-link-2"
-              >
-                {{ link.text }}
-              </nuxt-link>
-              <nuxt-link
-                v-else-if="link.depth === 3"
-                :to="`#${link.id}`"
-                class="toc-link-3"
-              >
-                {{ link.text }}
-              </nuxt-link>
-              <nuxt-link v-else :to="`#${link.id}`" class="toc-link-4">
-                {{ link.text }}
-              </nuxt-link>
-            </div> -->
             <ul v-for="link of post.toc" :key="link.id" class="toc-list">
               <li v-if="link.depth === 2" class="toc-link-2">
                 <nuxt-link :to="`#${link.id}`">
@@ -83,9 +64,9 @@
             <nuxt-content :document="post" />
           </div>
         </div>
-        <prev-next :prev="prev" :next="next" />
       </article>
-    </main>
+    </section>
+    <prev-next :prev="prev" :next="next" />
   </div>
 </template>
 
@@ -138,7 +119,8 @@ export default {
 <style>
 .post-article {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
 
 .post-img-wrapper {

@@ -3,7 +3,9 @@
     <header ref="navbar" class="navbar">
       <header-menu />
     </header>
-    <Nuxt />
+    <main class="main-container">
+      <Nuxt />
+    </main>
     <footer class="footer-area">
       <div class="footer-wrapper">
         <div class="icon-links">

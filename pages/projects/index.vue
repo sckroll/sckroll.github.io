@@ -3,11 +3,11 @@
     <header class="page-header">
       <header-menu />
     </header>
-    <main class="content">
+    <section class="content">
       <div class="temp">
         <h2 class="under-construction">준비 중 입니다.</h2>
       </div>
-    </main>
+    </section>
   </div>
 </template>
 

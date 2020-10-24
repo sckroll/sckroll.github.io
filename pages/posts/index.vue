@@ -3,7 +3,7 @@
     <header class="page-header">
       <header-menu />
     </header>
-    <main class="content">
+    <section class="content">
       <div class="post-list-wrapper">
         <h2 class="component-label">블로그 포스트</h2>
         <!-- <app-search-input /> -->
@@ -13,7 +13,7 @@
           </article>
         </section>
       </div>
-    </main>
+    </section>
   </div>
 </template>
 

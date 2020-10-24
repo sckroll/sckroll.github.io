@@ -3,12 +3,12 @@
     <header class="landing-header">
       <header-menu landing />
     </header>
-    <main class="content">
+    <section class="content">
       <div class="index-content-wrapper">
         <h2 class="component-label">최근 포스트</h2>
         <div class="recent-posts-temp">최근 포스트 영역</div>
       </div>
-    </main>
+    </section>
   </div>
 </template>
 
