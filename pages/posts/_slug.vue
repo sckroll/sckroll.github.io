@@ -67,6 +67,7 @@
       </article>
     </section>
     <prev-next :prev="prev" :next="next" />
+    <comment />
   </div>
 </template>
 
