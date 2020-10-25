@@ -1,9 +1,11 @@
 <template>
-  <!-- 참고: https://junilhwang.github.io/TIL/Vuepress/Utterances/ -->
-  <div ref="comment"></div>
+  <div class="comment">
+    <div ref="comment" class="comment-wrapper"></div>
+  </div>
 </template>
 
 <script>
+// 참고: https://junilhwang.github.io/TIL/Vuepress/Utterances/
 export default {
   mounted() {
     const utterances = document.createElement('script')
@@ -20,3 +22,20 @@ export default {
   },
 }
 </script>
+
+<style>
+.comment {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.comment-wrapper {
+  width: var(--container-xl);
+  padding: 0 30px;
+}
+
+.utterances {
+  max-width: 100%;
+}
+</style>
