@@ -79,7 +79,7 @@ html {
 }
 
 body {
-  background-color: #eeeeee;
+  background-color: #ffffff;
 }
 
 h1 {
