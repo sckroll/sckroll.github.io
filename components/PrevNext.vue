@@ -42,7 +42,7 @@ export default {
 .prev-next-nav {
   display: flex;
   justify-content: center;
-  background-color: #cccccc;
+  background-color: #dddddd;
 }
 
 .prev-next-nav-wrapper {

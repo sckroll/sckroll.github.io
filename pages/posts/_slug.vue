@@ -173,7 +173,7 @@ export default {
   position: relative;
   display: flex;
   justify-content: center;
-  background-color: #cccccc;
+  background-color: #dddddd;
 }
 
 .post-info-sub-wrapper {
@@ -181,7 +181,6 @@ export default {
   padding: 15px 30px;
   font-family: 'NanumSquare', sans-serif;
   font-size: 20px;
-  color: #444444;
 }
 
 .tags {
