@@ -38,7 +38,7 @@
 
 .icon-links,
 .copyright {
-  line-height: 30px;
+  line-height: 180%;
 }
 
 .github-link a,
@@ -51,5 +51,26 @@
 .email-icon {
   font-size: 24px;
   margin-right: 5px;
+}
+
+@media screen and (max-width: 1200px) {
+  .footer-wrapper {
+    width: var(--container-lg);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .footer-wrapper {
+    width: var(--container-md);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer-wrapper {
+    width: var(--container-sm);
+  }
+}
+
+@media screen and (max-width: 576px) {
 }
 </style>

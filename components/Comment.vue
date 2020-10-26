@@ -38,4 +38,25 @@ export default {
 .utterances {
   max-width: 100%;
 }
+
+@media screen and (max-width: 1200px) {
+  .comment-wrapper {
+    width: var(--container-lg);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .comment-wrapper {
+    width: var(--container-md);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .comment-wrapper {
+    width: var(--container-sm);
+  }
+}
+
+@media screen and (max-width: 576px) {
+}
 </style>

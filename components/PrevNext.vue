@@ -50,6 +50,7 @@ export default {
   padding: 15px 30px;
   font-family: 'NanumSquare', sans-serif;
   font-size: 20px;
+  line-height: 130%;
 }
 
 .prev-next-label {
@@ -82,5 +83,26 @@ export default {
 
 .post-empty {
   color: #666666;
+}
+
+@media screen and (max-width: 1200px) {
+  .prev-next-nav-wrapper {
+    width: var(--container-lg);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .prev-next-nav-wrapper {
+    width: var(--container-md);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .prev-next-nav-wrapper {
+    width: var(--container-sm);
+  }
+}
+
+@media screen and (max-width: 576px) {
 }
 </style>

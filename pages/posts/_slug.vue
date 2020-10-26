@@ -181,6 +181,7 @@ export default {
   padding: 15px 30px;
   font-family: 'NanumSquare', sans-serif;
   font-size: 20px;
+  line-height: 130%;
 }
 
 .tags {
@@ -261,5 +262,47 @@ export default {
 
 .nuxt-content p:last-child {
   margin-bottom: 0;
+}
+
+@media screen and (max-width: 1200px) {
+  .post-info-main-wrapper,
+  .post-info-sub-wrapper,
+  .post-toc-wrapper,
+  .post-content-wrapper {
+    width: var(--container-lg);
+  }
+
+  .post-info-main {
+    bottom: 40%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .post-info-main-wrapper,
+  .post-info-sub-wrapper,
+  .post-toc-wrapper,
+  .post-content-wrapper {
+    width: var(--container-md);
+  }
+
+  .post-info-main {
+    bottom: 45%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .post-info-main-wrapper,
+  .post-info-sub-wrapper,
+  .post-toc-wrapper,
+  .post-content-wrapper {
+    width: var(--container-sm);
+  }
+
+  .post-info-main {
+    bottom: 60%;
+  }
+}
+
+@media screen and (max-width: 576px) {
 }
 </style>
