@@ -2,36 +2,54 @@
   <footer class="footer-bar">
     <div class="footer-wrapper">
       <div class="icon-links">
-        <a href="https://github.com/sckroll">
-          <fa-icon :icon="['fab', 'github']" />
-        </a>
-        <a href="mailto://kimsc0714@gmail.com">
-          <fa-icon :icon="['far', 'envelope']" />
-        </a>
+        <div class="github-link">
+          <a href="https://github.com/sckroll">
+            <fa-icon :icon="['fab', 'github']" class="github-icon" />
+            <span>github.com/sckroll</span>
+          </a>
+        </div>
+        <div class="email-link">
+          <a href="mailto://kimsc0714@gmail.com">
+            <fa-icon :icon="['far', 'envelope']" class="email-icon" />
+            <span>kimsc0714@gmail.com</span>
+          </a>
+        </div>
       </div>
-      <div class="copyright">ⓒ{{ new Date().getFullYear() }} Sckroll.</div>
+      <div class="copyright">
+        <br />ⓒ {{ new Date().getFullYear() }} Sckroll.
+      </div>
     </div>
   </footer>
 </template>
 
 <style>
 .footer-bar {
-  text-align: center;
+  display: flex;
+  justify-content: center;
   background-color: #dddddd;
 }
 
 .footer-wrapper {
-  display: inline-block;
-  margin: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  width: var(--container-xl);
+  padding: 20px 30px;
 }
 
-.icon-links {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
+.icon-links,
 .copyright {
-  font-size: 20px;
-  font-family: 'NanumSquare', sans-serif;
+  line-height: 30px;
+}
+
+.github-link a,
+.email-link a {
+  display: flex;
+  align-items: center;
+}
+
+.github-icon,
+.email-icon {
+  font-size: 24px;
+  margin-right: 5px;
 }
 </style>
