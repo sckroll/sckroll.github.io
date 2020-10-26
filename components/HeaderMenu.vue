@@ -6,20 +6,7 @@
     <span v-else class="logo">
       <nuxt-link :to="{ name: 'index' }">Sckroll</nuxt-link>
     </span>
-    <nav class="nav-menu">
-      <ul>
-        <li>
-          <nuxt-link :to="{ name: 'about' }">About</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link :to="{ name: 'posts' }">Posts</nuxt-link>
-        </li>
-        <li>
-          <nuxt-link :to="{ name: 'projects' }">Projects</nuxt-link>
-        </li>
-        <li><fa-icon :icon="['far', 'moon']" /></li>
-      </ul>
-    </nav>
+    <nav-menu />
   </div>
 </template>
 
@@ -44,6 +31,8 @@ export default {
 <style>
 .header-wrapper {
   overflow: hidden;
+  display: flex;
+  justify-content: space-between;
   width: var(--container-xl);
   padding: 0 30px;
 }
@@ -56,10 +45,6 @@ export default {
   color: #ffffff;
 }
 
-.landing-header .nav-menu {
-  color: #ffffffaa;
-}
-
 /* br 태그 간격(행간)을 증가 */
 .landing-title br {
   display: block;
@@ -68,40 +53,8 @@ export default {
 }
 
 .logo {
-  float: left;
   font-size: 32px;
   font-weight: 700;
-}
-
-.nav-menu {
-  float: right;
-  list-style: none;
-  padding: 0;
-  font-size: 24px;
-  font-weight: 500;
-}
-
-.nav-menu ul {
-  padding: 0;
-}
-
-.nav-menu li {
-  margin: 0 10px;
-  display: inline;
-  transition: all 0.2s ease;
-}
-
-.nav-menu li:first-child {
-  margin-left: 0;
-}
-
-.nav-menu li:last-child {
-  margin-right: 0;
-}
-
-.nav-menu li:hover {
-  color: #ffffff;
-  transition: all 0.2s ease;
 }
 
 @media screen and (max-width: 1200px) {
