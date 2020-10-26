@@ -130,7 +130,7 @@ export default {
 
 .preview-container:hover .preview-img {
   transform: scale(1.1);
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 @keyframes FadeIn {
@@ -174,7 +174,7 @@ export default {
   width: inherit;
   height: inherit;
   object-fit: cover;
-  transition: all 0.3s ease;
+  transition: all 0.5s ease;
 }
 
 .preview-info {
