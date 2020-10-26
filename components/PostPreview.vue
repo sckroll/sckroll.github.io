@@ -49,7 +49,7 @@ export default {
       maxTitleLength: 10,
       maxActiveTitleLength: 21,
       maxTagsLength: 3,
-      maxDescriptionLength: 32,
+      maxDescriptionLength: 29,
     }
   },
   methods: {
@@ -186,7 +186,6 @@ export default {
   width: 100%;
   height: 30%;
   background-color: #eeeeee66;
-  font-family: 'NanumSquare', sans-serif;
   padding: 15px;
   transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
   backdrop-filter: blur(3px);
@@ -194,6 +193,7 @@ export default {
 
 .preview-title {
   opacity: 1;
+  font-family: 'NanumSquare', sans-serif;
   height: auto;
   font-size: 24px;
   font-weight: 700;
