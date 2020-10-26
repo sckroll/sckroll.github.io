@@ -6,19 +6,7 @@
     <main class="main-container">
       <Nuxt />
     </main>
-    <footer class="footer-area">
-      <div class="footer-wrapper">
-        <div class="icon-links">
-          <a href="https://github.com/sckroll">
-            <fa-icon :icon="['fab', 'github']" />
-          </a>
-          <a href="mailto://kimsc0714@gmail.com">
-            <fa-icon :icon="['far', 'envelope']" />
-          </a>
-        </div>
-        <div class="author-info">Designed by Sckroll</div>
-      </div>
-    </footer>
+    <footer-bar />
   </div>
 </template>
 
@@ -129,26 +117,6 @@ a {
   margin: 50px 0;
   display: flex;
   justify-content: center;
-}
-
-.footer-area {
-  text-align: center;
-  background-color: #dddddd;
-}
-
-.footer-wrapper {
-  display: inline-block;
-  margin: 30px 0;
-}
-
-.icon-links {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-
-.author-info {
-  font-size: 20px;
-  font-family: 'NanumSquare', sans-serif;
 }
 
 .component-label {
