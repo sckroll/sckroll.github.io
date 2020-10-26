@@ -99,6 +99,7 @@ export default {
 .preview-container {
   display: inline-block;
   position: relative;
+  overflow: hidden;
   width: var(--post-preview-width-xl);
   height: var(--post-preview-width-xl);
 }
@@ -125,6 +126,11 @@ export default {
   opacity: 1;
   height: auto;
   animation: FadeIn 0.5s ease;
+}
+
+.preview-container:hover .preview-img {
+  transform: scale(1.1);
+  transition: all 0.3s ease;
 }
 
 @keyframes FadeIn {
@@ -168,6 +174,7 @@ export default {
   width: inherit;
   height: inherit;
   object-fit: cover;
+  transition: all 0.3s ease;
 }
 
 .preview-info {
