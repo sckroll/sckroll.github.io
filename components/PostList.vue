@@ -1,7 +1,7 @@
 <template>
   <section class="content">
     <div class="post-list-container">
-      <h2 class="component-label">블로그 포스트</h2>
+      <h2 class="component-label"><slot></slot></h2>
       <!-- <app-search-input /> -->
       <section class="post-list">
         <article v-for="post in posts" :key="post.slug" class="post-preview">
@@ -37,7 +37,7 @@ export default {
 }
 
 @media screen and (max-width: 1200px) {
-  .post-list-wrapper {
+  .post-list-container {
     width: var(--container-lg);
   }
   .post-list {
@@ -47,7 +47,7 @@ export default {
 }
 
 @media screen and (max-width: 992px) {
-  .post-list-wrapper {
+  .post-list-container {
     width: var(--container-md);
   }
   .post-list {
@@ -57,7 +57,7 @@ export default {
 }
 
 @media screen and (max-width: 768px) {
-  .post-list-wrapper {
+  .post-list-container {
     width: var(--container-sm);
   }
   .post-list {

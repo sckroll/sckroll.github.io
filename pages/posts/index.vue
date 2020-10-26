@@ -3,7 +3,7 @@
     <header class="page-header">
       <header-menu />
     </header>
-    <post-list :posts="posts" />
+    <post-list :posts="posts">블로그 포스트</post-list>
   </div>
 </template>
 

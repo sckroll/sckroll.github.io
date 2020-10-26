@@ -3,14 +3,31 @@
     <header class="landing-header">
       <header-menu landing />
     </header>
-    <section class="content">
+    <!-- <section class="content">
       <div class="index-content-wrapper">
         <h2 class="component-label">최근 포스트</h2>
         <div class="recent-posts-temp">최근 포스트 영역</div>
       </div>
-    </section>
+    </section> -->
+    <post-list :posts="posts">최근 포스트</post-list>
   </div>
 </template>
+
+<script>
+export default {
+  async asyncData({ $content, params }) {
+    const posts = await $content('posts', params.slug)
+      .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
+      .sortBy('createdAt', 'desc')
+      .limit(8)
+      .fetch()
+
+    return {
+      posts,
+    }
+  },
+}
+</script>
 
 <style>
 .landing-header {
