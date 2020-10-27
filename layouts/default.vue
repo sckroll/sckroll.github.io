@@ -102,12 +102,14 @@ a {
 .navbar {
   position: fixed;
   display: flex;
+  align-items: flex-end;
   justify-content: center;
   z-index: 100;
   width: 100%;
+  height: 120px;
   top: -120px;
   background-color: #eeeeee66;
-  padding: 60px 0 20px 0;
+  padding-bottom: 20px;
   font-family: 'NanumSquare', sans-serif;
   transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
   backdrop-filter: blur(3px);
@@ -121,5 +123,14 @@ a {
 
 .component-label {
   margin-bottom: 20px;
+}
+
+.page-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 120px;
+  padding-bottom: 20px;
+  font-family: 'NanumSquare', sans-serif;
 }
 </style>

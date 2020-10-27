@@ -37,7 +37,7 @@ export default {
   background-size: cover;
   background-position-y: 95%;
   height: 700px;
-  padding-top: 60px;
+  padding-top: 64px;
   font-family: 'NanumSquare', sans-serif;
 }
 

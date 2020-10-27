@@ -21,12 +21,3 @@ export default {
   },
 }
 </script>
-
-<style>
-.page-header {
-  display: flex;
-  justify-content: center;
-  padding: 60px 0 20px 0;
-  font-family: 'NanumSquare', sans-serif;
-}
-</style>
