@@ -64,6 +64,7 @@ html {
   --post-preview-width-xl: 275px;
   --post-preview-width-lg: 300px;
   --post-preview-width-md: 345px;
+  --header-menu-height: 120px;
 }
 
 body {
@@ -106,8 +107,8 @@ a {
   justify-content: center;
   z-index: 100;
   width: 100%;
-  height: 120px;
-  top: -120px;
+  height: var(--header-menu-height);
+  top: calc(0px - var(--header-menu-height));
   background-color: #eeeeee66;
   padding-bottom: 20px;
   font-family: 'NanumSquare', sans-serif;
