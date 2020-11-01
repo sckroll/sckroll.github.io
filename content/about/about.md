@@ -1,4 +1,4 @@
-<div class="about-hello">
+<article class="about-article about-hello">
 
   안녕하세요!
 
@@ -6,9 +6,9 @@
 
   <strong class="emphasized">Sckroll(김성찬)</strong> 이라고 합니다.
 
-</div>
+</article>
 
-<div class="about-intro">
+<article class="about-article about-intro">
 
   **웹 프론트엔드(Front-End)** 개발자가 되고자 끊임없이 공부하는 20대입니다.
 
@@ -37,11 +37,11 @@
   
   장기적으로는 FE와 BE를 아우르는 풀스택 개발자가 되고 싶습니다.
 
-</div>
+</article>
 
-<div class="about-skills">
+<article class="about-article about-skills">
 
-  제가 가진 스킬은 이렇습니다.
+  제가 가진 <strong class="emphasized">스킬</strong>은 이렇습니다.
 
   <br />
 
@@ -55,11 +55,13 @@
   - 자료구조 / 알고리즘 / 운영체제
   - AWS / GCP
 
-</div>
+</article>
 
-<div class="about-experiences">
+<article class="about-article about-experiences">
 
-  프론트엔드 개발자가 되기 위해 다음과 같은 학습과 경험을 했습니다.
+  프론트엔드 개발자가 되기 위해 다음과 같은 <strong class="emphasized">학습</strong>과 <strong class="emphasized">경험</strong>을 했습니다.
+
+  <br />
 
   지금까지 프론트엔드와 관련하여 학습한 전공과목으로는 '웹프로그래밍',
   '서비스지향컴퓨팅및실습', 그리고 전공과목은 아니지만, 교내에서 약 6개월간 진행했던 'JAVA 실무인력 양성교육'이 있습니다.
@@ -71,6 +73,8 @@
   FE 과정을 수강하면서 필수 CSS와 JS 등을 배우며 구글 로그인 페이지나 충남도립대와 같은 웹 사이트를 카피하여
   코딩해봄으로써 프론트엔드 개발 감각을 익혔습니다.
 
+  <br />
+
   웹 프론트엔드 개발자로 거듭나기 위해 학부 재학 시절 여러 팀 프로젝트와 단기 인턴을 통해 기초적인 웹 개발 경험을
   쌓았고, 졸업작품을 통해 서버와 클라우드 배포 등을 포함한 웹 개발의 전반적인 영역을 경험하였습니다. 그리고 웹 개발자를
   넘어서 컴퓨터공학 전공자로서 기본적인 전산 지식을 갖추고 있다는 것을 증명하기 위해 국가 공인 자격증인 정보처리기사
@@ -79,11 +83,13 @@
   참여하여 요구사항에 맞추어 화면에 나타나는 여러 기능을 구현하는 방법을 배움과 동시에 코드 리뷰를 통해 더 나은 코드를
   작성하는 법과 다른 사람의 코드를 이해하는 법을 배웠습니다.
 
-</div>
+</article>
 
-<div class="about-projects">
+<article class="about-article about-projects">
 
-  개발 역량을 기르기 위해 아래와 같은 프로젝트를 진행했습니다.
+  개발 역량을 기르기 위해 아래와 같은 <strong class="emphasized">프로젝트</strong>를 진행했습니다.
+
+  <br />
 
   [졸업 작품 개발 과정에서 얻은 소통의 중요성]
   교내 창업 동아리에 스카우트되어 창업 아이템의 프로토타입이자 졸업 작품 전시회에 제출할 웹앱을 만들면서 쌓아온 실력을 발휘했습니다. 개인 혹은 팀 프로젝트를 수행할 때 인터넷에서 자료 수집을 편하게 도와주는 '웹 크롤링과 시각화 기능을 갖춘 협업 툴'을 주제로 작품을 개발하였는데, 제가 맡은 역할은 웹앱 서버의 백엔드 API와 프론트엔드 전반을 개발하고 구글 클라우드 플랫폼에 배포하는 것이었습니다. 기술 스택은 Node.js와 MongoDB를 사용하여 백엔드를 구성하고 Vue.js를 사용하여 프론트엔드를 구성했습니다. 그리고 배포는 하지 않았지만, 크롬 사용자를 대상으로 개발을 진행했기 때문에 크롬 확장 프로그램을 별도로 개발하였습니다.
@@ -91,9 +97,9 @@
 
   진행한 프로젝트의 자세한 사항이 궁금하시다면 Projects 메뉴를 클릭하세요.
 
-</div>
+</article>
 
-<div class="about-history">
+<article class="about-article about-history">
 
   저는 지금까지 이렇게 자라왔습니다.
 
@@ -114,26 +120,44 @@
   2014.02 천안중앙고등학교 졸업
   2011.03 천안중앙고등학교 입학
 
-</div>
+</article>
 
-<div class="about-tmi">
+<article class="about-article about-tmi">
 
-  TMI
+  <strong class="emphasized">TMI</strong>
 
-  왜 Sckroll?
+  <br />
+
+  **왜 Sckroll?**
+
   닉네임 Sckroll에 대한 큰 의미는 없습니다. 처음 닉네임을 지을 때 제 이름의 이니셜(SCK)이 들어가야 한다는 것을 전제로 지었는데, 적절한 단어를 찾다 보니 어감도 괜찮고, '스크롤'과 발음이 같아서 자연스럽게 지금의 닉네임이 되었습니다.
   절대 제(SCK)가 굴러간다(roll)는 의미가 아닙니다...
+
+  <br />
+
+  **MBTI?**
+
   INTP -> INFP
 
   [소통의 중요성을 아는 개발자]
   개인 프로젝트가 아닌 이상, 개발은 혼자서 하지 않습니다. 동료와 서로 소통하면서 정보를 공유해야 올바른 방향으로 개발할 수 있다고 봅니다. 창업 동아리에서 작품을 개발하면서 소통의 부재로 인한 어려움을 겪어봤고, 주기적인 코드 리뷰와 피드백으로 상황을 극복하는 법을 알았습니다. 이를 실행에 옮기기 위해 이후 전공 강의의 팀 프로젝트에서 비슷한 상황이 닥쳤을 때 팀원과 오프라인으로 실시간 진행 상황을 공유하고 소통하면서 코딩하는 방법을 이용했고, 결과적으로 프로젝트는 가장 좋은 성적을 받을 수 있었습니다. 이처럼 소통의 중요함을 인지하면서 실행에 옮길 줄 아는 능력은 개발자에게 적합한 자질이라고 생각합니다.
 
-</div>
+</article>
 
-<div class="about-contacts">
+<article class="about-article about-contacts">
 
-  Contact
+  <strong class="emphasized">Contacts</strong>
+
+  <br />
+
+  **Email**
+
   kimsc0714@gmail.com
+  
+  <br />
+
+  **GitHub**
+
   https://github.com/sckroll
 
-</div>
+</article>

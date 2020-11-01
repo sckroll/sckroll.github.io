@@ -43,24 +43,50 @@ export default {
   padding: 0 30px;
 }
 
-.about-hello {
+.about-article {
   display: flex;
   flex-flow: column;
   justify-content: center;
+  line-height: 150%;
+}
+
+.about-hello {
   height: calc(100vh - var(--header-menu-height));
   font-size: 40px;
-  line-height: 150%;
 }
 
 .about-intro {
   height: calc(100vh - var(--header-menu-height));
   font-size: 32px;
-  line-height: 150%;
 }
 
 .about-skills {
   height: calc(100vh - var(--header-menu-height));
   font-size: 32px;
-  line-height: 150%;
+}
+
+.about-experiences {
+  /* height: calc(100vh - var(--header-menu-height)); */
+  font-size: 32px;
+}
+
+.about-projects {
+  /* height: calc(100vh - var(--header-menu-height)); */
+  font-size: 32px;
+}
+
+.about-history {
+  /* height: calc(100vh - var(--header-menu-height)); */
+  font-size: 32px;
+}
+
+.about-tmi {
+  /* height: calc(100vh - var(--header-menu-height)); */
+  font-size: 32px;
+}
+
+.about-contacts {
+  /* height: calc(100vh - var(--header-menu-height)); */
+  font-size: 32px;
 }
 </style>
