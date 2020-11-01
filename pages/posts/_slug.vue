@@ -59,9 +59,9 @@
             </ul>
           </div>
         </nav>
-        <div class="post-content">
-          <div class="post-content-wrapper">
-            <nuxt-content :document="post" />
+        <div class="post-container">
+          <div class="post-content">
+            <nuxt-content class="post-content-wrapper" :document="post" />
           </div>
         </div>
       </article>
@@ -205,7 +205,7 @@ export default {
   background-color: #dddddd;
 }
 
-.post-content {
+.post-container {
   position: relative;
   display: flex;
   justify-content: center;
@@ -246,21 +246,21 @@ export default {
   list-style-type: circle;
 }
 
-.post-content-wrapper {
+.post-content {
   width: var(--container-xl);
   padding: 30px 30px;
 }
 
-.nuxt-content p {
+.post-content-wrapper p {
   margin-bottom: 20px;
 }
 
-.nuxt-content p code {
+.post-content-wrapper p code {
   padding: 2px;
   background-color: #cccccc;
 }
 
-.nuxt-content p:last-child {
+.post-content-wrapper p:last-child {
   margin-bottom: 0;
 }
 
@@ -268,7 +268,7 @@ export default {
   .post-info-main-wrapper,
   .post-info-sub-wrapper,
   .post-toc-wrapper,
-  .post-content-wrapper {
+  .post-content {
     width: var(--container-lg);
   }
 
@@ -281,7 +281,7 @@ export default {
   .post-info-main-wrapper,
   .post-info-sub-wrapper,
   .post-toc-wrapper,
-  .post-content-wrapper {
+  .post-content {
     width: var(--container-md);
   }
 
@@ -294,7 +294,7 @@ export default {
   .post-info-main-wrapper,
   .post-info-sub-wrapper,
   .post-toc-wrapper,
-  .post-content-wrapper {
+  .post-content {
     width: var(--container-sm);
   }
 
