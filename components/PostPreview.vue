@@ -47,9 +47,9 @@ export default {
   data() {
     return {
       maxTitleLength: 10,
-      maxActiveTitleLength: 21,
+      maxActiveTitleLength: 25,
       maxTagsLength: 3,
-      maxDescriptionLength: 29,
+      maxDescriptionLength: 33,
     }
   },
   methods: {
@@ -114,7 +114,7 @@ export default {
   opacity: 1;
   height: auto;
   animation: titleFadeIn 0.05s ease;
-  font-size: 24px;
+  font-size: 20px;
 }
 
 .preview-container:hover .preview-info {
@@ -185,7 +185,7 @@ export default {
   bottom: 0;
   width: 100%;
   height: 30%;
-  background-color: #eeeeee66;
+  background-color: #eeeeee99;
   padding: 15px;
   transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
   backdrop-filter: blur(3px);
@@ -195,7 +195,7 @@ export default {
   opacity: 1;
   font-family: 'NanumSquare', sans-serif;
   height: auto;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 700;
 }
 
@@ -208,6 +208,7 @@ export default {
 .preview-description {
   opacity: 0;
   height: 0;
+  font-size: 14px;
 }
 
 .preview-other {

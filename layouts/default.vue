@@ -123,7 +123,7 @@ a {
 }
 
 .component-label {
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .page-header {
