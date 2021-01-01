@@ -1,11 +1,13 @@
 <template>
   <div class="container">
-    <header ref="navbar" class="navbar">
-      <header-menu />
-    </header>
-    <main class="main-container">
-      <Nuxt />
-    </main>
+    <div class="container-header">
+      <header ref="navbar" class="navbar">
+        <header-menu />
+      </header>
+      <main class="main-container">
+        <Nuxt />
+      </main>
+    </div>
     <footer-bar />
   </div>
 </template>
