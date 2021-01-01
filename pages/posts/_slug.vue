@@ -206,7 +206,7 @@ export default {
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: #cccccc;
+  background-color: #eeeeee;
 }
 
 .post-container {
@@ -275,10 +275,6 @@ export default {
   .post-content {
     width: var(--container-lg);
   }
-
-  .post-info-main {
-    bottom: 40%;
-  }
 }
 
 @media screen and (max-width: 992px) {
@@ -288,10 +284,6 @@ export default {
   .post-content {
     width: var(--container-md);
   }
-
-  .post-info-main {
-    bottom: 45%;
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -300,10 +292,6 @@ export default {
   .post-toc-wrapper,
   .post-content {
     width: var(--container-sm);
-  }
-
-  .post-info-main {
-    bottom: 60%;
   }
 }
 
