@@ -124,6 +124,10 @@ export default {
   align-items: center;
 }
 
+.post-article-wrapper {
+  width: 100%;
+}
+
 .post-img-wrapper {
   position: relative;
   width: 100%;
@@ -201,15 +205,15 @@ export default {
   position: relative;
   display: flex;
   justify-content: center;
-  width: 100vw;
-  background-color: #dddddd;
+  width: 100%;
+  background-color: #cccccc;
 }
 
 .post-container {
   position: relative;
   display: flex;
   justify-content: center;
-  width: 100vw;
+  width: 100%;
 }
 
 .post-toc-wrapper {
