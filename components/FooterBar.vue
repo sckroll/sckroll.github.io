@@ -2,21 +2,21 @@
   <footer class="footer-bar">
     <div class="footer-wrapper">
       <div class="icon-links">
-        <div class="github-link">
-          <a href="https://github.com/sckroll">
+        <div class="github-area">
+          <a href="https://github.com/sckroll" class="github-link">
             <fa-icon :icon="['fab', 'github']" class="github-icon" />
             <span>github.com/sckroll</span>
           </a>
         </div>
-        <div class="email-link">
-          <a href="mailto://kimsc0714@gmail.com">
+        <div class="email-area">
+          <a href="mailto://kimsc0714@gmail.com" class="email-link">
             <fa-icon :icon="['far', 'envelope']" class="email-icon" />
             <span>kimsc0714@gmail.com</span>
           </a>
         </div>
       </div>
       <div class="copyright">
-        <br />ⓒ {{ new Date().getFullYear() }} Sckroll.
+        <br />ⓒ {{ new Date().getFullYear() }} Sckroll. All rights reserved.
       </div>
     </div>
   </footer>
@@ -41,10 +41,17 @@
   line-height: 180%;
 }
 
-.github-link a,
-.email-link a {
+.github-link,
+.email-link {
   display: flex;
   align-items: center;
+  transition: all 0.2s ease;
+}
+
+.github-link:hover,
+.email-link:hover {
+  color: #888888;
+  transition: all 0.2s ease;
 }
 
 .github-icon,
