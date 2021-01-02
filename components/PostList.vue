@@ -1,12 +1,25 @@
 <template>
   <section class="content">
     <div class="post-list-container">
-      <h2 class="component-label"><slot></slot></h2>
-      <!-- <app-search-input /> -->
+      <div class="component-title">
+        <h2 class="component-label"><slot></slot></h2>
+        <app-search-input v-if="!landing" @posts="getSearchResult" />
+      </div>
       <section class="post-list">
-        <article v-for="post in posts" :key="post.slug" class="post-preview">
-          <post-preview :post="post" />
-        </article>
+        <div v-if="searchResults.length > 0" class="post-grid">
+          <article
+            v-for="post in searchResults"
+            :key="post.slug"
+            class="post-preview"
+          >
+            <post-preview :post="post" />
+          </article>
+        </div>
+        <div v-else class="post-grid">
+          <article v-for="post in posts" :key="post.slug" class="post-preview">
+            <post-preview :post="post" />
+          </article>
+        </div>
       </section>
     </div>
   </section>
@@ -19,6 +32,20 @@ export default {
       type: Array,
       required: true,
     },
+    landing: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  data() {
+    return {
+      searchResults: [],
+    }
+  },
+  methods: {
+    getSearchResult(results) {
+      this.searchResults = results
+    },
   },
 }
 </script>
@@ -29,7 +56,7 @@ export default {
   padding: 0 30px;
 }
 
-.post-list {
+.post-grid {
   display: grid;
   justify-content: space-between;
   grid-template-columns: repeat(4, var(--post-preview-width-xl));

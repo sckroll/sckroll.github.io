@@ -3,7 +3,7 @@
     <header class="landing-header">
       <header-menu landing />
     </header>
-    <post-list :posts="posts">최근 포스트</post-list>
+    <post-list :posts="posts" landing>최근 포스트</post-list>
   </div>
 </template>
 

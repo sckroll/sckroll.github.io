@@ -83,7 +83,10 @@ a {
   justify-content: center;
 }
 
-.component-label {
+.component-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   margin-bottom: 30px;
 }
 
