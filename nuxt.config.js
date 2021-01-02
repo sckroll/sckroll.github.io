@@ -64,6 +64,10 @@ export default {
   fontawesome: {
     component: 'Fa',
     suffix: true,
-    icons: { regular: ['faSun', 'faMoon', 'faEnvelope'], brands: ['faGithub'] },
+    icons: {
+      regular: ['faSun', 'faMoon', 'faEnvelope'],
+      solid: ['faSearch'],
+      brands: ['faGithub'],
+    },
   },
 }

@@ -1,10 +1,12 @@
 <template>
   <span class="search-input">
+    <fa-icon :icon="['fa', 'search']" class="search-icon" />
     <input
       v-model="searchQuery"
       type="search"
       autocomplete="off"
       placeholder="포스트 내용 검색"
+      class="search-input-box"
     />
   </span>
 </template>
@@ -48,5 +50,37 @@ export default {
 
 <style>
 .search-input {
+  display: flex;
+  align-items: center;
 }
+
+.search-icon {
+  margin-right: 10px;
+  font-size: 20px;
+  color: #333333;
+}
+
+.search-input-box {
+  border: none;
+  padding: 10px;
+  background-color: #eeeeee;
+  width: 300px;
+  font-size: 14px;
+}
+
+.search-input-box:hover {
+  background-color: #dddddd;
+}
+
+.search-input-box:focus {
+  outline: none;
+  background-color: #dddddd;
+}
+
+/* .search-input-box::-webkit-search-decoration,
+.search-input-box::-webkit-search-cancel-button,
+.search-input-box::-webkit-search-results-button,
+.search-input-box::-webkit-search-results-decoration {
+  display: none;
+} */
 </style>
