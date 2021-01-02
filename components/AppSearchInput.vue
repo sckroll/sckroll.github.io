@@ -64,7 +64,7 @@ export default {
   border: none;
   padding: 10px;
   background-color: #eeeeee;
-  width: 300px;
+  width: var(--post-preview-width-xl);
   font-size: 14px;
 }
 
@@ -83,4 +83,25 @@ export default {
 .search-input-box::-webkit-search-results-decoration {
   display: none;
 } */
+
+@media screen and (max-width: 1200px) {
+  .search-input-box {
+    width: var(--post-preview-width-lg);
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .search-input-box {
+    width: var(--post-preview-width-md);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .search-input-box {
+    width: var(--post-preview-width-sm);
+  }
+}
+
+@media screen and (max-width: 576px) {
+}
 </style>
