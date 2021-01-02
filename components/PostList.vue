@@ -67,7 +67,7 @@ export default {
   .post-list-container {
     width: var(--container-lg);
   }
-  .post-list {
+  .post-grid {
     grid-template-columns: repeat(3, var(--post-preview-width-lg));
     row-gap: 13px;
   }
@@ -77,7 +77,7 @@ export default {
   .post-list-container {
     width: var(--container-md);
   }
-  .post-list {
+  .post-grid {
     grid-template-columns: repeat(2, var(--post-preview-width-md));
     row-gap: 14px;
   }
@@ -87,7 +87,7 @@ export default {
   .post-list-container {
     width: var(--container-sm);
   }
-  .post-list {
+  .post-grid {
     grid-template-columns: repeat(1, 1fr);
     row-gap: 10px;
   }
