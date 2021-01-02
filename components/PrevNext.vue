@@ -1,24 +1,8 @@
 <template>
   <div class="prev-next-nav">
     <div class="prev-next-nav-wrapper">
-      <span class="prev-post">
-        <span class="prev-next-label">이전 |</span>
-        <nuxt-link
-          v-if="prev"
-          :to="{
-            name: 'posts/year/month/day/slug',
-            params: {
-              year: prevPost.year,
-              month: prevPost.month,
-              day: prevPost.day,
-              slug: prev.slug,
-            },
-          }"
-          >{{ prev.title }}</nuxt-link
-        >
-        <span v-else class="post-empty">이전 포스트가 없습니다.</span>
-      </span>
       <span class="next-post">
+        <span class="prev-next-label">&lt; 다음 |</span>
         <nuxt-link
           v-if="next"
           :to="{
@@ -33,7 +17,23 @@
           >{{ next.title }}</nuxt-link
         >
         <span v-else class="post-empty">다음 포스트가 없습니다.</span>
-        <span class="prev-next-label">| 다음</span>
+      </span>
+      <span class="prev-post">
+        <nuxt-link
+          v-if="prev"
+          :to="{
+            name: 'posts/year/month/day/slug',
+            params: {
+              year: prevPost.year,
+              month: prevPost.month,
+              day: prevPost.day,
+              slug: prev.slug,
+            },
+          }"
+          >{{ prev.title }}</nuxt-link
+        >
+        <span v-else class="post-empty">이전 포스트가 없습니다.</span>
+        <span class="prev-next-label">| 이전 &gt;</span>
       </span>
     </div>
   </div>
@@ -112,28 +112,20 @@ export default {
   font-weight: 700;
 }
 
-.prev-post a {
-  padding: 5px 5px;
-  transition: all 0.1s ease;
-}
-
-.prev-post a:hover {
-  background-color: #eeeeee;
-  transition: all 0.1s ease;
-}
-
-.next-post {
-  float: right;
-}
-
+.prev-post a,
 .next-post a {
   padding: 5px 5px;
-  transition: all 0.1s ease;
+  transition: all 0.2s ease;
 }
 
+.prev-post a:hover,
 .next-post a:hover {
   background-color: #eeeeee;
-  transition: all 0.1s ease;
+  transition: all 0.2s ease;
+}
+
+.prev-post {
+  float: right;
 }
 
 .post-empty {
