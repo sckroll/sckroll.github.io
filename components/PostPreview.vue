@@ -1,6 +1,9 @@
 <template>
   <nuxt-link
-    :to="{ name: 'posts/slug', params: { slug: post.slug } }"
+    :to="{
+      name: 'posts/year/month/day/slug',
+      params: { year, month, day, slug: post.slug },
+    }"
     class="post-link"
   >
     <figure ref="preview" class="preview-container">
@@ -46,21 +49,36 @@ export default {
   },
   data() {
     return {
+      year: 0,
+      month: 0,
+      day: 0,
       maxTitleLength: 10,
       maxActiveTitleLength: 25,
       maxTagsLength: 3,
       maxDescriptionLength: 33,
     }
   },
+  mounted() {
+    const ms = Date.parse(this.post.createdAt)
+    const dateObj = new Date(ms)
+
+    this.year = dateObj.getFullYear()
+    this.month = this.addZero(dateObj.getMonth() + 1)
+    this.day = this.addZero(dateObj.getDate())
+  },
   methods: {
+    addZero(num) {
+      const result = (num < 10 ? '0' : '') + num.toString(10)
+      return result
+    },
     formatDate(date) {
       const options = {
         year: '2-digit',
         month: '2-digit',
         day: '2-digit',
       }
-      const formattedTime = new Date(date).toLocaleDateString('kr', options)
-      return formattedTime.replace(/. /g, '/').slice(0, -1)
+      const formattedDate = new Date(date).toLocaleDateString('kr', options)
+      return formattedDate.replace(/. /g, '/').slice(0, -1)
     },
     trimTitle(title) {
       if (title.length > this.maxTitleLength) {

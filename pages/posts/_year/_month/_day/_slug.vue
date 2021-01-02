@@ -75,10 +75,12 @@
 export default {
   async asyncData({ $content, params, error }) {
     try {
-      const post = await $content('posts', params.slug).fetch()
+      const post = await $content(
+        `posts/${params.year}/${params.month}/${params.day}/${params.slug}`,
+      ).fetch()
 
-      const [prev, next] = await $content('posts')
-        .only(['title', 'slug'])
+      const [prev, next] = await $content('posts', { deep: true })
+        .only(['title', 'slug', 'createdAt'])
         .sortBy('createdAt', 'asc')
         .surround(params.slug)
         .fetch()

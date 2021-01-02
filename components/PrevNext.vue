@@ -5,7 +5,15 @@
         <span class="prev-next-label">이전 |</span>
         <nuxt-link
           v-if="prev"
-          :to="{ name: 'posts/slug', params: { slug: prev.slug } }"
+          :to="{
+            name: 'posts/year/month/day/slug',
+            params: {
+              year: prevPost.year,
+              month: prevPost.month,
+              day: prevPost.day,
+              slug: prev.slug,
+            },
+          }"
           >{{ prev.title }}</nuxt-link
         >
         <span v-else class="post-empty">이전 포스트가 없습니다.</span>
@@ -13,7 +21,15 @@
       <span class="next-post">
         <nuxt-link
           v-if="next"
-          :to="{ name: 'posts/slug', params: { slug: next.slug } }"
+          :to="{
+            name: 'posts/year/month/day/slug',
+            params: {
+              year: nextPost.year,
+              month: nextPost.month,
+              day: nextPost.day,
+              slug: next.slug,
+            },
+          }"
           >{{ next.title }}</nuxt-link
         >
         <span v-else class="post-empty">다음 포스트가 없습니다.</span>
@@ -33,6 +49,45 @@ export default {
     next: {
       type: Object,
       default: () => null,
+    },
+  },
+  data() {
+    return {
+      prevPost: {
+        year: 0,
+        month: 0,
+        day: 0,
+      },
+      nextPost: {
+        year: 0,
+        month: 0,
+        day: 0,
+      },
+    }
+  },
+  mounted() {
+    if (this.prev) {
+      const prevCreatedTime = Date.parse(this.prev.createdAt)
+      const prevDateObj = new Date(prevCreatedTime)
+
+      this.prevPost.year = prevDateObj.getFullYear()
+      this.prevPost.month = this.addZero(prevDateObj.getMonth() + 1)
+      this.prevPost.day = this.addZero(prevDateObj.getDate())
+    }
+
+    if (this.next) {
+      const nextCreatedTime = Date.parse(this.next.createdAt)
+      const nextDateObj = new Date(nextCreatedTime)
+
+      this.nextPost.year = nextDateObj.getFullYear()
+      this.nextPost.month = this.addZero(nextDateObj.getMonth() + 1)
+      this.nextPost.day = this.addZero(nextDateObj.getDate())
+    }
+  },
+  methods: {
+    addZero(num) {
+      const result = (num < 10 ? '0' : '') + num.toString(10)
+      return result
     },
   },
 }
