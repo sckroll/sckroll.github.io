@@ -5,7 +5,7 @@
       v-model="searchQuery"
       type="search"
       autocomplete="off"
-      placeholder="포스트 내용 검색"
+      placeholder="포스트 제목, 내용 검색"
       class="search-input-box"
     />
   </span>
@@ -23,7 +23,7 @@ export default {
       const results = await this.$content('posts', { deep: true })
         .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
         .sortBy('createdAt', 'desc')
-        .limit(8)
+        // .limit(8)
         .search(query)
         .fetch()
       this.$emit('posts', results)
