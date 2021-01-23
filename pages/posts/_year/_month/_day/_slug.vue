@@ -39,24 +39,45 @@
         </div>
         <nav v-if="post.toc.length > 0" class="post-toc">
           <div class="post-toc-wrapper">
-            <h4>목차</h4>
-            <ul v-for="link of post.toc" :key="link.id" class="toc-list">
-              <li v-if="link.depth === 2" class="toc-link-2">
-                <nuxt-link :to="`#${link.id}`">
-                  {{ link.text }}
-                </nuxt-link>
-              </li>
-              <li v-else-if="link.depth === 3" class="toc-link-3">
-                <nuxt-link :to="`#${link.id}`">
-                  {{ link.text }}
-                </nuxt-link>
-              </li>
-              <li v-else class="toc-link-4">
-                <nuxt-link :to="`#${link.id}`">
-                  {{ link.text }}
-                </nuxt-link>
-              </li>
-            </ul>
+            <div class="toc-header">
+              <h4>목차</h4>
+              <span
+                v-if="isTocExpanded"
+                class="toc-expand-button"
+                @click="isTocExpanded = false"
+              >
+                <fa-icon :icon="['fa', 'chevron-up']" class="toc-expand-icon" />
+              </span>
+              <span
+                v-else
+                class="toc-reduce-button"
+                @click="isTocExpanded = true"
+              >
+                <fa-icon
+                  :icon="['fa', 'chevron-down']"
+                  class="toc-expand-icon"
+                />
+              </span>
+            </div>
+            <div v-if="isTocExpanded" class="toc-main">
+              <ul v-for="link of post.toc" :key="link.id" class="toc-list">
+                <li v-if="link.depth === 2" class="toc-link-2">
+                  <nuxt-link :to="`#${link.id}`">
+                    {{ link.text }}
+                  </nuxt-link>
+                </li>
+                <li v-else-if="link.depth === 3" class="toc-link-3">
+                  <nuxt-link :to="`#${link.id}`">
+                    {{ link.text }}
+                  </nuxt-link>
+                </li>
+                <li v-else class="toc-link-4">
+                  <nuxt-link :to="`#${link.id}`">
+                    {{ link.text }}
+                  </nuxt-link>
+                </li>
+              </ul>
+            </div>
           </div>
         </nav>
         <div class="post-container">
@@ -88,6 +109,11 @@ export default {
       return { post, prev, next }
     } catch (e) {
       error({ statusCode: 404 })
+    }
+  },
+  data() {
+    return {
+      isTocExpanded: true,
     }
   },
   methods: {
@@ -223,8 +249,20 @@ export default {
   padding: 10px 30px;
 }
 
-.post-toc-wrapper h4 {
+.toc-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toc-header h4 {
   margin: 5px 0;
+}
+
+.toc-expand-button,
+.toc-reduce-button {
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .toc-list {
