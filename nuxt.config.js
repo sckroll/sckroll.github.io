@@ -66,7 +66,7 @@ export default {
     suffix: true,
     icons: {
       regular: ['faSun', 'faMoon', 'faEnvelope'],
-      solid: ['faSearch'],
+      solid: ['faSearch', 'faChevronUp', 'faChevronDown'],
       brands: ['faGithub'],
     },
   },
