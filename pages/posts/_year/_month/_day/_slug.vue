@@ -295,6 +295,13 @@ export default {
   padding: 30px 30px;
 }
 
+.post-content-wrapper h1,
+.post-content-wrapper h2,
+.post-content-wrapper h3,
+.post-content-wrapper h4 {
+  margin: 10px 0;
+}
+
 .post-content-wrapper p {
   margin-bottom: 20px;
 }
