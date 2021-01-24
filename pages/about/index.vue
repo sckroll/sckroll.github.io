@@ -13,13 +13,43 @@
 
 <script>
 export default {
-  async asyncData({ $content, params, error }) {
+  async asyncData({ $content, error }) {
     try {
       const article = await $content('about/about').fetch()
       return { article }
     } catch (e) {
       error({ statusCode: 404 })
     }
+  },
+  data() {
+    return {
+      observer: null,
+    }
+  },
+  mounted() {
+    this.observer = new IntersectionObserver(
+      (items, observer) => {
+        items.forEach(item => {
+          if (item.isIntersecting) {
+            console.log(item)
+            // item.target.classList.add('article-show')
+            item.target.style.opacity = '1'
+            observer.unobserve(item.target)
+          }
+        })
+      },
+      {
+        threshold: 0.5,
+      },
+    )
+
+    const articles = document.querySelectorAll('article.about-article')
+    articles.forEach(article => {
+      this.observer.observe(article)
+    })
+  },
+  beforeDestroy() {
+    this.observer = null
   },
 }
 </script>
@@ -32,8 +62,6 @@ export default {
 
 .about {
   display: flex;
-  /* flex-flow: column;
-  align-items: center; */
   justify-content: center;
   font-family: 'NanumSquare', sans-serif;
 }
@@ -48,45 +76,36 @@ export default {
   flex-flow: column;
   justify-content: center;
   line-height: 150%;
+  transition: all 0.5s ease-in-out;
+  opacity: 0;
 }
 
 .about-hello {
-  height: calc(100vh - var(--header-menu-height));
+  height: calc(90vh - var(--header-menu-height));
   font-size: 40px;
 }
 
 .about-intro {
-  height: calc(100vh - var(--header-menu-height));
-  font-size: 32px;
+  height: calc(80vh - var(--header-menu-height));
+  font-size: 24px;
 }
 
 .about-skills {
-  height: calc(100vh - var(--header-menu-height));
-  font-size: 32px;
+  height: calc(90vh - var(--header-menu-height));
+  font-size: 24px;
 }
 
 .about-experiences {
-  /* height: calc(100vh - var(--header-menu-height)); */
-  font-size: 32px;
+  height: calc(120vh - var(--header-menu-height));
+  font-size: 24px;
 }
 
-.about-projects {
-  /* height: calc(100vh - var(--header-menu-height)); */
-  font-size: 32px;
+.about-exp-events {
+  font-size: 24px;
 }
 
-.about-history {
-  /* height: calc(100vh - var(--header-menu-height)); */
-  font-size: 32px;
-}
-
-.about-tmi {
-  /* height: calc(100vh - var(--header-menu-height)); */
-  font-size: 32px;
-}
-
-.about-contacts {
-  /* height: calc(100vh - var(--header-menu-height)); */
-  font-size: 32px;
+.about-etc {
+  height: calc(100vh - var(--header-menu-height));
+  font-size: 24px;
 }
 </style>
