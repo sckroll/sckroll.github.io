@@ -304,6 +304,8 @@ export default {
 
 .post-content-wrapper p {
   margin-bottom: 20px;
+  line-height: 170%;
+  font-size: 18px;
 }
 
 .post-content-wrapper p code {
