@@ -31,7 +31,6 @@ export default {
       (items, observer) => {
         items.forEach(item => {
           if (item.isIntersecting) {
-            console.log(item)
             // item.target.classList.add('article-show')
             item.target.style.opacity = '1'
             observer.unobserve(item.target)
