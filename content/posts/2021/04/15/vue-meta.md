@@ -28,7 +28,7 @@ Vue.use(VueMeta, {
 })
 ```
 
-```js[App.vue]
+```vue[App.vue]
 <template>
   <div></div>
 </template>
@@ -37,7 +37,8 @@ Vue.use(VueMeta, {
 export default {
   metaInfo: {
     title: this.title,
-    titleTemplate: '%s | www.example.com',	// title 뒤에 공통적으로 붙는 문자열, 사용하지 않는다면 null
+    // title 뒤에 공통적으로 붙는 문자열, 사용하지 않는다면 null
+    titleTemplate: '%s | www.example.com',
     meta: [
       { charset: 'utf-8' },
 
