@@ -56,7 +56,7 @@ class Solution:
         s.reverse()
 ```
 
-#### 2-1. 슬라이싱을 사용하여 푸는 방법
+#### 3. 슬라이싱을 사용하여 푸는 방법
 
 ```python
 class Solution:

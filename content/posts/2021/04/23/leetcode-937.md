@@ -71,7 +71,7 @@ class Solution:
 
 ### 출처
 
-- 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p145-147.
+- 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p148-150.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)
   - [GitHub](https://github.com/onlybooks/algorithm-interview)
 - https://soooprmx.com/%ed%8c%8c%ec%9d%b4%ec%8d%ac%ec%9d%98-%ec%88%ab%ec%9e%90%ed%8c%90%eb%b3%84%ed%95%a8%ec%88%98/
