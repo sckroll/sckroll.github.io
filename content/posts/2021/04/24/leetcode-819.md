@@ -13,6 +13,7 @@ https://leetcode.com/problems/most-common-word/
 ### 나의 풀이
 
 ```python
+from typing import List
 import re
 
 
@@ -38,6 +39,7 @@ class Solution:
 #### 1. 리스트 컴프리헨션과 `defaultdict()` 사용
 
 ```python
+from typing import List
 import re
 from collections import defaultdict
 
@@ -59,6 +61,7 @@ class Solution:
 #### 2. 리스트 컴프리헨션과 `Counter` 객체 사용
 
 ```python
+from typing import List
 import re
 from collections import Counter
 
