@@ -1,5 +1,4 @@
-sckroll.github.io
----
+# sckroll.github.io
 
 Sckroll 개인 웹 사이트  
 (Nuxt로 구현하여 push-dir로 배포)
@@ -40,6 +39,11 @@ $ git checkout -b dist
 $ git checkout master
 
 # 정적 사이트 생성 및 배포
+$ yarn deploy
+```
+
+### 이후 웹 사이트 배포 방법
+```bash
 $ yarn deploy
 ```
 
