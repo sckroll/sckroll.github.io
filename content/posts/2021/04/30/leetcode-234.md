@@ -22,9 +22,13 @@ class ListNode:
 class Solution:
     def my_solution(self, head: ListNode) -> bool:
         nums = []
+
+        # 리스트로 변환
         while head:
             nums.append(head.val)
             head = head.next
+
+        # 뒤집은 리스트와 동일하면 팰린드롬으로 판단
         return nums == nums[::-1]
 ```
 
@@ -103,7 +107,7 @@ class Solution:
         return True
 ```
 
-### 3. 런너(Runner) 기법을 이용한 풀이
+#### 3. 런너(Runner) 기법을 이용한 풀이
 
 - 런너 기법에 대한 설명은 하단 참고
 
@@ -151,7 +155,7 @@ class Solution:
   - 대개 빠른 런너(Fast Runner)는 두 칸씩, 느린 런너(Slow Runner)는 한 칸씩 이동하는 기법을 사용한다.
     - 빠른 런너가 끝까지 도달하면 느린 런너는 연결 리스트의 중간 지점을 가리키고, 여기서부터 값을 비교하거나 뒤집기를 시도하는 등 여러모로 활용할 수 있다.
 - 파이썬의 다중 할당
-  - 풀이 3에서 다음 다중 할당 코드를 그 아래처럼 바꾸면 에러가 난다.
+  - 풀이 3에서 아래의 다중 할당 코드를 두 줄로 분리하여 가독성을 개선하면 에러가 난다.
     ```python
     while fast and fast.next:
         fast = fast.next.next
@@ -163,9 +167,69 @@ class Solution:
         rev, rev.next = slow, rev
         slow = slow.next
     ```
-  - 위 코드는 다중 할당을 하게 되면 각 3개의 변수에 할당을 하는 작업이 동시에 일어난다. 하지만 아래 코드는 `rev`와 `rev.next`에만 할당이 끝나면 `slow`는 `rev`와 같은 값을 참조하게 되므로 에러가 발생한다.
+  - 분리하기 전의 코드는 다중 할당을 하게 되면 각 3개의 변수에 할당을 하는 작업이 동시에 일어난다. 하지만 두 줄로 분리한 코드는 `rev`와 `rev.next`에만 할당이 끝나면 `slow`는 `rev`와 같은 값을 참조하게 되므로 결국 원하지 않은 값을 얻게 된다.
+    - 정확히는 우변의 값을 좌변에 할당하기 전에 평가(evaluate)한다. 스택 오버플로우의 예시를 참고하자면 다음과 같다.
+      ```python
+      x = 1
+      y = 2
+      ```
+      ```python
+      x, y = y, x + y
+      print(x, y)   # 2, 3
+
+      # 위의 식은 다음과 같이 해석할 수 있다.
+      ham = y
+      spam = x + y
+      x = ham
+      y = spam
+      print(x, y)   # 2, 3
+      ```
+      ```python
+      x = y
+      y = x + y
+      print(x, y)   # 2, 4
+
+      # 위의 식은 다음과 같이 해석할 수 있다.
+      x = y
+      y = y + y
+      print(x, y)   # 2, 4
+      ```
   - `rev = 1`, `slow = 2->3`으로 예시를 들자면, 전자에서는 `rev = 2->3`, `rev.next = 1`, `slow = 3`이 되고 `rev.next = 1`이므로 최종적으로는 `rev = 2->1`, `slow = 3`이 된다.
-  - 하지만 후자에서는 `rev = 2->3`이고 `rev.next = 1`이므로 `rev = 2->1`이 되는데, `rev = slow`이기 때문에 동일한 참조 값을 가지게 되었고, `rev = 2->1`이 되었기 때문에 `slow = 2->1`이 함께 되어 버린다. 따라서 `slow = slow.next`는 `slow = 1`이 되므로 최종 결과는 `rev = 2->1`, `slow = 1`이 된다.
+    ```python
+    rev = ListNode(1)
+    slow = ListNode(2, ListNode(3))
+
+    # rev, rev.next, slow = slow, rev, slow.next
+
+    temp1 = slow      # ListNode(2, ListNode(3))
+    temp2 = rev       # ListNode(1)
+    temp3 = slow.next # ListNode(3)
+    rev = temp1       # ListNode(2, ListNode(3)) => ListNode(2, ListNode(1))
+    rev.next = temp2  # ListNode(1)
+    slow = temp3      # ListNode(3)
+
+    print(rev)  # ListNode{val: 2, next: ListNode{val: 1, next: None}}
+    print(slow) # ListNode{val: 3, next: None}
+    ```
+  - 하지만 후자에서는 `rev = 2->3`이고 `rev.next = 1`이므로 `rev = 2->1`이 되는데, `rev = slow`이기 때문에 동일한 참조 값을 가지게 되어 `slow = 2->1`이 함께 되어 버린다. 따라서 `slow = slow.next`는 `slow = 1`이 되므로 최종 결과는 `rev = 2->1`, `slow = 1`이 된다.
+    ```python
+    rev = ListNode(1)
+    slow = ListNode(2, ListNode(3))
+
+    # rev, rev.next = slow, rev
+    # slow = slow.next
+
+    temp1 = slow      # ListNode(2, ListNode(3))
+    temp2 = rev       # ListNode(1)
+    rev = temp1       # ListNode(2, ListNode(3)) => ListNode(2, ListNode(1))
+    rev.next = temp2  # ListNode(1)
+
+    # rev == slow, 즉 rev와 slow는 모두 ListNode(2, ListNode(1))를 참조
+    slow = rev.next  # ListNode(1)
+
+    print(rev)  # ListNode{val: 2, next: ListNode{val: 1, next: None}}
+    print(slow) # ListNode{val: 1, next: None}
+    ```
 - 문제를 풀긴 풀었으나, 제출도 안한 상태에서 좀 더 효율적인 알고리즘을 찾는다고 시간만 끄는 경향이 있는 것 같다. 괜히 시간만 낭비하는 것 같으니 정말 모를 땐 빠르게 넘어가는 것이 좋겠다.
 
 ### 출처
@@ -173,3 +237,4 @@ class Solution:
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p201-212.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)
   - [GitHub](https://github.com/onlybooks/algorithm-interview)
+- https://stackoverflow.com/questions/8725673/multiple-assignment-and-evaluation-order-in-python
