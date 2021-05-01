@@ -96,9 +96,10 @@
 export default {
   async asyncData({ $content, params, error }) {
     try {
-      const post = await $content(
-        `posts/${params.year}/${params.month}/${params.day}/${params.slug}`,
-      ).fetch()
+      const postArray = await $content('posts', { deep: true })
+        .where({ slug: params.slug })
+        .fetch()
+      const post = postArray[0]
 
       const [prev, next] = await $content('posts', { deep: true })
         .only(['title', 'slug', 'createdAt'])

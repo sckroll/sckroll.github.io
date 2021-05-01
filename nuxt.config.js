@@ -62,6 +62,17 @@ export default {
   },
   generate: {
     fallback: true,
+    async routes() {
+      const { $content } = require('@nuxt/content')
+      const files = await $content('posts', { deep: true })
+        .only(['slug', 'createdAt'])
+        .fetch()
+      return files.map(file => {
+        return {
+          route: '/posts/' + file.slug,
+        }
+      })
+    },
   },
   fontawesome: {
     component: 'Fa',

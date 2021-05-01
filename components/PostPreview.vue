@@ -1,11 +1,5 @@
 <template>
-  <nuxt-link
-    :to="{
-      name: 'posts/year/month/day/slug',
-      params: { year, month, day, slug: post.slug },
-    }"
-    class="post-link"
-  >
+  <nuxt-link :to="{ path: `posts/${post.slug}` }" class="post-link">
     <figure ref="preview" class="preview-container">
       <img
         :src="post.img"
@@ -49,28 +43,28 @@ export default {
   },
   data() {
     return {
-      year: 0,
-      month: 0,
-      day: 0,
+      // year: 0,
+      // month: 0,
+      // day: 0,
       maxTitleLength: 10,
       maxActiveTitleLength: 25,
       maxTagsLength: 3,
       maxDescriptionLength: 33,
     }
   },
-  mounted() {
-    const ms = Date.parse(this.post.createdAt)
-    const dateObj = new Date(ms)
+  // mounted() {
+  //   const ms = Date.parse(this.post.createdAt)
+  //   const dateObj = new Date(ms)
 
-    this.year = dateObj.getFullYear()
-    this.month = this.addZero(dateObj.getMonth() + 1)
-    this.day = this.addZero(dateObj.getDate())
-  },
+  //   this.year = dateObj.getFullYear()
+  //   this.month = this.addZero(dateObj.getMonth() + 1)
+  //   this.day = this.addZero(dateObj.getDate())
+  // },
   methods: {
-    addZero(num) {
-      const result = (num < 10 ? '0' : '') + num.toString(10)
-      return result
-    },
+    // addZero(num) {
+    //   const result = (num < 10 ? '0' : '') + num.toString(10)
+    //   return result
+    // },
     formatDate(date) {
       const options = {
         year: '2-digit',
