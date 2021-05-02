@@ -1,6 +1,6 @@
 <template>
-  <div class="comment">
-    <div ref="comment" class="comment-wrapper"></div>
+  <div class="comment-container">
+    <div ref="comment" class="comment-center"></div>
   </div>
 </template>
 
@@ -24,13 +24,13 @@ export default {
 </script>
 
 <style>
-.comment {
+.comment-container {
   position: relative;
   display: flex;
   justify-content: center;
 }
 
-.comment-wrapper {
+.comment-center {
   width: var(--container-xl);
   padding: 0 30px;
 }
@@ -40,19 +40,19 @@ export default {
 }
 
 @media screen and (max-width: 1200px) {
-  .comment-wrapper {
+  .comment-center {
     width: var(--container-lg);
   }
 }
 
 @media screen and (max-width: 992px) {
-  .comment-wrapper {
+  .comment-center {
     width: var(--container-md);
   }
 }
 
 @media screen and (max-width: 768px) {
-  .comment-wrapper {
+  .comment-center {
     width: var(--container-sm);
   }
 }
