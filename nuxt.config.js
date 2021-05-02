@@ -52,6 +52,7 @@ export default {
         theme: 'prism-themes/themes/prism-vsc-dark-plus.css',
       },
     },
+    fullTextSearchFields: ['title', 'tags', 'text'],
   },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)

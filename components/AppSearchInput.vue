@@ -5,9 +5,31 @@
       v-model="searchQuery"
       type="search"
       autocomplete="off"
-      placeholder="포스트 제목, 내용 검색"
+      placeholder="포스트 검색"
       class="search-input-box"
     />
+    <button
+      class="search-button"
+      :class="field === 'title' ? 'toggled' : ''"
+      @click="field = 'title'"
+    >
+      제목
+    </button>
+    <button
+      class="search-button"
+      :class="field === 'tags' ? 'toggled' : ''"
+      @click="field = 'tags'"
+    >
+      태그
+    </button>
+    <button
+      class="search-button"
+      :class="field === 'text' ? 'toggled' : ''"
+      @click="field = 'text'"
+    >
+      내용
+    </button>
+    <button class="search-button" @click="searchReset">초기화</button>
   </span>
 </template>
 
@@ -16,15 +38,18 @@ export default {
   data() {
     return {
       searchQuery: '',
+      field: 'title',
     }
   },
   watch: {
     async searchQuery(query) {
+      if (!query) return
+
       const results = await this.$content('posts', { deep: true })
         .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
         .sortBy('createdAt', 'desc')
         // .limit(8)
-        .search(query)
+        .search(this.field, query)
         .fetch()
       this.$emit('posts', results)
     },
@@ -43,6 +68,16 @@ export default {
     addZero(num) {
       const result = (num < 10 ? '0' : '') + num.toString(10)
       return result
+    },
+    async searchReset() {
+      this.searchQuery = ''
+
+      const results = await this.$content('posts', { deep: true })
+        .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
+        .sortBy('createdAt', 'desc')
+        // .limit(8)
+        .fetch()
+      this.$emit('posts', results)
     },
   },
 }
@@ -64,7 +99,7 @@ export default {
   border: none;
   padding: 10px;
   background-color: #eeeeee;
-  width: var(--post-preview-width-xl);
+  width: 200px;
   font-size: 14px;
 }
 
@@ -77,12 +112,16 @@ export default {
   background-color: #dddddd;
 }
 
-/* .search-input-box::-webkit-search-decoration,
-.search-input-box::-webkit-search-cancel-button,
-.search-input-box::-webkit-search-results-button,
-.search-input-box::-webkit-search-results-decoration {
-  display: none;
-} */
+.search-button {
+  border: none;
+  padding: 9px 10px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.search-button.toggled {
+  background-color: #cccccc;
+}
 
 @media screen and (max-width: 1200px) {
   .search-input-box {
