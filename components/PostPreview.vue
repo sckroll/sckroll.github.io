@@ -1,17 +1,15 @@
 <template>
   <nuxt-link :to="{ path: `posts/${post.slug}` }" class="post-link">
-    <figure ref="preview" class="preview-container">
-      <img
-        :src="post.img"
-        :alt="post.alt"
+    <div class="preview-container">
+      <div
+        ref="pattern"
         class="preview-img"
-        draggable="false"
-        onContextMenu="return false"
-      />
-      <figcaption class="preview-info">
+        :style="`background: ${getPattern(post.title)};`"
+      ></div>
+      <div class="preview-info">
         <div class="preview-title-wrapper">
-          <h3 class="preview-title">{{ trimTitle(post.title) }}</h3>
-          <h3 class="preview-title preview-title-active">
+          <h3 ref="title" class="preview-title">{{ trimTitle(post.title) }}</h3>
+          <h3 class="preview-title-active">
             {{ trimActiveTitle(post.title) }}
           </h3>
           <p class="preview-description">
@@ -28,12 +26,14 @@
           </div>
           <span class="preview-date">{{ formatDate(post.createdAt) }}</span>
         </div>
-      </figcaption>
-    </figure>
+      </div>
+    </div>
   </nuxt-link>
 </template>
 
 <script>
+import GeoPattern from 'geopattern'
+
 export default {
   props: {
     post: {
@@ -43,28 +43,13 @@ export default {
   },
   data() {
     return {
-      // year: 0,
-      // month: 0,
-      // day: 0,
-      maxTitleLength: 10,
-      maxActiveTitleLength: 25,
+      maxTitleLength: 17,
+      maxActiveTitleLength: 31,
       maxTagsLength: 3,
       maxDescriptionLength: 33,
     }
   },
-  // mounted() {
-  //   const ms = Date.parse(this.post.createdAt)
-  //   const dateObj = new Date(ms)
-
-  //   this.year = dateObj.getFullYear()
-  //   this.month = this.addZero(dateObj.getMonth() + 1)
-  //   this.day = this.addZero(dateObj.getDate())
-  // },
   methods: {
-    // addZero(num) {
-    //   const result = (num < 10 ? '0' : '') + num.toString(10)
-    //   return result
-    // },
     formatDate(date) {
       const options = {
         year: '2-digit',
@@ -98,53 +83,14 @@ export default {
       }
       return description
     },
+    getPattern(title) {
+      return GeoPattern.generate(title).toDataUrl()
+    },
   },
 }
 </script>
 
-<style>
-.post-link {
-  display: inline-block;
-  height: 0;
-}
-
-.preview-container {
-  display: inline-block;
-  position: relative;
-  overflow: hidden;
-  width: var(--post-preview-width-xl);
-  height: var(--post-preview-width-xl);
-}
-
-.preview-container:hover .preview-title {
-  opacity: 0;
-  height: 0;
-  animation: fadeOut 0.05s ease;
-}
-
-.preview-container:hover .preview-title-active {
-  opacity: 1;
-  height: auto;
-  animation: titleFadeIn 0.05s ease;
-  font-size: 20px;
-}
-
-.preview-container:hover .preview-info {
-  height: 60%;
-  transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
-}
-
-.preview-container:hover .preview-description {
-  opacity: 1;
-  height: auto;
-  animation: FadeIn 0.5s ease;
-}
-
-.preview-container:hover .preview-img {
-  transform: scale(1.1);
-  transition: all 0.5s ease;
-}
-
+<style scoped lang="scss">
 @keyframes FadeIn {
   0% {
     opacity: 0;
@@ -182,11 +128,46 @@ export default {
   }
 }
 
+.post-link {
+  display: inline-block;
+  height: 0;
+}
+
+.preview-container {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  width: var(--post-preview-width-xl);
+  height: var(--post-preview-width-xl);
+
+  &:hover .preview-title {
+    opacity: 0;
+    height: 0;
+    /* animation: fadeOut 0.05s ease; */
+  }
+
+  &:hover .preview-title-active {
+    opacity: 1;
+    height: auto;
+    animation: titleFadeIn 0.05s ease;
+    font-size: 20px;
+  }
+
+  &:hover .preview-info {
+    height: 60%;
+    transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
+  }
+
+  &:hover .preview-description {
+    opacity: 1;
+    height: auto;
+    animation: FadeIn 0.5s ease;
+  }
+}
+
 .preview-img {
   width: inherit;
   height: inherit;
-  object-fit: cover;
-  transition: all 0.5s ease;
 }
 
 .preview-info {
@@ -196,7 +177,7 @@ export default {
   justify-content: space-between;
   bottom: 0;
   width: 100%;
-  height: 30%;
+  height: 33%;
   background-color: #eeeeee99;
   padding: 15px;
   transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
@@ -206,7 +187,6 @@ export default {
 .preview-title {
   opacity: 1;
   font-family: 'NanumSquare', sans-serif;
-  height: auto;
   font-size: 20px;
   font-weight: 700;
 }
@@ -215,6 +195,7 @@ export default {
   opacity: 0;
   height: 0;
   font-size: 0;
+  font-weight: 700;
 }
 
 .preview-description {
@@ -231,10 +212,10 @@ export default {
 .preview-tags {
   display: inline;
   margin-right: 5px;
-}
 
-.preview-tags:last-child {
-  margin-right: 0;
+  &:last-child {
+    margin-right: 0;
+  }
 }
 
 .preview-date {
