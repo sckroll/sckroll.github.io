@@ -1,7 +1,7 @@
 ---
 title: LeetCode 234번 문제
 description: Palindrome Linked List
-tags: [algorithm, python, leetcode, linked_list]
+tags: algorithm, python, leetcode, linked_list
 ---
 
 ### 문제 링크

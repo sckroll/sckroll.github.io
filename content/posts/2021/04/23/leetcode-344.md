@@ -1,7 +1,7 @@
 ---
 title: LeetCode 344번 문제
 description: Reverse String
-tags: [algorithm, python, leetcode, string]
+tags: algorithm, python, leetcode, string
 ---
 
 ### 문제 링크

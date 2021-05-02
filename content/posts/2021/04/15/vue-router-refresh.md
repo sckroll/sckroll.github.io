@@ -1,7 +1,7 @@
 ---
 title: Vue-router의 현재 경로에서 새로고침하는 방법
 description: TIL 210321
-tags: [TIL, frontend, vue, vue-router, javascript, js]
+tags: TIL, frontend, vue, vue-router, javascript, js
 ---
 
 ### 개요

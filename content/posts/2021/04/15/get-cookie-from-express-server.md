@@ -1,7 +1,7 @@
 ---
 title: Express 서버에서 저장한 쿠키를 브라우저에서 보는 방법
 description: TIL 210318
-tags: [TIL, backend, cors, express, javascript, js, axios, cookie]
+tags: TIL, backend, cors, express, javascript, js, axios, cookie
 ---
 
 ### 개요

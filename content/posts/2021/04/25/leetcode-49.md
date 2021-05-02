@@ -1,7 +1,7 @@
 ---
 title: LeetCode 49번 문제
 description: Group Anagrams
-tags: [algorithm, python, leetcode, string]
+tags: algorithm, python, leetcode, string
 ---
 
 ### 문제 링크

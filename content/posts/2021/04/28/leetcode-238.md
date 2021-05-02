@@ -1,7 +1,7 @@
 ---
 title: LeetCode 238번 문제
 description: Product of Array Except Self
-tags: [algorithm, python, leetcode, array]
+tags: algorithm, python, leetcode, array
 ---
 
 ### 문제 링크

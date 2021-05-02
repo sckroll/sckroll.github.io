@@ -1,7 +1,7 @@
 ---
 title: Mongoose __v 필드
 description: TIL 210318
-tags: [TIL, backend, database, db, mongodb, mongoose]
+tags: TIL, backend, database, db, mongodb, mongoose
 ---
 
 ![mongoose-v-field](/images/210415-mongoose-v-field.jpg)

@@ -1,7 +1,7 @@
 ---
 title: Nuxt에서 SCSS 사용하는 방법
 description: TIL 210424
-tags: [TIL, frontend, vue, nuxt, scss]
+tags: TIL, frontend, vue, nuxt, scss
 ---
 
 ### 개요

@@ -1,7 +1,7 @@
 ---
 title: LeetCode 15번 문제
 description: 3Sum
-tags: [algorithm, python, leetcode, array]
+tags: algorithm, python, leetcode, array
 ---
 
 ### 문제 링크
