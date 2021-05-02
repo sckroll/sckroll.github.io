@@ -1,8 +1,6 @@
 ---
 title: LeetCode 49번 문제
 description: Group Anagrams
-img: https://picsum.photos/id/12/300/200
-alt: LeetCode 49번 문제
 tags: [algorithm, python, leetcode, string]
 ---
 

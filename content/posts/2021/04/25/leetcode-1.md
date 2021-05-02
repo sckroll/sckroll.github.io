@@ -1,8 +1,6 @@
 ---
 title: LeetCode 1번 문제
 description: Two Sum
-img: https://picsum.photos/id/14/300/200
-alt: LeetCode 1번 문제
 tags: [algorithm, python, leetcode, array]
 ---
 

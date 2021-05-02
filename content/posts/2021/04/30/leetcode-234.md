@@ -1,8 +1,6 @@
 ---
 title: LeetCode 234번 문제
 description: Palindrome Linked List
-img: https://picsum.photos/id/19/300/200
-alt: LeetCode 234번 문제
 tags: [algorithm, python, leetcode, linked_list]
 ---
 

@@ -1,8 +1,6 @@
 ---
 title: LeetCode 937번 문제
 description: Reorder Data in Log Files
-img: https://picsum.photos/id/9/300/200
-alt: LeetCode 937번 문제
 tags: [algorithm, python, leetcode, string]
 ---
 

@@ -1,8 +1,6 @@
 ---
 title: Reboot
 description: 다시 초심으로...
-img: https://picsum.photos/id/1/300/200
-alt: Reboot
 tags: [잡설]
 ---
 

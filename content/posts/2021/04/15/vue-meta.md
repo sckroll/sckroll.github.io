@@ -1,8 +1,6 @@
 ---
 title: Vue-meta를 사용하여 <head> 태그에 meta 정보 추가하기
 description: TIL 210413
-img: https://picsum.photos/id/6/300/200
-alt: Vue-meta를 사용하여 <head> 태그에 meta 정보 추가하기
 tags: [TIL, frontend, vue, vue-meta, javascript, js]
 ---
 

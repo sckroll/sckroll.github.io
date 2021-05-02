@@ -1,8 +1,6 @@
 ---
 title: LeetCode 5번 문제
 description: Longest Palindromic Substring
-img: https://picsum.photos/id/13/300/200
-alt: LeetCode 5번 문제
 tags: [algorithm, python, leetcode, string]
 ---
 

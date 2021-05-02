@@ -1,8 +1,6 @@
 ---
 title: LeetCode 819번 문제
 description: Most Common Word
-img: https://picsum.photos/id/10/300/200
-alt: LeetCode 819번 문제
 tags: [algorithm, python, leetcode, string]
 ---
 

@@ -1,8 +1,6 @@
 ---
 title: LeetCode 561번 문제
 description: Array Partition I
-img: https://picsum.photos/id/17/300/200
-alt: LeetCode 561번 문제
 tags: [algorithm, python, leetcode, array]
 ---
 

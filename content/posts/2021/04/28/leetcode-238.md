@@ -1,8 +1,6 @@
 ---
 title: LeetCode 238번 문제
 description: Product of Array Except Self
-img: https://picsum.photos/id/18/300/200
-alt: LeetCode 238번 문제
 tags: [algorithm, python, leetcode, array]
 ---
 

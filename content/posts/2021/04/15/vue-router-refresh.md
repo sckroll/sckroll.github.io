@@ -1,8 +1,6 @@
 ---
 title: Vue-router의 현재 경로에서 새로고침하는 방법
 description: TIL 210321
-img: https://picsum.photos/id/4/300/200
-alt: Vue-router의 현재 경로에서 새로고침하는 방법
 tags: [TIL, frontend, vue, vue-router, javascript, js]
 ---
 

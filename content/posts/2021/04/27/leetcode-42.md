@@ -1,8 +1,6 @@
 ---
 title: LeetCode 42번 문제
 description: Trapping Rain Water
-img: https://picsum.photos/id/15/300/200
-alt: LeetCode 42번 문제
 tags: [algorithm, python, leetcode, array]
 ---
 

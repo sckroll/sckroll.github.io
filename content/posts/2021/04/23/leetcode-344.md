@@ -1,8 +1,6 @@
 ---
 title: LeetCode 344번 문제
 description: Reverse String
-img: https://picsum.photos/id/8/300/200
-alt: LeetCode 344번 문제
 tags: [algorithm, python, leetcode, string]
 ---
 

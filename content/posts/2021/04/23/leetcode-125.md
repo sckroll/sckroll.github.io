@@ -1,8 +1,6 @@
 ---
 title: LeetCode 125번 문제
 description: Valid Palindrome
-img: https://picsum.photos/id/7/300/200
-alt: LeetCode 125번 문제
 tags: [algorithm, python, leetcode, string]
 ---
 

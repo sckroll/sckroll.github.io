@@ -1,8 +1,6 @@
 ---
 title: LeetCode 15번 문제
 description: 3Sum
-img: https://picsum.photos/id/16/300/200
-alt: LeetCode 15번 문제
 tags: [algorithm, python, leetcode, array]
 ---
 

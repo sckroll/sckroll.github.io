@@ -1,8 +1,6 @@
 ---
 title: Mongoose __v 필드
 description: TIL 210318
-img: https://picsum.photos/id/3/300/200
-alt: Mongoose __v 필드
 tags: [TIL, backend, database, db, mongodb, mongoose]
 ---
 

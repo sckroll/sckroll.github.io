@@ -1,8 +1,6 @@
 ---
 title: Vue에서 props로 객체를 받을 때 default 값 정의
 description: TIL 210323
-img: https://picsum.photos/id/5/300/200
-alt: Vue에서 props로 객체를 받을 때 default 값 정의
 tags: [TIL, frontend, vue, vue-router, javascript, js]
 ---
 

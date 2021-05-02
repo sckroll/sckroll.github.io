@@ -1,8 +1,6 @@
 ---
 title: Nuxt에서 SCSS 사용하는 방법
 description: TIL 210424
-img: https://picsum.photos/id/11/300/200
-alt: Nuxt에서 SCSS 사용하는 방법
 tags: [TIL, frontend, vue, nuxt, scss]
 ---
 
