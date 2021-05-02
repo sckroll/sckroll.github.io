@@ -6,13 +6,10 @@
     <section class="post-article">
       <article class="post-article-wrapper">
         <div class="post-img-wrapper">
-          <img
-            :src="post.img"
-            :alt="post.alt"
+          <div
             class="post-img"
-            draggable="false"
-            onContextMenu="return false"
-          />
+            :style="`background: ${getPattern(post.title)};`"
+          ></div>
           <div class="post-img-overlay"></div>
           <div class="post-info-main">
             <div class="post-info-main-wrapper">
@@ -23,7 +20,7 @@
         </div>
         <div class="post-info-sub">
           <div class="post-info-sub-wrapper">
-            <div v-for="tag in post.tags" :key="tag" class="tags">
+            <div v-for="tag in post.tags.split(', ')" :key="tag" class="tags">
               <span class="single-tag">#{{ tag }}</span>
             </div>
             <div class="posted-date">
@@ -93,6 +90,8 @@
 </template>
 
 <script>
+import GeoPattern from 'geopattern'
+
 export default {
   async asyncData({ $content, params, error }) {
     try {
@@ -142,6 +141,9 @@ export default {
       )
       return updatedDate - createdDate
     },
+    getPattern(title) {
+      return GeoPattern.generate(title).toDataUrl()
+    },
   },
 }
 </script>
@@ -176,7 +178,6 @@ export default {
 .post-img {
   width: inherit;
   height: inherit;
-  object-fit: cover;
 }
 
 .post-info-main {

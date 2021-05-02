@@ -2,7 +2,6 @@
   <nuxt-link :to="{ path: `posts/${post.slug}` }" class="post-link">
     <div class="preview-container">
       <div
-        ref="pattern"
         class="preview-img"
         :style="`background: ${getPattern(post.title)};`"
       ></div>
@@ -71,7 +70,8 @@ export default {
       }
       return title
     },
-    trimTags(tags) {
+    trimTags(tagStr) {
+      const tags = tagStr.split(', ')
       if (tags.length > this.maxTagsLength) {
         return tags.slice(0, this.maxTagsLength)
       }
