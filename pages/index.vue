@@ -27,7 +27,7 @@ export default {
 .landing-header {
   display: flex;
   justify-content: center;
-  background-image: url('/landingPageImg.jpg');
+  background-image: url('/images/sckroll-main-image.jpg');
   background-size: cover;
   background-position-y: 95%;
   height: 700px;
