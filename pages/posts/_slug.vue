@@ -35,21 +35,14 @@
           </div>
         </div>
         <nav v-if="post.toc.length > 0" class="post-toc">
+          <div class="post-toc-toggle" @click="toggleToc"></div>
           <div class="post-toc-wrapper">
             <div class="toc-header">
-              <h4>목차</h4>
-              <span
-                v-if="isTocExpanded"
-                class="toc-expand-button"
-                @click="isTocExpanded = false"
-              >
+              <div>목차</div>
+              <span v-if="isTocExpanded" class="toc-expand-button">
                 <fa-icon :icon="['fa', 'chevron-up']" class="toc-expand-icon" />
               </span>
-              <span
-                v-else
-                class="toc-reduce-button"
-                @click="isTocExpanded = true"
-              >
+              <span v-else class="toc-reduce-button">
                 <fa-icon
                   :icon="['fa', 'chevron-down']"
                   class="toc-expand-icon"
@@ -57,23 +50,18 @@
               </span>
             </div>
             <div v-if="isTocExpanded" class="toc-main">
-              <ul v-for="link of post.toc" :key="link.id" class="toc-list">
-                <li v-if="link.depth === 2" class="toc-link-2">
-                  <nuxt-link :to="`#${link.id}`">
-                    {{ link.text }}
-                  </nuxt-link>
-                </li>
-                <li v-else-if="link.depth === 3" class="toc-link-3">
-                  <nuxt-link :to="`#${link.id}`">
-                    {{ link.text }}
-                  </nuxt-link>
-                </li>
-                <li v-else class="toc-link-4">
-                  <nuxt-link :to="`#${link.id}`">
-                    {{ link.text }}
-                  </nuxt-link>
-                </li>
-              </ul>
+              <nuxt-link
+                v-for="link of post.toc"
+                :key="link.id"
+                class="toc-list"
+                :to="`#${link.id}`"
+              >
+                <div
+                  :class="{ toc2: link.depth === 2, toc3: link.depth === 3 }"
+                >
+                  {{ link.text }}
+                </div>
+              </nuxt-link>
             </div>
           </div>
         </nav>
@@ -116,6 +104,15 @@ export default {
       isTocExpanded: true,
     }
   },
+  mounted() {
+    const isTocOpened = localStorage.getItem('sckrollTocState')
+    if (isTocOpened && isTocOpened !== 'true') {
+      this.isTocExpanded = false
+    } else {
+      localStorage.setItem('sckrollTocState', true)
+    }
+    console.log(this.post.toc)
+  },
   methods: {
     formatDate(date) {
       const options = {
@@ -143,6 +140,10 @@ export default {
     },
     getPattern(title) {
       return GeoPattern.generate(title).toDataUrl()
+    },
+    toggleToc() {
+      this.isTocExpanded = !this.isTocExpanded
+      localStorage.setItem('sckrollTocState', this.isTocExpanded)
     },
   },
 }
@@ -239,6 +240,19 @@ export default {
   background-color: #eeeeee;
 }
 
+.post-toc-toggle {
+  position: absolute;
+  width: 100%;
+  height: 53px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.post-toc-toggle:hover {
+  background-color: #00000022;
+  transition: all 0.2s ease;
+}
+
 .post-container {
   position: relative;
   display: flex;
@@ -257,8 +271,11 @@ export default {
   justify-content: space-between;
 }
 
-.toc-header h4 {
+.toc-header div {
   margin: 5px 0;
+  font-size: 20px;
+  font-family: 'NanumSquare', sans-serif;
+  font-weight: 600;
 }
 
 .toc-expand-button,
@@ -267,29 +284,29 @@ export default {
   cursor: pointer;
 }
 
-.toc-list {
-  padding: 5px 0 5px 20px;
-  width: 50%;
-  transition: all 0.1s ease;
+.toc-main {
+  margin-top: 13px;
 }
 
-.toc-list:hover {
-  background-color: #eeeeee;
-  transition: all 0.1s ease;
+.toc-list > div {
+  margin: 5px 0;
+  padding: 3px 0 3px 20px;
 }
 
-.toc-link-2 {
-  list-style-type: square;
+.toc-list:hover .toc2,
+.toc-list:hover .toc3 {
+  background-color: #cccccc;
+  transition: all 0.2s ease;
 }
 
-.toc-link-3 {
-  margin-left: 2em;
-  list-style-type: disc;
+.toc2 {
+  list-style: none;
+  transition: all 0.2s ease;
 }
 
-.toc-link-4 {
-  margin-left: 4em;
-  list-style-type: circle;
+.toc3 {
+  list-style: none;
+  transition: all 0.2s ease;
 }
 
 .post-content {
