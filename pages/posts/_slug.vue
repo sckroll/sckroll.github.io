@@ -34,37 +34,7 @@
             </div>
           </div>
         </div>
-        <nav v-if="post.toc.length > 0" class="post-toc">
-          <div class="post-toc-toggle" @click="toggleToc"></div>
-          <div class="post-toc-wrapper">
-            <div class="toc-header">
-              <div>목차</div>
-              <span v-if="isTocExpanded" class="toc-expand-button">
-                <fa-icon :icon="['fa', 'chevron-up']" class="toc-expand-icon" />
-              </span>
-              <span v-else class="toc-reduce-button">
-                <fa-icon
-                  :icon="['fa', 'chevron-down']"
-                  class="toc-expand-icon"
-                />
-              </span>
-            </div>
-            <div v-if="isTocExpanded" class="toc-main">
-              <nuxt-link
-                v-for="link of post.toc"
-                :key="link.id"
-                class="toc-list"
-                :to="`#${link.id}`"
-              >
-                <div
-                  :class="{ toc2: link.depth === 2, toc3: link.depth === 3 }"
-                >
-                  {{ link.text }}
-                </div>
-              </nuxt-link>
-            </div>
-          </div>
-        </nav>
+        <post-toc v-if="post.toc.length > 1" :toc="post.toc" />
         <div class="post-container">
           <div class="post-content">
             <nuxt-content class="post-content-wrapper" :document="post" />
@@ -99,20 +69,6 @@ export default {
       error({ statusCode: 404 })
     }
   },
-  data() {
-    return {
-      isTocExpanded: true,
-    }
-  },
-  mounted() {
-    const isTocOpened = localStorage.getItem('sckrollTocState')
-    if (isTocOpened && isTocOpened !== 'true') {
-      this.isTocExpanded = false
-    } else {
-      localStorage.setItem('sckrollTocState', true)
-    }
-    console.log(this.post.toc)
-  },
   methods: {
     formatDate(date) {
       const options = {
@@ -140,10 +96,6 @@ export default {
     },
     getPattern(title) {
       return GeoPattern.generate(title).toDataUrl()
-    },
-    toggleToc() {
-      this.isTocExpanded = !this.isTocExpanded
-      localStorage.setItem('sckrollTocState', this.isTocExpanded)
     },
   },
 }
@@ -232,81 +184,11 @@ export default {
   float: right;
 }
 
-.post-toc {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  width: 100%;
-  background-color: #eeeeee;
-}
-
-.post-toc-toggle {
-  position: absolute;
-  width: 100%;
-  height: 53px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.post-toc-toggle:hover {
-  background-color: #00000022;
-  transition: all 0.2s ease;
-}
-
 .post-container {
   position: relative;
   display: flex;
   justify-content: center;
   width: 100%;
-}
-
-.post-toc-wrapper {
-  width: var(--container-xl);
-  padding: 10px 30px;
-}
-
-.toc-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.toc-header div {
-  margin: 5px 0;
-  font-size: 20px;
-  font-family: 'NanumSquare', sans-serif;
-  font-weight: 600;
-}
-
-.toc-expand-button,
-.toc-reduce-button {
-  font-size: 24px;
-  cursor: pointer;
-}
-
-.toc-main {
-  margin-top: 13px;
-}
-
-.toc-list > div {
-  margin: 5px 0;
-  padding: 3px 0 3px 20px;
-}
-
-.toc-list:hover .toc2,
-.toc-list:hover .toc3 {
-  background-color: #cccccc;
-  transition: all 0.2s ease;
-}
-
-.toc2 {
-  list-style: none;
-  transition: all 0.2s ease;
-}
-
-.toc3 {
-  list-style: none;
-  transition: all 0.2s ease;
 }
 
 .post-content {
@@ -339,7 +221,6 @@ export default {
 @media screen and (max-width: 1200px) {
   .post-info-main-wrapper,
   .post-info-sub-wrapper,
-  .post-toc-wrapper,
   .post-content {
     width: var(--container-lg);
   }
@@ -348,7 +229,6 @@ export default {
 @media screen and (max-width: 992px) {
   .post-info-main-wrapper,
   .post-info-sub-wrapper,
-  .post-toc-wrapper,
   .post-content {
     width: var(--container-md);
   }
@@ -357,7 +237,6 @@ export default {
 @media screen and (max-width: 768px) {
   .post-info-main-wrapper,
   .post-info-sub-wrapper,
-  .post-toc-wrapper,
   .post-content {
     width: var(--container-sm);
   }
