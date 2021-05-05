@@ -6,7 +6,7 @@ tags: algorithm, python, leetcode, linked_list
 
 ### 문제 링크
 
-https://leetcode.com/problems/merge-two-sorted-lists/submissions/
+https://leetcode.com/problems/merge-two-sorted-lists/
 
 ### 나의 풀이
 
