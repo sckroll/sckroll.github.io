@@ -50,7 +50,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .post-list-container {
   width: var(--container-xl);
   padding: 0 30px;

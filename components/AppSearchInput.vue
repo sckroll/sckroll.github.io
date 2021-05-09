@@ -83,7 +83,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .search-input {
   display: flex;
   align-items: center;

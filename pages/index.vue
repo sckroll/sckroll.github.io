@@ -23,7 +23,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .landing-header {
   display: flex;
   justify-content: center;

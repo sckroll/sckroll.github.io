@@ -11,7 +11,7 @@
   </div>
 </template>
 
-<style>
+<style lang="scss">
 .temp {
   display: flex;
   align-items: center;

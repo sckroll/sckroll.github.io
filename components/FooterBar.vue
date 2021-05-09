@@ -22,7 +22,7 @@
   </footer>
 </template>
 
-<style>
+<style lang="scss">
 .footer-bar {
   display: flex;
   justify-content: center;

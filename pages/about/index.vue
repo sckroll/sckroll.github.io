@@ -53,7 +53,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .emphasized {
   background-color: #000000;
   color: #ffffff;

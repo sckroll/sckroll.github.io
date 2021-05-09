@@ -57,7 +57,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .post-toc {
   position: relative;
   display: flex;

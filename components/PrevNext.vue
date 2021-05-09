@@ -73,7 +73,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .prev-next-nav {
   display: flex;
   justify-content: center;

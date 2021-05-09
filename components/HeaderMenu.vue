@@ -28,7 +28,7 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 .header-wrapper {
   overflow: hidden;
   display: flex;

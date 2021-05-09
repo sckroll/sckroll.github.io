@@ -15,7 +15,7 @@
   </nav>
 </template>
 
-<style>
+<style lang="scss">
 .nav-menu {
   position: relative;
   top: 5px;
