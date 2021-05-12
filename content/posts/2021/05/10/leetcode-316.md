@@ -15,39 +15,22 @@ https://leetcode.com/problems/remove-duplicate-letters/
 
 ```python
 class Solution:
-    stack = []
-    for char in s:
-        # 1. 스택의 마지막 원소보다 사전적 순서가 앞인가?
-        while stack:
-            if stack[-1] > char and char not in stack:
-                stack.pop()
-            else:
-                break
-        # 2. 해당 글자가 스택에 이미 존재하는가?
-        if char not in stack:
-            stack.append(char)
-    return ''.join(stack)
+    def my_solution(self, s: str) -> str:
+        stack = []
+        for char in s:
+            # 1. 스택의 마지막 원소보다 사전적 순서가 앞인가?
+            while stack:
+                if stack[-1] > char and char not in stack:
+                    stack.pop()
+                else:
+                    break
+            # 2. 해당 글자가 스택에 이미 존재하는가?
+            if char not in stack:
+                stack.append(char)
+        return ''.join(stack)
 ```
 
 ### 문제 풀이
-
-#### 1. 재귀를 이용한 분리
-
-- 일종의 분할 정복과 백트래킹을 응용하여 해결할 수 있다.
-
-```python
-class Solution:
-    def solution1(self, s: str) -> str:
-        # 집합으로 정렬 (집합도 sorted()로 정렬할 수 있음)
-        for char in sorted(set(s)):
-            # 해당 문자를 포함한 이후의 모든 문자를 접미사로 지정
-            suffix = s[s.index(char):]
-            # 전체 집합과 접미사 집합이 일치할 때 분리 진행
-            if set(s) == set(suffix):
-                # 기준점 문자는 이미 사용되었으므로 replace()로 제거 후 재귀 수행
-                return char + self.solution1(suffix.replace(char, ''))
-        return ''
-```
 
 #### 1. 재귀를 이용한 분리
 
