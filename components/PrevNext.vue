@@ -1,6 +1,6 @@
 <template>
   <div class="prev-next-nav">
-    <div class="wrapper">
+    <div class="wrapper viewpoint">
       <span class="post-link">
         <span class="post-label">&lt; 다음 |</span>
         <nuxt-link v-if="next" :to="{ path: next.slug }">{{
@@ -35,6 +35,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@include set-viewpoint;
+
 .prev-next-nav {
   display: flex;
   justify-content: center;
@@ -48,30 +50,6 @@ export default {
   font-family: 'NanumSquare', sans-serif;
   font-size: 20px;
   line-height: 130%;
-}
-
-@include viewpoint-xl {
-  .wrapper {
-    width: $breakpoint-xl;
-  }
-}
-
-@include viewpoint-lg {
-  .wrapper {
-    width: $breakpoint-lg;
-  }
-}
-
-@include viewpoint-md {
-  .wrapper {
-    width: $breakpoint-md;
-  }
-}
-
-@include viewpoint-sm {
-  .wrapper {
-    width: $breakpoint-sm;
-  }
 }
 
 .post-link {

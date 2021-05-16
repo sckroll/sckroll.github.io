@@ -29,3 +29,29 @@
     @content;
   }
 }
+
+@mixin set-viewpoint {
+  @include viewpoint-xl {
+    .viewpoint {
+      width: $breakpoint-xl;
+    }
+  }
+
+  @include viewpoint-lg {
+    .viewpoint {
+      width: $breakpoint-lg;
+    }
+  }
+
+  @include viewpoint-md {
+    .viewpoint {
+      width: $breakpoint-md;
+    }
+  }
+
+  @include viewpoint-sm {
+    .viewpoint {
+      width: $breakpoint-sm;
+    }
+  }
+}
