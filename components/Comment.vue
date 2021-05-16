@@ -25,38 +25,39 @@ export default {
 
 <style lang="scss">
 .comment-container {
-  position: relative;
   display: flex;
   justify-content: center;
 }
 
 .comment-center {
-  width: var(--container-xl);
   padding: 0 30px;
+}
+
+@include viewpoint-xl {
+  .comment-center {
+    width: $breakpoint-xl;
+  }
+}
+
+@include viewpoint-lg {
+  .comment-center {
+    width: $breakpoint-lg;
+  }
+}
+
+@include viewpoint-md {
+  .comment-center {
+    width: $breakpoint-md;
+  }
+}
+
+@include viewpoint-sm {
+  .comment-center {
+    width: $breakpoint-sm;
+  }
 }
 
 .utterances {
   max-width: 100%;
-}
-
-@media screen and (max-width: 1200px) {
-  .comment-center {
-    width: var(--container-lg);
-  }
-}
-
-@media screen and (max-width: 992px) {
-  .comment-center {
-    width: var(--container-md);
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .comment-center {
-    width: var(--container-sm);
-  }
-}
-
-@media screen and (max-width: 576px) {
 }
 </style>
