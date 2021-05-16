@@ -4,11 +4,11 @@ description: Daily Temperatures
 tags: algorithm, python, leetcode, stack
 ---
 
-### 문제 링크
+## 문제 링크
 
 https://leetcode.com/problems/daily-temperatures/
 
-### 나의 풀이
+## 나의 풀이
 
 ```python
 from typing import List
@@ -30,9 +30,9 @@ class Solution:
         return result
 ```
 
-### 문제 풀이
+## 문제 풀이
 
-#### 스택 값 비교
+### 스택 값 비교
 
 ```python
 class Solution:
@@ -48,7 +48,7 @@ class Solution:
         return answer
 ```
 
-### 출처
+## 출처
 
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p252-254.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)

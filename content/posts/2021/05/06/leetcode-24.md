@@ -4,11 +4,11 @@ description: Swap Nodes in Pairs
 tags: algorithm, python, leetcode, linked_list
 ---
 
-### 문제 링크
+## 문제 링크
 
 https://leetcode.com/problems/swap-nodes-in-pairs/
 
-### 나의 풀이
+## 나의 풀이
 
 ```python
 class ListNode:
@@ -43,9 +43,9 @@ class Solution:
         return root
 ```
 
-### 문제 풀이
+## 문제 풀이
 
-#### 1. 값만 교환
+### 1. 값만 교환
 
 - 원래 의도와는 맞지 않는 변칙적인 풀이법이므로 추천하지 않는 풀이법이다.
 
@@ -68,7 +68,7 @@ class Solution:
         return head
 ```
 
-#### 2. 반복 구조로 스왑
+### 2. 반복 구조로 스왑
 
 ```python
 class ListNode:
@@ -96,7 +96,7 @@ class Solution:
         return root.next
 ```
 
-#### 3. 재귀 구조로 스왑
+### 3. 재귀 구조로 스왑
 
 - 2번 풀이에 비해 공간 복잡도가 낮은 방법이다.
 - 최종적으로는 백트래킹되면서 연결 리스트가 이어지게 된다.
@@ -120,7 +120,7 @@ class Solution:
         return head
 ```
 
-### 출처
+## 출처
 
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p229-232.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)

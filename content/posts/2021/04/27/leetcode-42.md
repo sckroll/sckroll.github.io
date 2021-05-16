@@ -4,11 +4,11 @@ description: Trapping Rain Water
 tags: algorithm, python, leetcode, array
 ---
 
-### 문제 링크
+## 문제 링크
 
 https://leetcode.com/problems/trapping-rain-water/
 
-### 나의 풀이
+## 나의 풀이
 
 ```python
 from typing import List
@@ -55,9 +55,9 @@ class Solution:
         return total
 ```
 
-### 문제 풀이
+## 문제 풀이
 
-#### 1. 투 포인터를 최대로 이동
+### 1. 투 포인터를 최대로 이동
 
 - 시간 복잡도는 $O(n)$이다.
 
@@ -89,7 +89,7 @@ class Solution:
         return volume
 ```
 
-#### 2. 투 포인터를 최대로 이동
+### 2. 투 포인터를 최대로 이동
 
 - 시간 복잡도는 $O(n)$이지만, 투 포인터 방식보다 실행 시간이 조금 더 걸린다.
 
@@ -120,7 +120,7 @@ class Solution:
         return volume
 ```
 
-### 출처
+## 출처
 
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p153-158.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)

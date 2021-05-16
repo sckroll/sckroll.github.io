@@ -4,11 +4,11 @@ description: Odd Even Linked List
 tags: algorithm, python, leetcode, linked_list
 ---
 
-### 문제 링크
+## 문제 링크
 
 https://leetcode.com/problems/odd-even-linked-list/
 
-### 나의 풀이
+## 나의 풀이
 
 ```python
 class ListNode:
@@ -51,9 +51,9 @@ class Solution:
         return odd_root
 ```
 
-### 문제 풀이
+## 문제 풀이
 
-#### 반복 구조로 홀짝 노드 처리
+### 반복 구조로 홀짝 노드 처리
 
 - 사용된 변수(`odd`, `even`, `even_head`)는 `n`의 크기에 관계 없이 항상 일정하게 사용되므로 공간 복잡도 $O(1)$을 만족한다.
 
@@ -84,7 +84,7 @@ class Solution:
         return head
 ```
 
-### 출처
+## 출처
 
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p233-236.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)

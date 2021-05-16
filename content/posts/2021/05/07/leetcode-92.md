@@ -4,11 +4,11 @@ description: Reverse Linked List II
 tags: algorithm, python, leetcode, linked_list
 ---
 
-### 문제 링크
+## 문제 링크
 
 https://leetcode.com/problems/reverse-linked-list-ii/
 
-### 나의 풀이
+## 나의 풀이
 
 ```python
 class ListNode:
@@ -45,9 +45,9 @@ class Solution:
         return head
 ```
 
-### 문제 풀이
+## 문제 풀이
 
-#### 반복 구조로 노드 뒤집기
+### 반복 구조로 노드 뒤집기
 
 ```python
 class ListNode:
@@ -77,7 +77,7 @@ class Solution:
         return root.next
 ```
 
-### 출처
+## 출처
 
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p237-239.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)

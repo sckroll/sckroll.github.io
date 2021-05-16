@@ -4,11 +4,11 @@ description: Implement Stack using Queues
 tags: algorithm, python, leetcode, queue, stack
 ---
 
-### 문제 링크
+## 문제 링크
 
 https://leetcode.com/problems/implement-stack-using-queues/
 
-### 나의 풀이
+## 나의 풀이
 
 - 문제에서 오직 두 개의 큐를 사용해서 스택을 구현하라길래 Deque를 두 개 사용하여 풀었다.
 - 큐의 기본 연산인 `뒤에서 push`, `앞에서 pop`만 사용했으며, `len()` 함수 대신 스택의 원소 개수를 변수에 저장하여 `empty()` 메소드를 구현하였다.
@@ -50,9 +50,9 @@ class MyStack:
         return value
 ```
 
-### 문제 풀이
+## 문제 풀이
 
-#### `push()` 할 떄 큐를 이용해 재정렬
+### `push()` 할 떄 큐를 이용해 재정렬
 
 - 요소 삽입 시 시간 복잡도가 $O(n)$이다.
 - 위의 풀이보다는 비교적 간단하게 구현할 수 있다.
@@ -79,7 +79,7 @@ class solution1:
         return len(self.q) == 0
 ```
 
-### 출처
+## 출처
 
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p255-256.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)

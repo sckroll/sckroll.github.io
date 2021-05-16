@@ -4,11 +4,11 @@ description: Design Circular Queue
 tags: algorithm, python, leetcode, queue, circular_queue
 ---
 
-### 문제 링크
+## 문제 링크
 
 https://leetcode.com/problems/design-circular-queue/
 
-### 나의 풀이
+## 나의 풀이
 
 - 원형 큐(환형 큐, 링 버퍼)를 구현하는 데 사용한 큐는 데크를 사용하였다.
 
@@ -51,9 +51,9 @@ class MyCircularQueue:
         return len(self.queue) == self.max
 ```
 
-### 문제 풀이
+## 문제 풀이
 
-#### 배열을 이용한 풀이
+### 배열을 이용한 풀이
 
 - 원형 큐(환형 큐, 링 버퍼)의 원리는 투 포인터 방법과 유사하다.
 - 배열로 구현하면 공간을 재활용한다는 원형 큐의 이점을 누릴 수 있다.
@@ -105,7 +105,7 @@ class solution1:
         return self.front == self.rear and self.q[self.front] is not None
 ```
 
-### 출처
+## 출처
 
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p259-263.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)

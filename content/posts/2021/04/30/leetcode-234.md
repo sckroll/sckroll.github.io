@@ -4,11 +4,11 @@ description: Palindrome Linked List
 tags: algorithm, python, leetcode, linked_list
 ---
 
-### 문제 링크
+## 문제 링크
 
 https://leetcode.com/problems/palindrome-linked-list/
 
-### 나의 풀이
+## 나의 풀이
 
 ```python
 class ListNode:
@@ -30,9 +30,9 @@ class Solution:
         return nums == nums[::-1]
 ```
 
-### 문제 풀이
+## 문제 풀이
 
-#### 1. 리스트 변환
+### 1. 리스트 변환
 
 - 리스트의 `pop()` 함수를 이용하여 문제를 해결할 수 있다.
 
@@ -67,7 +67,7 @@ class Solution:
         return True
 ```
 
-#### 2. 데크(Deque)를 이용한 최적화
+### 2. 데크(Deque)를 이용한 최적화
 
 - 풀이 1에서 `pop(0)`을 하는 과정의 시간 복잡도가 $O(n)$이기 때문에, 데크를 사용하여 이를 $O(1)$으로 단축시킬 수 있다.
 
@@ -105,7 +105,7 @@ class Solution:
         return True
 ```
 
-#### 3. 런너(Runner) 기법을 이용한 풀이
+### 3. 런너(Runner) 기법을 이용한 풀이
 
 - 런너 기법에 대한 설명은 하단 참고
 
@@ -145,7 +145,7 @@ class Solution:
         return not rev
 ```
 
-### 배운 점
+## 배운 점
 
 - 런너(Runner) 기법
   - 연결 리스트를 순회할 때 **2개의 포인터**를 동시에 사용하는 기법이다.
@@ -230,7 +230,7 @@ class Solution:
     ```
 - 문제를 풀긴 풀었으나, 제출도 안한 상태에서 좀 더 효율적인 알고리즘을 찾는다고 시간만 끄는 경향이 있는 것 같다. 괜히 시간만 낭비하는 것 같으니 정말 모를 땐 빠르게 넘어가는 것이 좋겠다.
 
-### 출처
+## 출처
 
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p201-212.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)

@@ -4,11 +4,11 @@ description: Best Time to Buy and Sell Stock
 tags: algorithm, python, leetcode, array
 ---
 
-### 문제 링크
+## 문제 링크
 
 https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
-### 나의 풀이
+## 나의 풀이
 
 ```python
 from typing import List
@@ -28,9 +28,9 @@ class Solution:
         return profit
 ```
 
-### 문제 풀이
+## 문제 풀이
 
-#### 1. 브루트 포스로 계산 (풀이 불가)
+### 1. 브루트 포스로 계산 (풀이 불가)
 
 - 시간 복잡도는 $O(n^2)$이지만, 제출 시 시간 초과로 인하여 오답 처리가 된다.
 
@@ -49,7 +49,7 @@ class Solution:
         return max_price
 ```
 
-#### 2. 저점과 현재 값과의 차이 계산
+### 2. 저점과 현재 값과의 차이 계산
 
 - 시간 복잡도는 $O(n)$이다.
 
@@ -71,7 +71,7 @@ class Solution:
         return profit
 ```
 
-### 배운 점
+## 배운 점
 
 - 최댓값과 최솟값의 초깃값을 지정하는 방법은 다음과 같다.
   1. `sys.maxsize`, `-sys.maxsize`: 시스템이 지정할 수 있는 가장 높은 값과 낮은 값을 활용할 수 있다.
@@ -79,7 +79,7 @@ class Solution:
   2. `float('inf')`, `float('-inf')`: 파이썬의 무한대(`inf`) 값을 사용할 수 있다.
   3. `999999`와 같이 임의의 값을 최댓값이나 최솟값으로 지정하는 방법은 지양해야 한다. 하지만 코딩 테스트에서 입력값의 제약 조건이 제공된다면(ex: `0 <= prices[i] <= 10^4`) 그에 맞춰서 최댓값과 최솟값을 지정할 수 있다.
 
-### 출처
+## 출처
 
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p193-198.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)

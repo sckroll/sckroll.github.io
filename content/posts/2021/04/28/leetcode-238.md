@@ -4,11 +4,11 @@ description: Product of Array Except Self
 tags: algorithm, python, leetcode, array
 ---
 
-### 문제 링크
+## 문제 링크
 
 https://leetcode.com/problems/product-of-array-except-self/
 
-### 나의 풀이
+## 나의 풀이
 
 - 나눗셈을 하지 않고 $O(n)$에 푸는 제약 사항이 있었지만 지키지 않았다. 하지만 제출할 땐 아무 문제가 없었다.
 
@@ -38,9 +38,9 @@ class Solution:
         return answer
 ```
 
-### 문제 풀이
+## 문제 풀이
 
-#### 왼쪽 곱셈 결과에 오른쪽 값을 차례대로 곱셈
+### 왼쪽 곱셈 결과에 오른쪽 값을 차례대로 곱셈
 
 - 별도의 리스트 변수를 만들지 않고 결과값을 저장할 리스트를 재활용함으로써 공간 복잡도를 $O(1)$로 줄일 수 있다.
 - 값을 `1`부터 시작, 자신의 왼쪽에 있는 모든 원소를 곱하여 `out` 리스트에 저장한다.
@@ -81,7 +81,7 @@ class Solution:
 ```
 
 
-### 출처
+## 출처
 
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p193-194.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)

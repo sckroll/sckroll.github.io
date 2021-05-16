@@ -4,11 +4,11 @@ description: Array Partition I
 tags: algorithm, python, leetcode, array
 ---
 
-### 문제 링크
+## 문제 링크
 
 https://leetcode.com/problems/array-partition-i/
 
-### 나의 풀이
+## 나의 풀이
 
 ```python
 from typing import List
@@ -23,9 +23,9 @@ class Solution:
         return result
 ```
 
-### 문제 풀이
+## 문제 풀이
 
-#### 1. 오름차순 풀이
+### 1. 오름차순 풀이
 
 - 정렬된 상태에서 앞에서부터 오름차순으로 인접 요소 페어를 생성하며, 이 페어들의 합이 곧 만들 수 있는 최대 합이 된다.
 
@@ -49,7 +49,7 @@ class Solution:
         return result
 ```
 
-#### 2. 짝수 번째 값 계산
+### 2. 짝수 번째 값 계산
 
 - 정렬된 상태에서는 두 수씩 페어로 묶을 때 짝수 번째 인덱스에 항상 작은 값이 위치하고 있다는 점을 이용한 풀이법이다.
 
@@ -70,7 +70,7 @@ class Solution:
         return result
 ```
 
-### 3. 파이썬다운 방식
+## 3. 파이썬다운 방식
 
 - 더 이상의 자세한 설명은 생략한다.
 
@@ -83,7 +83,7 @@ class Solution:
         return sum(sorted(nums)[::2])
 ```
 
-### 출처
+## 출처
 
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p190-192.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)

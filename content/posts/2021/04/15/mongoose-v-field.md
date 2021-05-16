@@ -12,7 +12,7 @@ Mongoose의 각 도큐먼트마다 붙는 `__v` 필드(기본값: `0`)는 **버�
 
 스키마를 생성할 때 옵션으로 `{ versionKey: 버전키이름 }` 값을 넣어 `__v`가 아닌 다른 이름으로 바꿀 수 있으며, `{ versionKey: false }` 옵션을 주면 자동으로 `__v` 필드가 붙지 않는다.
 
-### 출처
+## 출처
 
 - https://mongoosejs.com/docs/guide.html#versionKey
 - https://intellipaat.com/community/27868/what-is-the-v-field-in-mongoose

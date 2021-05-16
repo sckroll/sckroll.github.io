@@ -4,11 +4,11 @@ description: Implement Queue using Stacks
 tags: algorithm, python, leetcode, queue, stack
 ---
 
-### 문제 링크
+## 문제 링크
 
 https://leetcode.com/problems/implement-queue-using-stacks/
 
-### 나의 풀이
+## 나의 풀이
 
 - 전반적으로 225번 문제와 유사하다. 차이점이 있다면 Deque 대신 파이썬 리스트(스택)으로 큐를 구현하는 것이다.
 
@@ -44,9 +44,9 @@ class MyQueue:
         return self.length == 0
 ```
 
-### 문제 풀이
+## 문제 풀이
 
-#### 스택 2개 사용
+### 스택 2개 사용
 
 - `push()`는 `input` 스택에만 저장한다.
 - `peek()`는 `output` 스택의 마지막 원소, 즉 가장 위의 값만 사용하면 되므로 `input` 스택에 어떤 원소가 push되든 `output` 스택만 사용한다.
@@ -76,7 +76,7 @@ class solution1:
         return self.input == [] and self.output == []
 ```
 
-### 출처
+## 출처
 
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p257-258.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)

@@ -4,11 +4,11 @@ description: Add Two Numbers
 tags: algorithm, python, leetcode, linked_list
 ---
 
-### 문제 링크
+## 문제 링크
 
 https://leetcode.com/problems/add-two-numbers/
 
-### 나의 풀이
+## 나의 풀이
 
 ```python
 class ListNode:
@@ -50,9 +50,9 @@ class Solution:
         return result
 ```
 
-### 문제 풀이
+## 문제 풀이
 
-#### 1. 자료형 변환
+### 1. 자료형 변환
 
 - 연결 리스트를 문자열로 이어 붙인 다음 숫자로 변환하고 이를 모두 계산한 다음 다시 연결 리스트로 변환한다면?
 - 풀이는 가능하나 여러모로 부족한 느낌이 든다...
@@ -102,7 +102,7 @@ class Solution:
         return to_reversed_linked_list(str(result_str))
 ```
 
-#### 2. 전가산기 구현
+### 2. 전가산기 구현
 
 ```python
 class ListNode:
@@ -136,7 +136,7 @@ class Solution:
         return root.next
 ```
 
-### 배운 점
+## 배운 점
 
 - 풀이 1번에서 숫자형 리스트를 문자형으로 바꿨다가 다시 숫자형으로 바꾸는 코드를 `functools.reduce()`를 통해 숫자형 리스트에서 바로 숫자형으로 바꿀 수 있다. `function` 모듈은 '함수를 다루는 함수'를 뜻하는 고계 함수(Higher-Order Function)를 지원하며, 리트코드에 기본적으로 임포트되어 있다.
   ```python
@@ -158,7 +158,7 @@ class Solution:
   ```
 - 풀이 2번의 내장 함수 `divmod(x, y)`는 `x`를 `y`로 나누었을 때 몫과 나머지로 구성된 튜플을 리턴한다. 즉, `(x // y, x % y)`와 같다.
 
-### 출처
+## 출처
 
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p221-228.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)

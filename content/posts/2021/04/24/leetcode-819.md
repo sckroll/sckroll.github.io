@@ -4,11 +4,11 @@ description: Most Common Word
 tags: algorithm, python, leetcode, string
 ---
 
-### 문제 링크
+## 문제 링크
 
 https://leetcode.com/problems/most-common-word/
 
-### 나의 풀이
+## 나의 풀이
 
 ```python
 from typing import List
@@ -32,9 +32,9 @@ class Solution:
         return max(counter.items(), key=lambda x: x[1])[0]
 ```
 
-### 문제 풀이
+## 문제 풀이
 
-#### 1. 리스트 컴프리헨션과 `defaultdict()` 사용
+### 1. 리스트 컴프리헨션과 `defaultdict()` 사용
 
 ```python
 from typing import List
@@ -56,7 +56,7 @@ class Solution:
         return max(counts, key=counts.get)
 ```
 
-#### 2. 리스트 컴프리헨션과 `Counter` 객체 사용
+### 2. 리스트 컴프리헨션과 `Counter` 객체 사용
 
 ```python
 from typing import List
@@ -76,7 +76,7 @@ class Solution:
         return counts.most_common(1)[0][0]
 ```
 
-### 배운 점
+## 배운 점
 
 - 정규식에서 `\w`는 단어 문자(Word Character)를 뜻하며, `^`은 `not`을 의미한다. 그리고 `re` 모듈의 `sub(pattern, repl, string)` 함수는 대상 문자열 `string`에 대해 정규식 `pattern`에 해당되는 문자들을 `repl`로 치환하는 역할을 한다.
   - 따라서 문제 풀이에 사용된 정규식은 단어 문자를 제외한 모든 문자(특수 문자)를 공백으로 치환하는 역할을 수행한다.
@@ -91,7 +91,7 @@ class Solution:
 - `collections.Counter()`를 사용하면 내가 풀었던 방법처럼 굳이 딕셔너리에 저장하면서 개수를 구할 필요가 없다. `Counter()`의 인수로 리스트 등을 넣어주면 각 항목의 개수를 알아서 구해주기 때문이다. 여기서 가장 높은 빈도로 등장하는 항목을 구하려면 `most_common(1)` 메소드를 사용하면 된다.
   - 이때 리스트에 들어 있는 튜플이 반환된다. (ex: `[('ball', 2)]`)
 
-### 출처
+## 출처
 
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p151-152.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)

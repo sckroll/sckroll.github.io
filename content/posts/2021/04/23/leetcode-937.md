@@ -4,11 +4,11 @@ description: Reorder Data in Log Files
 tags: algorithm, python, leetcode, string
 ---
 
-### 문제 링크
+## 문제 링크
 
 https://leetcode.com/problems/reorder-data-in-log-files/
 
-### 나의 풀이
+## 나의 풀이
 
 ```python
 from typing import List
@@ -30,9 +30,9 @@ class Solution:
         return result + dig
 ```
 
-### 문제 풀이
+## 문제 풀이
 
-#### 람다와 `+` 연산자를 사용하는 방법
+### 람다와 `+` 연산자를 사용하는 방법
 
 ```python
 from typing import List
@@ -57,7 +57,7 @@ class Solution:
         return letters + digits
 ```
 
-### 배운 점
+## 배운 점
 
 - 문자열이 숫자로 이루어져 있는지 판별하는 함수는 `isdecimal()`, `isdigit()`, `isnumeric()`이 있다.
   - `isdecimal()`: `0` ~ `9`로만 이루어진, `int`로 변환 가능한 숫자 문자인지 판단하는 함수
@@ -67,7 +67,7 @@ class Solution:
 - 람다 표현식에 들어가는 튜플은 첫 번째 요소부터 비교, 해당 요소가 같으면 다음 요소를 비교하는 방식으로 동작한다.
 - 리스트 간에도 `+` 연산자를 사용하여 두 리스트를 병합할 수 있다.
 
-### 출처
+## 출처
 
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p148-150.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)

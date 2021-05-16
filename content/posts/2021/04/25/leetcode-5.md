@@ -4,11 +4,11 @@ description: Longest Palindromic Substring
 tags: algorithm, python, leetcode, string
 ---
 
-### 문제 링크
+## 문제 링크
 
 https://leetcode.com/problems/longest-palindromic-substring/
 
-### 나의 풀이
+## 나의 풀이
 
 ```python
 class Solution:
@@ -25,9 +25,9 @@ class Solution:
                     return curr
 ```
 
-### 문제 풀이
+## 문제 풀이
 
-#### 중앙을 중심으로 확장하는 풀이 (투 포인터)
+### 중앙을 중심으로 확장하는 풀이 (투 포인터)
 
 - 최장 공통 부분 문자열(Longest Common Substring, LCS): 여러 개의 입력 문자열이 있을 때 서로 공통된 가장 긴 부분 문자열을 찾는 문제
   - 다이나믹 프로그래밍(DP)으로 풀 수 있지만, 덜 직관적이며 이 문제에서는 실행 속도가 더 늦기 때문에 투 포인터를 사용하여 문제를 풀었다.
@@ -61,7 +61,7 @@ class Solution:
         return result
 ```
 
-### 출처
+## 출처
 
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p159-165.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)

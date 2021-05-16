@@ -4,11 +4,11 @@ description: Valid Palindrome
 tags: algorithm, python, leetcode, string
 ---
 
-### 문제 링크
+## 문제 링크
 
 https://leetcode.com/problems/valid-palindrome/
 
-### 나의 풀이
+## 나의 풀이
 
 ```python
 class Solution:
@@ -22,9 +22,9 @@ class Solution:
         return string.lower() == string[::-1].lower()
 ```
 
-### 문제 풀이
+## 문제 풀이
 
-#### 1. 리스트로 변환하여 푸는 방법
+### 1. 리스트로 변환하여 푸는 방법
 
 ```python
 class Solution:
@@ -43,7 +43,7 @@ class Solution:
         return True
 ```
 
-#### 2. 데크(Deque)를 사용하여 푸는 방법
+### 2. 데크(Deque)를 사용하여 푸는 방법
 
 ```python
 from typing import Deque  # 데크 타입 힌트를 위해 추가
@@ -67,7 +67,7 @@ class Solution:
         return True
 ```
 
-#### 3. 슬라이싱을 사용하여 푸는 방법
+### 3. 슬라이싱을 사용하여 푸는 방법
 
 ```python
 import re
@@ -85,7 +85,7 @@ class Solution:
         return s == s[::-1]
 ```
 
-### 배운 점
+## 배운 점
 
 - 문자열 슬라이싱을 기준으로 한 파이썬 문자열 처리 실행 시간 순서는 다음과 같다. (빠름 -> 느림 순)
   > 슬라이싱 -> 리스트 reverse() -> reversed() + join() -> for 반복 -> while 반복 -> 재귀
@@ -99,7 +99,7 @@ class Solution:
 - `isalpha()`와 `isnumeric()`을 모두 사용할 필요 없이 `isalnum()` 하나만 쓰면 되는 것을 처음 알았다.
 - 간단한 정규 표현식(정규식)이라도 미리 익혀두면 나중에 상당히 도움이 될 것 같다.
 
-### 출처
+## 출처
 
 - 박상길, 『파이썬 알고리즘 인터뷰』, 책만(2020), p138-144.
   - [도서 정보](https://www.onlybook.co.kr/entry/algorithm-interview)
