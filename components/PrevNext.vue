@@ -53,14 +53,6 @@ export default {
 }
 
 .post-link {
-  .post-label {
-    font-weight: 700;
-  }
-
-  .post-empty {
-    color: #666666;
-  }
-
   a {
     padding: 5px 5px;
     transition: all 0.2s ease;
@@ -69,6 +61,13 @@ export default {
       background-color: #eeeeee;
       transition: all 0.2s ease;
     }
+  }
+
+  .post-label {
+    font-weight: 700;
+  }
+  .post-empty {
+    color: #666666;
   }
 }
 </style>
