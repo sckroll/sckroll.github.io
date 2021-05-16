@@ -86,6 +86,6 @@ export default {
   },
 
   styleResources: {
-    less: '~assets/scss/*.scss',
+    scss: '~assets/scss/*.scss',
   },
 }
