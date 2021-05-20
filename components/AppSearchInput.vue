@@ -6,30 +6,30 @@
       type="search"
       autocomplete="off"
       placeholder="포스트 검색"
-      class="search-input-box"
+      class="input-area"
     />
     <button
-      class="search-button"
-      :class="field === 'title' ? 'toggled' : ''"
+      class="btn-search"
+      :class="{ toggled: field === 'title' }"
       @click="field = 'title'"
     >
       제목
     </button>
     <button
-      class="search-button"
-      :class="field === 'tags' ? 'toggled' : ''"
+      class="btn-search"
+      :class="{ toggled: field === 'tags' }"
       @click="field = 'tags'"
     >
       태그
     </button>
     <button
-      class="search-button"
-      :class="field === 'text' ? 'toggled' : ''"
+      class="btn-search"
+      :class="{ toggled: field === 'text' }"
       @click="field = 'text'"
     >
       내용
     </button>
-    <button class="search-button" @click="searchReset">초기화</button>
+    <button class="btn-search btn-clear" @click="searchReset">초기화</button>
   </span>
 </template>
 
@@ -83,7 +83,9 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+@include set-viewpoint;
+
 .search-input {
   display: flex;
   align-items: center;
@@ -93,54 +95,58 @@ export default {
   margin-right: 10px;
   font-size: 20px;
   color: #333333;
+  flex: 1;
 }
 
-.search-input-box {
+.input-area {
   border: none;
   padding: 10px;
   background-color: #eeeeee;
-  width: 200px;
   font-size: 14px;
+  flex: 6;
+
+  &:hover {
+    background-color: #dddddd;
+  }
+  &:focus {
+    outline: none;
+    background-color: #dddddd;
+  }
 }
 
-.search-input-box:hover {
-  background-color: #dddddd;
-}
-
-.search-input-box:focus {
-  outline: none;
-  background-color: #dddddd;
-}
-
-.search-button {
+.btn-search {
   border: none;
   padding: 9px 10px;
   font-size: 14px;
   cursor: pointer;
-}
+  flex: 1;
 
-.search-button.toggled {
-  background-color: #cccccc;
-}
-
-@media screen and (max-width: 1200px) {
-  .search-input-box {
-    width: var(--post-preview-width-lg);
+  &.toggled {
+    background-color: #cccccc;
+  }
+  &.btn-clear {
+    flex: 2;
   }
 }
 
-@media screen and (max-width: 992px) {
-  .search-input-box {
-    width: var(--post-preview-width-md);
+@include viewpoint-xl {
+  .search-input {
+    width: $search-width-xl;
   }
 }
-
-@media screen and (max-width: 768px) {
-  .search-input-box {
-    width: var(--post-preview-width-sm);
+@include viewpoint-lg {
+  .search-input {
+    width: $search-width-lg;
   }
 }
-
-@media screen and (max-width: 576px) {
+@include viewpoint-md {
+  .search-input {
+    width: $search-width-md;
+  }
+}
+@include viewpoint-sm {
+  .search-input {
+    width: $search-width-sm;
+  }
 }
 </style>
