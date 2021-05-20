@@ -9,25 +9,13 @@
       class="input-area"
     />
     <button
+      v-for="field in fields"
+      :key="field.name"
       class="btn-search"
-      :class="{ toggled: field === 'title' }"
-      @click="field = 'title'"
+      :class="{ toggled: currField === field.name }"
+      @click="currField = field.name"
     >
-      제목
-    </button>
-    <button
-      class="btn-search"
-      :class="{ toggled: field === 'tags' }"
-      @click="field = 'tags'"
-    >
-      태그
-    </button>
-    <button
-      class="btn-search"
-      :class="{ toggled: field === 'text' }"
-      @click="field = 'text'"
-    >
-      내용
+      {{ field.label }}
     </button>
     <button class="btn-search btn-clear" @click="searchReset">초기화</button>
   </span>
@@ -38,7 +26,21 @@ export default {
   data() {
     return {
       searchQuery: '',
-      field: 'title',
+      currField: 'title',
+      fields: [
+        {
+          name: 'title',
+          label: '제목',
+        },
+        {
+          name: 'tags',
+          label: '태그',
+        },
+        {
+          name: 'text',
+          label: '내용',
+        },
+      ],
     }
   },
   watch: {
@@ -49,7 +51,7 @@ export default {
         .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
         .sortBy('createdAt', 'desc')
         // .limit(8)
-        .search(this.field, query)
+        .search(this.currField, query)
         .fetch()
       this.$emit('posts', results)
     },
