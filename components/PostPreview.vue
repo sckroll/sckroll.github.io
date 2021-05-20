@@ -1,33 +1,37 @@
 <template>
-  <nuxt-link :to="{ path: `posts/${post.slug}` }" class="post-link">
-    <div class="preview-container">
-      <div
-        class="preview-img"
-        :style="`background: ${getPattern(post.title)};`"
-      ></div>
-      <div class="preview-info">
-        <div class="title-info">
-          <h3 ref="title" class="preview-title">{{ trimTitle(post.title) }}</h3>
-          <h3 class="preview-title-active">
-            {{ trimActiveTitle(post.title) }}
-          </h3>
-          <p class="preview-description">
-            {{ trimDescription(post.description) }}
-          </p>
-        </div>
-        <div class="other-info">
-          <div
-            v-for="tag in trimTags(post.tags)"
-            :key="tag"
-            class="preview-tags"
-          >
-            <span class="preview-tag">#{{ tag }}</span>
+  <article class="post-preview">
+    <nuxt-link :to="{ path: `posts/${post.slug}` }" class="post-link">
+      <div class="preview-container">
+        <div
+          class="preview-img"
+          :style="`background: ${getPattern(post.title)};`"
+        ></div>
+        <div class="preview-info">
+          <div class="title-info">
+            <h3 ref="title" class="preview-title">
+              {{ trimTitle(post.title) }}
+            </h3>
+            <h3 class="preview-title-active">
+              {{ trimActiveTitle(post.title) }}
+            </h3>
+            <p class="preview-description">
+              {{ trimDescription(post.description) }}
+            </p>
           </div>
-          <span class="preview-date">{{ formatDate(post.createdAt) }}</span>
+          <div class="other-info">
+            <div
+              v-for="tag in trimTags(post.tags)"
+              :key="tag"
+              class="preview-tags"
+            >
+              <span class="preview-tag">#{{ tag }}</span>
+            </div>
+            <span class="preview-date">{{ formatDate(post.createdAt) }}</span>
+          </div>
         </div>
       </div>
-    </div>
-  </nuxt-link>
+    </nuxt-link>
+  </article>
 </template>
 
 <script>

@@ -5,20 +5,14 @@
         <h2 class="component-label"><slot></slot></h2>
         <app-search-input v-if="!landing" @posts="getSearchResult" />
       </div>
-      <section class="post-list">
-        <div v-if="searchResults.length > 0" class="post-grid">
-          <article
-            v-for="post in searchResults"
-            :key="post.slug"
-            class="post-preview"
-          >
-            <post-preview :post="post" />
-          </article>
+      <section v-if="searchResults.length > 0" class="post-grid">
+        <div v-for="post in searchResults" :key="post.slug">
+          <post-preview :post="post" />
         </div>
-        <div v-else class="post-grid">
-          <article v-for="post in posts" :key="post.slug" class="post-preview">
-            <post-preview :post="post" />
-          </article>
+      </section>
+      <section v-else class="post-grid">
+        <div v-for="post in posts" :key="post.slug">
+          <post-preview :post="post" />
         </div>
       </section>
     </div>
@@ -51,48 +45,64 @@ export default {
 </script>
 
 <style lang="scss">
+@include set-viewpoint;
+
 .post-list-container {
-  width: var(--container-xl);
   padding: 0 30px;
+}
+
+.component-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
 }
 
 .post-grid {
   display: grid;
   justify-content: space-between;
-  grid-template-columns: repeat(4, var(--post-preview-width-xl));
-  row-gap: 10px;
 }
 
-@media screen and (max-width: 1200px) {
+@include viewpoint-xl {
   .post-list-container {
-    width: var(--container-lg);
+    width: $breakpoint-xl;
+  }
+  .post-grid {
+    grid-template-columns: repeat(4, var(--post-preview-width-xl));
+    row-gap: 10px;
+  }
+}
+@include viewpoint-lg {
+  .post-list-container {
+    width: $breakpoint-lg;
   }
   .post-grid {
     grid-template-columns: repeat(3, var(--post-preview-width-lg));
     row-gap: 13px;
   }
 }
-
-@media screen and (max-width: 992px) {
+@include viewpoint-md {
   .post-list-container {
-    width: var(--container-md);
+    width: $breakpoint-md;
   }
   .post-grid {
     grid-template-columns: repeat(2, var(--post-preview-width-md));
     row-gap: 14px;
   }
 }
-
-@media screen and (max-width: 768px) {
+@include viewpoint-sm {
+  .component-title {
+    display: block;
+  }
+  .component-label {
+    margin-bottom: 15px;
+  }
   .post-list-container {
-    width: var(--container-sm);
+    width: $breakpoint-sm;
   }
   .post-grid {
     grid-template-columns: repeat(1, 1fr);
     row-gap: 10px;
   }
-}
-
-@media screen and (max-width: 576px) {
 }
 </style>
