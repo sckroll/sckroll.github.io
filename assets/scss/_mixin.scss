@@ -5,25 +5,21 @@
     @content;
   }
 }
-
 @mixin viewpoint-lg {
   @media (min-width: #{$breakpoint-lg}) and (max-width: #{$breakpoint-xl - 1px}) {
     @content;
   }
 }
-
 @mixin viewpoint-md {
   @media (min-width: #{$breakpoint-md}) and (max-width: #{$breakpoint-lg - 1px}) {
     @content;
   }
 }
-
 @mixin viewpoint-sm {
   @media (min-width: #{$breakpoint-sm}) and (max-width: #{$breakpoint-md - 1px}) {
     @content;
   }
 }
-
 @mixin viewpoint-xs {
   @media (max-width: #{$breakpoint-sm - 1px}) {
     @content;
@@ -36,19 +32,16 @@
       width: $breakpoint-xl;
     }
   }
-
   @include viewpoint-lg {
     .viewpoint {
       width: $breakpoint-lg;
     }
   }
-
   @include viewpoint-md {
     .viewpoint {
       width: $breakpoint-md;
     }
   }
-
   @include viewpoint-sm {
     .viewpoint {
       width: $breakpoint-sm;
