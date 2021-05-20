@@ -6,7 +6,7 @@
         :style="`background: ${getPattern(post.title)};`"
       ></div>
       <div class="preview-info">
-        <div class="preview-title-wrapper">
+        <div class="title-info">
           <h3 ref="title" class="preview-title">{{ trimTitle(post.title) }}</h3>
           <h3 class="preview-title-active">
             {{ trimActiveTitle(post.title) }}
@@ -15,7 +15,7 @@
             {{ trimDescription(post.description) }}
           </p>
         </div>
-        <div class="preview-other">
+        <div class="other-info">
           <div
             v-for="tag in trimTags(post.tags)"
             :key="tag"
@@ -91,6 +91,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@include set-viewpoint;
+
 @keyframes FadeIn {
   0% {
     opacity: 0;
@@ -137,37 +139,32 @@ export default {
   display: inline-block;
   position: relative;
   overflow: hidden;
-  width: var(--post-preview-width-xl);
-  height: var(--post-preview-width-xl);
 
   &:hover .preview-title {
     opacity: 0;
     height: 0;
     /* animation: fadeOut 0.05s ease; */
   }
-
   &:hover .preview-title-active {
     opacity: 1;
     height: auto;
     animation: titleFadeIn 0.05s ease;
     font-size: 20px;
   }
-
   &:hover .preview-info {
     height: 60%;
     transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
   }
-
   &:hover .preview-description {
     opacity: 1;
     height: auto;
     animation: FadeIn 0.5s ease;
   }
-}
 
-.preview-img {
-  width: inherit;
-  height: inherit;
+  .preview-img {
+    width: inherit;
+    height: inherit;
+  }
 }
 
 .preview-info {
@@ -182,70 +179,71 @@ export default {
   padding: 15px;
   transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
   backdrop-filter: blur(3px);
+
+  .preview-title {
+    opacity: 1;
+    font-family: 'NanumSquare', sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .preview-title-active {
+    opacity: 0;
+    height: 0;
+    font-size: 0;
+    font-weight: 700;
+  }
+
+  .preview-description {
+    opacity: 0;
+    height: 0;
+    font-size: 14px;
+  }
 }
 
-.preview-title {
-  opacity: 1;
-  font-family: 'NanumSquare', sans-serif;
-  font-size: 20px;
-  font-weight: 700;
-}
-
-.preview-title-active {
-  opacity: 0;
-  height: 0;
-  font-size: 0;
-  font-weight: 700;
-}
-
-.preview-description {
-  opacity: 0;
-  height: 0;
-  font-size: 14px;
-}
-
-.preview-other {
+.other-info {
   font-size: 14px;
   color: #333333;
-}
 
-.preview-tags {
-  display: inline;
-  margin-right: 5px;
+  .preview-tags {
+    display: inline;
+    margin-right: 5px;
 
-  &:last-child {
-    margin-right: 0;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .preview-date {
+    float: right;
   }
 }
 
-.preview-date {
-  float: right;
-}
-
-@media screen and (max-width: 1200px) {
+@include viewpoint-xl {
   .preview-container {
-    width: var(--post-preview-width-lg);
-    height: var(--post-preview-width-lg);
+    width: $thumbnail-width-xl;
+    height: $thumbnail-width-xl;
   }
 }
-
-@media screen and (max-width: 992px) {
+@include viewpoint-lg {
   .preview-container {
-    width: var(--post-preview-width-md);
-    height: var(--post-preview-width-md);
+    width: $thumbnail-width-lg;
+    height: $thumbnail-width-lg;
+  }
+}
+@include viewpoint-md {
+  .preview-container {
+    width: $thumbnail-width-md;
+    height: $thumbnail-width-md;
   }
   .preview-container:hover .preview-info {
     height: 50%;
   }
 }
-
-@media screen and (max-width: 768px) {
+@include viewpoint-sm {
   .preview-container {
-    width: calc(var(--container-sm) - 60px);
-    height: calc(var(--container-sm) - 60px);
+    width: $breakpoint-sm - 60px;
+    height: $breakpoint-sm - 60px;
   }
-}
-
-@media screen and (max-width: 576px) {
 }
 </style>
