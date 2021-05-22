@@ -1,5 +1,6 @@
 <template>
   <section class="prev-next-nav">
+    <div class="prev-next-background"></div>
     <div class="wrapper viewpoint">
       <span class="post-link">
         <span class="post-label">&lt; 다음 |</span>
@@ -40,6 +41,13 @@ export default {
 .prev-next-nav {
   display: flex;
   justify-content: center;
+}
+
+.prev-next-background {
+  z-index: -1;
+  position: absolute;
+  width: 100%;
+  height: 56px;
   background-color: #dddddd;
 }
 

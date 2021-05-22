@@ -61,11 +61,9 @@ export default {
 @include set-viewpoint;
 
 .post-toc {
-  position: relative;
   display: flex;
   justify-content: center;
   width: 100%;
-  background-color: #eeeeee;
 
   .toggle {
     position: absolute;
@@ -80,12 +78,12 @@ export default {
     }
   }
   .wrapper {
+    width: 100%;
     padding: 10px 30px;
   }
   .toc-header {
     display: flex;
     align-items: center;
-    justify-content: space-between;
 
     div {
       margin: 5px 0;
@@ -95,7 +93,8 @@ export default {
     }
 
     .btn-icon {
-      font-size: 24px;
+      font-size: 20px;
+      margin-left: 10px;
     }
   }
   .toc-body {
