@@ -68,7 +68,7 @@ export default {
     width: $breakpoint-xl;
   }
   .post-grid {
-    grid-template-columns: repeat(4, var(--post-preview-width-xl));
+    grid-template-columns: repeat(4, $thumbnail-width-xl);
     row-gap: 10px;
   }
 }
@@ -77,7 +77,7 @@ export default {
     width: $breakpoint-lg;
   }
   .post-grid {
-    grid-template-columns: repeat(3, var(--post-preview-width-lg));
+    grid-template-columns: repeat(3, $thumbnail-width-lg);
     row-gap: 13px;
   }
 }
@@ -86,8 +86,8 @@ export default {
     width: $breakpoint-md;
   }
   .post-grid {
-    grid-template-columns: repeat(2, var(--post-preview-width-md));
-    row-gap: 14px;
+    grid-template-columns: repeat(3, $thumbnail-width-md);
+    row-gap: 5px;
   }
 }
 @include viewpoint-sm {

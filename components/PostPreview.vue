@@ -239,15 +239,44 @@ export default {
   .preview-container {
     width: $thumbnail-width-md;
     height: $thumbnail-width-md;
+
+    &:hover .preview-title-active {
+      font-size: 16px;
+    }
   }
-  .preview-container:hover .preview-info {
-    height: 50%;
+  .preview-info {
+    height: 40%;
+
+    .preview-title {
+      font-size: 16px;
+    }
   }
 }
 @include viewpoint-sm {
   .preview-container {
     width: $breakpoint-sm - 60px;
     height: $breakpoint-sm - 60px;
+
+    &:hover .preview-info {
+      height: 50%;
+    }
+    &:hover .preview-title-active {
+      font-size: 28px;
+    }
+
+    .preview-description {
+      font-size: 20px;
+    }
+  }
+  .preview-info {
+    height: 30%;
+
+    .preview-title {
+      font-size: 28px;
+    }
+  }
+  .other-info {
+    font-size: 20px;
   }
 }
 </style>
