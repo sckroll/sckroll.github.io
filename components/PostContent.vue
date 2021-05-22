@@ -18,49 +18,81 @@ export default {
   width: 100%;
 }
 
-h1,
-h2,
-h3,
-h4 {
-  margin: 10px 0;
-}
+.nuxt-content {
+  h2 {
+    font-weight: 700;
+    font-size: 28px;
+    margin: 30px 0 10px;
 
-p {
-  margin-bottom: 20px;
-  line-height: 170%;
-  font-size: 18px;
-
-  code {
-    padding: 2px;
-    background-color: #cccccc;
+    &:first-child {
+      margin-top: 0;
+    }
   }
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-
-blockquote {
-  border-left: 10px solid #666666;
-  background-color: #dddddd;
-  margin: 15px 0;
-  padding: 15px 30px;
-}
-
-.nuxt-content-highlight {
-  background-color: #3e3e3e;
-  margin: 10px 0;
-
-  .filename {
-    display: block;
-    font-size: 13px;
+  h3 {
     font-weight: 500;
-    letter-spacing: 0.1em;
-    color: #ffffff;
-    padding: 1em;
+    font-size: 24px;
+    margin: 10px 0;
+
+    &::before {
+      content: '- ';
+    }
   }
-  .language-js {
-    margin: 0;
+  p,
+  ol,
+  ul {
+    line-height: 170%;
+    font-size: 18px;
+
+    code {
+      padding: 2px;
+      background-color: #cccccc;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  pre {
+    code {
+      padding: 0;
+      background-color: transparent;
+    }
+  }
+  blockquote {
+    border-left: 10px solid #666666;
+    background-color: #dddddd;
+    margin: 15px 0;
+    padding: 15px 30px;
+  }
+  a {
+    border-bottom: 2px solid #666666;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-bottom: 2px solid #cccccc;
+      transition: all 0.2s ease;
+    }
+  }
+
+  .nuxt-content-highlight {
+    background-color: #3e3e3e;
+    margin: 30px 0;
+
+    .filename {
+      display: block;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      color: #ffffff;
+      padding: 1em;
+    }
+    .language-js,
+    .language-python,
+    .language-html,
+    .language-css,
+    .language-scss {
+      margin: 0;
+    }
   }
 }
 </style>
