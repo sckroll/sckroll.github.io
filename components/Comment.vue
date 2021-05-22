@@ -1,7 +1,7 @@
 <template>
-  <div class="comment-container">
+  <section class="comment-container">
     <div ref="comment" class="comment-center viewpoint"></div>
-  </div>
+  </section>
 </template>
 
 <script>

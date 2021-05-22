@@ -1,5 +1,5 @@
 <template>
-  <div class="prev-next-nav">
+  <section class="prev-next-nav">
     <div class="wrapper viewpoint">
       <span class="post-link">
         <span class="post-label">&lt; 다음 |</span>
@@ -16,7 +16,7 @@
         <span class="post-label">| 이전 &gt;</span>
       </span>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
