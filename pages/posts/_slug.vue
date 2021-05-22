@@ -49,6 +49,7 @@
 
 <script>
 import GeoPattern from 'geopattern'
+import { formatDate } from '@/lib/handleDate'
 
 export default {
   async asyncData({ $content, params, error }) {
@@ -70,15 +71,7 @@ export default {
     }
   },
   methods: {
-    formatDate(date) {
-      const options = {
-        year: '2-digit',
-        month: '2-digit',
-        day: '2-digit',
-      }
-      const formattedTime = new Date(date).toLocaleDateString('kr', options)
-      return formattedTime.replace(/. /g, '/').slice(0, -1)
-    },
+    formatDate,
     diffDate(createdAtString, updatedAtString) {
       const createdAt = new Date(createdAtString)
       const updatedAt = new Date(updatedAtString)

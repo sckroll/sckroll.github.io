@@ -36,6 +36,7 @@
 
 <script>
 import GeoPattern from 'geopattern'
+import { formatDate } from '@/lib/handleDate'
 
 export default {
   props: {
@@ -53,15 +54,7 @@ export default {
     }
   },
   methods: {
-    formatDate(date) {
-      const options = {
-        year: '2-digit',
-        month: '2-digit',
-        day: '2-digit',
-      }
-      const formattedDate = new Date(date).toLocaleDateString('kr', options)
-      return formattedDate.replace(/. /g, '/').slice(0, -1)
-    },
+    formatDate,
     trimTitle(title) {
       if (title.length > this.maxTitleLength) {
         return title.slice(0, this.maxTitleLength).concat('...')
