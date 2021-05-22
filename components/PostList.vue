@@ -1,21 +1,17 @@
 <template>
-  <section class="content">
-    <div class="post-list-container">
-      <div class="component-title">
-        <h2 class="component-label"><slot></slot></h2>
-        <app-search-input v-if="!landing" @posts="getSearchResult" />
-      </div>
-      <section v-if="searchResults.length > 0" class="post-grid">
-        <div v-for="post in searchResults" :key="post.slug">
-          <post-preview :post="post" />
-        </div>
-      </section>
-      <section v-else class="post-grid">
-        <div v-for="post in posts" :key="post.slug">
-          <post-preview :post="post" />
-        </div>
-      </section>
+  <section class="post-list">
+    <div class="component-title">
+      <h2 class="component-label"><slot></slot></h2>
+      <app-search-input v-if="!landing" @posts="getSearchResult" />
     </div>
+    <section class="post-grid">
+      <div
+        v-for="post in searchResults.length > 0 ? searchResults : posts"
+        :key="post.slug"
+      >
+        <post-preview :post="post" />
+      </div>
+    </section>
   </section>
 </template>
 
@@ -44,10 +40,10 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 @include set-viewpoint;
 
-.post-list-container {
+.post-list {
   padding: 0 30px;
 }
 
@@ -64,7 +60,7 @@ export default {
 }
 
 @include viewpoint-xl {
-  .post-list-container {
+  .post-list {
     width: $breakpoint-xl;
   }
   .post-grid {
@@ -73,7 +69,7 @@ export default {
   }
 }
 @include viewpoint-lg {
-  .post-list-container {
+  .post-list {
     width: $breakpoint-lg;
   }
   .post-grid {
@@ -82,7 +78,7 @@ export default {
   }
 }
 @include viewpoint-md {
-  .post-list-container {
+  .post-list {
     width: $breakpoint-md;
   }
   .post-grid {
@@ -97,7 +93,7 @@ export default {
   .component-label {
     margin-bottom: 15px;
   }
-  .post-list-container {
+  .post-list {
     width: $breakpoint-sm;
   }
   .post-grid {
