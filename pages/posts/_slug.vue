@@ -33,7 +33,7 @@
         </header>
         <post-toc v-if="post.toc.length > 1" :toc="post.toc" />
         <div class="content-container">
-          <nuxt-content class="post-content" :document="post" />
+          <post-content :post="post" />
         </div>
       </article>
     </section>
@@ -167,29 +167,6 @@ $background-width: 70vh;
   justify-content: center;
   width: 100%;
   padding: 30px 30px;
-}
-
-.post-content {
-  h1,
-  h2,
-  h3,
-  h4 {
-    margin: 10px 0;
-  }
-  p {
-    margin-bottom: 20px;
-    line-height: 170%;
-    font-size: 18px;
-
-    code {
-      padding: 2px;
-      background-color: #cccccc;
-    }
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
 }
 
 @include viewpoint-xl {
