@@ -52,6 +52,11 @@ export default {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 30px;
+
+  h2 {
+    font-size: 28px;
+    font-weight: 700;
+  }
 }
 
 .post-grid {
