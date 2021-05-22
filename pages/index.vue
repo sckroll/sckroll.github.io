@@ -1,8 +1,10 @@
 <template>
-  <div class="index-container">
-    <header class="landing-header">
-      <header-menu landing />
-    </header>
+  <div>
+    <div class="landing-background"></div>
+    <h1 class="landing-title">
+      {{ title1 }}<br />{{ title2 }}<br />{{ title3 }}
+    </h1>
+    <div class="landing-margin"></div>
     <post-list :posts="posts" landing>최근 포스트</post-list>
   </div>
 </template>
@@ -20,53 +22,47 @@ export default {
       posts,
     }
   },
+  data() {
+    return {
+      title1: '예비 개발자 Sckroll의',
+      title2: '홈페이지에 오신 것을',
+      title3: '환영합니다',
+    }
+  },
 }
 </script>
 
 <style lang="scss">
-.landing-header {
-  display: flex;
-  justify-content: center;
+$background-height: 70vh;
+
+.landing-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: $background-height;
   background-image: url('/images/sckroll-main-image.jpg');
   background-size: cover;
   background-position-y: 95%;
-  height: 700px;
-  padding-top: 64px;
-  font-family: 'NanumSquare', sans-serif;
 }
 
-.index-content-wrapper {
-  width: var(--container-xl);
-  padding: 0 30px;
-}
+.landing-title {
+  position: absolute;
+  top: $header-menu-height;
+  color: #ffffff;
+  margin: 60px 0 0 30px;
+  font-size: 32px;
+  font-weight: 500;
 
-.recent-posts-temp {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  height: 600px;
-  background-color: #cccccc;
-}
-
-@media screen and (max-width: 1200px) {
-  .index-content-wrapper {
-    width: var(--container-lg);
+  br {
+    display: block;
+    content: '';
+    margin: 5px 0;
   }
 }
 
-@media screen and (max-width: 992px) {
-  .index-content-wrapper {
-    width: var(--container-md);
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .index-content-wrapper {
-    width: var(--container-sm);
-  }
-}
-
-@media screen and (max-width: 576px) {
+.landing-margin {
+  width: 100%;
+  height: calc(#{$background-height} - #{$header-menu-height});
 }
 </style>
