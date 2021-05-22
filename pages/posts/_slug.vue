@@ -92,7 +92,7 @@ export default {
 <style lang="scss">
 @include set-viewpoint;
 
-$background-width: 70vh;
+$background-height: 70vh;
 
 .post-img-container {
   z-index: -1;
@@ -100,7 +100,7 @@ $background-width: 70vh;
   top: 0;
   left: 0;
   width: 100%;
-  height: $background-width;
+  height: $background-height;
   background-color: #00000055;
 
   .post-img {
@@ -127,7 +127,7 @@ $background-width: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: calc(#{$background-width} - 50px - #{$header-menu-height});
+  height: calc(#{$background-height} - 50px - #{$header-menu-height});
   color: #ffffff;
   padding: 30px;
 
