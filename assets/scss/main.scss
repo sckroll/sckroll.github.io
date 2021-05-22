@@ -91,28 +91,6 @@ blockquote {
   margin: 0;
 }
 
-.navbar {
-  position: fixed;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  z-index: 100;
-  width: 100%;
-  height: var(--header-menu-height);
-  top: calc(0px - var(--header-menu-height));
-  background-color: #eeeeee66;
-  padding-bottom: 20px;
-  font-family: 'NanumSquare', sans-serif;
-  transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
-  backdrop-filter: blur(3px);
-}
-
-.content {
-  margin: 50px 0;
-  display: flex;
-  justify-content: center;
-}
-
 .page-header {
   display: flex;
   align-items: flex-end;
@@ -120,13 +98,4 @@ blockquote {
   height: 120px;
   padding-bottom: 20px;
   font-family: 'NanumSquare', sans-serif;
-}
-
-.container {
-  position: absolute;
-  width: 100%;
-  min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
 }

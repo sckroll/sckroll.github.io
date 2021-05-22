@@ -1,39 +1,27 @@
 <template>
   <div class="container">
-    <div class="container-header">
-      <header ref="navbar" class="navbar">
-        <header-menu />
-      </header>
-      <main class="main-container">
-        <Nuxt />
-      </main>
-    </div>
+    <header-menu />
+    <main class="main-container">
+      <Nuxt />
+    </main>
     <footer-bar />
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      scrollThreshold: 86,
-    }
-  },
-  mounted() {
-    window.addEventListener('scroll', this.onScroll)
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.onScroll)
-  },
-  methods: {
-    onScroll(e) {
-      const currScrollPos = e.target.documentElement.scrollTop
-      if (currScrollPos > this.scrollThreshold) {
-        this.$refs.navbar.style.top = '0'
-      } else {
-        this.$refs.navbar.style.top = '-120px'
-      }
-    },
-  },
+<style lang="scss">
+.container {
+  position: absolute;
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-</script>
+
+.main-container {
+  margin: $header-menu-height + 50px 0 50px;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+</style>

@@ -1,10 +1,5 @@
 <template>
-  <div class="content-container">
-    <header class="page-header">
-      <header-menu />
-    </header>
-    <post-list :posts="posts">블로그 포스트</post-list>
-  </div>
+  <post-list :posts="posts">블로그 포스트</post-list>
 </template>
 
 <script>
