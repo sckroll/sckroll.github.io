@@ -1,6 +1,6 @@
 <template>
-  <footer class="footer-bar">
-    <div class="footer-wrapper">
+  <footer>
+    <div class="footer-container">
       <div class="icon-links">
         <div class="github-area">
           <a href="https://github.com/sckroll" class="github-link">
@@ -22,22 +22,19 @@
   </footer>
 </template>
 
-<style lang="scss">
-.footer-bar {
+<style lang="scss" scoped>
+@include set-viewpoint;
+
+footer {
   display: flex;
   justify-content: center;
   background-color: #dddddd;
 }
 
-.footer-wrapper {
+.footer-container {
   display: flex;
   justify-content: space-between;
-  width: var(--container-xl);
   padding: 20px 30px;
-}
-
-.icon-links,
-.copyright {
   line-height: 180%;
 }
 
@@ -46,12 +43,11 @@
   display: flex;
   align-items: center;
   transition: all 0.2s ease;
-}
 
-.github-link:hover,
-.email-link:hover {
-  color: #888888;
-  transition: all 0.2s ease;
+  &:hover {
+    color: #888888;
+    transition: all 0.2s ease;
+  }
 }
 
 .github-icon,
@@ -60,24 +56,24 @@
   margin-right: 5px;
 }
 
-@media screen and (max-width: 1200px) {
-  .footer-wrapper {
-    width: var(--container-lg);
+@include viewpoint-xl {
+  .footer-container {
+    width: $breakpoint-xl;
   }
 }
-
-@media screen and (max-width: 992px) {
-  .footer-wrapper {
-    width: var(--container-md);
+@include viewpoint-lg {
+  .footer-container {
+    width: $breakpoint-lg;
   }
 }
-
-@media screen and (max-width: 768px) {
-  .footer-wrapper {
-    width: var(--container-sm);
+@include viewpoint-md {
+  .footer-container {
+    width: $breakpoint-md;
   }
 }
-
-@media screen and (max-width: 576px) {
+@include viewpoint-sm {
+  .footer-container {
+    width: $breakpoint-sm;
+  }
 }
 </style>
