@@ -29,13 +29,9 @@ export default {
     }
   }
   h3 {
-    font-weight: 500;
-    font-size: 24px;
+    font-weight: 700;
+    font-size: 20px;
     margin: 10px 0;
-
-    &::before {
-      content: '- ';
-    }
   }
   p,
   ol,
