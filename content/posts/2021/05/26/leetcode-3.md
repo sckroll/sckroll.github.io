@@ -55,6 +55,8 @@ class Solution:
 
 ## 배운 점
 
+### subsequence vs. substring
+
 - **subsequence(부분 수열)**이 아닌 **substring(부분 문자열)**임에 주의해야 한다. 전자는 연속된(Contiguous) 문자열이 아니며, 후자는 연속된 문자열이다. 단, subsequence와 substring 모두 요소(문자)의 순서가 있다는 공통점이 있다.
 - 문제에서 나오지 않았지만, **subarray(부분 배열)**와 **subset(부분 집합)**의 차이도 알아두면 좋을 것 같다. subarray는 연속적이고 요소의 순서가 있으며, subset은 연속적이지 않고 요소의 순서도 없다.
 - 즉, 표로 정리하면 다음과 같다.

@@ -138,6 +138,8 @@ class Solution:
 
 ## 배운 점
 
+### `functools.reduce()`
+
 - 풀이 1번에서 숫자형 리스트를 문자형으로 바꿨다가 다시 숫자형으로 바꾸는 코드를 `functools.reduce()`를 통해 숫자형 리스트에서 바로 숫자형으로 바꿀 수 있다. `function` 모듈은 '함수를 다루는 함수'를 뜻하는 고계 함수(Higher-Order Function)를 지원하며, 리트코드에 기본적으로 임포트되어 있다.
   ```python
   # before
@@ -156,6 +158,9 @@ class Solution:
   reduce(add, [1, 2, 3, 4, 5])  # 15
   reduce(mul, [1, 2, 3, 4, 5])  # 120
   ```
+
+### `divmod()`
+
 - 풀이 2번의 내장 함수 `divmod(x, y)`는 `x`를 `y`로 나누었을 때 몫과 나머지로 구성된 튜플을 리턴한다. 즉, `(x // y, x % y)`와 같다.
 
 ## 출처

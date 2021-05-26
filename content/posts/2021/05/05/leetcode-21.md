@@ -88,6 +88,8 @@ class Solution:
 
 ## 배운 점
 
+### 연산자 우선순위
+
 - 풀이 1번에 사용된 다음 `if` 구문은 괄호를 모두 생략할 수 있다.
   ```python
   if (not l1) or (l2 and (l1.val > l2.val)):
