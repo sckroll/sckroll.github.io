@@ -22,22 +22,22 @@ export default {
       scrollThreshold: 86,
     }
   },
-  // mounted() {
-  //   window.addEventListener('scroll', this.onScroll)
-  // },
-  // beforeDestroy() {
-  //   window.removeEventListener('scroll', this.onScroll)
-  // },
-  // methods: {
-  //   onScroll(e) {
-  //     const currScrollPos = e.target.documentElement.scrollTop
-  //     if (currScrollPos > this.scrollThreshold) {
-  //       this.$el.style.top = '0'
-  //     } else {
-  //       this.$el.style.top = '-120px'
-  //     }
-  //   },
-  // },
+  mounted() {
+    window.addEventListener('scroll', this.onScroll)
+  },
+  beforeDestroy() {
+    window.removeEventListener('scroll', this.onScroll)
+  },
+  methods: {
+    onScroll(e) {
+      const currScrollPos = e.target.documentElement.scrollTop
+      if (currScrollPos > this.scrollThreshold) {
+        this.$el.classList.add('scrolled')
+      } else {
+        this.$el.classList.remove('scrolled')
+      }
+    },
+  },
 }
 </script>
 
@@ -52,11 +52,17 @@ header {
   z-index: 10;
   width: 100%;
   height: $header-menu-height;
-  background-color: #eeeeee66;
+  background-color: transparent;
   padding-bottom: 20px;
   font-family: 'NanumSquare', sans-serif;
-  transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
-  backdrop-filter: blur(3px);
+  color: #ffffff;
+  transition: all 0.2s ease;
+
+  &.scrolled {
+    background-color: #ffffff99;
+    color: #000000;
+    transition: all 0.2s ease;
+  }
 }
 
 .header-container {
