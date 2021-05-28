@@ -18,14 +18,18 @@ from typing import List, Tuple
 
 class Solution:
     def find_path(self, x, y, lands=[]) -> List[Tuple[int]]:
+        # 예외 처리
         if x < 0 or x >= len(self.grid) or y < 0 or y >= len(self.grid[x]):
             return lands
         if (x, y) in self.visited:
             return lands
 
         if self.grid[x][y] == '1':
+            # 방문한 육지 목록에 추가
             lands.append((x, y))
             self.visited.add((x, y))
+
+            # 동서남북 탐색
             lands = self.find_path(x - 1, y, lands)
             lands = self.find_path(x + 1, y, lands)
             lands = self.find_path(x, y - 1, lands)
@@ -36,6 +40,7 @@ class Solution:
         self.grid = grid
         self.visited = set()
 
+        # 육지 리스트 생성
         land_list = []
         for i in range(len(grid)):
             for j in range(len(grid[i])):
@@ -44,7 +49,10 @@ class Solution:
 
         islands = prev_length = 0
         for land in land_list:
+            # DFS 수행
             lands = self.find_path(*land)
+            # 마지막으로 얻은 육지 개수보다 더 많이 탐색한 경우
+            # 섬을 하나 발견한 것으로 간주, 섬 개수를 1 증가
             if len(lands) > prev_length:
                 islands += 1
                 prev_length = len(lands)
