@@ -171,7 +171,7 @@ export default {
   justify-content: space-between;
   bottom: 0;
   width: 100%;
-  height: 33%;
+  height: 35%;
   background-color: #eeeeee99;
   padding: 15px;
   transition: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
