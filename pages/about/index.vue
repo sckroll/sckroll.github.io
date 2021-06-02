@@ -1,14 +1,9 @@
 <template>
-  <div class="content-container">
-    <header class="page-header">
-      <header-menu />
-    </header>
-    <section class="about">
-      <div class="about-wrapper">
-        <nuxt-content :document="article" />
-      </div>
-    </section>
-  </div>
+  <section class="about-container">
+    <div class="about-wrapper">
+      <nuxt-content :document="article" />
+    </div>
+  </section>
 </template>
 
 <script>
@@ -54,6 +49,8 @@ export default {
 </script>
 
 <style lang="scss">
+@include set-viewpoint;
+
 .emphasized {
   background-color: #000000;
   color: #ffffff;
@@ -63,48 +60,61 @@ export default {
   display: flex;
   justify-content: center;
   font-family: 'NanumSquare', sans-serif;
+
+  &-wrapper {
+    padding: 0 30px;
+  }
+  &-article {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    line-height: 150%;
+    transition: all 0.5s ease-in-out;
+    opacity: 0;
+  }
+  &-hello {
+    height: calc(90vh - #{$header-menu-height});
+    font-size: 40px;
+  }
+  &-intro {
+    height: calc(80vh - #{$header-menu-height});
+    font-size: 24px;
+  }
+  &-skills {
+    height: calc(90vh - #{$header-menu-height});
+    font-size: 24px;
+  }
+  &-experiences {
+    height: calc(120vh - #{$header-menu-height});
+    font-size: 24px;
+  }
+  &-exp-events {
+    font-size: 24px;
+  }
+  &-etc {
+    height: calc(100vh - #{$header-menu-height});
+    font-size: 24px;
+  }
 }
 
-.about-wrapper {
-  width: var(--container-xl);
-  padding: 0 30px;
+@include viewpoint-xl {
+  .about-wrapper {
+    width: $breakpoint-xl;
+  }
 }
-
-.about-article {
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-  line-height: 150%;
-  transition: all 0.5s ease-in-out;
-  opacity: 0;
+@include viewpoint-lg {
+  .about-wrapper {
+    width: $breakpoint-lg;
+  }
 }
-
-.about-hello {
-  height: calc(90vh - var(--header-menu-height));
-  font-size: 40px;
+@include viewpoint-md {
+  .about-wrapper {
+    width: $breakpoint-md;
+  }
 }
-
-.about-intro {
-  height: calc(80vh - var(--header-menu-height));
-  font-size: 24px;
-}
-
-.about-skills {
-  height: calc(90vh - var(--header-menu-height));
-  font-size: 24px;
-}
-
-.about-experiences {
-  height: calc(120vh - var(--header-menu-height));
-  font-size: 24px;
-}
-
-.about-exp-events {
-  font-size: 24px;
-}
-
-.about-etc {
-  height: calc(100vh - var(--header-menu-height));
-  font-size: 24px;
+@include viewpoint-sm {
+  .about-wrapper {
+    width: $breakpoint-sm;
+  }
 }
 </style>
