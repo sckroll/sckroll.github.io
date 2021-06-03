@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header :class="{ reversed: isLanding }">
     <div class="header-container">
       <span class="logo">
         <nuxt-link :to="{ name: 'index' }">Sckroll</nuxt-link>
@@ -21,6 +21,12 @@ export default {
     return {
       scrollThreshold: 86,
     }
+  },
+  computed: {
+    isLanding() {
+      const path = this.$route.path
+      return path === '/' || path.match(/\/posts\/\S+/)
+    },
   },
   mounted() {
     window.addEventListener('scroll', this.onScroll)
@@ -55,13 +61,23 @@ header {
   background-color: transparent;
   padding-bottom: 20px;
   font-family: 'NanumSquare', sans-serif;
-  color: #ffffff;
+  color: #000000;
   transition: all 0.2s ease;
 
   &.scrolled {
     background-color: #ffffff99;
     color: #000000;
     transition: all 0.2s ease;
+  }
+  &.reversed {
+    color: #ffffff;
+    transition: all 0.2s ease;
+
+    &.scrolled {
+      background-color: #ffffff99;
+      color: #000000;
+      transition: all 0.2s ease;
+    }
   }
 }
 
