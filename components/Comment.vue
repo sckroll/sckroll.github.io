@@ -24,8 +24,6 @@ export default {
 </script>
 
 <style lang="scss">
-@include set-viewpoint;
-
 .comment-container {
   display: flex;
   justify-content: center;

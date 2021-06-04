@@ -1,6 +1,6 @@
 <template>
   <article class="post-preview">
-    <nuxt-link :to="{ path: `posts/${post.slug}` }" class="post-link">
+    <nuxt-link :to="`posts/${post.slug}`" class="post-link">
       <div class="preview-container">
         <div
           class="preview-img"
