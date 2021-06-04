@@ -1,21 +1,38 @@
 <template>
   <nav class="nav-menu">
     <ul>
-      <li>
-        <nuxt-link :to="{ name: 'about' }">About</nuxt-link>
-      </li>
-      <li>
-        <nuxt-link :to="{ name: 'posts' }">Posts</nuxt-link>
-      </li>
-      <li>
-        <nuxt-link :to="{ name: 'projects' }">Projects</nuxt-link>
+      <li v-for="item in menu" :key="item.name">
+        <nuxt-link :to="{ path: item.path }">{{ item.name }}</nuxt-link>
       </li>
       <li><fa-icon :icon="['far', 'moon']" /></li>
     </ul>
   </nav>
 </template>
 
-<style lang="scss">
+<script>
+export default {
+  data() {
+    return {
+      menu: [
+        {
+          name: 'About',
+          path: '/about',
+        },
+        {
+          name: 'Posts',
+          path: '/posts',
+        },
+        {
+          name: 'Projects',
+          path: '/projects',
+        },
+      ],
+    }
+  },
+}
+</script>
+
+<style lang="scss" scoped>
 .nav-menu {
   position: relative;
   top: 5px;
@@ -28,7 +45,7 @@
     padding: 0;
   }
   li {
-    margin: 0 10px;
+    margin: 0 15px;
     display: inline;
     transition: all 0.2s ease;
 
