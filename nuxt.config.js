@@ -82,7 +82,7 @@ export default {
     suffix: true,
     icons: {
       regular: ['faSun', 'faMoon', 'faEnvelope'],
-      solid: ['faSearch', 'faChevronUp', 'faChevronDown'],
+      solid: ['faSearch', 'faChevronUp', 'faChevronDown', 'faBars', 'faTimes'],
       brands: ['faGithub'],
     },
   },

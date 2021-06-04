@@ -2,37 +2,37 @@
   <nav class="nav-menu">
     <ul>
       <li v-for="item in menu" :key="item.name">
-        <nuxt-link :to="{ path: item.path }">{{ item.name }}</nuxt-link>
+        <nuxt-link :to="item.path">
+          {{ item.name }}
+        </nuxt-link>
       </li>
       <li><fa-icon :icon="['far', 'moon']" /></li>
     </ul>
+    <span class="mobile-menu" @click="openDrawer">
+      <fa-icon :icon="['fa', 'bars']" />
+    </span>
   </nav>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      menu: [
-        {
-          name: 'About',
-          path: '/about',
-        },
-        {
-          name: 'Posts',
-          path: '/posts',
-        },
-        {
-          name: 'Projects',
-          path: '/projects',
-        },
-      ],
-    }
+  props: {
+    menu: {
+      type: Array,
+      required: true,
+    },
+  },
+  methods: {
+    openDrawer() {
+      this.$emit('drawer-open')
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
+@include set-viewpoint;
+
 .nav-menu {
   position: relative;
   top: 5px;
@@ -61,7 +61,6 @@ export default {
     }
   }
 }
-
 .landing-header {
   .nav-menu {
     color: #ffffff88;
@@ -69,6 +68,39 @@ export default {
     li:hover {
       color: #ffffff;
     }
+  }
+}
+
+@include viewpoint-xl {
+  ul {
+    display: block;
+  }
+  .mobile-menu {
+    display: none;
+  }
+}
+@include viewpoint-lg {
+  ul {
+    display: block;
+  }
+  .mobile-menu {
+    display: none;
+  }
+}
+@include viewpoint-md {
+  ul {
+    display: block;
+  }
+  .mobile-menu {
+    display: none;
+  }
+}
+@include viewpoint-sm {
+  ul {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
   }
 }
 </style>
