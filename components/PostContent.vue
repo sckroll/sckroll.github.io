@@ -17,7 +17,6 @@ export default {
 .nuxt-content-container {
   width: 100%;
 }
-
 .nuxt-content {
   h2 {
     font-weight: 700;
@@ -43,7 +42,11 @@ export default {
       padding: 2px;
       background-color: #cccccc;
     }
-
+    img {
+      margin: 30px auto;
+      border: 3px solid #dddddd;
+      max-width: 100%;
+    }
     &:last-child {
       margin-bottom: 0;
     }
