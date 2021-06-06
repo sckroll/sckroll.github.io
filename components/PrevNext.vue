@@ -1,6 +1,5 @@
 <template>
   <section class="prev-next-nav">
-    <div class="prev-next-background"></div>
     <div class="wrapper viewpoint">
       <span class="post-link">
         <span class="post-label">&lt; 다음 |</span>
@@ -42,24 +41,14 @@ export default {
   display: flex;
   justify-content: center;
 }
-
-.prev-next-background {
-  z-index: -1;
-  position: absolute;
-  width: 100%;
-  height: 56px;
-  background-color: #dddddd;
-}
-
 .wrapper {
   display: flex;
   justify-content: space-between;
   padding: 15px 30px;
   font-family: 'NanumSquare', sans-serif;
   font-size: 20px;
-  line-height: 130%;
+  line-height: 180%;
 }
-
 .post-link {
   a {
     padding: 5px 5px;
@@ -70,12 +59,26 @@ export default {
       transition: all 0.2s ease;
     }
   }
-
   .post-label {
     font-weight: 700;
   }
   .post-empty {
     color: #666666;
+  }
+  &:last-of-type {
+    text-align: right;
+  }
+}
+
+@include viewpoint-md {
+  .wrapper {
+    flex-direction: column;
+  }
+}
+@include viewpoint-sm {
+  .wrapper {
+    flex-direction: column;
+    font-size: 16px;
   }
 }
 </style>

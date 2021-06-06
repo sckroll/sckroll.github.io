@@ -116,13 +116,11 @@ $background-height: 70vh;
     background-color: #00000066;
   }
 }
-
 .post-article-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-
 .post-info {
   display: flex;
   flex-direction: column;
@@ -151,7 +149,6 @@ $background-height: 70vh;
     line-height: 130%;
   }
 }
-
 .tags {
   display: inline;
   margin-right: 10px;
@@ -160,7 +157,6 @@ $background-height: 70vh;
     margin-right: 0;
   }
 }
-
 .content-container {
   position: relative;
   display: flex;
@@ -170,31 +166,53 @@ $background-height: 70vh;
 }
 
 @include viewpoint-xl {
-  .post-info-main-wrapper,
-  .post-info-sub-wrapper,
+  .post-article-container,
   .content-container {
     width: $breakpoint-xl;
   }
 }
 @include viewpoint-lg {
-  .post-info-main-wrapper,
-  .post-info-sub-wrapper,
+  .post-article-container,
   .content-container {
     width: $breakpoint-lg;
   }
 }
 @include viewpoint-md {
-  .post-info-main-wrapper,
-  .post-info-sub-wrapper,
+  .post-article-container,
   .content-container {
     width: $breakpoint-md;
   }
+  .post-info {
+    .info-main {
+      h1 {
+        font-size: 36px;
+      }
+      p {
+        font-size: 24px;
+      }
+    }
+    .info-sub {
+      font-size: 16px;
+    }
+  }
 }
 @include viewpoint-sm {
-  .post-info-main-wrapper,
-  .post-info-sub-wrapper,
+  .post-article-container,
   .content-container {
     width: $breakpoint-sm;
+  }
+  .post-info {
+    .info-main {
+      h1 {
+        font-size: 32px;
+      }
+      p {
+        font-size: 20px;
+      }
+    }
+    .info-sub {
+      font-size: 14px;
+    }
   }
 }
 </style>
