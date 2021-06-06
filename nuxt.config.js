@@ -43,7 +43,6 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/content
     '@nuxt/content',
-    '@nuxtjs/redirect-module',
   ],
 
   // Content module configuration (https://go.nuxtjs.dev/content-config)
@@ -90,10 +89,4 @@ export default {
   styleResources: {
     scss: '~assets/scss/*.scss',
   },
-
-  redirect: [
-    { from: '/about/', to: '/about' },
-    { from: '/posts/', to: '/posts' },
-    { from: '/projects/', to: '/projects' },
-  ],
 }
