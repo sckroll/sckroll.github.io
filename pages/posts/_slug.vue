@@ -52,6 +52,10 @@ export default {
       const postArray = await $content('posts', { deep: true })
         .where({ slug: params.slug })
         .fetch()
+
+      if (postArray.length === 0) {
+        error({ statusCode: 404 })
+      }
       const post = postArray[0]
 
       const [prev, next] = await $content('posts', { deep: true })
@@ -62,7 +66,7 @@ export default {
 
       return { post, prev, next }
     } catch (e) {
-      error({ statusCode: 404 })
+      error({ statusCode: e.statusCode || e.status || 500 })
     }
   },
   methods: {
