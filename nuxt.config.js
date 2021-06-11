@@ -60,6 +60,7 @@ export default {
 
   router: {
     routeNameSplitter: '/',
+    middleware: 'routeCheck',
   },
   generate: {
     fallback: true,

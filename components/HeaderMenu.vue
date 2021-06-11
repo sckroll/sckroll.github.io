@@ -1,5 +1,5 @@
 <template>
-  <header :class="{ reversed: isLanding }">
+  <header :class="{ reversed: (isLanding || isPostPage) && !isError }">
     <div class="header-container">
       <span class="logo">
         <nuxt-link to="/">Sckroll</nuxt-link>
@@ -50,8 +50,14 @@ export default {
   },
   computed: {
     isLanding() {
+      return this.$route.path === '/'
+    },
+    isPostPage() {
       const path = this.$route.path
-      return path === '/' || path.match(/\/posts\/\S+/)
+      return path.match(/\/posts\/\S+/)
+    },
+    isError() {
+      return this.$store.state.isErrorPage
     },
   },
   mounted() {

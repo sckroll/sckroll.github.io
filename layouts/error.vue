@@ -31,6 +31,9 @@ export default {
       },
     }
   },
+  created() {
+    this.$store.commit('SET_ERROR_PAGE', true)
+  },
 }
 </script>
 
