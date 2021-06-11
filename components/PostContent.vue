@@ -14,6 +14,8 @@ export default {
 </script>
 
 <style lang="scss">
+$hash-link-margin-top: $header-menu-height + 30px;
+
 .nuxt-content-container {
   width: 100%;
 }
@@ -26,11 +28,26 @@ export default {
     &:first-child {
       margin-top: 0;
     }
+    &::before {
+      content: '';
+      display: block;
+      height: $hash-link-margin-top;
+      margin-top: -#{$hash-link-margin-top};
+      visibility: hidden;
+    }
   }
   h3 {
     font-weight: 700;
     font-size: 20px;
     margin: 10px 0;
+
+    &::before {
+      content: '';
+      display: block;
+      height: $hash-link-margin-top;
+      margin-top: -#{$hash-link-margin-top};
+      visibility: hidden;
+    }
   }
   p,
   ol,
@@ -72,7 +89,6 @@ export default {
       transition: all 0.2s ease;
     }
   }
-
   .nuxt-content-highlight {
     background-color: #3e3e3e;
     margin: 30px 0;

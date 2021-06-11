@@ -66,6 +66,7 @@ export default {
   width: 100%;
 
   .toggle {
+    z-index: 2;
     position: absolute;
     width: 100%;
     height: 53px;
@@ -78,6 +79,7 @@ export default {
     }
   }
   .wrapper {
+    z-index: 1;
     width: 100%;
     padding: 10px 30px;
   }
