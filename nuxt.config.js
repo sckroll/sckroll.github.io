@@ -92,8 +92,5 @@ export default {
     scss: '~assets/scss/*.scss',
   },
 
-  loading: {
-    color: 'DodgerBlue',
-    height: '30px',
-  },
+  loading: '~/components/loading.vue',
 }
