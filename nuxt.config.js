@@ -92,5 +92,8 @@ export default {
     scss: '~assets/scss/*.scss',
   },
 
-  loading: '~/components/loading.vue',
+  loading: {
+    height: '10px',
+    continuous: true,
+  },
 }
