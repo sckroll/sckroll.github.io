@@ -62,6 +62,7 @@ export default {
     routeNameSplitter: '/',
     middleware: 'routeCheck',
   },
+
   generate: {
     fallback: true,
     async routes() {
@@ -89,5 +90,10 @@ export default {
 
   styleResources: {
     scss: '~assets/scss/*.scss',
+  },
+
+  loading: {
+    color: 'DodgerBlue',
+    height: '30px',
   },
 }
