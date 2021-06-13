@@ -60,6 +60,7 @@ $hash-link-margin-top: $header-menu-height + 30px;
       background-color: #cccccc;
     }
     img {
+      display: block;
       margin: 30px auto;
       border: 3px solid #dddddd;
       max-width: 100%;
