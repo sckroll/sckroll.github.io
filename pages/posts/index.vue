@@ -1,5 +1,7 @@
 <template>
-  <post-list :posts="posts">블로그 포스트</post-list>
+  <post-list :posts="posts">
+    <template v-slot:title>블로그 포스트</template>
+  </post-list>
 </template>
 
 <script>

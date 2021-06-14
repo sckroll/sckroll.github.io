@@ -1,7 +1,9 @@
 <template>
   <section class="post-list">
     <div class="component-title">
-      <h2 class="component-label"><slot></slot></h2>
+      <h2 class="component-label">
+        <slot name="title"></slot>
+      </h2>
       <app-search-input v-if="!landing" @posts="getSearchResult" />
     </div>
     <section class="post-grid">

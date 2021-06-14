@@ -5,7 +5,9 @@
       {{ title1 }}<br />{{ title2 }}<br />{{ title3 }}
     </h1>
     <div class="landing-margin"></div>
-    <post-list :posts="posts" landing>최근 포스트</post-list>
+    <post-list :posts="posts" landing>
+      <template v-slot:title>최근 포스트</template>
+    </post-list>
   </div>
 </template>
 
