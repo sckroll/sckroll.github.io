@@ -1,7 +1,7 @@
 ---
 title: LeetCode 543번 문제
 description: Diameter of Binary Tree
-tags: algorithm, python, leetcode, bfs, tree
+tags: algorithm, python, leetcode, dfs, tree
 ---
 
 ## 문제 링크
