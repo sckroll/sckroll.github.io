@@ -14,6 +14,13 @@ https://leetcode.com/problems/diameter-of-binary-tree/
 - ex: `[0, 0, 0, 0, None, None, 0, None, None, None, 0]`
 
 ```python
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
 class MySolution1:
     def diameterOfBinaryTree(self, root: TreeNode) -> int:
         # 리프 노드까지의 모든 경로를 routes 리스트에 저장
@@ -64,6 +71,13 @@ class MySolution1:
   - 단, `self.longest`의 값이 리스트나 딕셔너리라면 굳이 클래스 변수를 사용할 필요가 없다.
 
 ```python
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+        
 class Solution1:
     longest: int = 0
 
