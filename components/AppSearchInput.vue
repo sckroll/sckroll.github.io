@@ -1,23 +1,26 @@
 <template>
   <span class="search-input">
     <fa-icon :icon="['fa', 'search']" class="search-icon" />
-    <input
-      v-model="searchQuery"
-      type="search"
-      autocomplete="off"
-      placeholder="포스트 검색"
-      class="input-area"
-    />
+    <span class="input-area">
+      <input
+        v-model="searchQuery"
+        type="search"
+        autocomplete="off"
+        placeholder="포스트 검색"
+      />
+      <button class="btn-clear" @click="searchReset">
+        <fa-icon :icon="['fa', 'times']" />
+      </button>
+    </span>
     <button
       v-for="field in fields"
       :key="field.name"
-      class="btn-search"
+      class="btn-toggle"
       :class="{ toggled: currField === field.name }"
       @click="currField = field.name"
     >
       {{ field.label }}
     </button>
-    <button class="btn-search btn-clear" @click="searchReset">초기화</button>
   </span>
 </template>
 
@@ -92,63 +95,60 @@ export default {
   display: flex;
   align-items: center;
 }
-
 .search-icon {
   margin-right: 10px;
   font-size: 20px;
   color: #333333;
-  flex: 1;
 }
-
 .input-area {
-  border: none;
-  padding: 10px;
-  background-color: #eeeeee;
-  font-size: 14px;
-  flex: 6;
+  display: flex;
 
-  &:hover {
-    background-color: #dddddd;
+  input {
+    border: none;
+    padding: 10px;
+    background-color: #eeeeee;
+    font-size: 14px;
+    width: 100%;
+
+    &:hover {
+      background-color: #dddddd;
+    }
+    &:focus {
+      outline: none;
+      background-color: #dddddd;
+    }
+
+    /* 인풋 박스 X 버튼 삭제 */
+    /* 출처: https://blog.maximerouiller.com/post/remove-the-x-from-internet-explorer-and-chrome-input-type-search/ */
+    &[type='search']::-ms-clear,
+    &[type='search']::-ms-reveal {
+      display: none;
+      width: 0;
+      height: 0;
+    }
+    &[type='search']::-webkit-search-decoration,
+    &[type='search']::-webkit-search-cancel-button,
+    &[type='search']::-webkit-search-results-button,
+    &[type='search']::-webkit-search-results-decoration {
+      display: none;
+    }
   }
-  &:focus {
-    outline: none;
+  .btn-clear {
+    border: none;
+    cursor: pointer;
+    width: 36px;
+    font-size: 16px;
     background-color: #dddddd;
   }
 }
-
-.btn-search {
+.btn-toggle {
   border: none;
   padding: 9px 10px;
   font-size: 14px;
   cursor: pointer;
-  flex: 1;
 
   &.toggled {
     background-color: #cccccc;
-  }
-  &.btn-clear {
-    flex: 2;
-  }
-}
-
-@include viewpoint-xl {
-  .search-input {
-    width: $search-width-xl;
-  }
-}
-@include viewpoint-lg {
-  .search-input {
-    width: $search-width-lg;
-  }
-}
-@include viewpoint-md {
-  .search-input {
-    width: $search-width-md;
-  }
-}
-@include viewpoint-sm {
-  .search-input {
-    width: $search-width-sm;
   }
 }
 </style>
