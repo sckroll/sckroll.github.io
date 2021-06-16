@@ -4,20 +4,33 @@
       <h2 class="component-label">
         <slot name="title"></slot>
       </h2>
-      <app-search-input v-if="!landing" @posts="getSearchResult" />
+      <div v-if="!isMobileView || !landing" class="post-functions">
+        <post-search-input v-if="!landing" @posts="getSearchResult" />
+        <div v-if="!isMobileView" class="post-view-toggle">
+          <span class="post-toggle-icon" @click="isGridView = true">
+            <fa-icon :icon="['fa', 'th']" />
+          </span>
+          <span class="post-toggle-icon" @click="isGridView = false">
+            <fa-icon :icon="['fa', 'list']" />
+          </span>
+        </div>
+      </div>
     </div>
-    <section class="post-grid">
+    <section class="post-list-content">
       <div
         v-for="post in searchResults.length > 0 ? searchResults : posts"
         :key="post.slug"
       >
-        <post-preview :post="post" />
+        <post-preview v-if="isGridView" :post="post" />
+        <div v-else>list-view</div>
       </div>
     </section>
   </section>
 </template>
 
 <script>
+import breakpoints from '../assets/scss/main.scss'
+
 export default {
   props: {
     posts: {
@@ -32,11 +45,26 @@ export default {
   data() {
     return {
       searchResults: [],
+      isGridView: true,
+      isMobileView: false,
     }
+  },
+  mounted() {
+    this.resizeListener()
+    window.addEventListener('resize', this.resizeListener)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.resizeListener)
   },
   methods: {
     getSearchResult(results) {
       this.searchResults = results
+    },
+    resizeListener() {
+      const width = window.innerWidth
+      const threshold = parseInt(breakpoints.breakpointMd.replace('px', ''))
+      this.isMobileView = width < threshold
+      this.isGridView = !this.isMobileView
     },
   },
 }
@@ -48,7 +76,6 @@ export default {
 .post-list {
   padding: 0 30px;
 }
-
 .component-title {
   display: flex;
   justify-content: space-between;
@@ -60,8 +87,25 @@ export default {
     font-weight: 700;
   }
 }
+.post-functions {
+  display: flex;
+  justify-content: space-between;
+}
+.post-view-toggle {
+  font-size: 24px;
+  margin-left: 20px;
 
-.post-grid {
+  .post-toggle-icon {
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      color: #bbbbbb;
+      transition: all 0.2s ease;
+    }
+  }
+}
+.post-list-content {
   display: grid;
   justify-content: space-between;
 }
@@ -70,7 +114,7 @@ export default {
   .post-list {
     width: $breakpoint-xl;
   }
-  .post-grid {
+  .post-list-content {
     grid-template-columns: repeat(4, $thumbnail-width-xl);
     row-gap: 10px;
   }
@@ -79,7 +123,7 @@ export default {
   .post-list {
     width: $breakpoint-lg;
   }
-  .post-grid {
+  .post-list-content {
     grid-template-columns: repeat(3, $thumbnail-width-lg);
     row-gap: 13px;
   }
@@ -88,7 +132,7 @@ export default {
   .post-list {
     width: $breakpoint-md;
   }
-  .post-grid {
+  .post-list-content {
     grid-template-columns: repeat(3, $thumbnail-width-md);
     row-gap: 5px;
   }
@@ -103,7 +147,7 @@ export default {
   .post-list {
     width: $breakpoint-sm;
   }
-  .post-grid {
+  .post-list-content {
     grid-template-columns: repeat(1, 1fr);
     row-gap: 10px;
   }

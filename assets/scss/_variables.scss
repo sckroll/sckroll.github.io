@@ -19,11 +19,12 @@ $thumbnail-width-xl: 275px;
 $thumbnail-width-lg: 300px;
 $thumbnail-width-md: 230px;
 
-/* Search Input Width Variables */
-$search-width-xl: 40%;
-$search-width-lg: 50%;
-$search-width-md: 65%;
-$search-width-sm: 100%;
-
 /* Header Variables */
 $header-menu-height: 120px;
+
+:export {
+  breakpointXl: $breakpoint-xl;
+  breakpointLg: $breakpoint-lg;
+  breakpointMd: $breakpoint-md;
+  breakpointSm: $breakpoint-sm;
+}
