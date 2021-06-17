@@ -16,13 +16,20 @@
         </div>
       </div>
     </div>
-    <section class="post-list-content">
+    <section v-if="isGridView" class="post-grid-content">
       <div
         v-for="post in searchResults.length > 0 ? searchResults : posts"
         :key="post.slug"
       >
-        <post-preview v-if="isGridView" :post="post" />
-        <div v-else>list-view</div>
+        <post-grid-preview :post="post" />
+      </div>
+    </section>
+    <section v-else class="post-list-content">
+      <div
+        v-for="post in searchResults.length > 0 ? searchResults : posts"
+        :key="post.slug"
+      >
+        <post-list-preview :post="post" />
       </div>
     </section>
   </section>
@@ -105,7 +112,7 @@ export default {
     }
   }
 }
-.post-list-content {
+.post-grid-content {
   display: grid;
   justify-content: space-between;
 }
@@ -114,7 +121,7 @@ export default {
   .post-list {
     width: $breakpoint-xl;
   }
-  .post-list-content {
+  .post-grid-content {
     grid-template-columns: repeat(4, $thumbnail-width-xl);
     row-gap: 10px;
   }
@@ -123,7 +130,7 @@ export default {
   .post-list {
     width: $breakpoint-lg;
   }
-  .post-list-content {
+  .post-grid-content {
     grid-template-columns: repeat(3, $thumbnail-width-lg);
     row-gap: 13px;
   }
@@ -132,7 +139,7 @@ export default {
   .post-list {
     width: $breakpoint-md;
   }
-  .post-list-content {
+  .post-grid-content {
     grid-template-columns: repeat(3, $thumbnail-width-md);
     row-gap: 5px;
   }
@@ -147,7 +154,7 @@ export default {
   .post-list {
     width: $breakpoint-sm;
   }
-  .post-list-content {
+  .post-grid-content {
     grid-template-columns: repeat(1, 1fr);
     row-gap: 10px;
   }

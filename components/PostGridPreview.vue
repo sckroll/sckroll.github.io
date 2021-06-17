@@ -1,5 +1,5 @@
 <template>
-  <article class="post-preview">
+  <article>
     <nuxt-link :to="`posts/${post.slug}`" class="post-link">
       <div class="preview-container">
         <div
@@ -8,7 +8,7 @@
         ></div>
         <div class="preview-info">
           <div class="title-info">
-            <h3 ref="title" class="preview-title">
+            <h3 class="preview-title">
               {{ trimTitle(post.title) }}
             </h3>
             <h3 class="preview-title-active">
@@ -100,7 +100,6 @@ export default {
     height: auto;
   }
 }
-
 @keyframes titleFadeIn {
   0% {
     opacity: 0;
@@ -115,7 +114,6 @@ export default {
     height: auto;
   }
 }
-
 @keyframes fadeOut {
   0% {
     opacity: 1;
@@ -131,7 +129,6 @@ export default {
   display: inline-block;
   height: 0;
 }
-
 .preview-container {
   display: inline-block;
   position: relative;
@@ -157,13 +154,11 @@ export default {
     height: auto;
     animation: FadeIn 0.5s ease;
   }
-
   .preview-img {
     width: inherit;
     height: inherit;
   }
 }
-
 .preview-info {
   position: absolute;
   display: flex;
@@ -183,21 +178,18 @@ export default {
     font-size: 20px;
     font-weight: 700;
   }
-
   .preview-title-active {
     opacity: 0;
     height: 0;
     font-size: 0;
     font-weight: 700;
   }
-
   .preview-description {
     opacity: 0;
     height: 0;
     font-size: 14px;
   }
 }
-
 .other-info {
   font-size: 14px;
   color: #333333;
@@ -210,7 +202,6 @@ export default {
       margin-right: 0;
     }
   }
-
   .preview-date {
     float: right;
   }
@@ -256,7 +247,6 @@ export default {
     &:hover .preview-title-active {
       font-size: 28px;
     }
-
     .preview-description {
       font-size: 20px;
     }
