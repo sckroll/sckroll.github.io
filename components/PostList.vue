@@ -16,22 +16,12 @@
         </div>
       </div>
     </div>
-    <section v-if="isGridView" class="post-grid-content">
-      <div
-        v-for="post in searchResults.length > 0 ? searchResults : posts"
-        :key="post.slug"
-      >
-        <post-grid-preview :post="post" />
-      </div>
-    </section>
-    <section v-else class="post-list-content">
-      <div
-        v-for="post in searchResults.length > 0 ? searchResults : posts"
-        :key="post.slug"
-      >
-        <post-list-preview :post="post" />
-      </div>
-    </section>
+    <post-grid-contents
+      v-if="isGridView"
+      :posts="posts"
+      :results="searchResults"
+    />
+    <post-list-contents v-else :posts="posts" :results="searchResults" />
   </section>
 </template>
 
@@ -112,36 +102,20 @@ export default {
     }
   }
 }
-.post-grid-content {
-  display: grid;
-  justify-content: space-between;
-}
 
 @include viewpoint-xl {
   .post-list {
     width: $breakpoint-xl;
-  }
-  .post-grid-content {
-    grid-template-columns: repeat(4, $thumbnail-width-xl);
-    row-gap: 10px;
   }
 }
 @include viewpoint-lg {
   .post-list {
     width: $breakpoint-lg;
   }
-  .post-grid-content {
-    grid-template-columns: repeat(3, $thumbnail-width-lg);
-    row-gap: 13px;
-  }
 }
 @include viewpoint-md {
   .post-list {
     width: $breakpoint-md;
-  }
-  .post-grid-content {
-    grid-template-columns: repeat(3, $thumbnail-width-md);
-    row-gap: 5px;
   }
 }
 @include viewpoint-sm {
@@ -153,10 +127,6 @@ export default {
   }
   .post-list {
     width: $breakpoint-sm;
-  }
-  .post-grid-content {
-    grid-template-columns: repeat(1, 1fr);
-    row-gap: 10px;
   }
 }
 </style>

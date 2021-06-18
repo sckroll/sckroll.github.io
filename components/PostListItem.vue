@@ -90,6 +90,7 @@ article {
 .preview-container {
   display: flex;
   width: 100%;
+  padding: 10px 0;
 
   .preview-img {
     width: 150px;
@@ -108,7 +109,7 @@ article {
     font-weight: 700;
   }
   .preview-description {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
 .other-info {
