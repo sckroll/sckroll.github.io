@@ -196,7 +196,12 @@ $background-height: 70vh;
       }
     }
     .info-sub {
+      display: block;
       font-size: 16px;
+
+      .posted-date {
+        float: right;
+      }
     }
   }
 }
@@ -215,7 +220,12 @@ $background-height: 70vh;
       }
     }
     .info-sub {
+      display: block;
       font-size: 14px;
+
+      .posted-date {
+        float: right;
+      }
     }
   }
 }
