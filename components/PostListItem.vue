@@ -23,7 +23,7 @@
             >
               <span class="preview-tag">#{{ tag }}</span>
             </div>
-            <span class="preview-date">{{ formatDate(post.createdAt) }}</span>
+            <div class="preview-date">{{ formatDate(post.createdAt) }}</div>
           </div>
         </div>
       </div>
@@ -82,9 +82,14 @@ export default {
 
 article {
   margin-bottom: 20px;
+  transition: all 0.2s ease;
 
   &:only-child {
     margin-bottom: 0;
+  }
+  &:hover {
+    background-color: #eeeeee;
+    transition: all 0.2s ease;
   }
 }
 .preview-container {
@@ -93,8 +98,8 @@ article {
   padding: 10px 0;
 
   .preview-img {
-    width: 150px;
-    height: 150px;
+    min-width: 150px;
+    min-height: 150px;
   }
 }
 .preview-info {
@@ -113,7 +118,6 @@ article {
   }
 }
 .other-info {
-  display: flex;
   font-size: 14px;
   color: #333333;
 
@@ -124,6 +128,9 @@ article {
     &:last-child {
       margin-right: 0;
     }
+  }
+  .preview-date {
+    font-weight: 600;
   }
 }
 
