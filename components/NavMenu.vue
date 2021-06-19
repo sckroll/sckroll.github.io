@@ -103,4 +103,12 @@ export default {
     display: block;
   }
 }
+@include viewpoint-xs {
+  ul {
+    display: none;
+  }
+  .mobile-menu {
+    display: block;
+  }
+}
 </style>

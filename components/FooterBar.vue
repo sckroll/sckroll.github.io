@@ -16,7 +16,7 @@
         </div>
       </div>
       <div class="copyright">
-        <br />ⓒ {{ new Date().getFullYear() }} Sckroll. All rights reserved.
+        ⓒ {{ new Date().getFullYear() }} Sckroll. All rights reserved.
       </div>
     </div>
   </footer>
@@ -30,14 +30,12 @@ footer {
   justify-content: center;
   background-color: #dddddd;
 }
-
 .footer-container {
   display: flex;
   justify-content: space-between;
   padding: 20px 30px;
   line-height: 180%;
 }
-
 .github-link,
 .email-link {
   display: flex;
@@ -49,11 +47,14 @@ footer {
     transition: all 0.2s ease;
   }
 }
-
 .github-icon,
 .email-icon {
   font-size: 24px;
   margin-right: 5px;
+}
+.copyright {
+  display: flex;
+  align-items: flex-end;
 }
 
 @include viewpoint-xl {
@@ -74,6 +75,26 @@ footer {
 @include viewpoint-sm {
   .footer-container {
     width: $breakpoint-sm;
+  }
+}
+@include viewpoint-xs {
+  .footer-container {
+    /* width: $breakpoint-sm; */
+    width: 100%;
+  }
+  .icon-links {
+    display: flex;
+  }
+  .email-area {
+    margin-left: 10px;
+  }
+  .github-icon,
+  .email-icon {
+    margin-right: 0;
+  }
+  .github-link > span,
+  .email-link > span {
+    display: none;
   }
 }
 </style>

@@ -83,4 +83,9 @@ nav {
     display: block;
   }
 }
+@include viewpoint-xs {
+  nav {
+    display: block;
+  }
+}
 </style>

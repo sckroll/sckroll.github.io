@@ -187,4 +187,13 @@ header {
     display: block;
   }
 }
+@include viewpoint-xs {
+  .header-container {
+    /* width: $breakpoint-xs; */
+    width: 100%;
+  }
+  .overlay {
+    display: block;
+  }
+}
 </style>
