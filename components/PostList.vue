@@ -7,10 +7,18 @@
       <div v-if="!isMobileView || !landing" class="post-functions">
         <post-search-input v-if="!landing" @posts="getSearchResult" />
         <div v-if="!isMobileView" class="post-view-toggle">
-          <span class="post-toggle-icon" @click="isGridView = true">
+          <span
+            class="post-toggle-icon"
+            :class="{ toggled: isGridView }"
+            @click="toggleGridView"
+          >
             <fa-icon :icon="['fa', 'th']" />
           </span>
-          <span class="post-toggle-icon" @click="isGridView = false">
+          <span
+            class="post-toggle-icon"
+            :class="{ toggled: !isGridView }"
+            @click="toggleListView"
+          >
             <fa-icon :icon="['fa', 'list']" />
           </span>
         </div>
@@ -49,6 +57,11 @@ export default {
   mounted() {
     this.resizeListener()
     window.addEventListener('resize', this.resizeListener)
+
+    const isListView = localStorage.getItem('isPostListView')
+    if (isListView) {
+      this.isGridView = false
+    }
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.resizeListener)
@@ -62,6 +75,14 @@ export default {
       const threshold = parseInt(breakpoints.breakpointMd.replace('px', ''))
       this.isMobileView = width < threshold
       this.isGridView = !this.isMobileView
+    },
+    toggleGridView() {
+      this.isGridView = true
+      localStorage.removeItem('isPostListView')
+    },
+    toggleListView() {
+      this.isGridView = false
+      localStorage.setItem('isPostListView', true)
     },
   },
 }
@@ -94,10 +115,15 @@ export default {
 
   .post-toggle-icon {
     cursor: pointer;
+    color: #aaaaaa;
     transition: all 0.2s ease;
 
     &:hover {
-      color: #bbbbbb;
+      color: #666666;
+      transition: all 0.2s ease;
+    }
+    &.toggled {
+      color: #000000;
       transition: all 0.2s ease;
     }
   }
