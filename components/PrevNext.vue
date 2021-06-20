@@ -81,4 +81,11 @@ export default {
     font-size: 16px;
   }
 }
+@include viewpoint-xs {
+  .wrapper {
+    flex-direction: column;
+    font-size: 16px;
+    width: 100%;
+  }
+}
 </style>

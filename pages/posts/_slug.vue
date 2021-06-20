@@ -229,4 +229,28 @@ $background-height: 70vh;
     }
   }
 }
+@include viewpoint-xs {
+  .post-article-container,
+  .content-container {
+    width: 100vw;
+  }
+  .post-info {
+    .info-main {
+      h1 {
+        font-size: 32px;
+      }
+      p {
+        font-size: 20px;
+      }
+    }
+    .info-sub {
+      display: block;
+      font-size: 14px;
+
+      .posted-date {
+        float: right;
+      }
+    }
+  }
+}
 </style>

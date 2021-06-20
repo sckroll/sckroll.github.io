@@ -24,16 +24,23 @@ export default {
 </script>
 
 <style lang="scss">
+@include set-viewpoint;
+
 .comment-container {
   display: flex;
   justify-content: center;
+  width: 100%;
 }
-
 .comment-center {
   padding: 0 30px;
 }
-
 .utterances {
   max-width: 100%;
+}
+
+@include viewpoint-xs {
+  .comment-center {
+    width: 100%;
+  }
 }
 </style>

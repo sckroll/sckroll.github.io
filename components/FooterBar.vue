@@ -79,8 +79,7 @@ footer {
 }
 @include viewpoint-xs {
   .footer-container {
-    /* width: $breakpoint-sm; */
-    width: 100%;
+    width: 100vw;
   }
   .icon-links {
     display: flex;
