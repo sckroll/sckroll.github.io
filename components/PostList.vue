@@ -73,8 +73,10 @@ export default {
     resizeListener() {
       const width = window.innerWidth
       const threshold = parseInt(breakpoints.breakpointMd.replace('px', ''))
+      const isListView = localStorage.getItem('isPostListView')
+
       this.isMobileView = width < threshold
-      this.isGridView = !this.isMobileView
+      this.isGridView = !this.isMobileView && !isListView
     },
     toggleGridView() {
       this.isGridView = true
