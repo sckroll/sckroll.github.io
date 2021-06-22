@@ -36,7 +36,7 @@ nav {
   right: 0;
   background-color: #ffffff;
   color: #000000;
-  width: 40vw;
+  width: 40%;
   height: 100vh;
   padding: 30px;
 
@@ -86,6 +86,7 @@ nav {
 @include viewpoint-xs {
   nav {
     display: block;
+    width: 50%;
   }
 }
 </style>

@@ -35,6 +35,8 @@ export default {
 </script>
 
 <style lang="scss">
+@include set-viewpoint;
+
 $background-height: 70vh;
 
 .landing-background {
@@ -47,7 +49,6 @@ $background-height: 70vh;
   background-size: cover;
   background-position-y: 95%;
 }
-
 .landing-title {
   position: absolute;
   top: $header-menu-height;
@@ -62,9 +63,14 @@ $background-height: 70vh;
     margin: 5px 0;
   }
 }
-
 .landing-margin {
   width: 100%;
   height: calc(#{$background-height} - #{$header-menu-height});
+}
+
+@include viewpoint-xs {
+  .landing-title {
+    font-size: 24px;
+  }
 }
 </style>

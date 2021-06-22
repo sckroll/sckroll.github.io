@@ -135,7 +135,6 @@ header {
   height: 100vh;
   background-color: #000000aa;
 }
-
 .fade-enter-active,
 .fade-leave-active,
 .slide-fade-enter-active,
@@ -189,7 +188,7 @@ header {
 }
 @include viewpoint-xs {
   .header-container {
-    width: 100vw;
+    width: 100%;
   }
   .overlay {
     display: block;
