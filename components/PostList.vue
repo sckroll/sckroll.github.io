@@ -157,4 +157,15 @@ export default {
     width: $breakpoint-sm;
   }
 }
+@include viewpoint-xs {
+  .component-title {
+    display: block;
+  }
+  .component-label {
+    margin-bottom: 15px;
+  }
+  .post-list {
+    width: 100vw;
+  }
+}
 </style>

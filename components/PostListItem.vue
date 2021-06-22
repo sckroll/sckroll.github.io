@@ -2,10 +2,12 @@
   <article>
     <nuxt-link :to="`posts/${post.slug}`" class="post-link">
       <div class="preview-container">
-        <div
-          class="preview-img"
-          :style="`background: ${getPattern(post.title)};`"
-        ></div>
+        <div class="preview-img-container">
+          <div
+            class="preview-img"
+            :style="`background: ${getPattern(post.title)};`"
+          ></div>
+        </div>
         <div class="preview-info">
           <div class="title-info">
             <h3 class="preview-title">
@@ -16,12 +18,13 @@
             </p>
           </div>
           <div class="other-info">
-            <div
-              v-for="tag in trimTags(post.tags)"
-              :key="tag"
-              class="preview-tags"
-            >
-              <span class="preview-tag">#{{ tag }}</span>
+            <div class="preview-tags">
+              <span
+                v-for="tag in trimTags(post.tags)"
+                :key="tag"
+                class="preview-tag"
+                >#{{ tag }}</span
+              >
             </div>
             <div class="preview-date">{{ formatDate(post.createdAt) }}</div>
           </div>
@@ -121,7 +124,7 @@ article {
   font-size: 14px;
   color: #333333;
 
-  .preview-tags {
+  .preview-tag {
     display: inline;
     margin-right: 5px;
 
@@ -134,49 +137,22 @@ article {
   }
 }
 
-/* @include viewpoint-xl {
+@include viewpoint-xs {
   .preview-container {
-    width: $thumbnail-width-xl;
-    height: $thumbnail-width-xl;
-  }
-}
-@include viewpoint-lg {
-  .preview-container {
-    width: $thumbnail-width-lg;
-    height: $thumbnail-width-lg;
-  }
-}
-@include viewpoint-md {
-  .preview-container {
-    width: $thumbnail-width-md;
-    height: $thumbnail-width-md;
-  }
-  .preview-info {
-    height: 40%;
-
-    .preview-title {
-      font-size: 16px;
+    .preview-img {
+      min-width: 100px;
+      min-height: 100px;
     }
-  }
-}
-@include viewpoint-sm {
-  .preview-container {
-    width: $breakpoint-sm - 60px;
-    height: $breakpoint-sm - 60px;
-
-    .preview-description {
+    .preview-title {
       font-size: 20px;
     }
-  }
-  .preview-info {
-    height: 30%;
-
-    .preview-title {
-      font-size: 28px;
+    .preview-description {
+      font-size: 14px;
     }
   }
-  .other-info {
-    font-size: 20px;
+  .preview-info {
+    width: calc(100% - 100px - 20px);
+    margin-left: 20px;
   }
-} */
+}
 </style>
