@@ -102,6 +102,7 @@ export default {
 }
 .input-area {
   display: flex;
+  flex: 5;
 
   input {
     border: none;
@@ -146,6 +147,7 @@ export default {
   padding: 9px 10px;
   font-size: 14px;
   cursor: pointer;
+  flex: 1;
 
   &.toggled {
     background-color: #cccccc;
@@ -155,11 +157,13 @@ export default {
 @include viewpoint-sm {
   .search-input {
     margin-top: 10px;
+    width: 100%;
   }
 }
 @include viewpoint-xs {
   .search-input {
     margin-top: 10px;
+    width: 100%;
   }
 }
 </style>
