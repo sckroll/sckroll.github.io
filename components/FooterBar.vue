@@ -79,10 +79,14 @@ footer {
 }
 @include viewpoint-xs {
   .footer-container {
+    display: block;
     width: 100vw;
+    line-height: 100%;
   }
   .icon-links {
     display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
   }
   .email-area {
     margin-left: 10px;
@@ -94,6 +98,10 @@ footer {
   .github-link > span,
   .email-link > span {
     display: none;
+  }
+  .copyright {
+    display: block;
+    text-align: center;
   }
 }
 </style>
