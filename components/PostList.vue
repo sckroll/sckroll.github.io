@@ -100,11 +100,12 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 
   h2 {
     font-size: 28px;
     font-weight: 700;
+    margin: 0;
   }
 }
 .post-functions {
@@ -160,6 +161,10 @@ export default {
 @include viewpoint-xs {
   .component-title {
     display: block;
+
+    h2 {
+      font-size: 24px;
+    }
   }
   .component-label {
     margin-bottom: 15px;

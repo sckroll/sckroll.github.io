@@ -151,4 +151,15 @@ export default {
     background-color: #cccccc;
   }
 }
+
+@include viewpoint-sm {
+  .search-input {
+    margin-top: 10px;
+  }
+}
+@include viewpoint-xs {
+  .search-input {
+    margin-top: 10px;
+  }
+}
 </style>
