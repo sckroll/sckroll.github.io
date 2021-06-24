@@ -14,6 +14,8 @@ export default {
 </script>
 
 <style lang="scss">
+@include set-viewpoint;
+
 $hash-link-margin-top: $header-menu-height + 30px;
 
 .nuxt-content-container {
@@ -38,7 +40,7 @@ $hash-link-margin-top: $header-menu-height + 30px;
   }
   h3 {
     font-weight: 700;
-    font-size: 20px;
+    font-size: 24px;
     margin: 10px 0;
 
     &::before {
@@ -108,6 +110,37 @@ $hash-link-margin-top: $header-menu-height + 30px;
     .language-css,
     .language-scss {
       margin: 0;
+    }
+  }
+}
+
+@include viewpoint-sm {
+  .nuxt-content {
+    h2 {
+      font-size: 24px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+    p,
+    ol,
+    ul {
+      font-size: 14px;
+    }
+  }
+}
+@include viewpoint-xs {
+  .nuxt-content {
+    h2 {
+      font-size: 24px;
+    }
+    h3 {
+      font-size: 20px;
+    }
+    p,
+    ol,
+    ul {
+      font-size: 14px;
     }
   }
 }
