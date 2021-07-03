@@ -34,7 +34,7 @@
 </template>
 
 <script>
-import breakpoints from '../assets/scss/main.scss'
+import breakpoints from '@/assets/scss/main.scss'
 
 export default {
   props: {

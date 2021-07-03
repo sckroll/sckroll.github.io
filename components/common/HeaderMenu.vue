@@ -16,12 +16,7 @@
 </template>
 
 <script>
-import NavDrawer from './NavDrawer'
-
 export default {
-  components: {
-    NavDrawer,
-  },
   props: {
     landing: {
       type: Boolean,
