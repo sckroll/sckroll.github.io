@@ -43,8 +43,8 @@
 </template>
 
 <script>
-import GeoPattern from 'geopattern'
-import { formatDate } from '@/lib/handleDate'
+import { getPattern } from '@/utils/pattern.js'
+import { formatDate } from '@/utils/handleDate'
 
 export default {
   async asyncData({ $content, params, error }) {
@@ -70,6 +70,7 @@ export default {
     }
   },
   methods: {
+    getPattern,
     formatDate,
     diffDate(createdAtString, updatedAtString) {
       const createdAt = new Date(createdAtString)
@@ -85,9 +86,6 @@ export default {
         updatedAt.getDate(),
       )
       return updatedDate - createdDate
-    },
-    getPattern(title) {
-      return GeoPattern.generate(title).toDataUrl()
     },
   },
 }

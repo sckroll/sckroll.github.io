@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import GeoPattern from 'geopattern'
-import { formatDate } from '@/lib/handleDate'
+import { getPattern } from '@/utils/pattern.js'
+import { formatDate } from '@/utils/handleDate'
 
 export default {
   props: {
@@ -53,6 +53,7 @@ export default {
     }
   },
   methods: {
+    getPattern,
     formatDate,
     trimTitle(title) {
       if (title.length > this.maxTitleLength) {
@@ -72,9 +73,6 @@ export default {
         return description.slice(0, this.maxDescriptionLength).concat('...')
       }
       return description
-    },
-    getPattern(title) {
-      return GeoPattern.generate(title).toDataUrl()
     },
   },
 }
