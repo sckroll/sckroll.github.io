@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import { getPattern } from '@/utils/pattern.js'
+import { getPattern } from '@/utils/pattern'
 import { formatDate } from '@/utils/handleDate'
 
 export default {

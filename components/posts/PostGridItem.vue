@@ -9,18 +9,18 @@
         <div class="preview-info">
           <div class="title-info">
             <h3 class="preview-title">
-              {{ trimTitle(post.title) }}
+              {{ trimTitle(post.title, maxTitleLength) }}
             </h3>
             <h3 class="preview-title-active">
-              {{ trimActiveTitle(post.title) }}
+              {{ trimActiveTitle(post.title, maxActiveTitleLength) }}
             </h3>
             <p class="preview-description">
-              {{ trimDescription(post.description) }}
+              {{ trimDescription(post.description, maxDescriptionLength) }}
             </p>
           </div>
           <div class="other-info">
             <div
-              v-for="tag in trimTags(post.tags)"
+              v-for="tag in trimTags(post.tags, maxTagsLength)"
               :key="tag"
               class="preview-tags"
             >
@@ -35,8 +35,14 @@
 </template>
 
 <script>
-import { getPattern } from '@/utils/pattern.js'
+import { getPattern } from '@/utils/pattern'
 import { formatDate } from '@/utils/handleDate'
+import {
+  trimTitle,
+  trimActiveTitle,
+  trimTags,
+  trimDescription,
+} from '@/utils/handlePostInfo'
 
 export default {
   props: {
@@ -56,31 +62,10 @@ export default {
   methods: {
     getPattern,
     formatDate,
-    trimTitle(title) {
-      if (title.length > this.maxTitleLength) {
-        return title.slice(0, this.maxTitleLength).concat('...')
-      }
-      return title
-    },
-    trimActiveTitle(title) {
-      if (title.length > this.maxActiveTitleLength) {
-        return title.slice(0, this.maxActiveTitleLength).concat('...')
-      }
-      return title
-    },
-    trimTags(tagStr) {
-      const tags = tagStr.split(', ')
-      if (tags.length > this.maxTagsLength) {
-        return tags.slice(0, this.maxTagsLength)
-      }
-      return tags
-    },
-    trimDescription(description) {
-      if (description.length > this.maxDescriptionLength) {
-        return description.slice(0, this.maxDescriptionLength).concat('...')
-      }
-      return description
-    },
+    trimTitle,
+    trimActiveTitle,
+    trimTags,
+    trimDescription,
   },
 }
 </script>
