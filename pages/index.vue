@@ -1,9 +1,6 @@
 <template>
   <div>
     <div class="landing-background"></div>
-    <h1 class="landing-title">
-      {{ title1 }}<br />{{ title2 }}<br />{{ title3 }}
-    </h1>
     <div class="landing-margin"></div>
     <post-list :posts="posts" landing>
       <template v-slot:title>최근 포스트</template>
@@ -24,19 +21,10 @@ export default {
       posts,
     }
   },
-  data() {
-    return {
-      title1: '예비 개발자 Sckroll의',
-      title2: '홈페이지에 오신 것을',
-      title3: '환영합니다',
-    }
-  },
 }
 </script>
 
 <style lang="scss">
-@include set-viewpoint;
-
 $background-height: 70vh;
 
 .landing-background {
@@ -49,28 +37,8 @@ $background-height: 70vh;
   background-size: cover;
   background-position-y: 95%;
 }
-.landing-title {
-  position: absolute;
-  top: $header-menu-height;
-  color: #ffffff;
-  margin: 60px 0 0 30px;
-  font-size: 32px;
-  font-weight: 500;
-
-  br {
-    display: block;
-    content: '';
-    margin: 5px 0;
-  }
-}
 .landing-margin {
   width: 100%;
   height: calc(#{$background-height} - #{$header-menu-height});
-}
-
-@include viewpoint-xs {
-  .landing-title {
-    font-size: 24px;
-  }
 }
 </style>
