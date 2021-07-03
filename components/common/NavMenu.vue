@@ -71,7 +71,14 @@ export default {
   }
 }
 .nuxt-link-active {
-  color: $primary-color;
+  color: #999999;
+  transition: all 0.2s ease;
+}
+.scrolled {
+  .nuxt-link-active {
+    color: $primary-color;
+    transition: all 0.2s ease;
+  }
 }
 
 @include viewpoint-xl {
