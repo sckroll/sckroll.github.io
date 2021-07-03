@@ -70,6 +70,9 @@ export default {
     }
   }
 }
+.nuxt-link-active {
+  color: $primary-color;
+}
 
 @include viewpoint-xl {
   ul {
