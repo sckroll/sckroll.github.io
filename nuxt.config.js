@@ -37,6 +37,7 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/fontawesome',
     '@nuxtjs/style-resources',
+    '@nuxtjs/google-fonts',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
@@ -101,7 +102,14 @@ export default {
   },
 
   loading: {
-    height: '10px',
+    height: '8px',
     continuous: true,
+  },
+
+  googleFonts: {
+    families: {
+      'Noto+Sans+KR': [100, 300, 400, 500, 700, 900],
+    },
+    display: 'swap',
   },
 }
