@@ -1,13 +1,10 @@
 /* Color Variables */
-$primary-color: #086dd9;
-$light-color-0: #ffffff;
-$light-color-1: #eeeeee;
-$light-color-2: #dddddd;
-$light-color-3: #cccccc;
-$dark-color-0: #000000;
-$dark-color-1: #222222;
-$dark-color-2: #444444;
-$dark-color-3: #666666;
+$sckroll-primary: #2a7dd6;
+$sckroll-grey-1: #222222;
+$sckroll-grey-2: #444444;
+$sckroll-grey-3: #666666;
+$sckroll-grey-4: #bbbbbb;
+$sckroll-grey-5: #dddddd;
 
 /* Viewpoint Variables */
 $breakpoint-xl: 1200px;
@@ -21,7 +18,12 @@ $thumbnail-width-lg: 300px;
 $thumbnail-width-md: 230px;
 
 /* Header Variables */
-$header-menu-height: 120px;
+$header-height-desktop: 128px;
+$header-height-mobile: 96px;
+
+/* Transition */
+$fade-default: all 0.15s ease;
+$fade-post: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
 
 :export {
   breakpointXl: $breakpoint-xl;
