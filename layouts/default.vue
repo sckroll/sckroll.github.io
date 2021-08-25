@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <header-menu />
+    <HeaderBase></HeaderBase>
     <main class="main-container">
       <Nuxt />
     </main>
-    <footer-bar />
+    <FooterBase></FooterBase>
   </div>
 </template>
 
@@ -19,7 +19,7 @@
 }
 
 .main-container {
-  margin: $header-menu-height + 50px 0 50px;
+  margin: $header-height-desktop + 64px 0 64px;
   display: flex;
   justify-content: center;
   width: 100%;

@@ -6,7 +6,11 @@
           item.name
         }}</nuxt-link>
       </li>
-      <li><fa-icon :icon="['far', 'moon']" /></li>
+      <li>
+        <span class="darkmode-toggle-mobile">
+          <fa-icon :icon="['far', 'moon']" />
+        </span>
+      </li>
     </ul>
   </nav>
 </template>
@@ -34,21 +38,20 @@ nav {
   position: absolute;
   top: 0;
   right: 0;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: white;
+  color: black;
   width: 40%;
   height: 100vh;
-  padding: 30px;
+  padding: 32px;
 
   ul {
-    margin-top: 30px;
+    margin-top: 32px;
     padding: 0;
     list-style: none;
-    font-size: 24px;
+    font-size: 1.5em;
   }
   li {
-    margin: 15px 0;
-    transition: all 0.2s ease;
+    margin: 24px 0;
 
     &:first-child {
       margin-top: 0;
@@ -56,9 +59,21 @@ nav {
     &:last-child {
       margin-bottom: 0;
     }
-    a:hover {
-      color: #bbbbbb;
-      transition: all 0.2s ease;
+    a,
+    .darkmode-toggle-mobile {
+      padding: 4px 0;
+      border-top: 3px solid transparent;
+      border-bottom: 3px solid transparent;
+      transition: $fade-default;
+
+      &:hover {
+        border-bottom: 3px solid $sckroll-primary;
+        transition: $fade-default;
+      }
+      &:active {
+        color: $sckroll-primary;
+        transition: $fade-default;
+      }
     }
   }
 }

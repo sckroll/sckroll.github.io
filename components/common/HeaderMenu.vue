@@ -1,80 +1,28 @@
 <template>
-  <header :class="{ reversed: (isLanding || isPostPage) && !isError }">
-    <div class="header-container">
-      <span class="logo">
-        <nuxt-link to="/">Sckroll</nuxt-link>
-      </span>
-      <nav-menu :menu="menu" @drawer-open="openDrawer" />
+  <nav class="nav-menu">
+    <div class="links">
+      <nuxt-link v-for="(item, index) in menu" :key="index" :to="item.path">
+        {{ item.name }}
+      </nuxt-link>
+      <div class="darkmode-toggle"><fa-icon :icon="['far', 'moon']" /></div>
     </div>
-    <transition name="fade">
-      <div v-if="drawer" class="overlay" @click="closeDrawer"></div>
-    </transition>
-    <transition name="slide-fade">
-      <nav-drawer v-if="drawer" :menu="menu" @drawer-close="closeDrawer" />
-    </transition>
-  </header>
+    <span class="mobile-menu" @click="openDrawer">
+      <fa-icon :icon="['fa', 'bars']" />
+    </span>
+  </nav>
 </template>
 
 <script>
 export default {
   props: {
-    landing: {
-      type: Boolean,
-      default: false,
+    menu: {
+      type: Array,
+      required: true,
     },
-  },
-  data() {
-    return {
-      menu: [
-        {
-          name: 'About',
-          path: '/about',
-        },
-        {
-          name: 'Posts',
-          path: '/posts',
-        },
-        {
-          name: 'Projects',
-          path: '/projects',
-        },
-      ],
-      drawer: false,
-      scrollThreshold: 86,
-    }
-  },
-  computed: {
-    isLanding() {
-      return this.$route.path === '/'
-    },
-    isPostPage() {
-      const path = this.$route.path
-      return path.match(/\/posts\/\S+/)
-    },
-    isError() {
-      return this.$store.state.isErrorPage
-    },
-  },
-  mounted() {
-    window.addEventListener('scroll', this.onScroll)
-  },
-  beforeDestroy() {
-    window.removeEventListener('scroll', this.onScroll)
   },
   methods: {
-    onScroll(e) {
-      const currScrollPos = e.target.documentElement.scrollTop
-      if (currScrollPos > this.scrollThreshold) {
-        this.$el.classList.add('scrolled')
-      } else {
-        this.$el.classList.remove('scrolled')
-      }
-    },
     openDrawer() {
-      this.drawer = true
-    },
-    closeDrawer() {
-      this.drawer = false
+      this.$emit('drawer-open')
     },
   },
 }
@@ -83,109 +31,75 @@ export default {
 <style lang="scss" scoped>
 @include set-viewpoint;
 
-header {
-  position: fixed;
+.nav-menu {
   display: flex;
-  align-items: flex-end;
-  justify-content: center;
-  z-index: 10;
-  width: 100%;
-  height: $header-menu-height;
-  background-color: transparent;
-  padding-bottom: 20px;
-  font-family: 'NanumSquare', sans-serif;
-  color: #000000;
-  transition: all 0.2s ease;
-
-  &.scrolled {
-    background-color: #ffffff99;
-    color: #000000;
-    transition: all 0.2s ease;
-  }
-  &.reversed {
-    color: #ffffff;
-    transition: all 0.2s ease;
-
-    &.scrolled {
-      background-color: #ffffff99;
-      color: #000000;
-      transition: all 0.2s ease;
-    }
-  }
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  font-size: 1.25em;
+  font-weight: 600;
 }
-.header-container {
+.links {
   display: flex;
-  justify-content: space-between;
-  padding: 0 30px;
+  padding: 0;
 }
-.logo {
-  font-size: 32px;
-  font-weight: 700;
+a {
+  margin-right: 32px;
+  display: inline;
+  padding: 4px 0;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  transition: $fade-default;
+
+  &:hover {
+    border-bottom: 3px solid $sckroll-primary;
+    transition: $fade-default;
+  }
+  &:active {
+    color: $sckroll-primary;
+    transition: $fade-default;
+  }
 }
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #000000aa;
+.darkmode-toggle {
+  cursor: pointer;
+  padding: 4px 0;
+  border-top: 3px solid transparent;
+  border-bottom: 3px solid transparent;
+  transition: $fade-default;
+
+  &:hover {
+    border-bottom: 3px solid $sckroll-primary;
+    transition: $fade-default;
+  }
 }
-.fade-enter-active,
-.fade-leave-active,
-.slide-fade-enter-active,
-.slide-fade-leave-active {
-  transition: all 0.3s ease;
+.nuxt-link-active {
+  color: $sckroll-primary;
+  border-bottom: 3px solid $sckroll-primary;
+  transition: $fade-default;
 }
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
+.scrolled {
+  .nuxt-link-active {
+    color: $sckroll-primary;
+    transition: $fade-default;
+  }
 }
-.slide-fade-enter {
-  transform: translateX(10px);
-  opacity: 0;
-}
-.slide-fade-leave-to {
-  transform: translateX(10px);
-  opacity: 0;
+.mobile-menu {
+  display: none;
 }
 
-@include viewpoint-xl {
-  .header-container {
-    width: $breakpoint-xl;
-  }
-  .overlay {
-    display: none;
-  }
-}
-@include viewpoint-lg {
-  .header-container {
-    width: $breakpoint-lg;
-  }
-  .overlay {
-    display: none;
-  }
-}
-@include viewpoint-md {
-  .header-container {
-    width: $breakpoint-md;
-  }
-  .overlay {
-    display: none;
-  }
-}
 @include viewpoint-sm {
-  .header-container {
-    width: $breakpoint-sm;
+  .links {
+    display: none;
   }
-  .overlay {
+  .mobile-menu {
     display: block;
   }
 }
 @include viewpoint-xs {
-  .header-container {
-    width: 100%;
+  .links {
+    display: none;
   }
-  .overlay {
+  .mobile-menu {
     display: block;
   }
 }
