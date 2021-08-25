@@ -31,26 +31,26 @@ section {
 
 @include viewpoint-xl {
   section {
-    grid-template-columns: repeat(4, $thumbnail-width-xl);
-    row-gap: 10px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
   }
 }
 @include viewpoint-lg {
   section {
-    grid-template-columns: repeat(3, $thumbnail-width-lg);
-    row-gap: 13px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
   }
 }
 @include viewpoint-md {
   section {
-    grid-template-columns: repeat(3, $thumbnail-width-md);
-    row-gap: 5px;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 }
 @include viewpoint-sm {
   section {
     grid-template-columns: repeat(1, 1fr);
-    row-gap: 10px;
+    gap: 16px;
   }
 }
 </style>
