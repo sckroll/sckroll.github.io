@@ -101,11 +101,6 @@ export default {
     scss: '~assets/scss/*.scss',
   },
 
-  loading: {
-    height: '8px',
-    continuous: true,
-  },
-
   googleFonts: {
     families: {
       'Noto+Sans+KR': [100, 300, 400, 500, 700, 900],
