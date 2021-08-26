@@ -1,14 +1,24 @@
 <template>
   <div>
-    <div class="landing-background"></div>
-    <div class="landing-margin"></div>
-    <post-list :posts="posts" landing>
-      <template v-slot:title>최근 포스트</template>
-    </post-list>
+    <div class="landing-background">
+      <div
+        class="landing-background-img"
+        :style="`background: ${getPattern('Sckroll')};`"
+      >
+        <div class="landing-background-overlay"></div>
+      </div>
+    </div>
+    <div class="landing-content">
+      <post-list :posts="posts" landing>
+        <template v-slot:title>최근 포스트</template>
+      </post-list>
+    </div>
   </div>
 </template>
 
 <script>
+import { getPattern } from '@/utils/pattern'
+
 export default {
   async asyncData({ $content }) {
     const posts = await $content('posts', { deep: true })
@@ -21,6 +31,9 @@ export default {
       posts,
     }
   },
+  methods: {
+    getPattern,
+  },
 }
 </script>
 
@@ -28,17 +41,20 @@ export default {
 $background-height: 70vh;
 
 .landing-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: $background-height;
-  background-image: url('/images/sckroll-main-image.jpg');
-  background-size: cover;
-  background-position-y: 95%;
+  &-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $background-height;
+  }
+  &-overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(black, 0.3);
+  }
 }
-.landing-margin {
-  width: 100%;
-  height: calc(#{$background-height} - #{$header-menu-height});
+.landing-content {
+  margin-top: calc(#{$background-height} - #{$header-height-desktop});
 }
 </style>

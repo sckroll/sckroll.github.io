@@ -94,7 +94,7 @@ header {
   width: 100%;
   height: $header-height-desktop;
   background-color: transparent;
-  padding-bottom: 16px;
+  padding-bottom: 24px;
   font-family: 'NanumSquare', sans-serif;
   color: black;
   transition: $fade-default;
