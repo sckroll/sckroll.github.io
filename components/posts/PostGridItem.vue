@@ -95,7 +95,6 @@ export default {
 }
 
 article {
-  height: 200px;
   position: relative;
 
   &:hover {
@@ -169,5 +168,47 @@ article {
 .preview-background {
   width: inherit;
   height: inherit;
+}
+
+@include viewpoint-xl {
+  article {
+    height: calc(
+      (#{$breakpoint-xl} - 64px + #{$preview-gap}) / #{$preview-column-xl} - #{$preview-gap}
+    );
+  }
+}
+@include viewpoint-lg {
+  article {
+    height: calc(
+      (#{$breakpoint-lg} - 64px + #{$preview-gap}) / #{$preview-column-lg} - #{$preview-gap}
+    );
+  }
+  .other-info {
+    font-size: 0.7em;
+  }
+}
+@include viewpoint-md {
+  article {
+    height: calc(
+      (#{$breakpoint-md} - 64px + #{$preview-gap}) / #{$preview-column-md} - #{$preview-gap}
+    );
+  }
+  .other-info {
+    font-size: 0.7em;
+  }
+}
+@include viewpoint-sm {
+  article {
+    height: calc(
+      (#{$breakpoint-sm} - 64px + #{$preview-gap}) / #{$preview-column-sm} - #{$preview-gap}
+    );
+  }
+}
+@include viewpoint-xs {
+  article {
+    height: calc(
+      (100vw - 64px + #{$preview-gap}) / #{$preview-column-xs} - #{$preview-gap}
+    );
+  }
 }
 </style>

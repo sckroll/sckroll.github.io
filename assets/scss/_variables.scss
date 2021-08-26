@@ -13,9 +13,12 @@ $breakpoint-md: 768px;
 $breakpoint-sm: 576px;
 
 /* Post Preview Variables */
-$thumbnail-width-xl: 275px;
-$thumbnail-width-lg: 300px;
-$thumbnail-width-md: 230px;
+$preview-gap: 16px;
+$preview-column-xl: 4;
+$preview-column-lg: 4;
+$preview-column-md: 3;
+$preview-column-sm: 1;
+$preview-column-xs: 1;
 
 /* Header Variables */
 $header-height-desktop: 128px;
