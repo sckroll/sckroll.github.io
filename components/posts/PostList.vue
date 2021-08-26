@@ -34,8 +34,6 @@
 </template>
 
 <script>
-import breakpoints from '@/assets/scss/main.scss'
-
 export default {
   props: {
     posts: {
@@ -55,28 +53,14 @@ export default {
     }
   },
   mounted() {
-    this.resizeListener()
-    window.addEventListener('resize', this.resizeListener)
-
     const isListView = localStorage.getItem('isPostListView')
     if (isListView) {
       this.isGridView = false
     }
   },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.resizeListener)
-  },
   methods: {
     getSearchResult(results) {
       this.searchResults = results
-    },
-    resizeListener() {
-      const width = window.innerWidth
-      const threshold = parseInt(breakpoints.breakpointMd.replace('px', ''))
-      const isListView = localStorage.getItem('isPostListView')
-
-      this.isMobileView = width < threshold
-      this.isGridView = !this.isMobileView && !isListView
     },
     toggleGridView() {
       this.isGridView = true
@@ -94,16 +78,16 @@ export default {
 @include set-viewpoint;
 
 .post-list {
-  padding: 0 30px;
+  padding: 0 32px;
 }
 .component-title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 32px;
 
   h2 {
-    font-size: 28px;
+    font-size: 1.5em;
     font-weight: 700;
     margin: 0;
   }
@@ -113,21 +97,22 @@ export default {
   justify-content: space-between;
 }
 .post-view-toggle {
-  font-size: 24px;
-  margin-left: 20px;
+  font-size: 1.5em;
+  margin-left: 16px;
 
   .post-toggle-icon {
     cursor: pointer;
-    color: #aaaaaa;
-    transition: all 0.2s ease;
+    color: $sckroll-grey-4;
+    margin-left: 8px;
+    transition: $fade-default;
 
     &:hover {
-      color: #666666;
-      transition: all 0.2s ease;
+      color: $sckroll-grey-3;
+      transition: $fade-default;
     }
     &.toggled {
-      color: #000000;
-      transition: all 0.2s ease;
+      color: black;
+      transition: $fade-default;
     }
   }
 }
@@ -152,7 +137,7 @@ export default {
     display: block;
   }
   .component-label {
-    margin-bottom: 15px;
+    margin-bottom: 16px;
   }
   .post-list {
     width: $breakpoint-sm;
@@ -167,7 +152,7 @@ export default {
     }
   }
   .component-label {
-    margin-bottom: 15px;
+    margin-bottom: 16px;
   }
   .post-list {
     width: 100vw;
