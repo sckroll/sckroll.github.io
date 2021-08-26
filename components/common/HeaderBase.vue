@@ -100,8 +100,8 @@ header {
   transition: $fade-default;
 
   &.scrolled {
-    background-color: rgba(white, 0.5);
-    color: black;
+    background-color: rgba(black, 0.5);
+    color: white;
     transition: $fade-default;
   }
   &.reversed {
@@ -109,8 +109,7 @@ header {
     transition: $fade-default;
 
     &.scrolled {
-      background-color: rgba(white, 0.5);
-      color: black;
+      background-color: rgba(black, 0.5);
       transition: $fade-default;
     }
   }
