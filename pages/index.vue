@@ -9,7 +9,7 @@
       </div>
     </div>
     <div class="landing-content">
-      <post-list :posts="posts" landing>
+      <post-list :posts="posts">
         <template v-slot:title>최근 포스트</template>
       </post-list>
     </div>

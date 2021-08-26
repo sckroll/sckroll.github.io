@@ -1,12 +1,12 @@
 <template>
   <section class="post-list">
-    <div class="component-title">
+    <div class="component-title" :class="{ searchable }">
       <h2 class="component-label">
         <slot name="title"></slot>
       </h2>
-      <div v-if="!isMobileView || !landing" class="post-functions">
-        <post-search-input v-if="!landing" @posts="getSearchResult" />
-        <div v-if="!isMobileView" class="post-view-toggle">
+      <div class="post-functions">
+        <post-search-input v-if="searchable" @posts="getSearchResult" />
+        <div class="post-view-toggle">
           <span
             class="post-toggle-icon"
             :class="{ toggled: isGridView }"
@@ -40,7 +40,7 @@ export default {
       type: Array,
       required: true,
     },
-    landing: {
+    searchable: {
       type: Boolean,
       default: false,
     },
@@ -49,7 +49,6 @@ export default {
     return {
       searchResults: [],
       isGridView: true,
-      isMobileView: false,
     }
   },
   mounted() {
@@ -100,12 +99,18 @@ export default {
   font-size: 1.5em;
   margin-left: 16px;
 
+  &:only-child {
+    margin-left: 0;
+  }
   .post-toggle-icon {
     cursor: pointer;
     color: $sckroll-grey-4;
     margin-left: 8px;
     transition: $fade-default;
 
+    &:first-child {
+      margin-left: 0;
+    }
     &:hover {
       color: $sckroll-grey-3;
       transition: $fade-default;
@@ -134,7 +139,9 @@ export default {
 }
 @include viewpoint-sm {
   .component-title {
-    display: block;
+    &.searchable {
+      display: block;
+    }
   }
   .component-label {
     margin-bottom: 16px;
@@ -145,10 +152,11 @@ export default {
 }
 @include viewpoint-xs {
   .component-title {
-    display: block;
-
     h2 {
       font-size: 24px;
+    }
+    &.searchable {
+      display: block;
     }
   }
   .component-label {

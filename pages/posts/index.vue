@@ -1,5 +1,5 @@
 <template>
-  <post-list :posts="posts">
+  <post-list :posts="posts" searchable>
     <template v-slot:title>블로그 포스트</template>
   </post-list>
 </template>
