@@ -91,7 +91,7 @@ export default {
         'faBars',
         'faTh',
         'faList',
-        'faTimes',
+        'faEllipsisV',
       ],
       brands: ['faGithub'],
     },
