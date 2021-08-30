@@ -18,6 +18,7 @@ https://leetcode.com/problems/implement-trie-prefix-tree/
 ### 1. 딕셔너리를 이용해 간결한 트라이 구현
 
 - 트라이는 다진 트리(m-ary Tree)이기 때문에 이진 트리처럼 `left`와 `right`를 나눌 필요 없이 딕셔너리 하나로 자식 노드를 관리할 수 있다.
+- 일반 딕셔너리 대신 `defaultdict`를 사용하면 코드를 더 줄일 수 있다.
 
 ```python
 # 트라이를 저장할 노드를 별도의 클래스로 선언
@@ -27,7 +28,8 @@ class TrieNode:
         self.word = False
         
         # 자식 노드를 저장하는 딕셔너리
-        self.children = {}
+        # self.children = {}
+        self.children = collections.defaultdict(TrieNode)
 
 
 class Trie:
@@ -40,8 +42,8 @@ class Trie:
 
         for char in word:
             # 해당하는 자식 노드가 없으면 노드를 새로 생성
-            if char not in node.children:
-                node.children[char] = TrieNode()
+            # if char not in node.children:
+            #     node.children[char] = TrieNode()
                 
             # 노드 위치 갱신
             node = node.children[char]
