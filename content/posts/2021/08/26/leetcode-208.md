@@ -21,6 +21,9 @@ https://leetcode.com/problems/implement-trie-prefix-tree/
 - 일반 딕셔너리 대신 `defaultdict`를 사용하면 코드를 더 줄일 수 있다.
 
 ```python
+import collections
+
+
 # 트라이를 저장할 노드를 별도의 클래스로 선언
 class TrieNode:
     def __init__(self):
