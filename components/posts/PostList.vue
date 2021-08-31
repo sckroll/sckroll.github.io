@@ -97,15 +97,18 @@ export default {
 }
 .post-view-toggle {
   font-size: 1.5em;
-  margin-left: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-  &:only-child {
-    margin-left: 0;
-  }
   .post-toggle-icon {
     cursor: pointer;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: $sckroll-grey-4;
-    margin-left: 8px;
     transition: $fade-default;
 
     &:first-child {
@@ -139,6 +142,9 @@ export default {
 }
 @include viewpoint-sm {
   .component-title {
+    h2 {
+      margin-bottom: 8px;
+    }
     &.searchable {
       display: block;
     }
@@ -153,6 +159,7 @@ export default {
 @include viewpoint-xs {
   .component-title {
     h2 {
+      margin-bottom: 8px;
       font-size: 24px;
     }
     &.searchable {

@@ -49,6 +49,8 @@ export default {
     async searchQuery(query) {
       if (!query) return
 
+      // TODO: 검색어 입력 후 지웠을 때 모든 포스트가 정상적으로 뜨도록 변경
+      // TODO: 제목 검색으로 103을 쳤을 때 왜 관계 없는 포스트까지 뜨는가?
       const results = await this.$content('posts', { deep: true })
         .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
         .sortBy('createdAt', 'desc')
@@ -107,23 +109,22 @@ export default {
 }
 .input-area {
   display: flex;
-  width: 200px;
 
   input {
     border: none;
-    border-bottom: 3px solid $sckroll-grey-5;
+    border-bottom: 3px solid $sckroll-grey-4;
     padding: 8px 0;
     font-size: 0.9em;
     width: 100%;
     transition: $fade-default;
 
     &:hover {
-      border-bottom: 3px solid $sckroll-grey-4;
+      border-bottom: 3px solid $sckroll-grey-3;
       transition: $fade-default;
     }
     &:focus {
       outline: none;
-      border-bottom: 3px solid $sckroll-grey-4;
+      border-bottom: 3px solid $sckroll-grey-3;
     }
   }
 }
@@ -138,13 +139,13 @@ export default {
 
   &:hover {
     .search-menu-icon {
-      color: $sckroll-grey-2;
+      color: $sckroll-grey-3;
       transition: $fade-default;
     }
   }
   .search-menu-icon {
     font-size: 20px;
-    color: $sckroll-grey-3;
+    color: $sckroll-grey-4;
     transition: $fade-default;
   }
   .search-menu-overlay {
@@ -156,13 +157,11 @@ export default {
 
 @include viewpoint-sm {
   .search-input {
-    margin-top: 8px;
     width: 100%;
   }
 }
 @include viewpoint-xs {
   .search-input {
-    margin-top: 8px;
     width: 100%;
   }
 }
