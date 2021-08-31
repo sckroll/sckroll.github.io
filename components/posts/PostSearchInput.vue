@@ -46,17 +46,24 @@ export default {
     }
   },
   watch: {
+    // TODO: 제목 검색으로 103을 쳤을 때 관계 없는 포스트까지 뜨는 문제 해결
     async searchQuery(query) {
-      if (!query) return
+      let results
+      if (query) {
+        results = await this.$content('posts', { deep: true })
+          .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
+          .sortBy('createdAt', 'desc')
+          // .limit(8)
+          .search(this.currField, query)
+          .fetch()
+      } else {
+        results = await this.$content('posts', { deep: true })
+          .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
+          .sortBy('createdAt', 'desc')
+          // .limit(8)
+          .fetch()
+      }
 
-      // TODO: 검색어 입력 후 지웠을 때 모든 포스트가 정상적으로 뜨도록 변경
-      // TODO: 제목 검색으로 103을 쳤을 때 왜 관계 없는 포스트까지 뜨는가?
-      const results = await this.$content('posts', { deep: true })
-        .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
-        .sortBy('createdAt', 'desc')
-        // .limit(8)
-        .search(this.currField, query)
-        .fetch()
       this.$emit('posts', results)
     },
   },
