@@ -55,6 +55,6 @@ $background-height: 70vh;
   }
 }
 .landing-content {
-  margin-top: calc(#{$background-height} - #{$header-height-desktop});
+  margin-top: calc(#{$background-height} - #{$header-height});
 }
 </style>

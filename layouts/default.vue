@@ -19,7 +19,7 @@
 }
 
 .main-container {
-  margin: $header-height-desktop + 64px 0 64px;
+  margin: $header-height + 64px 0 64px;
   display: flex;
   justify-content: center;
   width: 100%;

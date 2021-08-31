@@ -92,16 +92,15 @@ header {
   justify-content: center;
   z-index: 10;
   width: 100%;
-  height: $header-height-desktop;
+  height: $header-height;
   background-color: transparent;
-  padding-bottom: 24px;
+  padding-bottom: 16px;
   font-family: 'NanumSquare', sans-serif;
   color: black;
   transition: $fade-default;
 
   &.scrolled {
-    background-color: rgba(black, 0.5);
-    color: white;
+    background-color: white;
     transition: $fade-default;
   }
   &.reversed {
@@ -109,7 +108,7 @@ header {
     transition: $fade-default;
 
     &.scrolled {
-      background-color: rgba(black, 0.5);
+      color: black;
       transition: $fade-default;
     }
   }
@@ -154,9 +153,6 @@ header {
   }
 }
 @include viewpoint-xs {
-  header {
-    height: $header-height-mobile;
-  }
   .header-container {
     width: 100%;
   }
