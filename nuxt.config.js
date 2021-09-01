@@ -89,8 +89,6 @@ export default {
         'faChevronUp',
         'faChevronDown',
         'faBars',
-        'faTh',
-        'faList',
         'faEllipsisV',
       ],
       brands: ['faGithub'],

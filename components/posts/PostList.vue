@@ -4,32 +4,12 @@
       <h2 class="component-label">
         <slot name="title"></slot>
       </h2>
-      <div class="post-functions">
-        <post-search-input v-if="searchable" @posts="getSearchResult" />
-        <div class="post-view-toggle">
-          <span
-            class="post-toggle-icon"
-            :class="{ toggled: isGridView }"
-            @click="toggleGridView"
-          >
-            <fa-icon :icon="['fa', 'th']" />
-          </span>
-          <span
-            class="post-toggle-icon"
-            :class="{ toggled: !isGridView }"
-            @click="toggleListView"
-          >
-            <fa-icon :icon="['fa', 'list']" />
-          </span>
-        </div>
-      </div>
+      <post-search-input v-if="searchable" @posts="getSearchResult" />
     </div>
-    <post-grid-contents
-      v-if="isGridView"
+    <post-list-contents
       :posts="posts"
       :results="searchResults"
-    />
-    <post-list-contents v-else :posts="posts" :results="searchResults" />
+    ></post-list-contents>
   </section>
 </template>
 
@@ -48,26 +28,11 @@ export default {
   data() {
     return {
       searchResults: [],
-      isGridView: true,
-    }
-  },
-  mounted() {
-    const isListView = localStorage.getItem('isPostListView')
-    if (isListView) {
-      this.isGridView = false
     }
   },
   methods: {
     getSearchResult(results) {
       this.searchResults = results
-    },
-    toggleGridView() {
-      this.isGridView = true
-      localStorage.removeItem('isPostListView')
-    },
-    toggleListView() {
-      this.isGridView = false
-      localStorage.setItem('isPostListView', true)
     },
   },
 }
@@ -89,39 +54,6 @@ export default {
     font-size: 1.5em;
     font-weight: 700;
     margin: 0;
-  }
-}
-.post-functions {
-  display: flex;
-  justify-content: space-between;
-}
-.post-view-toggle {
-  font-size: 1.5em;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  .post-toggle-icon {
-    cursor: pointer;
-    width: 32px;
-    height: 32px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $sckroll-grey-4;
-    transition: $fade-default;
-
-    &:first-child {
-      margin-left: 0;
-    }
-    &:hover {
-      color: $sckroll-grey-3;
-      transition: $fade-default;
-    }
-    &.toggled {
-      color: black;
-      transition: $fade-default;
-    }
   }
 }
 

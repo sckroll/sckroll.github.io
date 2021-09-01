@@ -1,37 +1,33 @@
 <template>
-  <article>
-    <nuxt-link :to="`posts/${post.slug}`" class="post-link">
-      <div class="preview-container">
-        <div class="preview-img-container">
-          <div
-            class="preview-img"
-            :style="`background: ${getPattern(post.title)};`"
-          ></div>
+  <nuxt-link :to="`posts/${post.slug}`">
+    <article>
+      <div
+        class="item-background"
+        :style="`background: ${getPattern(post.title)};`"
+      ></div>
+      <div class="item-info-container">
+        <div class="title-info">
+          <h3 class="title">
+            {{ trimTitle(post.title, maxTitleLength) }}
+          </h3>
+          <p class="description">
+            {{ trimDescription(post.description, maxDescriptionLength) }}
+          </p>
         </div>
-        <div class="preview-info">
-          <div class="title-info">
-            <h3 class="preview-title">
-              {{ trimTitle(post.title, maxTitleLength) }}
-            </h3>
-            <p class="preview-description">
-              {{ trimDescription(post.description, maxDescriptionLength) }}
-            </p>
+        <div class="other-info">
+          <div class="tags">
+            <span
+              v-for="tag in trimTags(post.tags, maxTagsLength)"
+              :key="tag"
+              class="tag"
+              >#{{ tag }}</span
+            >
           </div>
-          <div class="other-info">
-            <div class="preview-tags">
-              <span
-                v-for="tag in trimTags(post.tags, maxTagsLength)"
-                :key="tag"
-                class="preview-tag"
-                >#{{ tag }}</span
-              >
-            </div>
-            <div class="preview-date">{{ formatDate(post.createdAt) }}</div>
-          </div>
+          <div class="created-date">{{ formatDate(post.createdAt) }}</div>
         </div>
       </div>
-    </nuxt-link>
-  </article>
+    </article>
+  </nuxt-link>
 </template>
 
 <script>
@@ -48,9 +44,9 @@ export default {
   },
   data() {
     return {
-      maxTitleLength: 50,
-      maxTagsLength: 10,
-      maxDescriptionLength: 100,
+      maxTitleLength: 23,
+      maxTagsLength: 3,
+      maxDescriptionLength: 70,
     }
   },
   methods: {
@@ -67,75 +63,74 @@ export default {
 @include set-viewpoint;
 
 article {
-  margin-bottom: 20px;
-  transition: all 0.2s ease;
+  height: 272px;
+  box-shadow: 0 1px 2px 1px rgba(black, 0.15);
+  transition: $fade-default;
 
-  &:only-child {
-    margin-bottom: 0;
-  }
   &:hover {
-    background-color: #eeeeee;
-    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px 4px rgba(black, 0.1);
+    transform: translateY(-2px);
+    transition: $fade-default;
+  }
+  .item-background {
+    width: 100%;
+    height: 50%;
   }
 }
-.preview-container {
-  display: flex;
-  width: 100%;
-  padding: 10px 0;
-
-  .preview-img {
-    min-width: 150px;
-    min-height: 150px;
-  }
-}
-.preview-info {
+.item-info-container {
+  bottom: 0;
+  height: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
-  margin-left: 30px;
-
-  .preview-title {
+  justify-content: space-between;
+  border-top: 3px solid transparent;
+  padding: 16px;
+  background-color: white;
+  transition: $fade-default;
+}
+.title-info {
+  .title {
     font-family: 'NanumSquare', sans-serif;
-    font-size: 24px;
+    font-size: 1.15em;
     font-weight: 700;
   }
-  .preview-description {
-    font-size: 16px;
+  .description {
+    font-size: 0.8em;
   }
 }
 .other-info {
-  font-size: 14px;
-  color: #333333;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  color: $sckroll-grey-1;
 
-  .preview-tag {
+  .tags {
     display: inline;
-    margin-right: 5px;
 
-    &:last-child {
-      margin-right: 0;
+    .tag {
+      margin-right: 5px;
+
+      &:last-child {
+        margin-right: 0;
+      }
     }
-  }
-  .preview-date {
-    font-weight: 600;
   }
 }
 
+@include viewpoint-xl {
+}
+@include viewpoint-lg {
+  .other-info {
+    font-size: 0.7em;
+  }
+}
+@include viewpoint-md {
+  .other-info {
+    font-size: 0.7em;
+  }
+}
+@include viewpoint-sm {
+}
 @include viewpoint-xs {
-  .preview-container {
-    .preview-img {
-      min-width: 100px;
-      min-height: 100px;
-    }
-    .preview-title {
-      font-size: 20px;
-    }
-    .preview-description {
-      font-size: 14px;
-    }
-  }
-  .preview-info {
-    width: calc(100% - 100px - 20px);
-    margin-left: 20px;
-  }
 }
 </style>

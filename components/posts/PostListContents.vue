@@ -1,9 +1,11 @@
 <template>
-  <section>
-    <div v-for="post in results.length > 0 ? results : posts" :key="post.slug">
-      <post-list-item :post="post" />
-    </div>
-  </section>
+  <div class="post-list-contents">
+    <post-list-item
+      v-for="post in results.length > 0 ? results : posts"
+      :key="post.slug"
+      :post="post"
+    />
+  </div>
 </template>
 
 <script>
@@ -22,13 +24,37 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-section {
-  div {
-    border-top: 1px solid #cccccc;
+@include set-viewpoint;
 
-    &:first-child {
-      border-top: 0;
-    }
+.post-list-contents {
+  display: grid;
+  justify-content: space-between;
+  gap: $post-list-gap;
+}
+
+@include viewpoint-xl {
+  .post-list-contents {
+    grid-template-columns: repeat($post-list-column-xl, 1fr);
+  }
+}
+@include viewpoint-lg {
+  .post-list-contents {
+    grid-template-columns: repeat($post-list-column-lg, 1fr);
+  }
+}
+@include viewpoint-md {
+  .post-list-contents {
+    grid-template-columns: repeat($post-list-column-md, 1fr);
+  }
+}
+@include viewpoint-sm {
+  .post-list-contents {
+    grid-template-columns: repeat($post-list-column-sm, 1fr);
+  }
+}
+@include viewpoint-xs {
+  .post-list-contents {
+    grid-template-columns: repeat($post-list-column-xs, 1fr);
   }
 }
 </style>
