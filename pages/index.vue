@@ -24,7 +24,7 @@ export default {
     const posts = await $content('posts', { deep: true })
       .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
       .sortBy('createdAt', 'desc')
-      .limit(8)
+      .limit(6)
       .fetch()
 
     return {

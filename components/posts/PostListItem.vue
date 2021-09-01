@@ -44,7 +44,7 @@ export default {
   },
   data() {
     return {
-      maxTitleLength: 23,
+      maxTitleLength: 35,
       maxTagsLength: 3,
       maxDescriptionLength: 70,
     }
@@ -64,11 +64,11 @@ export default {
 
 article {
   height: 272px;
-  box-shadow: 0 1px 2px 1px rgba(black, 0.15);
+  box-shadow: 0 1px 2px 1px rgba(black, 0.2);
   transition: $fade-default;
 
   &:hover {
-    box-shadow: 0 2px 8px 4px rgba(black, 0.1);
+    box-shadow: 0 2px 8px 4px rgba(black, 0.15);
     transform: translateY(-2px);
     transition: $fade-default;
   }

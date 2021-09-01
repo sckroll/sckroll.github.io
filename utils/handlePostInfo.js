@@ -5,13 +5,6 @@ export const trimTitle = (title, maxLength) => {
   return title
 }
 
-export const trimActiveTitle = (title, maxLength) => {
-  if (title.length > maxLength) {
-    return title.slice(0, maxLength).concat('...')
-  }
-  return title
-}
-
 export const trimTags = (tagStr, maxLength) => {
   const tags = tagStr.split(', ')
   if (tags.length > maxLength) {

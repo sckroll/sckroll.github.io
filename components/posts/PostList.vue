@@ -73,17 +73,6 @@ export default {
   }
 }
 @include viewpoint-sm {
-  .component-title {
-    h2 {
-      margin-bottom: 8px;
-    }
-    &.searchable {
-      display: block;
-    }
-  }
-  .component-label {
-    margin-bottom: 16px;
-  }
   .post-list {
     width: $breakpoint-sm;
   }

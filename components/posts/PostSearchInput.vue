@@ -118,11 +118,11 @@ export default {
   display: flex;
 
   input {
+    width: 256px;
     border: none;
     border-bottom: 3px solid $sckroll-grey-4;
     padding: 8px 0;
     font-size: 0.9em;
-    width: 100%;
     transition: $fade-default;
 
     &:hover {
@@ -162,11 +162,6 @@ export default {
   }
 }
 
-@include viewpoint-sm {
-  .search-input {
-    width: 100%;
-  }
-}
 @include viewpoint-xs {
   .search-input {
     width: 100%;
