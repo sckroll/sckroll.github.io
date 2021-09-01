@@ -99,7 +99,7 @@ article {
 
   &:hover {
     .preview-info-container {
-      height: 90%;
+      height: 70%;
       background-color: rgba(white, 0.5);
       transition: $fade-post;
     }
@@ -127,9 +127,9 @@ article {
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  height: 50%;
+  height: 40%;
   padding: 16px;
-  background-color: rgba(white, 0.25);
+  background-color: rgba(white, 0.3);
   transition: $fade-post;
 }
 .title-info {
@@ -153,7 +153,7 @@ article {
 }
 .other-info {
   font-size: 0.8em;
-  color: $sckroll-grey-2;
+  color: $sckroll-grey-1;
 
   .preview-tags {
     display: inline;
