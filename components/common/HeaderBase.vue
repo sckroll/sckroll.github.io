@@ -93,21 +93,23 @@ header {
   z-index: 10;
   width: 100%;
   height: $header-height;
-  background-color: transparent;
+  background-color: white;
   padding-bottom: 16px;
   font-family: 'NanumSquare', sans-serif;
   color: black;
   transition: $fade-default;
 
   &.scrolled {
-    background-color: white;
+    box-shadow: 0 2px 4px 2px rgba(black, 0.2);
     transition: $fade-default;
   }
   &.reversed {
+    background-color: transparent;
     color: white;
     transition: $fade-default;
 
     &.scrolled {
+      background-color: white;
       color: black;
       transition: $fade-default;
     }
