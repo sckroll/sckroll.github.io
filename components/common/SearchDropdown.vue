@@ -72,8 +72,8 @@ export default {
   left: -32px;
   width: 64px;
   padding: 16px;
-  background-color: rgba(black, 0.5);
-  color: white;
+  background-color: white;
+  box-shadow: 0 2px 4px 2px rgba(black, 0.2);
 
   .item {
     cursor: pointer;
