@@ -59,9 +59,6 @@ export default {
 <style lang="scss" scoped>
 @include set-viewpoint;
 
-.toc-container {
-  width: 256px;
-}
 .post-toc {
   position: sticky;
   top: calc(#{$header-height} + 32px);
@@ -118,6 +115,17 @@ export default {
       content: '-';
       margin-right: 4px;
     }
+  }
+}
+
+@include viewpoint-xl {
+  .toc-container {
+    width: 25%;
+  }
+}
+@include viewpoint-lg {
+  .toc-container {
+    width: 30%;
   }
 }
 </style>

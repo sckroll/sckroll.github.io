@@ -16,16 +16,16 @@ export default {
 <style lang="scss">
 @include set-viewpoint;
 
-$hash-link-margin-top: $header-menu-height + 30px;
+$hash-link-margin-top: $header-height + 32px;
 
 .nuxt-content-container {
-  width: 100%;
+  margin-right: 48px;
 }
 .nuxt-content {
   h2 {
     font-weight: 700;
     font-size: 28px;
-    margin: 30px 0 10px;
+    margin: 32px 0 16px;
 
     &:first-child {
       margin-top: 0;
@@ -41,7 +41,7 @@ $hash-link-margin-top: $header-menu-height + 30px;
   h3 {
     font-weight: 700;
     font-size: 24px;
-    margin: 10px 0;
+    margin: 8px 0;
 
     &::before {
       content: '';
@@ -63,7 +63,7 @@ $hash-link-margin-top: $header-menu-height + 30px;
     }
     img {
       display: block;
-      margin: 30px auto;
+      margin: 32px auto;
       border: 3px solid #dddddd;
       max-width: 100%;
     }
@@ -78,30 +78,30 @@ $hash-link-margin-top: $header-menu-height + 30px;
     }
   }
   blockquote {
-    border-left: 10px solid #666666;
+    border-left: 8px solid #666666;
     background-color: #dddddd;
-    margin: 15px 0;
-    padding: 15px 30px;
+    margin: 16px 0;
+    padding: 16px 32px;
   }
   a {
     border-bottom: 2px solid #666666;
-    transition: all 0.2s ease;
+    transition: $fade-default;
 
     &:hover {
       border-bottom: 2px solid #cccccc;
-      transition: all 0.2s ease;
+      transition: $fade-default;
     }
   }
   .nuxt-content-highlight {
     background-color: #3e3e3e;
-    margin: 30px 0;
+    margin: 32px 0;
 
     .filename {
       display: block;
       font-size: 13px;
       font-weight: 500;
       letter-spacing: 0.1em;
-      color: #ffffff;
+      color: white;
       padding: 1em;
     }
     .language-js,
@@ -114,7 +114,27 @@ $hash-link-margin-top: $header-menu-height + 30px;
   }
 }
 
+@include viewpoint-xl {
+  .nuxt-content-container {
+    width: 100%;
+  }
+}
+@include viewpoint-lg {
+  .nuxt-content-container {
+    width: 70%;
+  }
+}
+@include viewpoint-md {
+  .nuxt-content-container {
+    width: 100%;
+    margin-right: 0;
+  }
+}
 @include viewpoint-sm {
+  .nuxt-content-container {
+    width: 100%;
+    margin-right: 0;
+  }
   .nuxt-content {
     h2 {
       font-size: 24px;
@@ -130,6 +150,10 @@ $hash-link-margin-top: $header-menu-height + 30px;
   }
 }
 @include viewpoint-xs {
+  .nuxt-content-container {
+    width: 100%;
+    margin-right: 0;
+  }
   .nuxt-content {
     h2 {
       font-size: 24px;

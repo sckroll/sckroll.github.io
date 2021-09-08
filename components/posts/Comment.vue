@@ -36,6 +36,7 @@ export default {
 }
 .utterances {
   max-width: 100%;
+  z-index: 0;
 }
 
 @include viewpoint-xs {
