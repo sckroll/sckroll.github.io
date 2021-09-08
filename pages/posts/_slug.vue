@@ -1,45 +1,49 @@
 <template>
-  <div class="post-container">
-    <section class="post-img-container">
+  <article>
+    <div class="post-background">
       <div
-        class="post-img"
+        class="post-background-img"
         :style="`background: ${getPattern(post.title)};`"
-      ></div>
-      <div class="post-img-overlay"></div>
-    </section>
-    <section class="post-article-container">
-      <article>
-        <header class="post-info">
-          <div class="info-main">
-            <h1>{{ post.title }}</h1>
-            <p>{{ post.description }}</p>
-          </div>
-          <div class="info-sub">
-            <div>
-              <div v-for="tag in post.tags.split(', ')" :key="tag" class="tags">
-                <span class="tag">#{{ tag }}</span>
+      >
+        <div class="post-background-overlay">
+          <section class="post-info">
+            <div class="info-main">
+              <h1>{{ post.title }}</h1>
+              <p>{{ post.description }}</p>
+            </div>
+            <div class="info-sub">
+              <div>
+                <div
+                  v-for="tag in post.tags.split(', ')"
+                  :key="tag"
+                  class="tags"
+                >
+                  <span class="tag">#{{ tag }}</span>
+                </div>
+              </div>
+              <div class="posted-date">
+                <span class="created-date">{{
+                  formatDate(post.createdAt)
+                }}</span>
+                <span
+                  v-if="diffDate(post.createdAt, post.updatedAt) > 0"
+                  class="updated-date"
+                >
+                  (수정: {{ formatDate(post.updatedAt) }})
+                </span>
               </div>
             </div>
-            <div class="posted-date">
-              <span class="created-date">{{ formatDate(post.createdAt) }}</span>
-              <span
-                v-if="diffDate(post.createdAt, post.updatedAt) > 0"
-                class="updated-date"
-              >
-                (수정: {{ formatDate(post.updatedAt) }})
-              </span>
-            </div>
-          </div>
-        </header>
-        <post-toc v-if="post.toc.length > 1" :toc="post.toc" />
-        <div class="content-container">
-          <post-content :post="post" />
+          </section>
         </div>
-      </article>
+      </div>
+    </div>
+    <section class="content-container">
+      <post-content :post="post" />
+      <post-toc v-if="post.toc.length > 1" :toc="post.toc" />
     </section>
     <prev-next :prev="prev" :next="next" />
     <comment />
-  </div>
+  </article>
 </template>
 
 <script>
@@ -96,40 +100,33 @@ export default {
 
 $background-height: 70vh;
 
-.post-img-container {
-  z-index: -1;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: $background-height;
-  background-color: #00000055;
-
-  .post-img {
-    width: inherit;
-    height: inherit;
-  }
-  .post-img-overlay {
+article {
+  margin-bottom: 32px;
+}
+.post-background {
+  &-img {
     position: absolute;
     top: 0;
     left: 0;
-    width: inherit;
-    height: inherit;
-    background-color: #00000066;
+    width: 100%;
+    height: $background-height;
+  }
+  &-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(black, 0.3);
   }
 }
-.post-article-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 .post-info {
+  position: absolute;
+  bottom: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: calc(#{$background-height} - 50px - #{$header-menu-height});
-  color: #ffffff;
-  padding: 30px;
+  color: white;
+  padding: 32px;
 
   .info-main {
     h1 {
@@ -138,14 +135,14 @@ $background-height: 70vh;
     p {
       font-family: 'NanumSquare', sans-serif;
       font-size: 28px;
-      margin-top: 10px;
+      margin-top: 8px;
     }
   }
   .info-sub {
     display: flex;
     justify-content: space-between;
-    color: #ffffff88;
-    margin: 10px 0;
+    color: rgba(white, 0.5);
+    margin: 8px 0;
     font-family: 'NanumSquare', sans-serif;
     font-size: 20px;
     line-height: 130%;
@@ -153,38 +150,39 @@ $background-height: 70vh;
 }
 .tags {
   display: inline;
-  margin-right: 10px;
+  margin-right: 8px;
 
   &:last-child {
     margin-right: 0;
   }
 }
 .content-container {
+  margin-top: $background-height;
   position: relative;
   display: flex;
-  justify-content: center;
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
   width: 100%;
-  padding: 30px 30px;
+  padding: 32px;
 }
 
 @include viewpoint-xl {
-  .post-article-container,
+  .post-info,
   .content-container {
     width: $breakpoint-xl;
   }
 }
 @include viewpoint-lg {
-  .post-article-container,
+  .post-info,
   .content-container {
     width: $breakpoint-lg;
   }
 }
 @include viewpoint-md {
-  .post-article-container,
-  .content-container {
-    width: $breakpoint-md;
-  }
   .post-info {
+    width: $breakpoint-md;
+
     .info-main {
       h1 {
         font-size: 36px;
@@ -202,37 +200,39 @@ $background-height: 70vh;
       }
     }
   }
+  .content-container {
+    width: $breakpoint-md;
+  }
 }
 @include viewpoint-sm {
-  .post-article-container,
+  .post-info {
+    width: $breakpoint-sm;
+
+    .info-main {
+      h1 {
+        font-size: 32px;
+      }
+      p {
+        font-size: 20px;
+      }
+    }
+    .info-sub {
+      display: block;
+      font-size: 14px;
+
+      .posted-date {
+        float: right;
+      }
+    }
+  }
   .content-container {
     width: $breakpoint-sm;
   }
-  .post-info {
-    .info-main {
-      h1 {
-        font-size: 32px;
-      }
-      p {
-        font-size: 20px;
-      }
-    }
-    .info-sub {
-      display: block;
-      font-size: 14px;
-
-      .posted-date {
-        float: right;
-      }
-    }
-  }
 }
 @include viewpoint-xs {
-  .post-article-container,
-  .content-container {
-    width: 100vw;
-  }
   .post-info {
+    width: 100vw;
+
     .info-main {
       h1 {
         font-size: 32px;
@@ -249,6 +249,9 @@ $background-height: 70vh;
         float: right;
       }
     }
+  }
+  .content-container {
+    width: 100vw;
   }
 }
 </style>

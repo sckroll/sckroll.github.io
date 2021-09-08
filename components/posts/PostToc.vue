@@ -1,8 +1,7 @@
 <template>
-  <nav class="post-toc">
-    <div class="toggle" @click="toggleToc"></div>
-    <div class="wrapper viewpoint">
-      <div class="toc-header">
+  <div class="toc-container">
+    <nav class="post-toc">
+      <div class="toc-header" @click="toggleToc">
         <div>목차</div>
         <span v-if="isExpanded">
           <fa-icon :icon="['fa', 'chevron-up']" class="btn-icon" />
@@ -12,19 +11,19 @@
         </span>
       </div>
       <div v-if="isExpanded" class="toc-body">
-        <nuxt-link
-          v-for="link of toc"
-          :key="link.id"
-          class="toc-list"
-          :to="`#${link.id}`"
-        >
-          <div :class="{ toc2: link.depth === 2, toc3: link.depth === 3 }">
-            {{ link.text }}
+        <div v-for="link of toc" :key="link.id" class="toc-list">
+          <div
+            class="toc-item"
+            :class="{ toc2: link.depth === 2, toc3: link.depth === 3 }"
+          >
+            <nuxt-link :to="`#${link.id}`">
+              <span class="toc-text">{{ link.text }}</span>
+            </nuxt-link>
           </div>
-        </nuxt-link>
+        </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 </template>
 
 <script>
@@ -60,71 +59,64 @@ export default {
 <style lang="scss" scoped>
 @include set-viewpoint;
 
+.toc-container {
+  width: 256px;
+}
 .post-toc {
-  display: flex;
-  justify-content: center;
-  width: 100%;
+  position: sticky;
+  top: calc(#{$header-height} + 32px);
 
-  .toggle {
-    z-index: 2;
-    position: absolute;
-    width: 100%;
-    height: 53px;
-    cursor: pointer;
-    transition: all 0.2s ease;
-
-    &:hover {
-      background-color: #00000022;
-      transition: all 0.2s ease;
-    }
-  }
-  .wrapper {
-    z-index: 1;
-    width: 100%;
-    padding: 10px 30px;
-  }
   .toc-header {
+    cursor: pointer;
     display: flex;
     align-items: center;
+    transition: $fade-default;
 
+    &:hover {
+      color: $sckroll-primary;
+      transition: $fade-default;
+    }
     div {
       margin: 5px 0;
       font-size: 20px;
       font-family: 'NanumSquare', sans-serif;
       font-weight: 600;
     }
-
     .btn-icon {
       font-size: 20px;
-      margin-left: 10px;
+      margin-left: 8px;
     }
   }
   .toc-body {
     margin-top: 13px;
   }
 }
-
 .toc-list {
-  div {
-    margin: 5px 0;
-    padding: 3px 0 3px 20px;
+  .toc-item {
+    width: 100%;
+    margin: 8px 0;
   }
+  .toc-text {
+    padding: 2px 0;
+    border-bottom: 2px solid transparent;
+    transition: $fade-default;
 
-  &:hover .toc2,
-  &:hover .toc3 {
-    background-color: #cccccc;
-    transition: all 0.2s ease;
-  }
-
-  .toc2 {
-    transition: all 0.2s ease;
+    &:hover {
+      border-bottom: 2px solid $sckroll-primary;
+      transition: $fade-default;
+    }
+    &:active {
+      color: $sckroll-primary;
+      transition: $fade-default;
+    }
   }
   .toc3 {
-    transition: all 0.2s ease;
-    font-size: 14px;
+    font-size: 0.8em;
+    margin-left: 16px;
 
     &::before {
       content: '-';
+      margin-right: 4px;
     }
   }
 }
