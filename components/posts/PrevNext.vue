@@ -44,7 +44,7 @@ export default {
 .wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 15px 30px;
+  padding: 16px 32px;
   font-family: 'NanumSquare', sans-serif;
   font-size: 20px;
   line-height: 180%;
@@ -52,11 +52,11 @@ export default {
 .post-link {
   a {
     padding: 5px 5px;
-    transition: all 0.2s ease;
+    transition: $fade-default;
 
     &:hover {
       background-color: #eeeeee;
-      transition: all 0.2s ease;
+      transition: $fade-default;
     }
   }
   .post-label {
