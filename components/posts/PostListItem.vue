@@ -1,5 +1,5 @@
 <template>
-  <nuxt-link :to="`posts/${post.slug}`">
+  <nuxt-link :to="`/posts/${post.slug}`">
     <article>
       <div
         class="item-background"
