@@ -51,11 +51,16 @@ export default {
 }
 .post-link {
   a {
-    padding: 5px 5px;
+    padding: 4px 0;
+    border-bottom: 3px solid transparent;
     transition: $fade-default;
 
     &:hover {
-      background-color: #eeeeee;
+      border-bottom: 3px solid $sckroll-primary;
+      transition: $fade-default;
+    }
+    &:active {
+      color: $sckroll-primary;
       transition: $fade-default;
     }
   }
@@ -63,7 +68,7 @@ export default {
     font-weight: 700;
   }
   .post-empty {
-    color: #666666;
+    color: $sckroll-grey-3;
   }
   &:last-of-type {
     text-align: right;
