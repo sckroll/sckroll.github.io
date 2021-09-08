@@ -132,10 +132,16 @@ export default {
   justify-content: center;
   align-items: center;
   font-size: 1.5em;
+  color: $sckroll-grey-2;
+  transition: $fade-default;
 
+  &:hover {
+    color: $sckroll-primary;
+    transition: $fade-default;
+  }
   &.disabled {
     cursor: default;
-    color: $sckroll-grey-3;
+    color: $sckroll-grey-5;
   }
 }
 .input-area {
@@ -153,6 +159,10 @@ export default {
     text-align: center;
     transition: $fade-default;
 
+    &:hover {
+      border-bottom: 3px solid $sckroll-primary;
+      transition: $fade-default;
+    }
     &:focus {
       outline: none;
       border-bottom: 3px solid $sckroll-primary;
