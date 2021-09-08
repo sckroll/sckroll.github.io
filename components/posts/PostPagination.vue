@@ -114,7 +114,6 @@ export default {
 
 <style lang="scss" scoped>
 .pagination-container {
-  margin-top: 32px;
   padding: 0 32px;
   display: flex;
   justify-content: center;

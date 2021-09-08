@@ -55,6 +55,6 @@ $background-height: 70vh;
   }
 }
 .landing-content {
-  margin-top: calc(#{$background-height} - #{$header-height});
+  margin-top: $background-height;
 }
 </style>

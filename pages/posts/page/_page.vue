@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="post-list-page">
     <post-list :posts="paginatedPosts" searchable>
       <template v-slot:title>블로그 포스트</template>
     </post-list>
@@ -68,3 +68,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.post-list-page {
+  margin: $header-height 0 64px;
+}
+</style>

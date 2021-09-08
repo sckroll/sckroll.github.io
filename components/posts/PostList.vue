@@ -42,7 +42,7 @@ export default {
 @include set-viewpoint;
 
 .post-list {
-  padding: 0 32px;
+  padding: 64px 32px;
 }
 .component-title {
   display: flex;

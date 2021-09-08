@@ -19,7 +19,6 @@
 }
 
 .main-container {
-  margin: $header-height + 64px 0 64px;
   display: flex;
   justify-content: center;
   width: 100%;
