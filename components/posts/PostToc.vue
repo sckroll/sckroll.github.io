@@ -75,12 +75,12 @@ export default {
     }
     div {
       margin: 5px 0;
-      font-size: 20px;
+      font-size: 1.25em;
       font-family: 'NanumSquare', sans-serif;
       font-weight: 600;
     }
     .btn-icon {
-      font-size: 20px;
+      font-size: 1.25em;
       margin-left: 8px;
     }
   }

@@ -46,7 +46,7 @@ export default {
   justify-content: space-between;
   padding: 16px 32px;
   font-family: 'NanumSquare', sans-serif;
-  font-size: 20px;
+  font-size: 1.25em;
   line-height: 180%;
 }
 .post-link {
@@ -83,13 +83,13 @@ export default {
 @include viewpoint-sm {
   .wrapper {
     flex-direction: column;
-    font-size: 16px;
+    font-size: 1.1em;
   }
 }
 @include viewpoint-xs {
   .wrapper {
     flex-direction: column;
-    font-size: 16px;
+    font-size: 1.1em;
     width: 100%;
   }
 }

@@ -151,7 +151,7 @@ export default {
     }
   }
   .search-menu-icon {
-    font-size: 20px;
+    font-size: 1.25em;
     color: $sckroll-grey-4;
     transition: $fade-default;
   }

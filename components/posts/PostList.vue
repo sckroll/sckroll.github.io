@@ -81,14 +81,10 @@ export default {
   .component-title {
     h2 {
       margin-bottom: 8px;
-      font-size: 24px;
     }
     &.searchable {
       display: block;
     }
-  }
-  .component-label {
-    margin-bottom: 16px;
   }
   .post-list {
     width: 100vw;
