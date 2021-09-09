@@ -158,12 +158,8 @@ article {
   padding: 32px;
 
   .info-main {
-    h1 {
-      font-size: 44px;
-    }
     p {
       font-family: 'NanumSquare', sans-serif;
-      font-size: 28px;
       margin-top: 8px;
     }
   }
@@ -172,9 +168,6 @@ article {
     justify-content: space-between;
     color: rgba(white, 0.5);
     margin: 8px 0;
-    font-family: 'NanumSquare', sans-serif;
-    font-size: 20px;
-    line-height: 130%;
   }
 }
 .tags {
@@ -190,7 +183,7 @@ article {
   position: relative;
   display: flex;
   width: 100%;
-  padding: 32px;
+  padding: 64px 32px;
 }
 .toc-mobile-button {
   cursor: pointer;
@@ -215,86 +208,98 @@ article {
   .content-container {
     width: $breakpoint-xl;
   }
+  .info-main {
+    h1 {
+      font-size: 2.5em;
+    }
+    p {
+      font-size: 1.5em;
+    }
+  }
+  .info-sub {
+    font-size: 1em;
+  }
 }
 @include viewpoint-lg {
   .post-info,
   .content-container {
     width: $breakpoint-lg;
   }
+  .info-main {
+    h1 {
+      font-size: 2.25em;
+    }
+    p {
+      font-size: 1.25em;
+    }
+  }
+  .info-sub {
+    font-size: 1em;
+  }
 }
 @include viewpoint-md {
   .post-info {
     width: $breakpoint-md;
-
-    .info-main {
-      h1 {
-        font-size: 36px;
-      }
-      p {
-        font-size: 24px;
-      }
-    }
-    .info-sub {
-      display: block;
-      font-size: 16px;
-
-      .posted-date {
-        float: right;
-      }
-    }
   }
   .content-container {
     width: $breakpoint-md;
+  }
+  .info-main {
+    h1 {
+      font-size: 2em;
+    }
+    p {
+      font-size: 1.25em;
+    }
+  }
+  .info-sub {
+    font-size: 0.9em;
   }
 }
 @include viewpoint-sm {
   .post-info {
     width: $breakpoint-sm;
-
-    .info-main {
-      h1 {
-        font-size: 32px;
-      }
-      p {
-        font-size: 20px;
-      }
-    }
-    .info-sub {
-      display: block;
-      font-size: 14px;
-
-      .posted-date {
-        float: right;
-      }
-    }
   }
   .content-container {
     width: $breakpoint-sm;
+  }
+  .info-main {
+    h1 {
+      font-size: 1.75em;
+    }
+    p {
+      font-size: 1.1em;
+    }
+  }
+  .info-sub {
+    font-size: 0.8em;
   }
 }
 @include viewpoint-xs {
   .post-info {
     width: 100vw;
 
-    .info-main {
-      h1 {
-        font-size: 32px;
-      }
-      p {
-        font-size: 20px;
-      }
-    }
     .info-sub {
       display: block;
-      font-size: 14px;
-
-      .posted-date {
-        float: right;
-      }
     }
   }
   .content-container {
     width: 100vw;
+  }
+  .info-main {
+    h1 {
+      font-size: 1.75em;
+    }
+    p {
+      font-size: 1.1em;
+    }
+  }
+  .info-sub {
+    font-size: 0.8em;
+
+    .posted-date {
+      float: right;
+    }
   }
 }
 </style>
