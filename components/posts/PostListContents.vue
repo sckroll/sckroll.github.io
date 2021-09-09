@@ -1,10 +1,6 @@
 <template>
   <div class="post-list-contents">
-    <post-list-item
-      v-for="post in results.length > 0 ? results : posts"
-      :key="post.slug"
-      :post="post"
-    />
+    <post-list-item v-for="post in posts" :key="post.slug" :post="post" />
   </div>
 </template>
 
@@ -12,10 +8,6 @@
 export default {
   props: {
     posts: {
-      type: Array,
-      required: true,
-    },
-    results: {
       type: Array,
       required: true,
     },

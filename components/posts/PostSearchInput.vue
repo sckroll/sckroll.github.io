@@ -6,7 +6,8 @@
         v-model="searchQuery"
         type="search"
         autocomplete="off"
-        placeholder="포스트 검색"
+        :placeholder="`검색할 포스트의 ${currField} 입력 후 엔터`"
+        @keydown="startSearch"
       />
     </div>
     <div class="search-menu-button" @click="toggleDropdown">
@@ -24,48 +25,19 @@
 
 <script>
 export default {
+  props: {
+    posts: {
+      type: Array,
+      required: true,
+    },
+  },
   data() {
     return {
       searchQuery: '',
-      currField: 'title',
-      fields: [
-        {
-          name: 'title',
-          label: '제목',
-        },
-        {
-          name: 'tags',
-          label: '태그',
-        },
-        {
-          name: 'text',
-          label: '내용',
-        },
-      ],
+      currField: '제목',
+      fields: ['제목', '태그', '내용'],
       dropdown: false,
     }
-  },
-  watch: {
-    // TODO: 제목 검색으로 103을 쳤을 때 관계 없는 포스트까지 뜨는 문제 해결
-    async searchQuery(query) {
-      let results
-      if (query) {
-        results = await this.$content('posts', { deep: true })
-          .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
-          .sortBy('createdAt', 'desc')
-          // .limit(8)
-          .search(this.currField, query)
-          .fetch()
-      } else {
-        results = await this.$content('posts', { deep: true })
-          .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
-          .sortBy('createdAt', 'desc')
-          // .limit(8)
-          .fetch()
-      }
-
-      this.$emit('posts', results)
-    },
   },
   methods: {
     toggleDropdown() {
@@ -88,15 +60,44 @@ export default {
       const result = (num < 10 ? '0' : '') + num.toString(10)
       return result
     },
-    async searchReset() {
-      this.searchQuery = ''
+    startSearch({ key }) {
+      if (key !== 'Enter') return
+      if (!this.searchQuery) {
+        const payload = {
+          query: '',
+          field: this.currField,
+          isEmpty: false,
+          results: [],
+        }
+        this.$emit('posts', payload)
+        return
+      }
 
-      const results = await this.$content('posts', { deep: true })
-        .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
-        .sortBy('createdAt', 'desc')
-        // .limit(8)
-        .fetch()
-      this.$emit('posts', results)
+      let results
+      const query = this.searchQuery.toLowerCase()
+
+      if (this.currField === '제목') {
+        results = this.posts.filter(post => {
+          return post.title.toLowerCase().includes(query)
+        })
+      } else if (this.currField === '태그') {
+        results = this.posts.filter(post => {
+          const tags = post.tags.split(', ')
+          return tags.includes(query)
+        })
+      } else if (this.currField === '내용') {
+        results = this.posts.filter(post => {
+          return post.plainText.toLowerCase().includes(query)
+        })
+      }
+
+      const payload = {
+        query,
+        field: this.currField,
+        isEmpty: results.length === 0,
+        results,
+      }
+      this.$emit('posts', payload)
     },
   },
 }
@@ -131,7 +132,7 @@ export default {
     }
     &:focus {
       outline: none;
-      border-bottom: 3px solid $sckroll-grey-3;
+      border-bottom: 3px solid $sckroll-primary;
     }
   }
 }
@@ -164,7 +165,9 @@ export default {
 
 @include viewpoint-xs {
   .search-input {
-    width: 100%;
+    input {
+      width: 100%;
+    }
   }
 }
 </style>
