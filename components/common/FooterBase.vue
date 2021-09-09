@@ -22,6 +22,7 @@
 @include set-viewpoint;
 
 footer {
+  height: $footer-height;
   display: flex;
   justify-content: center;
   background-color: $sckroll-grey-5;
@@ -29,7 +30,7 @@ footer {
 .footer-container {
   display: flex;
   justify-content: space-between;
-  padding: 16px 32px;
+  padding: 0 32px;
 }
 .icon-links {
   display: flex;

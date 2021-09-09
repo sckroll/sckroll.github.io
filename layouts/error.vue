@@ -9,9 +9,7 @@
       </h2>
       <h2 v-else>{{ message.other }}</h2>
     </div>
-    <div class="homepage-link">
-      <nuxt-link to="/">홈으로</nuxt-link>
-    </div>
+    <nuxt-link to="/" class="homepage-link">홈으로</nuxt-link>
   </section>
 </template>
 
@@ -27,7 +25,7 @@ export default {
     return {
       message: {
         notFound: '요청하신 페이지가 없습니다.',
-        other: '페이지를 불러오는데 에러가 발생했습니다.',
+        other: '페이지를 불러오는 중에 에러가 발생했습니다.',
       },
     }
   },
@@ -38,32 +36,51 @@ export default {
 </script>
 
 <style lang="scss">
+@include set-viewpoint;
+
 .error-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 65vh;
-}
+  margin-top: $header-height;
+  height: calc(100vh - #{$header-height} - #{$footer-height});
 
-.error-code h1 {
-  font-size: 64px;
-  font-weight: 500;
+  h1 {
+    font-size: 4em;
+    font-weight: 500;
+  }
+  .error-message {
+    margin: 8px 0;
+  }
 }
-
-.error-message {
-  margin: 10px 0;
-}
-
 .homepage-link {
-  font-family: 'NanumSquare', sans-serif;
-  font-size: 20px;
-  padding: 5px 10px;
-  transition: all 0.2s ease;
+  font-size: 1.1em;
+  padding: 4px 0;
+  border-bottom: 3px solid transparent;
+  transition: $fade-default;
 
   &:hover {
-    background-color: #eeeeee;
-    transition: all 0.2s ease;
+    border-bottom: 3px solid $sckroll-primary;
+    transition: $fade-default;
+  }
+  &:active {
+    color: $sckroll-primary;
+    transition: $fade-default;
+  }
+}
+
+@include viewpoint-xs {
+  .error-content {
+    h1 {
+      font-size: 3em;
+    }
+    .error-message {
+      font-size: 0.9em;
+    }
+  }
+  .homepage-link {
+    font-size: 1em;
   }
 }
 </style>
