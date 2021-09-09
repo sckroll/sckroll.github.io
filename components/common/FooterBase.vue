@@ -34,6 +34,7 @@ footer {
 }
 .icon-links {
   display: flex;
+  align-items: center;
 
   a {
     display: flex;
