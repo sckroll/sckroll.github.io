@@ -67,7 +67,7 @@ export default {
     },
     perPage: {
       type: Number,
-      default: 12,
+      default: 15,
     },
   },
   data() {

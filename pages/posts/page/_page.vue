@@ -12,7 +12,7 @@
 
 <script>
 // 한 페이지당 포스트 개수
-const PER_PAGE = 12
+const PER_PAGE = 15
 
 export default {
   async asyncData({ $content, params }) {
