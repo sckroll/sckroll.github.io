@@ -30,7 +30,7 @@ export default {
         },
         {
           name: 'Posts',
-          path: '/posts/page/1',
+          path: '/posts',
         },
         {
           name: 'TIL',
@@ -51,7 +51,11 @@ export default {
     },
     isPostPage() {
       const path = this.$route.path
-      return path.includes('/posts/') && !path.includes('/page/')
+      return (
+        path.includes('/posts/') &&
+        !path.includes('/page/') &&
+        !path.includes('/search')
+      )
     },
     isError() {
       return this.$store.state.isErrorPage
