@@ -89,6 +89,12 @@ export default {
   align-items: center;
   font-size: 1.5em;
   color: $sckroll-grey-2;
+  transition: $fade-default;
+
+  &:hover {
+    color: $sckroll-primary;
+    transition: $fade-default;
+  }
 }
 .search-message {
   height: 256px;
@@ -115,6 +121,16 @@ export default {
   }
 }
 @include viewpoint-sm {
+  .component-title {
+    h2 {
+      margin-bottom: 8px;
+    }
+    &.searchable,
+    &.search-button {
+      display: block;
+      margin-bottom: 64px;
+    }
+  }
   .post-list {
     width: $breakpoint-sm;
   }
@@ -127,6 +143,7 @@ export default {
     &.searchable,
     &.search-button {
       display: block;
+      margin-bottom: 64px;
     }
   }
   .post-list {

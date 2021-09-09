@@ -163,8 +163,16 @@ export default {
   }
 }
 
+@include viewpoint-sm {
+  .search-input {
+    justify-content: flex-end;
+  }
+}
 @include viewpoint-xs {
   .search-input {
+    .input-area {
+      width: 100%;
+    }
     input {
       width: 100%;
     }
