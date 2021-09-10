@@ -2,8 +2,8 @@
   <section class="post-list">
     <div class="component-title" :class="{ searchable, searchButton }">
       <h2 class="component-label">
-        <div v-if="isEmpty || searchResults.length > 0">
-          {{ `${field} 검색 결과: "${query}" 총 ${searchResults.length}개` }}
+        <div v-if="isEmpty || allSearchResults.length > 0">
+          {{ `${field} 검색 결과: "${query}" 총 ${allSearchResults.length}개` }}
         </div>
         <slot v-else name="title"></slot>
       </h2>
@@ -17,10 +17,15 @@
       </nuxt-link>
     </div>
     <template v-if="searchable">
-      <post-list-contents
-        v-if="searchResults.length > 0"
-        :posts="searchResults"
-      ></post-list-contents>
+      <template v-if="allSearchResults.length > 0">
+        <post-list-contents :posts="searchResults"></post-list-contents>
+        <div
+          v-if="lastIndex < allSearchResults.length"
+          class="more-button-container"
+        >
+          <div class="more-button" @click="showMoreResults">더 보기</div>
+        </div>
+      </template>
       <div v-else-if="isEmpty" class="search-message">
         검색 결과가 없습니다.
       </div>
@@ -51,7 +56,9 @@ export default {
       query: '',
       field: '',
       isEmpty: false,
+      allSearchResults: [],
       searchResults: [],
+      lastIndex: 15,
     }
   },
   methods: {
@@ -59,7 +66,12 @@ export default {
       this.query = query
       this.field = field
       this.isEmpty = isEmpty
-      this.searchResults = results
+      this.allSearchResults = results
+      this.searchResults = results.slice(0, this.lastIndex)
+    },
+    showMoreResults() {
+      this.lastIndex += 15
+      this.searchResults = this.allSearchResults.slice(0, this.lastIndex)
     },
   },
 }
@@ -103,6 +115,25 @@ export default {
   align-items: center;
   font-size: 1.25em;
   color: $sckroll-grey-3;
+}
+.more-button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 32px;
+}
+.more-button {
+  cursor: pointer;
+  font-family: 'NanumSquare', sans-serif;
+  font-size: 1.25em;
+  font-weight: 700;
+  padding: 4px 0;
+  border-bottom: 3px solid transparent;
+  transition: $fade-default;
+
+  &:hover {
+    border-bottom: 3px solid $sckroll-primary;
+    transition: $fade-default;
+  }
 }
 
 @include viewpoint-xl {
