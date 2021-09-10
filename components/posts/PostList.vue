@@ -3,7 +3,7 @@
     <div class="component-title" :class="{ searchable, searchButton }">
       <h2 class="component-label">
         <div v-if="isEmpty || searchResults.length > 0">
-          {{ `${field} 검색 결과: "${query}"` }}
+          {{ `${field} 검색 결과: "${query}" 총 ${searchResults.length}개` }}
         </div>
         <slot v-else name="title"></slot>
       </h2>
