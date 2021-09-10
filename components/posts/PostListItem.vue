@@ -132,12 +132,5 @@ article {
 @include viewpoint-sm {
 }
 @include viewpoint-xs {
-  .other-info {
-    display: block;
-
-    .created-date {
-      text-align: right;
-    }
-  }
 }
 </style>
