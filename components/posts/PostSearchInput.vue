@@ -20,6 +20,9 @@
       :selected="currField"
       @selected-item="setCurrField"
     ></search-dropdown>
+    <div class="search-clear-button" @click="clear">
+      <fa-icon :icon="['fa', 'undo-alt']" class="clear-icon" />
+    </div>
   </span>
 </template>
 
@@ -45,6 +48,7 @@ export default {
     },
     setCurrField(item) {
       this.currField = item
+      this.clear()
     },
     getPostDate(post) {
       const ms = Date.parse(post.createdAt)
@@ -99,6 +103,16 @@ export default {
       }
       this.$emit('posts', payload)
     },
+    clear() {
+      this.searchQuery = ''
+      const payload = {
+        query: '',
+        field: this.currField,
+        isEmpty: false,
+        results: [],
+      }
+      this.$emit('posts', payload)
+    },
   },
 }
 </script>
@@ -147,19 +161,34 @@ export default {
 
   &:hover {
     .search-menu-icon {
-      color: $sckroll-grey-3;
+      color: $sckroll-primary;
       transition: $fade-default;
     }
   }
   .search-menu-icon {
     font-size: 1.25em;
-    color: $sckroll-grey-4;
+    color: $sckroll-grey-3;
     transition: $fade-default;
   }
   .search-menu-overlay {
     width: inherit;
     height: inherit;
     position: absolute;
+  }
+}
+.search-clear-button {
+  cursor: pointer;
+  width: 16px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: $sckroll-grey-3;
+  transition: $fade-default;
+
+  &:hover {
+    color: $sckroll-primary;
+    transition: $fade-default;
   }
 }
 
