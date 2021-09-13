@@ -15,7 +15,7 @@
 const PER_PAGE = 15
 
 export default {
-  async asyncData({ $content, params }) {
+  async asyncData({ $content, params, error }) {
     try {
       // 총 포스트 개수
       const allPosts = await $content('posts', { deep: true }).fetch()
@@ -50,7 +50,7 @@ export default {
         paginatedPosts,
       }
     } catch (e) {
-      console.error(e)
+      error({ statusCode: e.statusCode || e.status || 500 })
     }
   },
   data() {
