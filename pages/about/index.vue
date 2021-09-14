@@ -1,47 +1,28 @@
 <template>
   <div class="about-page">
-    <section class="about intro">
-      <div class="left">
-        <h2>
-          `안녕하세요.
-          <br />
-          <span class="brace">${</span>
-          <span class="brace-content">게으르지만 꾸준한 개발자</span>
-          <span class="brace">}</span>
-          <br />
-          김성찬 (Sckroll) 입니다.`
-        </h2>
-      </div>
-      <div class="right">
-        <nuxt-content :document="intro" />
-      </div>
-    </section>
-    <section class="about skills">
-      <div class="left">
-        <h2>
-          `제가 가진
-          <span class="brace">${</span>
-          <span class="brace-content">스킬</span>
-          <span class="brace">}</span>은
-          <br />
-          다음과 같습니다.`
-        </h2>
-      </div>
-      <div class="right">
-        <nuxt-content :document="skills" />
-      </div>
-    </section>
-    <section class="about experiences">
-      <div class="left">
-        <h2>
-          `저는 지금까지 다음과 같은
-          <br />
-          <span class="brace">${</span>
-          <span class="brace-content">경험</span>
-          <span class="brace">}</span>을 했습니다.`
-        </h2>
-      </div>
-      <div class="right">
+    <about-section section-name="intro" :content="intro">
+      <template #before-brace>`안녕하세요.<br /></template>
+      <template #brace-content>게으르지만 꾸준한 개발자</template>
+      <template #after-brace>
+        <br />
+        김성찬 (Sckroll) 입니다.`
+      </template>
+    </about-section>
+    <about-section section-name="skills" :content="skills">
+      <template #before-brace>`제가 가진</template>
+      <template #brace-content>스킬</template>
+      <template #after-brace>
+        은
+        <br />
+        다음과 같습니다.`
+      </template>
+      <!-- <template #custom-content>yessss</template> -->
+    </about-section>
+    <about-section section-name="experiences">
+      <template #before-brace>`저는 지금까지 다음과 같은<br /></template>
+      <template #brace-content>경험</template>
+      <template #after-brace> 을 했습니다.` </template>
+      <template #custom-content>
         <ul>
           <li>2021.01 ~ Joomla! 기반 정적 웹 사이트 서버 구축 참여</li>
           <li>2020.12 ~ 2021.06 스타트업 아이템 프로토타입 개발</li>
@@ -52,39 +33,24 @@
           <li>2018.12 ~ 2019.01 SW 기업 단기현장실습(인턴)</li>
           <li>2014.03 한국기술교육대학교 (KOREATECH) 컴퓨터공학부 입학</li>
         </ul>
-      </div>
-    </section>
-    <section class="about projects">
-      <div class="left">
-        <h2>
-          `다음과 같은
-          <span class="brace">${</span>
-          <span class="brace-content">프로젝트</span>
-          <span class="brace">}</span>를
-          <br />
-          개발했습니다.`
-        </h2>
-      </div>
-      <div class="right">
-        <nuxt-content :document="projects" />
-      </div>
-    </section>
-    <section class="about faq">
-      <div class="left">
-        <h2>FAQ</h2>
-      </div>
-      <div class="right">
-        <nuxt-content :document="etc" />
-      </div>
-    </section>
-    <section class="about contacts">
-      <div class="left">
-        <h2>연락처 및 링크</h2>
-      </div>
-      <div class="right">
-        <nuxt-content :document="contacts" />
-      </div>
-    </section>
+      </template>
+    </about-section>
+    <about-section section-name="projects" :content="projects">
+      <template #before-brace>`다음과 같은</template>
+      <template #brace-content>프로젝트</template>
+      <template #after-brace>
+        를
+        <br />
+        개발했습니다.`
+      </template>
+      <!-- <template #custom-content>yessss</template> -->
+    </about-section>
+    <about-section section-name="etc" :content="etc" :brace="false">
+      <template #title>Etc.</template>
+    </about-section>
+    <about-section section-name="contacts" :content="contacts" :brace="false">
+      <template #title>연락처 및 링크</template>
+    </about-section>
   </div>
 </template>
 
@@ -136,91 +102,30 @@ export default {
       transition: $fade-default;
     }
   }
-}
-section.about {
-  display: flex;
-  padding: 64px 32px;
-  box-sizing: border-box;
-
-  .left {
-    flex: 2;
-  }
-  .right {
-    flex: 3;
-    border-left: 3px solid $sckroll-grey-4;
-    padding-left: 32px;
-  }
-}
-h2 {
-  margin-left: 16px;
-  font-size: 1.75em;
-  line-height: 150%;
-  text-indent: -16px;
-}
-.brace {
-  color: $sckroll-secondary;
-}
-.brace-content {
-  color: $sckroll-primary;
-}
-p {
-  margin-bottom: 32px;
-  font-size: 1.1em;
-  line-height: 170%;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-ul {
-  margin-bottom: 48px;
-  padding-left: 24px;
-  list-style: circle;
-  font-size: 1.1em;
-  line-height: 170%;
-
-  &:last-child {
-    margin-bottom: 0;
-  }
-}
-section.contacts {
   p {
-    margin-bottom: 48px;
+    margin-bottom: 32px;
+    font-size: 1.1em;
+    line-height: 170%;
 
     &:last-child {
       margin-bottom: 0;
     }
   }
-}
-h3 {
-  font-size: 1.25em;
-  font-weight: 900;
-  margin-bottom: 16px;
-}
+  ul {
+    margin-bottom: 48px;
+    padding-left: 24px;
+    list-style: circle;
+    font-size: 1.1em;
+    line-height: 170%;
 
-@include viewpoint-xl {
-  section {
-    width: $breakpoint-xl;
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
-}
-@include viewpoint-lg {
-  section {
-    width: $breakpoint-lg;
-  }
-}
-@include viewpoint-md {
-  section {
-    width: $breakpoint-md;
-  }
-}
-@include viewpoint-sm {
-  section {
-    width: $breakpoint-sm;
-  }
-}
-@include viewpoint-xs {
-  section {
-    width: 100%;
+  h3 {
+    font-size: 1.25em;
+    font-weight: 900;
+    margin-bottom: 16px;
   }
 }
 </style>
