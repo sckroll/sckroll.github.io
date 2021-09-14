@@ -13,28 +13,7 @@
         </h2>
       </div>
       <div class="right">
-        <p>
-          <strong>웹 프론트엔드(Front-end)</strong> 개발자가 되고자 끊임없이
-          공부하는 20대입니다.
-        </p>
-        <p>
-          학부 과제로 웹 사이트를 만드는 과정에서 PC나 모바일에 상관없이 웹을
-          통해 동일한 서비스를 사용자에게 제공할 수 있다는 점이 매력적으로
-          다가왔습니다. 특히 사용자가 직접 볼 수 있고 소통할 수 있는 프론트엔드
-          부분이 마음에 들었고, 제가 원하는 대로 화면을 디자인하는 것이
-          재미있었기 때문에 진로를 프론트엔드로 결정하게 되었습니다.
-        </p>
-        <p>
-          목표는 정했지만 직접 실행에 옮기지 않는 제 단점을 고치기 위해 2020년
-          12월 말부터 1일 1커밋 운동에 동참하기 시작했고, 지금도 꾸준히 유지하고
-          있습니다.
-        </p>
-        <p>
-          당장은 프론트엔드 개발자를 지향하지만, 백엔드 기술에도 관심이 있어서
-          서버와 API를 구성하고 웹 앱을 클라우드로 배포해본 경험이 있습니다.
-          장기적으로는 프론트엔드와 백엔드를 아우르는 풀스택 개발자가 되어 많은
-          사람들이 사용하는 서비스 개발에 주도적으로 기여하고 싶습니다.
-        </p>
+        <nuxt-content :document="intro" />
       </div>
     </section>
     <section class="about skills">
@@ -49,35 +28,7 @@
         </h2>
       </div>
       <div class="right">
-        <div class="skill-list frontend">
-          <h3>Front-end</h3>
-          <ul>
-            <li>JavaScript (ES6)</li>
-            <li>TypeScript</li>
-            <li>Vue.js, Nuxt.js</li>
-            <li>React</li>
-            <li>CSS, SCSS</li>
-          </ul>
-        </div>
-        <div class="skill-list backend">
-          <h3>Back-end</h3>
-          <ul>
-            <li>Node.js (Express, Koa)</li>
-            <li>Database (MongoDB, MySQL, Oracle)</li>
-            <li>Flask</li>
-          </ul>
-        </div>
-        <div class="skill-list etc">
-          <h3>DevOps & Etc.</h3>
-          <ul>
-            <li>Docker</li>
-            <li>Cloud (AWS, Azure, GCP)</li>
-            <li>자료구조 / 알고리즘</li>
-            <li>운영체제 / 네트워크</li>
-            <li>Git / GitHub</li>
-            <li>Joomla! 기반 정적 웹 페이지 호스팅 인프라 구축</li>
-          </ul>
-        </div>
+        <nuxt-content :document="skills" />
       </div>
     </section>
     <section class="about experiences">
@@ -115,18 +66,7 @@
         </h2>
       </div>
       <div class="right">
-        <ul>
-          <!-- <li>OEUM</li> -->
-          <li>2048 클론</li>
-          <li>개인 홈페이지 및 블로그</li>
-          <li>졸업 작품 및 스타트업 아이템 프로토타입(DoTS)</li>
-          <li>서비스지향컴퓨팅및실습 텀 프로젝트</li>
-          <li>웹프로그래밍(창업) 텀 프로젝트</li>
-        </ul>
-        <p>
-          각 프로젝트의 자세한 정보는
-          <nuxt-link to="projects">여기</nuxt-link>서 확인하실 수 있습니다.
-        </p>
+        <nuxt-content :document="projects" />
       </div>
     </section>
     <section class="about faq">
@@ -134,13 +74,7 @@
         <h2>FAQ</h2>
       </div>
       <div class="right">
-        <h3>왜 Sckroll임? Scroll 오타 아님?</h3>
-        <p>
-          제 이니셜(SCK)과 Scroll의 합성어입니다. 처음 닉네임을 지을 때 제
-          이름의 이니셜이 들어가야 한다는 것을 전제로 지었는데, 적절한 단어를
-          찾다 보니 어감도 괜찮고, '스크롤'과 발음이 같아서 자연스럽게 지금의
-          닉네임이 되었습니다.
-        </p>
+        <nuxt-content :document="etc" />
       </div>
     </section>
     <section class="about contacts">
@@ -148,21 +82,34 @@
         <h2>연락처 및 링크</h2>
       </div>
       <div class="right">
-        <p>
-          <strong>E-mail</strong><br />
-          <a href="mailto://kimsc0714@gmail.com">kimsc0714@gmail.com</a>
-        </p>
-        <p>
-          <strong>GitHub</strong><br />
-          <a href="https://github.com/sckroll">https://github.com/sckroll</a>
-        </p>
+        <nuxt-content :document="contacts" />
       </div>
     </section>
   </div>
 </template>
 
 <script>
-export default {}
+export default {
+  async asyncData({ $content, error }) {
+    try {
+      const intro = await $content('about/intro').fetch()
+      const skills = await $content('about/skills').fetch()
+      const projects = await $content('about/projects').fetch()
+      const etc = await $content('about/etc').fetch()
+      const contacts = await $content('about/contacts').fetch()
+
+      return {
+        intro,
+        skills,
+        projects,
+        etc,
+        contacts,
+      }
+    } catch (e) {
+      error({ statusCode: e.statusCode || e.status || 500 })
+    }
+  },
+}
 </script>
 
 <style lang="scss">
@@ -217,31 +164,32 @@ h2 {
   color: $sckroll-primary;
 }
 p {
-  margin: 32px 0;
+  margin-bottom: 32px;
   font-size: 1.1em;
   line-height: 170%;
 
-  &:first-child {
-    margin-top: 0;
-  }
   &:last-child {
     margin-bottom: 0;
   }
 }
 ul {
+  margin-bottom: 48px;
   padding-left: 24px;
   list-style: circle;
   font-size: 1.1em;
   line-height: 170%;
-}
-.skill-list {
-  margin: 48px 0;
 
-  &:first-child {
-    margin-top: 0;
-  }
   &:last-child {
     margin-bottom: 0;
+  }
+}
+section.contacts {
+  p {
+    margin-bottom: 48px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
 }
 h3 {
