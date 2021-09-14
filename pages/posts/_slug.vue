@@ -62,7 +62,7 @@ import { breakpointLg } from '@/assets/scss/main.scss'
 export default {
   async asyncData({ $content, params, error }) {
     try {
-      const postArray = await $content('posts', { deep: true })
+      const postArray = await $content('posts', { deep: true, text: true })
         .where({ slug: params.slug })
         .fetch()
 

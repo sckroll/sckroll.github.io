@@ -10,7 +10,7 @@
 export default {
   async asyncData({ $content }) {
     try {
-      const posts = await $content('posts', { deep: true })
+      const posts = await $content('posts', { deep: true, text: true })
         .only([
           'title',
           'description',
@@ -18,7 +18,7 @@ export default {
           'slug',
           'tags',
           'createdAt',
-          'plainText',
+          'text',
         ])
         .sortBy('createdAt', 'desc')
         .fetch()

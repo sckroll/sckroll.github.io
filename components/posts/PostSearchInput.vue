@@ -91,7 +91,7 @@ export default {
         })
       } else if (this.currField === '내용') {
         results = this.posts.filter(post => {
-          return post.plainText.toLowerCase().includes(query)
+          return post.text.toLowerCase().includes(query)
         })
       }
 

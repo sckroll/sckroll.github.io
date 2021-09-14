@@ -110,12 +110,4 @@ export default {
     },
     display: 'swap',
   },
-
-  hooks: {
-    'content:file:beforeInsert': document => {
-      if (document.extension === '.md') {
-        document.plainText = document.text
-      }
-    },
-  },
 }
