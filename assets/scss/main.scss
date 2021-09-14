@@ -37,8 +37,14 @@ a {
 .slide-fade-leave-active {
   transition: $fade-default;
 }
+.fade-delayed-enter-active,
+.fade-delayed-leave-active {
+  transition: $fade-delayed;
+}
 .fade-enter,
-.fade-leave-to {
+.fade-leave-to,
+.fade-delayed-enter,
+.fade-delayed-leave-to {
   opacity: 0;
 }
 .slide-fade-enter,

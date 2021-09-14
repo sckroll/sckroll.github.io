@@ -28,6 +28,7 @@ $footer-height: 64px;
 
 /* Transition */
 $fade-default: all 0.15s ease;
+$fade-delayed: all 0.5s ease;
 $fade-post: all 0.5s cubic-bezier(0.11, 0.66, 0.32, 0.97);
 
 :export {

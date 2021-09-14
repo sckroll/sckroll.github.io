@@ -2,11 +2,14 @@
   <div class="about-page">
     <template v-if="isLoaded">
       <about-section
-        v-for="currSection in sections"
-        :key="currSection.name"
+        v-for="(currSection, index) in sections"
+        :key="index"
         :section-name="currSection.name"
         :content="currSection.content"
         :brace="!currSection.title"
+        :observer="observer"
+        :index="index"
+        :is-show="currSection.isShow"
       >
         <template #before-brace>{{ currSection.beforeBrace }}</template>
         <template #brace-content>{{ currSection.braceContent }}</template>
@@ -53,48 +56,76 @@ export default {
           beforeBrace: '`안녕하세요.\n',
           braceContent: '게으르지만 꾸준한 개발자',
           afterBrace: '\n김성찬 (Sckroll) 입니다.`',
+          isShow: false,
         },
         {
           name: 'skills',
           beforeBrace: '`제가 가진',
           braceContent: '스킬',
           afterBrace: '은\n다음과 같습니다.`',
+          isShow: false,
         },
         {
           name: 'experiences',
           beforeBrace: '`저는 지금까지 다음과 같은\n',
           braceContent: '경험',
           afterBrace: '을 했습니다.`',
+          isShow: false,
         },
         {
           name: 'projects',
           beforeBrace: '`다음과 같은',
           braceContent: '프로젝트',
           afterBrace: '를\n개발했습니다.`',
+          isShow: false,
         },
         {
           name: 'etc',
           title: 'Etc.',
+          isShow: false,
         },
         {
           name: 'contacts',
           title: '연락처 및 링크',
+          isShow: false,
         },
       ],
       isLoaded: false,
+      observer: null,
     }
   },
   mounted() {
+    this.observer = new IntersectionObserver(
+      (items, observer) => {
+        items.forEach(({ isIntersecting, target }) => {
+          if (isIntersecting) {
+            this.showSection(target.dataset.index)
+            observer.unobserve(target)
+          }
+        })
+      },
+      {
+        rootMargin: '0px 0px -25%',
+        threshold: 0,
+      },
+    )
+
     for (const section of this.sections) {
       section.content = this[section.name]
     }
     this.isLoaded = true
+  },
+  beforeDestroy() {
+    this.observer.disconnect()
   },
   methods: {
     sectionName(name) {
       if (name === 'experiences') {
         return 'AboutExperiences'
       }
+    },
+    showSection(sectionIndex) {
+      this.sections[sectionIndex].isShow = true
     },
   },
 }
