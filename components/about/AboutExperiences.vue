@@ -1,18 +1,117 @@
 <template>
-  <ul>
-    <li>2021.01 ~ Joomla! 기반 정적 웹 사이트 서버 구축 참여</li>
-    <li>2020.12 ~ 2021.06 스타트업 아이템 프로토타입 개발</li>
-    <li>2020.08 ~ 09 프로그래머스 FE 취업스터디</li>
-    <li>2020.07 ~ 08 E8IGHT 홈페이지 리뉴얼 개발 참여</li>
-    <li>2019.08 정보처리기사 취득</li>
-    <li>2019.03 ~ 10 창업동아리 참여 및 졸업작품 제작</li>
-    <li>2018.12 ~ 2019.01 SW 기업 단기현장실습(인턴)</li>
-    <li>2014.03 한국기술교육대학교 (KOREATECH) 컴퓨터공학부 입학</li>
-  </ul>
+  <div class="timeline">
+    <div class="graph-container">
+      <div class="graph"></div>
+    </div>
+    <div class="timeline-content">
+      <div
+        v-for="(exp, index) of experiences"
+        :key="index"
+        class="timeline-item"
+      >
+        <div class="pointer"></div>
+        <div class="content">
+          <div class="time">{{ exp.time }}</div>
+          <div class="divider"></div>
+          <div class="text">{{ exp.text }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
-export default {}
+export default {
+  data() {
+    return {
+      experiences: [
+        {
+          time: '2021.08',
+          text: '한국기술교육대학교 (KOREATECH) 컴퓨터공학부 졸업',
+        },
+        {
+          time: '2021.01 ~',
+          text: '다수의 Joomla! 기반 정적 웹 사이트 서버 구축 참여',
+        },
+        {
+          time: '2020.09 ~ 2021.06',
+          text: '스타트업 아이템 프로토타입 개발 참여',
+        },
+        {
+          time: '2020.08 ~ 09',
+          text: '프로그래머스 FE 취업스터디',
+        },
+        {
+          time: '2020.07 ~ 08 ',
+          text: 'E8IGHT 홈페이지 리뉴얼 참여',
+        },
+        {
+          time: '2019.08',
+          text: '정보처리기사 취득',
+        },
+        {
+          time: '2019.03 ~ 10',
+          text: '창업동아리 아이템 및 졸업작품 제작',
+        },
+      ],
+    }
+  },
+}
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.timeline {
+  display: flex;
+  margin: -16px 0 24px;
+
+  .graph-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 32px;
+
+    .graph {
+      width: 8px;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 24px 0;
+      background-color: $sckroll-grey-5;
+    }
+  }
+  &-content {
+    margin-left: -32px;
+  }
+  &-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 48px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+    .pointer {
+      width: 32px;
+      height: 32px;
+      border-radius: 16px;
+      background-color: $sckroll-primary;
+    }
+    .content {
+      position: relative;
+      top: 24px;
+      margin-left: 32px;
+    }
+    .time {
+      font-family: 'NanumSquare', sans-serif;
+      font-size: 1.25em;
+      font-weight: 700;
+    }
+    .divider {
+      width: 32px;
+      height: 2px;
+      background-color: $sckroll-grey-2;
+      margin: 8px 0;
+    }
+  }
+}
+</style>

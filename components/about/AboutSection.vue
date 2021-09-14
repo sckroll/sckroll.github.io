@@ -59,15 +59,6 @@ section {
       padding-left: 32px;
     }
   }
-  &.contacts {
-    p {
-      margin-bottom: 48px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-  }
 }
 h2 {
   margin-left: 16px;

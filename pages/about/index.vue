@@ -111,43 +111,51 @@ export default {
   margin-top: $header-height;
   padding: 64px 0;
 
-  a {
-    border-bottom: 2px solid $sckroll-grey-4;
-    transition: $fade-default;
-
-    &:hover {
-      border-bottom: 2px solid $sckroll-primary;
+  .nuxt-content {
+    a {
+      border-bottom: 2px solid $sckroll-grey-4;
       transition: $fade-default;
-    }
-    &:active {
-      color: $sckroll-primary;
-      transition: $fade-default;
-    }
-  }
-  p {
-    margin-bottom: 32px;
-    font-size: 1.1em;
-    line-height: 170%;
 
-    &:last-child {
-      margin-bottom: 0;
+      &:hover {
+        border-bottom: 2px solid $sckroll-primary;
+        transition: $fade-default;
+      }
+      &:active {
+        color: $sckroll-primary;
+        transition: $fade-default;
+      }
     }
-  }
-  ul {
-    margin-bottom: 48px;
-    padding-left: 24px;
-    list-style: circle;
-    font-size: 1.1em;
-    line-height: 170%;
+    p {
+      margin-bottom: 32px;
+      font-size: 1.1em;
+      line-height: 170%;
 
-    &:last-child {
-      margin-bottom: 0;
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
-  }
-  h3 {
-    font-size: 1.25em;
-    font-weight: 900;
-    margin-bottom: 16px;
+    ul {
+      margin-bottom: 48px;
+      padding-left: 24px;
+      list-style: circle;
+      font-size: 1.1em;
+      line-height: 170%;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    h3 {
+      font-size: 1.25em;
+      font-weight: 900;
+      margin: 0 0 16px;
+
+      &::before {
+        content: '';
+        height: 0;
+        margin-top: 0;
+      }
+    }
   }
 }
 </style>
