@@ -20,15 +20,19 @@
 import { getPattern } from '@/utils/pattern'
 
 export default {
-  async asyncData({ $content }) {
-    const posts = await $content('posts', { deep: true })
-      .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
-      .sortBy('createdAt', 'desc')
-      .limit(6)
-      .fetch()
+  async asyncData({ $content, error }) {
+    try {
+      const posts = await $content('posts', { deep: true })
+        .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
+        .sortBy('createdAt', 'desc')
+        .limit(6)
+        .fetch()
 
-    return {
-      posts,
+      return {
+        posts,
+      }
+    } catch (e) {
+      error({ statusCode: e.statusCode || e.status || 500 })
     }
   },
   methods: {
