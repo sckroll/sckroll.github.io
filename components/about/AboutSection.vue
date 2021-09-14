@@ -74,6 +74,7 @@ h2 {
   font-size: 1.75em;
   line-height: 150%;
   text-indent: -16px;
+  white-space: pre-wrap;
 }
 .brace {
   color: $sckroll-secondary;

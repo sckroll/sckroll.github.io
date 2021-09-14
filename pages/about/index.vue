@@ -1,61 +1,31 @@
 <template>
   <div class="about-page">
-    <about-section section-name="intro" :content="intro">
-      <template #before-brace>`안녕하세요.<br /></template>
-      <template #brace-content>게으르지만 꾸준한 개발자</template>
-      <template #after-brace>
-        <br />
-        김성찬 (Sckroll) 입니다.`
-      </template>
-    </about-section>
-    <about-section section-name="skills" :content="skills">
-      <template #before-brace>`제가 가진</template>
-      <template #brace-content>스킬</template>
-      <template #after-brace>
-        은
-        <br />
-        다음과 같습니다.`
-      </template>
-      <!-- <template #custom-content>yessss</template> -->
-    </about-section>
-    <about-section section-name="experiences">
-      <template #before-brace>`저는 지금까지 다음과 같은<br /></template>
-      <template #brace-content>경험</template>
-      <template #after-brace> 을 했습니다.` </template>
-      <template #custom-content>
-        <ul>
-          <li>2021.01 ~ Joomla! 기반 정적 웹 사이트 서버 구축 참여</li>
-          <li>2020.12 ~ 2021.06 스타트업 아이템 프로토타입 개발</li>
-          <li>2020.08 ~ 09 프로그래머스 FE 취업스터디</li>
-          <li>2020.07 ~ 08 E8IGHT 홈페이지 리뉴얼 개발 참여</li>
-          <li>2019.08 정보처리기사 취득</li>
-          <li>2019.03 ~ 10 창업동아리 참여 및 졸업작품 제작</li>
-          <li>2018.12 ~ 2019.01 SW 기업 단기현장실습(인턴)</li>
-          <li>2014.03 한국기술교육대학교 (KOREATECH) 컴퓨터공학부 입학</li>
-        </ul>
-      </template>
-    </about-section>
-    <about-section section-name="projects" :content="projects">
-      <template #before-brace>`다음과 같은</template>
-      <template #brace-content>프로젝트</template>
-      <template #after-brace>
-        를
-        <br />
-        개발했습니다.`
-      </template>
-      <!-- <template #custom-content>yessss</template> -->
-    </about-section>
-    <about-section section-name="etc" :content="etc" :brace="false">
-      <template #title>Etc.</template>
-    </about-section>
-    <about-section section-name="contacts" :content="contacts" :brace="false">
-      <template #title>연락처 및 링크</template>
-    </about-section>
+    <template v-if="isLoaded">
+      <about-section
+        v-for="currSection in sections"
+        :key="currSection.name"
+        :section-name="currSection.name"
+        :content="currSection.content"
+        :brace="!currSection.title"
+      >
+        <template #before-brace>{{ currSection.beforeBrace }}</template>
+        <template #brace-content>{{ currSection.braceContent }}</template>
+        <template #after-brace>{{ currSection.afterBrace }}</template>
+        <template #title>{{ currSection.title }}</template>
+
+        <template v-if="!currSection.content" #custom-content>
+          <component :is="sectionName(currSection.name)"></component>
+        </template>
+      </about-section>
+    </template>
   </div>
 </template>
 
 <script>
 export default {
+  components: {
+    AboutExperiences: () => import('@/components/about/AboutExperiences.vue'),
+  },
   async asyncData({ $content, error }) {
     try {
       const intro = await $content('about/intro').fetch()
@@ -74,6 +44,58 @@ export default {
     } catch (e) {
       error({ statusCode: e.statusCode || e.status || 500 })
     }
+  },
+  data() {
+    return {
+      sections: [
+        {
+          name: 'intro',
+          beforeBrace: '`안녕하세요.\n',
+          braceContent: '게으르지만 꾸준한 개발자',
+          afterBrace: '\n김성찬 (Sckroll) 입니다.`',
+        },
+        {
+          name: 'skills',
+          beforeBrace: '`제가 가진',
+          braceContent: '스킬',
+          afterBrace: '은\n다음과 같습니다.`',
+        },
+        {
+          name: 'experiences',
+          beforeBrace: '`저는 지금까지 다음과 같은\n',
+          braceContent: '경험',
+          afterBrace: '을 했습니다.`',
+        },
+        {
+          name: 'projects',
+          beforeBrace: '`다음과 같은',
+          braceContent: '프로젝트',
+          afterBrace: '를\n개발했습니다.`',
+        },
+        {
+          name: 'etc',
+          title: 'Etc.',
+        },
+        {
+          name: 'contacts',
+          title: '연락처 및 링크',
+        },
+      ],
+      isLoaded: false,
+    }
+  },
+  mounted() {
+    for (const section of this.sections) {
+      section.content = this[section.name]
+    }
+    this.isLoaded = true
+  },
+  methods: {
+    sectionName(name) {
+      if (name === 'experiences') {
+        return 'AboutExperiences'
+      }
+    },
   },
 }
 </script>
