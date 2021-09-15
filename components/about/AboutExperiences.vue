@@ -60,6 +60,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@include set-viewpoint;
+
 .timeline {
   display: flex;
   margin: -16px 0 24px;
@@ -111,6 +113,55 @@ export default {
       height: 2px;
       background-color: $sckroll-grey-2;
       margin: 8px 0;
+    }
+  }
+}
+
+@include viewpoint-sm {
+  .timeline {
+    &-item {
+      margin-bottom: 32px;
+
+      .content {
+        top: 20px;
+        flex: 1;
+      }
+      .time {
+        font-size: 1.1em;
+      }
+      .text {
+        font-size: 0.9em;
+      }
+    }
+  }
+}
+@include viewpoint-xs {
+  .timeline {
+    display: flex;
+    justify-content: space-between;
+
+    .graph-container {
+      .graph {
+        margin: 44px 0;
+      }
+    }
+    &-content {
+      width: 100%;
+    }
+    &-item {
+      margin-bottom: 32px;
+
+      .content {
+        top: 20px;
+        margin-left: 16px;
+        flex: 1;
+      }
+      .time {
+        font-size: 1.1em;
+      }
+      .text {
+        font-size: 0.9em;
+      }
     }
   }
 }

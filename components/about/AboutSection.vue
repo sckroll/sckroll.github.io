@@ -3,7 +3,7 @@
     <transition name="fade-delayed">
       <section v-if="isShow" class="about">
         <div class="left">
-          <h2>
+          <h2 :class="{ braceless: !brace }">
             <template v-if="brace">
               <slot name="before-brace"></slot>
               <span class="brace">${</span>
@@ -70,7 +70,7 @@ export default {
     min-height: 500px;
   }
   &.skills {
-    min-height: 700px;
+    min-height: 600px;
   }
   &.experiences {
     min-height: 700px;
@@ -88,7 +88,7 @@ export default {
 section {
   &.about {
     display: flex;
-    padding: 64px 32px;
+    padding: 32px;
     box-sizing: border-box;
 
     .left {
@@ -102,11 +102,16 @@ section {
   }
 }
 h2 {
-  margin-left: 16px;
+  margin-left: 12px;
   font-size: 1.75em;
   line-height: 150%;
   text-indent: -16px;
   white-space: pre-wrap;
+
+  &.braceless {
+    margin-left: 0;
+    text-indent: 0;
+  }
 }
 .brace {
   color: $sckroll-secondary;
@@ -116,28 +121,92 @@ h2 {
 }
 
 @include viewpoint-xl {
-  section {
+  .about-container {
     width: $breakpoint-xl;
   }
 }
 @include viewpoint-lg {
-  section {
+  .about-container {
     width: $breakpoint-lg;
+  }
+  h2 {
+    font-size: 1.5em;
   }
 }
 @include viewpoint-md {
-  section {
+  .about-container {
     width: $breakpoint-md;
+  }
+  section {
+    &.about {
+      display: block;
+      box-sizing: border-box;
+
+      .left {
+        padding-bottom: 16px;
+      }
+      .right {
+        border-top: 3px solid $sckroll-grey-4;
+        border-left: none;
+        padding-top: 32px;
+        padding-left: 0;
+      }
+    }
+  }
+  h2 {
+    font-size: 1.75em;
   }
 }
 @include viewpoint-sm {
-  section {
+  .about-container {
     width: $breakpoint-sm;
+  }
+  section {
+    &.about {
+      display: block;
+      box-sizing: border-box;
+
+      .left {
+        padding-bottom: 16px;
+      }
+      .right {
+        border-top: 3px solid $sckroll-grey-4;
+        border-left: none;
+        padding-top: 32px;
+        padding-left: 0;
+      }
+    }
+  }
+  h2 {
+    margin-left: 8px;
+    font-size: 1.3em;
+    text-indent: -12px;
   }
 }
 @include viewpoint-xs {
-  section {
+  .about-container {
     width: 100%;
+  }
+  section {
+    &.about {
+      display: block;
+      box-sizing: border-box;
+
+      .left {
+        padding-bottom: 16px;
+      }
+      .right {
+        border-top: 3px solid $sckroll-grey-4;
+        border-left: none;
+        padding-top: 32px;
+        padding-left: 0;
+      }
+    }
+  }
+  h2 {
+    margin-left: 8px;
+    font-size: 1.3em;
+    text-indent: -12px;
   }
 }
 </style>

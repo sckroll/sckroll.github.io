@@ -140,7 +140,7 @@ export default {
   flex-direction: column;
   align-items: center;
   margin-top: $header-height;
-  padding: 64px 0;
+  padding: 32px 0;
 
   .nuxt-content {
     a {
@@ -185,6 +185,69 @@ export default {
         content: '';
         height: 0;
         margin-top: 0;
+      }
+    }
+  }
+}
+
+@include viewpoint-lg {
+  .about-page {
+    .nuxt-content {
+      p {
+        font-size: 1em;
+      }
+      ul {
+        font-size: 1em;
+      }
+      h3 {
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+@include viewpoint-md {
+  .about-page {
+    .nuxt-content {
+      p {
+        font-size: 1em;
+      }
+      ul {
+        font-size: 1em;
+      }
+      h3 {
+        font-size: 1.2em;
+      }
+    }
+  }
+}
+@include viewpoint-sm {
+  .about-page {
+    .nuxt-content {
+      p {
+        font-size: 0.9em;
+      }
+      ul {
+        margin-bottom: 32px;
+        font-size: 0.9em;
+      }
+      h3 {
+        font-size: 1.1em;
+      }
+    }
+  }
+}
+@include viewpoint-xs {
+  .about-page {
+    .nuxt-content {
+      p {
+        font-size: 0.9em;
+      }
+      ul {
+        margin-bottom: 32px;
+        font-size: 0.9em;
+      }
+      h3 {
+        font-size: 1.1em;
       }
     }
   }
