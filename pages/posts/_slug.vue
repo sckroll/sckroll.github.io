@@ -49,8 +49,8 @@
         <post-toc v-if="post.toc.length > 1" :toc="post.toc" />
       </template>
     </section>
-    <prev-next :prev="prev" :next="next" />
-    <comment />
+    <post-prev-next :prev="prev" :next="next" />
+    <post-comment />
   </article>
 </template>
 

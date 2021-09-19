@@ -14,12 +14,12 @@
       <fa-icon :icon="['fa', 'ellipsis-v']" class="search-menu-icon" />
       <div class="search-menu-overlay click-block"></div>
     </div>
-    <search-dropdown
+    <post-search-dropdown
       v-model="dropdown"
       :items="fields"
       :selected="currField"
       @selected-item="setCurrField"
-    ></search-dropdown>
+    ></post-search-dropdown>
     <div class="search-clear-button" @click="clear">
       <fa-icon :icon="['fa', 'undo-alt']" class="clear-icon" />
     </div>
