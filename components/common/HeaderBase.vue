@@ -34,7 +34,7 @@ export default {
         },
         {
           name: 'TIL',
-          path: '#',
+          path: '/til',
         },
         {
           name: 'Projects',
