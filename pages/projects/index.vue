@@ -1,15 +1,28 @@
 <template>
-  <section class="temp">
-    <h2 class="under-construction">준비 중 입니다.</h2>
-  </section>
+  <div class="project-page">
+    <project-list :projects="projects"></project-list>
+  </div>
 </template>
 
+<script>
+export default {
+  async asyncData({ $content, error }) {
+    try {
+      const projects = await $content('projects')
+        .only(['name', 'slug', 'description', 'image', 'stacks'])
+        .fetch()
+      return {
+        projects,
+      }
+    } catch (e) {
+      error({ statusCode: e.statusCode || e.status || 500 })
+    }
+  },
+}
+</script>
+
 <style lang="scss">
-.temp {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 65vh;
+.project-page {
+  margin: $header-height 0 64px;
 }
 </style>
