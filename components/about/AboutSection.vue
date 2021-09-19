@@ -67,7 +67,7 @@ export default {
 
 .about-container {
   &.intro {
-    min-height: 500px;
+    min-height: 400px;
   }
   &.skills {
     min-height: 600px;
