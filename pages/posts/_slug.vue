@@ -37,18 +37,7 @@
         </div>
       </div>
     </div>
-    <section class="content-container">
-      <post-content :post="post" />
-      <template v-if="isMobile && post.toc.length > 1">
-        <div class="toc-mobile-button click-block" @click="toggleTocMenu">
-          목차
-        </div>
-        <post-toc-mobile v-model="tocMenu" :toc="post.toc" />
-      </template>
-      <template v-else>
-        <post-toc v-if="post.toc.length > 1" :toc="post.toc" />
-      </template>
-    </section>
+    <post-content-container :post="post"></post-content-container>
     <post-prev-next :prev="prev" :next="next" />
     <post-comment />
   </article>
@@ -57,7 +46,6 @@
 <script>
 import { getPattern } from '@/utils/pattern'
 import { formatDate } from '@/utils/handleDate'
-import { breakpointLg } from '@/assets/scss/main.scss'
 
 export default {
   async asyncData({ $content, params, error }) {
@@ -82,19 +70,6 @@ export default {
       error({ statusCode: e.statusCode || e.status || 500 })
     }
   },
-  data() {
-    return {
-      isMobile: false,
-      tocMenu: false,
-    }
-  },
-  mounted() {
-    this.resizeListener()
-    window.addEventListener('resize', this.resizeListener)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.resizeListener)
-  },
   methods: {
     getPattern,
     formatDate,
@@ -112,13 +87,6 @@ export default {
         updatedAt.getDate(),
       )
       return updatedDate - createdDate
-    },
-    resizeListener() {
-      this.isMobile =
-        window.innerWidth <= parseInt(breakpointLg.replace('px', ''))
-    },
-    toggleTocMenu() {
-      this.tocMenu = !this.tocMenu
     },
   },
 }
@@ -178,34 +146,9 @@ article {
     margin-right: 0;
   }
 }
-.content-container {
-  margin-top: $background-height;
-  position: relative;
-  display: flex;
-  width: 100%;
-  padding: 64px 32px;
-}
-.toc-mobile-button {
-  cursor: pointer;
-  z-index: 1;
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  padding: 8px 16px;
-  background-color: white;
-  box-shadow: 0 1px 2px 1px rgba(black, 0.2);
-  font-size: 1.25em;
-  transition: $fade-default;
-
-  &:hover {
-    box-shadow: 0 2px 4px 2px rgba(black, 0.15);
-    transition: $fade-default;
-  }
-}
 
 @include viewpoint-xl {
-  .post-info,
-  .content-container {
+  .post-info {
     width: $breakpoint-xl;
   }
   .info-main {
@@ -221,8 +164,7 @@ article {
   }
 }
 @include viewpoint-lg {
-  .post-info,
-  .content-container {
+  .post-info {
     width: $breakpoint-lg;
   }
   .info-main {
@@ -241,9 +183,6 @@ article {
   .post-info {
     width: $breakpoint-md;
   }
-  .content-container {
-    width: $breakpoint-md;
-  }
   .info-main {
     h1 {
       font-size: 2em;
@@ -258,9 +197,6 @@ article {
 }
 @include viewpoint-sm {
   .post-info {
-    width: $breakpoint-sm;
-  }
-  .content-container {
     width: $breakpoint-sm;
   }
   .info-main {
@@ -282,9 +218,6 @@ article {
     .info-sub {
       display: block;
     }
-  }
-  .content-container {
-    width: 100vw;
   }
   .info-main {
     h1 {
