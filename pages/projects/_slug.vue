@@ -1,0 +1,131 @@
+<template>
+  <article class="project-container">
+    <header class="project-header">
+      <div class="main">
+        <h1>{{ project.name }}</h1>
+        <p>{{ project.description }}</p>
+      </div>
+      <div class="sub">
+        <div class="period">개발 기간: {{ project.period }}</div>
+        <div class="stacks">
+          사용 스택:
+          <span
+            v-for="(stack, index) in project.stacks"
+            :key="index"
+            class="stack"
+            :class="{ [getStackClassName(stack)]: getStackClassName(stack) }"
+          >
+            {{ stack }}
+          </span>
+        </div>
+      </div>
+    </header>
+    <img
+      :src="`/images/projects/${project.image}`"
+      :alt="project.name"
+      class="project-image"
+    />
+    <post-content-container :post="project" project></post-content-container>
+  </article>
+</template>
+
+<script>
+export default {
+  async asyncData({ $content, params, error }) {
+    try {
+      const project = await $content('projects')
+        .where({ slug: params.slug })
+        .fetch()
+
+      if (project.length === 0) {
+        error({ statusCode: 404 })
+      }
+      return {
+        project: project[0],
+      }
+    } catch (e) {
+      error({ statusCode: e.statusCode || e.status || 500 })
+    }
+  },
+  methods: {
+    getStackClassName(stack) {
+      return stack.toLowerCase().split(' ')[0]
+    },
+  },
+}
+</script>
+
+<style lang="scss">
+@include set-viewpoint;
+
+.project-container {
+  margin-top: calc(#{$header-height} + 64px);
+}
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 32px;
+
+  .main {
+    h1 {
+      font-size: 3em;
+    }
+    p {
+      font-size: 1.25em;
+    }
+  }
+  .sub {
+    font-size: 1.25em;
+    text-align: right;
+
+    .stacks {
+      margin-top: 8px;
+    }
+    .stack {
+      margin-right: 8px;
+      padding: 4px 0;
+      border-top: 3px solid transparent;
+      border-bottom: 3px solid $sckroll-grey-4;
+
+      &:last-child {
+        margin-right: 0;
+      }
+      &.javascript {
+        border-bottom: 3px solid #f0db4f;
+      }
+    }
+  }
+}
+.project-image {
+  width: 100%;
+  margin: 32px 0;
+  padding: 0 32px;
+}
+
+@include viewpoint-xl {
+  .project-container {
+    width: $breakpoint-xl;
+  }
+}
+@include viewpoint-lg {
+  .project-container {
+    width: $breakpoint-lg;
+  }
+}
+@include viewpoint-md {
+  .project-container {
+    width: $breakpoint-md;
+  }
+}
+@include viewpoint-sm {
+  .project-container {
+    width: $breakpoint-sm;
+  }
+}
+@include viewpoint-xs {
+  .project-container {
+    width: 100vw;
+  }
+}
+</style>

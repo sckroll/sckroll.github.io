@@ -1,5 +1,5 @@
 <template>
-  <section class="content-container">
+  <section class="content-container" :class="{ project }">
     <post-content :post="post" />
     <template v-if="isMobile && post.toc.length > 1">
       <div class="toc-mobile-button click-block" @click="toggleTocMenu">
@@ -21,6 +21,10 @@ export default {
     post: {
       type: Object,
       required: true,
+    },
+    project: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -59,6 +63,11 @@ $background-height: 70vh;
   display: flex;
   width: 100%;
   padding: 64px 32px;
+
+  &.project {
+    margin-top: 0;
+    padding-top: 0;
+  }
 }
 .toc-mobile-button {
   cursor: pointer;
