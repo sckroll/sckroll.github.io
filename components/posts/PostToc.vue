@@ -74,7 +74,6 @@ export default {
       transition: $fade-default;
     }
     div {
-      margin: 5px 0;
       font-size: 1.25em;
       font-family: 'NanumSquare', sans-serif;
       font-weight: 600;
