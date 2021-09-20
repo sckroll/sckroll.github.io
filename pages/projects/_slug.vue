@@ -9,14 +9,11 @@
         <div class="period">개발 기간: {{ project.period }}</div>
         <div class="stacks">
           사용 스택:
-          <span
+          <project-stack
             v-for="(stack, index) in project.stacks"
             :key="index"
-            class="stack"
-            :class="{ [getStackClassName(stack)]: getStackClassName(stack) }"
-          >
-            {{ stack }}
-          </span>
+            :stack="stack"
+          ></project-stack>
         </div>
       </div>
     </header>
@@ -47,11 +44,6 @@ export default {
       error({ statusCode: e.statusCode || e.status || 500 })
     }
   },
-  methods: {
-    getStackClassName(stack) {
-      return stack.toLowerCase().split(' ')[0]
-    },
-  },
 }
 </script>
 
@@ -76,24 +68,11 @@ export default {
     }
   }
   .sub {
-    font-size: 1.25em;
+    font-size: 1.1em;
     text-align: right;
 
     .stacks {
       margin-top: 8px;
-    }
-    .stack {
-      margin-right: 8px;
-      padding: 4px 0;
-      border-top: 3px solid transparent;
-      border-bottom: 3px solid $sckroll-grey-4;
-
-      &:last-child {
-        margin-right: 0;
-      }
-      &.javascript {
-        border-bottom: 3px solid #f0db4f;
-      }
     }
   }
 }

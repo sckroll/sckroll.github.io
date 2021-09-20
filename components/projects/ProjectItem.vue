@@ -7,13 +7,11 @@
         <p class="description">{{ project.description }}</p>
         <div class="stacks">
           사용 스택:
-          <span
+          <project-stack
             v-for="(stack, index) in project.stacks"
             :key="index"
-            class="stack"
-          >
-            {{ stack }}
-          </span>
+            :stack="stack"
+          ></project-stack>
         </div>
       </div>
     </article>
@@ -52,16 +50,11 @@ article {
     height: 70%;
     object-fit: cover;
   }
-  .stack {
-    &::after {
-      margin-left: -4px;
-      content: ',';
-    }
-    &:last-child {
-      &::after {
-        content: '';
-      }
-    }
+  h2 {
+    font-size: 1.75em;
+  }
+  .stacks {
+    margin: 16px 0 8px;
   }
 }
 </style>
