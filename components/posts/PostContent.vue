@@ -18,27 +18,16 @@ export default {
 
 .nuxt-content-container {
   margin-right: 48px;
+  flex: 4;
 }
 
-@include viewpoint-xl {
-  .nuxt-content-container {
-    width: 100%;
-  }
-}
-@include viewpoint-lg {
-  .nuxt-content-container {
-    width: 70%;
-  }
-}
 @include viewpoint-md {
   .nuxt-content-container {
-    width: 100%;
     margin-right: 0;
   }
 }
 @include viewpoint-sm {
   .nuxt-content-container {
-    width: 100%;
     margin-right: 0;
   }
   .nuxt-content {
@@ -57,7 +46,6 @@ export default {
 }
 @include viewpoint-xs {
   .nuxt-content-container {
-    width: 100%;
     margin-right: 0;
   }
   .nuxt-content {
