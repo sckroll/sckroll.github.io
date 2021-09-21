@@ -72,7 +72,7 @@ export default {
     text-align: right;
 
     .stacks {
-      margin-top: 8px;
+      margin-top: 4px;
     }
   }
 }
@@ -96,15 +96,57 @@ export default {
   .project-container {
     width: $breakpoint-md;
   }
+  .project-header {
+    display: block;
+
+    .sub {
+      margin-top: 16px;
+      text-align: left;
+    }
+  }
 }
 @include viewpoint-sm {
   .project-container {
     width: $breakpoint-sm;
   }
+  .project-header {
+    display: block;
+
+    .main {
+      h1 {
+        font-size: 2.5em;
+      }
+      p {
+        font-size: 1.1em;
+      }
+    }
+    .sub {
+      margin-top: 16px;
+      font-size: 1em;
+      text-align: left;
+    }
+  }
 }
 @include viewpoint-xs {
   .project-container {
     width: 100vw;
+  }
+  .project-header {
+    display: block;
+
+    .main {
+      h1 {
+        font-size: 2.5em;
+      }
+      p {
+        font-size: 1.1em;
+      }
+    }
+    .sub {
+      margin-top: 16px;
+      font-size: 1em;
+      text-align: left;
+    }
   }
 }
 </style>

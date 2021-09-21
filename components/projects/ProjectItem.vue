@@ -30,11 +30,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@include set-viewpoint;
+
 article {
   cursor: pointer;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 16px;
   height: 100%;
   padding: 16px;
   box-shadow: 0 1px 2px 1px rgba(black, 0.2);
@@ -47,14 +50,44 @@ article {
   }
   img {
     width: 100%;
-    height: 70%;
+    flex: 3;
     object-fit: cover;
+  }
+  .info {
+    flex: 2;
   }
   h2 {
     font-size: 1.75em;
   }
   .stacks {
     margin: 16px 0 8px;
+  }
+}
+
+@include viewpoint-md {
+  article {
+    h2 {
+      font-size: 1.5em;
+    }
+    p {
+      font-size: 0.9em;
+    }
+    .stacks {
+      font-size: 0.9em;
+    }
+  }
+}
+@include viewpoint-xs {
+  article {
+    h2 {
+      font-size: 1.5em;
+    }
+    p {
+      font-size: 0.9em;
+    }
+    .stacks {
+      font-size: 0.9em;
+    }
   }
 }
 </style>
