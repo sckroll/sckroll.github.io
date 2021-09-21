@@ -19,6 +19,7 @@ export default {
 @include set-viewpoint;
 
 .post-content {
+  width: 100%;
   flex: 4;
 }
 
