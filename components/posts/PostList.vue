@@ -1,12 +1,12 @@
 <template>
   <section class="post-list">
     <div class="component-title" :class="{ searchable, searchButton }">
-      <h2 class="component-label">
+      <h1 class="component-label">
         <div v-if="isEmpty || allSearchResults.length > 0">
           {{ `${field} 검색 결과: "${query}" 총 ${allSearchResults.length}개` }}
         </div>
         <slot v-else name="title"></slot>
-      </h2>
+      </h1>
       <post-search-input
         v-if="searchable"
         :posts="posts"
@@ -90,7 +90,7 @@ export default {
   height: 36px;
   margin-bottom: 32px;
 
-  h2 {
+  h1 {
     font-size: 1.5em;
     font-weight: 700;
     margin: 0;
@@ -153,7 +153,7 @@ export default {
 }
 @include viewpoint-sm {
   .component-title {
-    h2 {
+    h1 {
       margin-bottom: 8px;
     }
     &.searchable,
@@ -168,7 +168,7 @@ export default {
 }
 @include viewpoint-xs {
   .component-title {
-    h2 {
+    h1 {
       margin-bottom: 8px;
     }
     &.searchable,

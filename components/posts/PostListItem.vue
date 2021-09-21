@@ -7,9 +7,9 @@
       ></div>
       <div class="item-info-container">
         <div class="title-info">
-          <h3 class="title">
+          <h2 class="title">
             {{ trimTitle(post.title, maxTitleLength) }}
-          </h3>
+          </h2>
           <p class="description">
             {{ trimDescription(post.description, maxDescriptionLength) }}
           </p>
