@@ -86,8 +86,6 @@ export default {
 .component-title {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  height: 36px;
   margin-bottom: 32px;
 
   h1 {
