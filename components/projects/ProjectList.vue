@@ -1,10 +1,13 @@
 <template>
   <section class="project-list">
-    <project-item
-      v-for="project in projects"
-      :key="project.name"
-      :project="project"
-    ></project-item>
+    <h1><slot></slot></h1>
+    <div class="project-item-wrapper">
+      <project-item
+        v-for="project in projects"
+        :key="project.name"
+        :project="project"
+      ></project-item>
+    </div>
   </section>
 </template>
 
@@ -23,10 +26,16 @@ export default {
 @include set-viewpoint;
 
 .project-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
   padding: 64px 32px;
+
+  h1 {
+    margin-bottom: 32px;
+  }
+  .project-item-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
 }
 
 @include viewpoint-xl {
@@ -42,7 +51,6 @@ export default {
 @include viewpoint-md {
   .project-list {
     width: $breakpoint-md;
-    grid-template-columns: repeat(1, 1fr);
   }
 }
 @include viewpoint-sm {

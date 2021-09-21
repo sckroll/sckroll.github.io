@@ -1,6 +1,6 @@
 <template>
   <div class="project-page">
-    <project-list :projects="projects"></project-list>
+    <project-list :projects="projects">프로젝트 목록</project-list>
   </div>
 </template>
 
