@@ -1,5 +1,7 @@
 <template>
-  <nuxt-content :document="post" />
+  <div class="post-content">
+    <nuxt-content :document="post" />
+  </div>
 </template>
 
 <script>
@@ -16,20 +18,11 @@ export default {
 <style lang="scss">
 @include set-viewpoint;
 
-.nuxt-content-container {
-  margin-right: 48px;
+.post-content {
   flex: 4;
 }
 
-@include viewpoint-md {
-  .nuxt-content-container {
-    margin-right: 0;
-  }
-}
 @include viewpoint-sm {
-  .nuxt-content-container {
-    margin-right: 0;
-  }
   .nuxt-content {
     h2 {
       font-size: 1.25em;
@@ -45,9 +38,6 @@ export default {
   }
 }
 @include viewpoint-xs {
-  .nuxt-content-container {
-    margin-right: 0;
-  }
   .nuxt-content {
     h2 {
       font-size: 1.25em;
