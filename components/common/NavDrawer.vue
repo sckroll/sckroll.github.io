@@ -7,9 +7,7 @@
         }}</nuxt-link>
       </li>
       <li>
-        <span class="darkmode-toggle-mobile">
-          <fa-icon :icon="['far', 'moon']" />
-        </span>
+        <dark-mode-toggle></dark-mode-toggle>
       </li>
     </ul>
   </nav>
@@ -60,8 +58,7 @@ nav {
     &:last-child {
       margin-bottom: 0;
     }
-    a,
-    .darkmode-toggle-mobile {
+    a {
       padding: 4px 0;
       border-top: 3px solid transparent;
       border-bottom: 3px solid transparent;

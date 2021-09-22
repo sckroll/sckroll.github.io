@@ -8,6 +8,19 @@
   </div>
 </template>
 
+<script>
+import { isDarkMode } from '~/utils/darkMode'
+
+export default {
+  mounted() {
+    const darkModeState = isDarkMode()
+    const colorMode = darkModeState ? 'dark' : 'light'
+    document.documentElement.setAttribute('color-mode', colorMode)
+    this.$store.commit('SET_DARK_MODE', darkModeState)
+  },
+}
+</script>
+
 <style lang="scss">
 .container {
   position: absolute;

@@ -4,7 +4,7 @@
       <nuxt-link v-for="(item, index) in menu" :key="index" :to="item.path">
         {{ item.name }}
       </nuxt-link>
-      <div class="darkmode-toggle"><fa-icon :icon="['far', 'moon']" /></div>
+      <dark-mode-toggle></dark-mode-toggle>
     </div>
     <span class="mobile-menu" @click="openDrawer">
       <fa-icon :icon="['fa', 'bars']" />
@@ -57,18 +57,6 @@ a {
   }
   &:active {
     color: $sckroll-primary;
-    transition: $fade-default;
-  }
-}
-.darkmode-toggle {
-  cursor: pointer;
-  padding: 4px 0;
-  border-top: 3px solid transparent;
-  border-bottom: 3px solid transparent;
-  transition: $fade-default;
-
-  &:hover {
-    border-bottom: 3px solid $sckroll-primary;
     transition: $fade-default;
   }
 }
