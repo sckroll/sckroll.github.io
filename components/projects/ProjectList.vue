@@ -33,7 +33,6 @@ export default {
   }
   .project-item-wrapper {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
     gap: 32px;
   }
 }
@@ -42,26 +41,39 @@ export default {
   .project-list {
     width: $breakpoint-xl;
   }
+  .project-item-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @include viewpoint-lg {
   .project-list {
     width: $breakpoint-lg;
+  }
+  .project-item-wrapper {
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 @include viewpoint-md {
   .project-list {
     width: $breakpoint-md;
   }
+  .project-item-wrapper {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @include viewpoint-sm {
   .project-list {
     width: $breakpoint-sm;
+  }
+  .project-item-wrapper {
     grid-template-columns: repeat(1, 1fr);
   }
 }
 @include viewpoint-xs {
   .project-list {
     width: 100vw;
+  }
+  .project-item-wrapper {
     grid-template-columns: repeat(1, 1fr);
   }
 }
