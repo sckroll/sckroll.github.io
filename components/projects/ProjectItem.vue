@@ -37,8 +37,8 @@ article {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 16px;
-  height: 100%;
+  gap: 32px;
+  height: 400px;
   padding: 16px;
   box-shadow: 0 1px 2px 1px rgba(black, 0.2);
   transition: $fade-default;
@@ -50,11 +50,11 @@ article {
   }
   img {
     width: 100%;
-    flex: 3;
+    height: 60%;
     object-fit: cover;
   }
   .info {
-    flex: 2;
+    height: 40%;
   }
   h2 {
     font-size: 1.5em;
