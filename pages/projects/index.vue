@@ -10,6 +10,7 @@ export default {
     try {
       const projects = await $content('projects')
         .only(['name', 'slug', 'description', 'image', 'stacks'])
+        .sortBy('period', 'desc')
         .fetch()
       return {
         projects,
