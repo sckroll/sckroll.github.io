@@ -57,7 +57,8 @@ article {
     flex: 2;
   }
   h2 {
-    font-size: 1.75em;
+    font-size: 1.5em;
+    margin-bottom: 4px;
   }
   .stacks {
     margin: 16px 0 8px;
@@ -67,7 +68,7 @@ article {
 @include viewpoint-md {
   article {
     h2 {
-      font-size: 1.5em;
+      font-size: 1.25em;
     }
     p {
       font-size: 0.9em;
@@ -79,9 +80,6 @@ article {
 }
 @include viewpoint-xs {
   article {
-    h2 {
-      font-size: 1.5em;
-    }
     p {
       font-size: 0.9em;
     }
