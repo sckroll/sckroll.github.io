@@ -22,6 +22,17 @@ export default {
   width: 80%;
   padding-right: 32px;
 }
+.nuxt-content {
+  h3 {
+    &::before {
+      content: '';
+      display: block;
+      height: $hash-link-margin-top;
+      margin-top: -#{$hash-link-margin-top};
+      visibility: hidden;
+    }
+  }
+}
 
 @include viewpoint-md {
   .post-content {
