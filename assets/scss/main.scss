@@ -12,6 +12,7 @@
   --color-post-info: #{$color-light-info};
   --color-enabled: #{$color-light-enabled};
   --color-disabled: #{$color-light-disabled};
+  --color-meta-theme: #{$color-light-meta};
 }
 :root[color-mode="dark"] {
   --color-background: #{$color-dark-background};
@@ -23,6 +24,7 @@
   --color-post-info: #{$color-dark-info};
   --color-enabled: #{$color-dark-enabled};
   --color-disabled: #{$color-dark-disabled};
+  --color-meta-theme: #{$color-dark-meta};
 }
 
 html {
