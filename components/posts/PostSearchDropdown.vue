@@ -72,7 +72,7 @@ export default {
   left: -32px;
   width: 64px;
   padding: 16px;
-  background-color: white;
+  background-color: var(--color-sheet);
   box-shadow: 0 2px 4px 2px rgba(black, 0.2);
 
   .item {
@@ -86,7 +86,7 @@ export default {
       margin-bottom: 0;
     }
     &:hover {
-      border-bottom: 3px solid $color-grey-5;
+      border-bottom: 3px solid $color-grey-4;
       transition: $fade-default;
     }
     &.selected {

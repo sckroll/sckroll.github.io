@@ -76,7 +76,7 @@ $background-height: 70vh;
   bottom: 32px;
   right: 32px;
   padding: 8px 16px;
-  background-color: white;
+  background-color: var(--color-sheet);
   box-shadow: 0 1px 2px 1px rgba(black, 0.2);
   font-size: 1.25em;
   transition: $fade-default;

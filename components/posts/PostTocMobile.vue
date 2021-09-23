@@ -64,7 +64,7 @@ export default {
   right: 32px;
   bottom: 96px;
   padding: 16px;
-  background-color: white;
+  background-color: var(--color-sheet);
   box-shadow: 0 1px 2px 1px rgba(black, 0.2);
 }
 .toc-list {
