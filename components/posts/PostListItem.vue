@@ -85,6 +85,7 @@ article {
   justify-content: space-between;
   padding: 16px;
   background-color: var(--color-sheet);
+  transition: $fade-default;
 }
 .title-info {
   .title {

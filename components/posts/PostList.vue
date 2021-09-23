@@ -92,6 +92,7 @@ export default {
     font-size: 1.5em;
     font-weight: 700;
     margin: 0;
+    transition: $fade-default;
   }
 }
 .search-button {

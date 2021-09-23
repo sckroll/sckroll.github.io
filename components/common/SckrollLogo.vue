@@ -8,5 +8,6 @@
 div {
   font-size: 1.75em;
   font-weight: 700;
+  transition: $fade-default;
 }
 </style>

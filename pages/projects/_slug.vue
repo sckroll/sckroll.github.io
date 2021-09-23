@@ -58,6 +58,7 @@ export default {
   justify-content: space-between;
   align-items: flex-end;
   padding: 0 32px;
+  transition: $fade-default;
 
   .main {
     h1 {

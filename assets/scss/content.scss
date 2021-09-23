@@ -1,6 +1,8 @@
 $hash-link-margin-top: $header-height + 32px;
 
 .nuxt-content {
+  transition: $fade-default;
+
   h2 {
     font-weight: 700;
     font-size: 1.5em;

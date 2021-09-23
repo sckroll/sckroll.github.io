@@ -128,6 +128,7 @@ export default {
   margin-right: 16px;
   font-size: 1.25em;
   color: var(--color-search);
+  transition: $fade-default;
 }
 .input-area {
   display: flex;
@@ -139,6 +140,7 @@ export default {
     background-color: transparent;
     padding: 8px 0;
     font-size: 0.9em;
+    color: var(--color-text);
     caret-color: var(--color-text);
     transition: $fade-default;
 

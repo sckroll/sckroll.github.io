@@ -26,6 +26,7 @@ footer {
   display: flex;
   justify-content: center;
   background-color: var(--color-footer);
+  transition: $fade-default;
 }
 .footer-container {
   display: flex;

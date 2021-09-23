@@ -31,6 +31,7 @@ export default {
 .darkmode-toggle {
   display: flex;
   align-items: center;
+  transition: $fade-default;
 }
 .toggle-switch {
   cursor: pointer;
