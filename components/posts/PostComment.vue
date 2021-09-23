@@ -25,10 +25,12 @@ export default {
       // Utterances가 마운트되기 전에 호출될 수 있기 때문에 아래와 같이 조치
       let utterances = document.querySelector('iframe.utterances-frame')
       if (!utterances) {
-        const timeoutId = setTimeout(() => {
-          clearTimeout(timeoutId)
+        const timeoutId = setInterval(() => {
           utterances = document.querySelector('iframe.utterances-frame')
-          utterances.contentWindow.postMessage(message, 'https://utteranc.es')
+          if (utterances) {
+            clearInterval(timeoutId)
+            utterances.contentWindow.postMessage(message, 'https://utteranc.es')
+          }
         }, 500)
       } else {
         utterances.contentWindow.postMessage(message, 'https://utteranc.es')
@@ -36,6 +38,7 @@ export default {
     },
   },
   mounted() {
+    const colorMode = this.isDarkMode ? 'dark' : 'light'
     const utterances = document.createElement('script')
 
     utterances.type = 'text/javascript'
@@ -45,7 +48,7 @@ export default {
 
     utterances.setAttribute('issue-term', 'pathname')
     utterances.setAttribute('repo', 'sckroll/sckroll.github.io')
-    utterances.setAttribute('theme', 'github-light')
+    utterances.setAttribute('theme', `github-${colorMode}`)
 
     this.$refs.comment.appendChild(utterances)
   },
