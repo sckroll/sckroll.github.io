@@ -37,7 +37,7 @@ $hash-link-margin-top: $header-height + 32px;
 
     code {
       padding: 2px;
-      background-color: $sckroll-grey-6;
+      background-color: $color-grey-6;
     }
     img {
       display: block;
@@ -70,21 +70,21 @@ $hash-link-margin-top: $header-height + 32px;
     }
   }
   blockquote {
-    border-left: 8px solid $sckroll-primary;
-    background-color: $sckroll-grey-6;
+    border-left: 8px solid $color-primary;
+    background-color: $color-grey-6;
     margin: 16px 0;
     padding: 16px 32px;
   }
   a {
-    border-bottom: 2px solid $sckroll-grey-4;
+    border-bottom: 2px solid $color-grey-4;
     transition: $fade-default;
 
     &:hover {
-      border-bottom: 2px solid $sckroll-primary;
+      border-bottom: 2px solid $color-primary;
       transition: $fade-default;
     }
     &:active {
-      color: $sckroll-primary;
+      color: $color-primary;
       transition: $fade-default;
     }
   }
@@ -94,7 +94,7 @@ $hash-link-margin-top: $header-height + 32px;
     }
   }
   .nuxt-content-highlight {
-    background-color: $sckroll-grey-2;
+    background-color: $color-grey-2;
     margin: 32px 0;
 
     .filename {

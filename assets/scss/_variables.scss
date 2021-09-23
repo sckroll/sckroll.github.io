@@ -1,20 +1,26 @@
-/* Color Variables */
-$sckroll-primary: #2a7dd6;
-$sckroll-secondary: #d4491e;
-$sckroll-grey-1: #333333;
-$sckroll-grey-2: #555555;
-$sckroll-grey-3: #888888;
-$sckroll-grey-4: #aaaaaa;
-$sckroll-grey-5: #cccccc;
-$sckroll-grey-6: #eeeeee;
+/* Color variables */
+$color-primary: #2a7dd6;
+$color-secondary: #d4491e;
+$color-grey-1: #333333;
+$color-grey-2: #555555;
+$color-grey-3: #888888;
+$color-grey-4: #aaaaaa;
+$color-grey-5: #cccccc;
+$color-grey-6: #eeeeee;
 
-/* Viewpoint Variables */
+/* Color variables (Light mode) */
+$light-background: white;
+
+/* Color variables (Dark mode) */
+$dark-background: black;
+
+/* Viewpoint variables */
 $breakpoint-xl: 1200px;
 $breakpoint-lg: 992px;
 $breakpoint-md: 768px;
 $breakpoint-sm: 576px;
 
-/* Post List Variables */
+/* Post list variables */
 $post-list-gap: 24px;
 $post-list-column-xl: 3;
 $post-list-column-lg: 3;
@@ -22,7 +28,7 @@ $post-list-column-md: 2;
 $post-list-column-sm: 1;
 $post-list-column-xs: 1;
 
-/* Height Variables */
+/* Height variables */
 $header-height: 96px;
 $footer-height: 64px;
 

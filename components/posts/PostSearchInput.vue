@@ -127,7 +127,7 @@ export default {
 .search-icon {
   margin-right: 16px;
   font-size: 1.25em;
-  color: $sckroll-grey-2;
+  color: $color-grey-2;
 }
 .input-area {
   display: flex;
@@ -135,18 +135,18 @@ export default {
   input {
     width: 256px;
     border: none;
-    border-bottom: 3px solid $sckroll-grey-4;
+    border-bottom: 3px solid $color-grey-4;
     padding: 8px 0;
     font-size: 0.9em;
     transition: $fade-default;
 
     &:hover {
-      border-bottom: 3px solid $sckroll-grey-3;
+      border-bottom: 3px solid $color-grey-3;
       transition: $fade-default;
     }
     &:focus {
       outline: none;
-      border-bottom: 3px solid $sckroll-primary;
+      border-bottom: 3px solid $color-primary;
     }
   }
 }
@@ -161,13 +161,13 @@ export default {
 
   &:hover {
     .search-menu-icon {
-      color: $sckroll-primary;
+      color: $color-primary;
       transition: $fade-default;
     }
   }
   .search-menu-icon {
     font-size: 1.25em;
-    color: $sckroll-grey-3;
+    color: $color-grey-3;
     transition: $fade-default;
   }
   .search-menu-overlay {
@@ -183,11 +183,11 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: $sckroll-grey-3;
+  color: $color-grey-3;
   transition: $fade-default;
 
   &:hover {
-    color: $sckroll-primary;
+    color: $color-primary;
     transition: $fade-default;
   }
 }

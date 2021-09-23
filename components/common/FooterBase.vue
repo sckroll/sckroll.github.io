@@ -25,7 +25,7 @@ footer {
   height: $footer-height;
   display: flex;
   justify-content: center;
-  background-color: $sckroll-grey-5;
+  background-color: $color-grey-5;
 }
 .footer-container {
   display: flex;
@@ -46,11 +46,11 @@ footer {
     transition: $fade-default;
 
     &:hover {
-      border-bottom: 3px solid $sckroll-primary;
+      border-bottom: 3px solid $color-primary;
       transition: $fade-default;
     }
     &:active {
-      color: $sckroll-primary;
+      color: $color-primary;
       transition: $fade-default;
     }
     &:last-child {

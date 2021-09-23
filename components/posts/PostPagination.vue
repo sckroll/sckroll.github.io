@@ -131,16 +131,16 @@ export default {
   justify-content: center;
   align-items: center;
   font-size: 1.5em;
-  color: $sckroll-grey-2;
+  color: $color-grey-2;
   transition: $fade-default;
 
   &:hover {
-    color: $sckroll-primary;
+    color: $color-primary;
     transition: $fade-default;
   }
   &.disabled {
     cursor: default;
-    color: $sckroll-grey-5;
+    color: $color-grey-5;
   }
 }
 .input-area {
@@ -151,7 +151,7 @@ export default {
   input {
     width: 16px;
     border: none;
-    border-bottom: 3px solid $sckroll-grey-4;
+    border-bottom: 3px solid $color-grey-4;
     margin-right: 4px;
     padding: 9px 0 2px;
     font-size: 1em;
@@ -159,12 +159,12 @@ export default {
     transition: $fade-default;
 
     &:hover {
-      border-bottom: 3px solid $sckroll-primary;
+      border-bottom: 3px solid $color-primary;
       transition: $fade-default;
     }
     &:focus {
       outline: none;
-      border-bottom: 3px solid $sckroll-primary;
+      border-bottom: 3px solid $color-primary;
       transition: $fade-default;
     }
     /* Chrome, Safari, Edge, Opera */

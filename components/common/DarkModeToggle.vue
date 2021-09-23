@@ -39,10 +39,10 @@ export default {
   border-radius: 12px;
   margin: 0 8px;
   padding: 2px;
-  background-color: $sckroll-grey-5;
+  background-color: $color-grey-5;
 
   &.dark {
-    background-color: $sckroll-primary;
+    background-color: $color-primary;
     transition: $fade-default;
   }
   .knob {

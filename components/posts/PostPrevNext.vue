@@ -56,11 +56,11 @@ export default {
     transition: $fade-default;
 
     &:hover {
-      border-bottom: 3px solid $sckroll-primary;
+      border-bottom: 3px solid $color-primary;
       transition: $fade-default;
     }
     &:active {
-      color: $sckroll-primary;
+      color: $color-primary;
       transition: $fade-default;
     }
   }
@@ -68,7 +68,7 @@ export default {
     font-weight: 700;
   }
   .post-empty {
-    color: $sckroll-grey-3;
+    color: $color-grey-3;
   }
   &:last-of-type {
     text-align: right;

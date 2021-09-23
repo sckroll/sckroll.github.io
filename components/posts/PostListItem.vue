@@ -102,7 +102,7 @@ article {
   display: flex;
   justify-content: space-between;
   font-size: 0.8em;
-  color: $sckroll-grey-1;
+  color: $color-grey-1;
 
   .tags {
     display: inline;

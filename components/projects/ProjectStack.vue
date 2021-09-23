@@ -22,7 +22,7 @@ export default {
 span {
   margin-right: 8px;
   padding: 4px 0;
-  border-bottom: 3px solid $sckroll-grey-4;
+  border-bottom: 3px solid $color-grey-4;
 
   &:last-child {
     margin-right: 0;

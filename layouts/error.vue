@@ -61,11 +61,11 @@ export default {
   transition: $fade-default;
 
   &:hover {
-    border-bottom: 3px solid $sckroll-primary;
+    border-bottom: 3px solid $color-primary;
     transition: $fade-default;
   }
   &:active {
-    color: $sckroll-primary;
+    color: $color-primary;
     transition: $fade-default;
   }
 }

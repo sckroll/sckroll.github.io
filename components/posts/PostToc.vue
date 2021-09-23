@@ -73,7 +73,7 @@ export default {
     transition: $fade-default;
 
     &:hover {
-      color: $sckroll-primary;
+      color: $color-primary;
       transition: $fade-default;
     }
     div {
@@ -101,11 +101,11 @@ export default {
     transition: $fade-default;
 
     &:hover {
-      border-bottom: 2px solid $sckroll-primary;
+      border-bottom: 2px solid $color-primary;
       transition: $fade-default;
     }
     &:active {
-      color: $sckroll-primary;
+      color: $color-primary;
       transition: $fade-default;
     }
   }

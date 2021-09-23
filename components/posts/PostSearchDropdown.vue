@@ -86,11 +86,11 @@ export default {
       margin-bottom: 0;
     }
     &:hover {
-      border-bottom: 3px solid $sckroll-grey-5;
+      border-bottom: 3px solid $color-grey-5;
       transition: $fade-default;
     }
     &.selected {
-      border-bottom: 3px solid $sckroll-primary;
+      border-bottom: 3px solid $color-primary;
       transition: $fade-default;
     }
   }

@@ -98,11 +98,11 @@ export default {
   display: flex;
   align-items: center;
   font-size: 1.5em;
-  color: $sckroll-grey-2;
+  color: $color-grey-2;
   transition: $fade-default;
 
   &:hover {
-    color: $sckroll-primary;
+    color: $color-primary;
     transition: $fade-default;
   }
 }
@@ -112,7 +112,7 @@ export default {
   justify-content: center;
   align-items: center;
   font-size: 1.25em;
-  color: $sckroll-grey-3;
+  color: $color-grey-3;
 }
 .more-button-container {
   display: flex;
@@ -129,7 +129,7 @@ export default {
   transition: $fade-default;
 
   &:hover {
-    border-bottom: 3px solid $sckroll-primary;
+    border-bottom: 3px solid $color-primary;
     transition: $fade-default;
   }
 }

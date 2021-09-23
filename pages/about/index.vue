@@ -144,15 +144,15 @@ export default {
 
   .nuxt-content {
     a {
-      border-bottom: 2px solid $sckroll-grey-4;
+      border-bottom: 2px solid $color-grey-4;
       transition: $fade-default;
 
       &:hover {
-        border-bottom: 2px solid $sckroll-primary;
+        border-bottom: 2px solid $color-primary;
         transition: $fade-default;
       }
       &:active {
-        color: $sckroll-primary;
+        color: $color-primary;
         transition: $fade-default;
       }
     }
