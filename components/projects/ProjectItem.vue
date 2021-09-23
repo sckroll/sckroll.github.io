@@ -40,7 +40,7 @@ article {
   gap: 32px;
   height: 400px;
   padding: 16px;
-  background-color: var(--color-post);
+  background-color: var(--color-sheet);
   box-shadow: 0 1px 2px 1px rgba(black, 0.2);
   transition: $fade-default;
 
