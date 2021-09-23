@@ -1,7 +1,7 @@
 /* Color variables */
 $color-primary: #2a7dd6;
 $color-secondary: #d4491e;
-$color-grey-1: #333333;
+$color-grey-1: #222222;
 $color-grey-2: #555555;
 $color-grey-3: #888888;
 $color-grey-4: #aaaaaa;
@@ -9,10 +9,26 @@ $color-grey-5: #cccccc;
 $color-grey-6: #eeeeee;
 
 /* Color variables (Light mode) */
-$light-background: white;
+$color-light-background: white;
+$color-light-text: black;
+$color-light-header: white;
+$color-light-footer: $color-grey-6;
+$color-light-search: $color-grey-2;
+$color-light-post: white;
+$color-light-info: $color-grey-2;
+$color-light-enabled: $color-grey-2;
+$color-light-disabled: $color-grey-5;
 
 /* Color variables (Dark mode) */
-$dark-background: black;
+$color-dark-background: #181818;
+$color-dark-text: white;
+$color-dark-header: $color-grey-1;
+$color-dark-footer: $color-grey-1;
+$color-dark-search: $color-grey-5;
+$color-dark-post: $color-grey-1;
+$color-dark-info: $color-grey-4;
+$color-dark-enabled: $color-grey-5;
+$color-dark-disabled: $color-grey-2;
 
 /* Viewpoint variables */
 $breakpoint-xl: 1200px;

@@ -127,7 +127,7 @@ export default {
 .search-icon {
   margin-right: 16px;
   font-size: 1.25em;
-  color: $color-grey-2;
+  color: var(--color-search);
 }
 .input-area {
   display: flex;
@@ -135,13 +135,15 @@ export default {
   input {
     width: 256px;
     border: none;
-    border-bottom: 3px solid $color-grey-4;
+    border-bottom: 3px solid var(--color-search);
+    background-color: transparent;
     padding: 8px 0;
     font-size: 0.9em;
+    caret-color: var(--color-text);
     transition: $fade-default;
 
     &:hover {
-      border-bottom: 3px solid $color-grey-3;
+      border-bottom: 3px solid $color-primary;
       transition: $fade-default;
     }
     &:focus {
@@ -167,7 +169,7 @@ export default {
   }
   .search-menu-icon {
     font-size: 1.25em;
-    color: $color-grey-3;
+    color: var(--color-search);
     transition: $fade-default;
   }
   .search-menu-overlay {
@@ -183,7 +185,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: $color-grey-3;
+  color: var(--color-search);
   transition: $fade-default;
 
   &:hover {

@@ -25,7 +25,7 @@ footer {
   height: $footer-height;
   display: flex;
   justify-content: center;
-  background-color: $color-grey-5;
+  background-color: var(--color-footer);
 }
 .footer-container {
   display: flex;

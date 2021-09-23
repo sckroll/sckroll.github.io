@@ -2,6 +2,30 @@
 @import './mixin';
 @import './content';
 
+:root[color-mode="light"] {
+  --color-background: #{$color-light-background};
+  --color-text: #{$color-light-text};
+  --color-header: #{$color-light-header};
+  --color-footer: #{$color-light-footer};
+  --color-search: #{$color-light-search};
+  --color-post: #{$color-light-post};
+  --color-post-info: #{$color-light-info};
+  --color-enabled: #{$color-light-enabled};
+  --color-disabled: #{$color-light-disabled};
+}
+:root[color-mode="dark"] {
+  --color-background: #{$color-dark-background};
+  --color-text: #{$color-dark-text};
+  --color-header: #{$color-dark-header};
+  --color-footer: #{$color-dark-footer};
+  --color-search: #{$color-dark-search};
+  --color-post: #{$color-dark-post};
+  --color-post-info: #{$color-dark-info};
+  --color-enabled: #{$color-dark-enabled};
+  --color-disabled: #{$color-dark-disabled};
+}
+
+
 html {
   font-family: 'Noto Sans KR', sans-serif;
   font-size: 16px;
@@ -21,7 +45,9 @@ html {
   margin: 0;
 }
 body {
-  background-color: white;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  transition: $fade-default;
 }
 h1, h2, h3, h4 {
   font-family: 'NanumSquare', sans-serif;

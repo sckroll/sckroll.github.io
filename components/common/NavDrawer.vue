@@ -36,8 +36,8 @@ nav {
   position: absolute;
   top: 0;
   right: 0;
-  background-color: white;
-  color: black;
+  background-color: var(--color-header);
+  color: var(--color-text);
   box-shadow: 0 2px 4px 2px rgba(black, 0.2);
   width: 40%;
   height: 100vh;

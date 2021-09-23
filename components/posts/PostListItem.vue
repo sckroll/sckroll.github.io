@@ -83,10 +83,8 @@ article {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border-top: 3px solid transparent;
   padding: 16px;
-  background-color: white;
-  transition: $fade-default;
+  background-color: var(--color-post);
 }
 .title-info {
   .title {
@@ -102,7 +100,7 @@ article {
   display: flex;
   justify-content: space-between;
   font-size: 0.8em;
-  color: $color-grey-1;
+  color: var(--color-post-info);
 
   .tags {
     display: inline;

@@ -97,13 +97,14 @@ header {
   z-index: 10;
   width: 100%;
   height: $header-height;
-  background-color: white;
+  background-color: var(--color-background);
+  color: var(--color-text);
   padding-bottom: 16px;
   font-family: 'NanumSquare', sans-serif;
-  color: black;
   transition: $fade-default;
 
   &.scrolled {
+    background-color: var(--color-header);
     box-shadow: 0 2px 4px 2px rgba(black, 0.2);
     transition: $fade-default;
   }
@@ -113,8 +114,8 @@ header {
     transition: $fade-default;
 
     &.scrolled {
-      background-color: white;
-      color: black;
+      background-color: var(--color-header);
+      color: var(--color-text);
       transition: $fade-default;
     }
   }

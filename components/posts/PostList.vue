@@ -98,7 +98,7 @@ export default {
   display: flex;
   align-items: center;
   font-size: 1.5em;
-  color: $color-grey-2;
+  color: var(--color-search);
   transition: $fade-default;
 
   &:hover {

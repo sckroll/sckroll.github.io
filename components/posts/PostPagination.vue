@@ -131,7 +131,7 @@ export default {
   justify-content: center;
   align-items: center;
   font-size: 1.5em;
-  color: $color-grey-2;
+  color: var(--color-enabled);
   transition: $fade-default;
 
   &:hover {
@@ -140,7 +140,7 @@ export default {
   }
   &.disabled {
     cursor: default;
-    color: $color-grey-5;
+    color: var(--color-disabled);
   }
 }
 .input-area {
@@ -151,11 +151,14 @@ export default {
   input {
     width: 16px;
     border: none;
-    border-bottom: 3px solid $color-grey-4;
+    border-bottom: 3px solid var(--color-enabled);
     margin-right: 4px;
     padding: 9px 0 2px;
     font-size: 1em;
     text-align: center;
+    background-color: transparent;
+    caret-color: var(--color-text);
+    color: var(--color-text);
     transition: $fade-default;
 
     &:hover {
