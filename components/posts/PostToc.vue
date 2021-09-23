@@ -60,7 +60,7 @@ export default {
 @include set-viewpoint;
 
 .toc-container {
-  flex: 1;
+  width: 20%;
 }
 .post-toc {
   position: sticky;

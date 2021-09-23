@@ -63,7 +63,6 @@ $background-height: 70vh;
   display: flex;
   width: 100%;
   padding: 64px 32px;
-  gap: 48px;
 
   &.project {
     margin-top: 0;

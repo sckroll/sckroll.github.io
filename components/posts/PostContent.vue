@@ -19,11 +19,21 @@ export default {
 @include set-viewpoint;
 
 .post-content {
-  width: 100%;
-  flex: 4;
+  width: 80%;
+  padding-right: 32px;
 }
 
+@include viewpoint-md {
+  .post-content {
+    width: 100%;
+    padding-right: 0;
+  }
+}
 @include viewpoint-sm {
+  .post-content {
+    width: 100%;
+    padding-right: 0;
+  }
   .nuxt-content {
     h2 {
       font-size: 1.25em;
@@ -39,6 +49,10 @@ export default {
   }
 }
 @include viewpoint-xs {
+  .post-content {
+    width: 100%;
+    padding-right: 0;
+  }
   .nuxt-content {
     h2 {
       font-size: 1.25em;
