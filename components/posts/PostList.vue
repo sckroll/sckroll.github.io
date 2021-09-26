@@ -113,7 +113,7 @@ export default {
   justify-content: center;
   align-items: center;
   font-size: 1.25em;
-  color: $color-grey-3;
+  color: $color-grey-4;
 }
 .more-button-container {
   display: flex;

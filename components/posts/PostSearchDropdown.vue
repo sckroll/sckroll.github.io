@@ -86,7 +86,7 @@ export default {
       margin-bottom: 0;
     }
     &:hover {
-      border-bottom: 3px solid $color-grey-4;
+      border-bottom: 3px solid $color-grey-5;
       transition: $fade-default;
     }
     &.selected {

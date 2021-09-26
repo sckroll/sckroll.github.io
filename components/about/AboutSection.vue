@@ -96,7 +96,7 @@ section {
     }
     .right {
       flex: 3;
-      border-left: 3px solid $color-grey-4;
+      border-left: 3px solid $color-grey-5;
       padding-left: 32px;
     }
   }
@@ -146,7 +146,7 @@ h2 {
         padding-bottom: 16px;
       }
       .right {
-        border-top: 3px solid $color-grey-4;
+        border-top: 3px solid $color-grey-5;
         border-left: none;
         padding-top: 32px;
         padding-left: 0;
@@ -170,7 +170,7 @@ h2 {
         padding-bottom: 16px;
       }
       .right {
-        border-top: 3px solid $color-grey-4;
+        border-top: 3px solid $color-grey-5;
         border-left: none;
         padding-top: 32px;
         padding-left: 0;
@@ -196,7 +196,7 @@ h2 {
         padding-bottom: 16px;
       }
       .right {
-        border-top: 3px solid $color-grey-4;
+        border-top: 3px solid $color-grey-5;
         border-left: none;
         padding-top: 32px;
         padding-left: 0;

@@ -78,7 +78,7 @@ export default {
       display: flex;
       justify-content: center;
       margin: 24px 0;
-      background-color: $color-grey-5;
+      background-color: $color-grey-6;
     }
   }
   &-content {
@@ -111,7 +111,7 @@ export default {
     .divider {
       width: 32px;
       height: 2px;
-      background-color: $color-grey-2;
+      background-color: $color-grey-3;
       margin: 8px 0;
     }
   }

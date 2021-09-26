@@ -40,7 +40,7 @@ export default {
   border-radius: 12px;
   margin: 0 8px;
   padding: 2px;
-  background-color: $color-grey-5;
+  background-color: $color-grey-6;
 
   &.dark {
     background-color: $color-primary;
