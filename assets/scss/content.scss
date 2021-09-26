@@ -61,6 +61,10 @@ $hash-link-margin-top: $header-height + 32px;
   ol,
   ul {
     margin: 16px 0;
+
+    p {
+      font-size: 1em;
+    }
   }
   ol {
     ul {
