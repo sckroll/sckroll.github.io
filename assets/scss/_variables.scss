@@ -32,6 +32,32 @@ $color-dark-enabled: $color-grey-5;
 $color-dark-disabled: $color-grey-2;
 $color-dark-meta: #181818;
 
+/* Color variables with var() */
+:root[color-mode="light"] {
+  --color-background: #{$color-light-background};
+  --color-text: #{$color-light-text};
+  --color-header: #{$color-light-header};
+  --color-footer: #{$color-light-footer};
+  --color-search: #{$color-light-search};
+  --color-sheet: #{$color-light-sheet};
+  --color-post-info: #{$color-light-info};
+  --color-enabled: #{$color-light-enabled};
+  --color-disabled: #{$color-light-disabled};
+  --color-meta-theme: #{$color-light-meta};
+}
+:root[color-mode="dark"] {
+  --color-background: #{$color-dark-background};
+  --color-text: #{$color-dark-text};
+  --color-header: #{$color-dark-header};
+  --color-footer: #{$color-dark-footer};
+  --color-search: #{$color-dark-search};
+  --color-sheet: #{$color-dark-sheet};
+  --color-post-info: #{$color-dark-info};
+  --color-enabled: #{$color-dark-enabled};
+  --color-disabled: #{$color-dark-disabled};
+  --color-meta-theme: #{$color-dark-meta};
+}
+
 /* Viewpoint variables */
 $breakpoint-xl: 1200px;
 $breakpoint-lg: 992px;
