@@ -1,6 +1,6 @@
 <template>
   <div class="landing-container">
-    <post-list :posts="posts">
+    <post-list featured :posts="posts">
       <template v-slot:title>최근 포스트</template>
     </post-list>
   </div>

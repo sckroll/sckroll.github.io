@@ -1,6 +1,16 @@
 <template>
   <div class="post-list-contents">
-    <post-list-item v-for="post in posts" :key="post.slug" :post="post" />
+    <template v-if="featured">
+      <post-list-item featured :post="featuredPost" />
+      <post-list-item
+        v-for="post in otherPosts"
+        :key="post.slug"
+        :post="post"
+      />
+    </template>
+    <template v-else>
+      <post-list-item v-for="post in posts" :key="post.slug" :post="post" />
+    </template>
   </div>
 </template>
 
@@ -11,42 +21,26 @@ export default {
       type: Array,
       required: true,
     },
+    featured: {
+      type: Boolean,
+      default: false,
+    },
+  },
+  computed: {
+    featuredPost() {
+      return this.posts[0]
+    },
+    otherPosts() {
+      return this.posts.slice(1)
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-@include set-viewpoint;
-
 .post-list-contents {
-  display: grid;
-  justify-content: space-between;
-  gap: $post-list-gap;
-}
-
-@include viewpoint-xl {
-  .post-list-contents {
-    grid-template-columns: repeat($post-list-column-xl, 1fr);
-  }
-}
-@include viewpoint-lg {
-  .post-list-contents {
-    grid-template-columns: repeat($post-list-column-lg, 1fr);
-  }
-}
-@include viewpoint-md {
-  .post-list-contents {
-    grid-template-columns: repeat($post-list-column-md, 1fr);
-  }
-}
-@include viewpoint-sm {
-  .post-list-contents {
-    grid-template-columns: repeat($post-list-column-sm, 1fr);
-  }
-}
-@include viewpoint-xs {
-  .post-list-contents {
-    grid-template-columns: repeat($post-list-column-xs, 1fr);
-  }
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 </style>

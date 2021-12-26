@@ -2,19 +2,21 @@
   <nuxt-link :to="`/posts/${post.slug}`">
     <article>
       <div
+        v-if="featured"
         class="item-background"
         :style="`background: ${getPattern(post.title)};`"
       ></div>
       <div class="item-info-container">
-        <div class="title-info">
+        <div class="title-container">
           <h2 class="title">
             {{ trimTitle(post.title, maxTitleLength) }}
           </h2>
-          <p class="description">
-            {{ trimDescription(post.description, maxDescriptionLength) }}
-          </p>
         </div>
+        <p class="description">
+          {{ trimDescription(post.description, maxDescriptionLength) }}
+        </p>
         <div class="other-info">
+          <div class="created-date">{{ formatDate(post.createdAt) }}</div>
           <div class="tags">
             <span
               v-for="tag in trimTags(post.tags, maxTagsLength)"
@@ -23,7 +25,6 @@
               >#{{ tag }}</span
             >
           </div>
-          <div class="created-date">{{ formatDate(post.createdAt) }}</div>
         </div>
       </div>
     </article>
@@ -40,6 +41,10 @@ export default {
     post: {
       type: Object,
       required: true,
+    },
+    featured: {
+      type: Boolean,
+      default: false,
     },
   },
   data() {
@@ -60,76 +65,98 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@include set-viewpoint;
-
 article {
-  height: 272px;
-  box-shadow: 0 1px 2px 1px rgba(black, 0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding: 24px 0;
   transition: $fade-default;
 
   &:hover {
+    padding: 32px;
     box-shadow: 0 2px 8px 4px rgba(black, 0.15);
-    transform: translateY(-2px);
+    /* transform: translateY(-2px); */
     transition: $fade-default;
-  }
-  .item-background {
-    width: 100%;
-    height: 50%;
+
+    .title {
+      border-bottom: 3px solid $color-primary;
+    }
   }
 }
+.item-background {
+  aspect-ratio: 32 / 9;
+}
 .item-info-container {
-  bottom: 0;
-  height: 50%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 16px;
-  background-color: var(--color-sheet);
+  gap: 4px;
   transition: $fade-default;
 }
-.title-info {
-  .title {
-    font-family: 'NanumSquare', sans-serif;
-    font-size: 1.15em;
-    font-weight: 700;
-  }
-  .description {
-    font-size: 0.8em;
-  }
+.title-container {
+  display: flex;
+}
+.title {
+  padding-bottom: 4px;
+  border-bottom: 3px solid $color-grey-6;
+  font-family: 'NanumSquare', sans-serif;
+  font-size: 1.75em;
+  font-weight: 700;
+  transition: $fade-default;
+}
+.description {
+  font-size: 1.2em;
+  color: $color-grey-3;
 }
 .other-info {
   display: flex;
   justify-content: space-between;
-  font-size: 0.8em;
   color: var(--color-sheet-info);
 
   .tags {
-    display: inline;
-
-    .tag {
-      margin-right: 5px;
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
+    display: flex;
+    gap: 16px;
   }
 }
 
 @include viewpoint-xl {
 }
 @include viewpoint-lg {
-  .other-info {
-    font-size: 0.7em;
-  }
 }
 @include viewpoint-md {
+  .title {
+    font-size: 1.5em;
+  }
+  .description {
+    font-size: 1.1em;
+  }
   .other-info {
-    font-size: 0.7em;
+    font-size: 0.9em;
   }
 }
 @include viewpoint-sm {
+  .title {
+    font-size: 1.5em;
+  }
+  .description {
+    font-size: 1.1em;
+  }
+  .other-info {
+    font-size: 0.8em;
+  }
 }
 @include viewpoint-xs {
+  article {
+    gap: 16px;
+  }
+  .title {
+    font-size: 1.5em;
+  }
+  .description {
+    font-size: 1.1em;
+  }
+  .other-info {
+    font-size: 0.8em;
+  }
 }
 </style>

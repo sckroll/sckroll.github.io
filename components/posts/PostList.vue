@@ -31,7 +31,11 @@
       </div>
       <div v-else class="search-message">검색할 포스트를 입력하세요.</div>
     </template>
-    <post-list-contents v-else :posts="posts"></post-list-contents>
+    <post-list-contents
+      v-else
+      :featured="featured"
+      :posts="posts"
+    ></post-list-contents>
   </section>
 </template>
 
@@ -47,6 +51,10 @@ export default {
       default: false,
     },
     searchButton: {
+      type: Boolean,
+      default: false,
+    },
+    featured: {
       type: Boolean,
       default: false,
     },
