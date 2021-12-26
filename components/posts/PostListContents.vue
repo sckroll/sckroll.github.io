@@ -41,6 +41,13 @@ export default {
 .post-list-contents {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+
+  * {
+    border-bottom: 1px solid $color-grey-7;
+
+    &:last-child {
+      border-bottom: none;
+    }
+  }
 }
 </style>

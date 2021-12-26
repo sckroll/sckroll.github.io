@@ -1,20 +1,22 @@
 <template>
   <nuxt-link :to="`/posts/${post.slug}`">
-    <article>
+    <article :class="{ featured }">
       <div
         v-if="featured"
         class="item-background"
         :style="`background: ${getPattern(post.title)};`"
       ></div>
       <div class="item-info-container">
-        <div class="title-container">
-          <h2 class="title">
-            {{ trimTitle(post.title, maxTitleLength) }}
-          </h2>
+        <div class="main-info">
+          <div class="title-container">
+            <h2 class="title">
+              {{ trimTitle(post.title, maxTitleLength) }}
+            </h2>
+          </div>
+          <h3 class="description">
+            {{ trimDescription(post.description, maxDescriptionLength) }}
+          </h3>
         </div>
-        <p class="description">
-          {{ trimDescription(post.description, maxDescriptionLength) }}
-        </p>
         <div class="other-info">
           <div class="created-date">{{ formatDate(post.createdAt) }}</div>
           <div class="tags">
@@ -69,7 +71,7 @@ article {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  padding: 16px 0;
+  padding: 32px 0;
   transition: $fade-default;
 
   &:hover {
@@ -78,9 +80,15 @@ article {
     background-color: var(--color-sheet);
     transition: $fade-default;
 
+    &.featured {
+      padding-top: 32px;
+    }
     .title {
       border-bottom: 3px solid $color-primary;
     }
+  }
+  &.featured {
+    padding-top: 0;
   }
 }
 .item-background {
@@ -90,15 +98,20 @@ article {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 4px;
+  gap: 32px;
   transition: $fade-default;
+}
+.main-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 .title-container {
   display: flex;
 }
 .title {
   padding-bottom: 4px;
-  border-bottom: 3px solid var(--color-disabled);
+  border-bottom: 3px solid transparent;
   font-family: 'NanumSquare', sans-serif;
   font-size: 1.75em;
   font-weight: 700;
@@ -124,6 +137,9 @@ article {
 @include viewpoint-lg {
 }
 @include viewpoint-md {
+  .item-info-container {
+    gap: 16px;
+  }
   .title {
     font-size: 1.5em;
   }
@@ -135,18 +151,7 @@ article {
   }
 }
 @include viewpoint-sm {
-  .title {
-    font-size: 1.5em;
-  }
-  .description {
-    font-size: 1.1em;
-  }
-  .other-info {
-    font-size: 0.8em;
-  }
-}
-@include viewpoint-xs {
-  article {
+  .item-info-container {
     gap: 16px;
   }
   .title {
@@ -157,6 +162,29 @@ article {
   }
   .other-info {
     font-size: 0.8em;
+
+    .tags {
+      gap: 8px;
+    }
+  }
+}
+@include viewpoint-xs {
+  .item-info-container {
+    gap: 16px;
+  }
+  .title {
+    font-size: 1.3em;
+  }
+  .description {
+    font-size: 1.1em;
+  }
+  .other-info {
+    display: block;
+    font-size: 0.8em;
+
+    .tags {
+      gap: 8px;
+    }
   }
 }
 </style>
