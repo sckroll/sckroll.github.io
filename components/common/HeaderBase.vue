@@ -1,5 +1,5 @@
 <template>
-  <header :class="{ reversed: (isLanding || isPostPage) && !isError }">
+  <header :class="{ reversed: isPostPage && !isError }">
     <div class="header-container">
       <SckrollLogo></SckrollLogo>
       <HeaderMenu :menu="menu" @drawer-open="openDrawer"></HeaderMenu>
@@ -46,9 +46,6 @@ export default {
     }
   },
   computed: {
-    isLanding() {
-      return this.$route.path === '/'
-    },
     isPostPage() {
       const path = this.$route.path
       return (

@@ -1,24 +1,12 @@
 <template>
-  <div>
-    <div class="landing-background">
-      <div
-        class="landing-background-img"
-        :style="`background: ${getPattern('Sckroll')};`"
-      >
-        <div class="landing-background-overlay"></div>
-      </div>
-    </div>
-    <div class="landing-content">
-      <post-list :posts="posts">
-        <template v-slot:title>최근 포스트</template>
-      </post-list>
-    </div>
+  <div class="landing-container">
+    <post-list :posts="posts">
+      <template v-slot:title>최근 포스트</template>
+    </post-list>
   </div>
 </template>
 
 <script>
-import { getPattern } from '@/utils/pattern'
-
 export default {
   async asyncData({ $content, error }) {
     try {
@@ -35,30 +23,11 @@ export default {
       error({ statusCode: e.statusCode || e.status || 500 })
     }
   },
-  methods: {
-    getPattern,
-  },
 }
 </script>
 
 <style lang="scss">
-$background-height: 70vh;
-
-.landing-background {
-  &-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: $background-height;
-  }
-  &-overlay {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(black, 0.3);
-  }
-}
-.landing-content {
-  margin-top: $background-height;
+.landing-container {
+  margin-top: $header-height;
 }
 </style>
