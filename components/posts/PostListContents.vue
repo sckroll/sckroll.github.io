@@ -44,9 +44,14 @@ export default {
 
   * {
     border-bottom: 1px solid var(--color-divider);
+    transition: $fade-default;
 
     &:last-child {
       border-bottom: none;
+    }
+    &:hover {
+      border-bottom: 1px solid transparent;
+      transition: $fade-default;
     }
   }
 }
