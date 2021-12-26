@@ -1,6 +1,7 @@
 /* Color variables */
 $color-primary: #2a7dd6;
 $color-secondary: #d4491e;
+$color-grey-0: #181818;
 $color-grey-1: #222222;
 $color-grey-2: #363636;
 $color-grey-3: #666666;
@@ -23,7 +24,7 @@ $color-light-meta: white;
 $color-light-blockquote: $color-grey-7;
 
 /* Color variables (Dark mode) */
-$color-dark-background: #181818;
+$color-dark-background: $color-grey-0;
 $color-dark-text: white;
 $color-dark-header: $color-grey-1;
 $color-dark-footer: $color-grey-1;
@@ -32,7 +33,7 @@ $color-dark-sheet: $color-grey-1;
 $color-dark-info: $color-grey-5;
 $color-dark-enabled: $color-grey-6;
 $color-dark-disabled: $color-grey-3;
-$color-dark-meta: #181818;
+$color-dark-meta: $color-grey-0;
 $color-dark-blockquote: $color-grey-2;
 
 /* Color variables with var() */

@@ -69,13 +69,13 @@ article {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  padding: 24px 0;
+  padding: 16px 0;
   transition: $fade-default;
 
   &:hover {
     padding: 32px;
     box-shadow: 0 2px 8px 4px rgba(black, 0.15);
-    /* transform: translateY(-2px); */
+    background-color: var(--color-sheet);
     transition: $fade-default;
 
     .title {
@@ -98,7 +98,7 @@ article {
 }
 .title {
   padding-bottom: 4px;
-  border-bottom: 3px solid $color-grey-6;
+  border-bottom: 3px solid var(--color-disabled);
   font-family: 'NanumSquare', sans-serif;
   font-size: 1.75em;
   font-weight: 700;
@@ -106,12 +106,12 @@ article {
 }
 .description {
   font-size: 1.2em;
-  color: $color-grey-3;
+  color: var(--color-post-info);
 }
 .other-info {
   display: flex;
   justify-content: space-between;
-  color: var(--color-sheet-info);
+  color: var(--color-post-info);
 
   .tags {
     display: flex;
