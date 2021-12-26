@@ -21,7 +21,7 @@ export default {
           'updatedAt',
         ])
         .sortBy('createdAt', 'desc')
-        .limit(6)
+        .limit(5)
         .fetch()
 
       return {

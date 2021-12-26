@@ -66,7 +66,7 @@ export default {
       isEmpty: false,
       allSearchResults: [],
       searchResults: [],
-      lastIndex: 15,
+      lastIndex: 10,
     }
   },
   methods: {
@@ -78,7 +78,7 @@ export default {
       this.searchResults = results.slice(0, this.lastIndex)
     },
     showMoreResults() {
-      this.lastIndex += 15
+      this.lastIndex += 10
       this.searchResults = this.allSearchResults.slice(0, this.lastIndex)
     },
   },
