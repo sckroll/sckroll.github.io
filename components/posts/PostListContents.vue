@@ -43,7 +43,7 @@ export default {
   flex-direction: column;
 
   * {
-    border-bottom: 1px solid $color-grey-7;
+    border-bottom: 1px solid var(--color-divider);
 
     &:last-child {
       border-bottom: none;

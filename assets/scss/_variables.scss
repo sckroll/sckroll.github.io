@@ -22,6 +22,7 @@ $color-light-enabled: $color-grey-3;
 $color-light-disabled: $color-grey-6;
 $color-light-meta: white;
 $color-light-blockquote: $color-grey-7;
+$color-light-divider: $color-grey-7;
 
 /* Color variables (Dark mode) */
 $color-dark-background: $color-grey-0;
@@ -35,6 +36,7 @@ $color-dark-enabled: $color-grey-6;
 $color-dark-disabled: $color-grey-3;
 $color-dark-meta: $color-grey-0;
 $color-dark-blockquote: $color-grey-2;
+$color-dark-divider: $color-grey-1;
 
 /* Color variables with var() */
 :root[color-mode="light"] {
@@ -49,6 +51,7 @@ $color-dark-blockquote: $color-grey-2;
   --color-disabled: #{$color-light-disabled};
   --color-meta-theme: #{$color-light-meta};
   --color-blockquote: #{$color-light-blockquote};
+  --color-divider: #{$color-light-divider};
 }
 :root[color-mode="dark"] {
   --color-background: #{$color-dark-background};
@@ -62,6 +65,7 @@ $color-dark-blockquote: $color-grey-2;
   --color-disabled: #{$color-dark-disabled};
   --color-meta-theme: #{$color-dark-meta};
   --color-blockquote: #{$color-dark-blockquote};
+  --color-divider: #{$color-dark-divider};
 }
 
 /* Viewpoint variables */
