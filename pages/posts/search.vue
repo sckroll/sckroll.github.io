@@ -18,6 +18,7 @@ export default {
           'slug',
           'tags',
           'createdAt',
+          'updatedAt',
           'text',
         ])
         .sortBy('createdAt', 'desc')

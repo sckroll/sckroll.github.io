@@ -18,7 +18,15 @@
           </h3>
         </div>
         <div class="other-info">
-          <div class="created-date">{{ formatDate(post.createdAt) }}</div>
+          <div class="posted-date">
+            <span class="created-date">{{ formatDate(post.createdAt) }}</span>
+            <span
+              v-if="diffDate(post.createdAt, post.updatedAt) > 0"
+              class="updated-date"
+            >
+              (수정: {{ formatDate(post.updatedAt) }})
+            </span>
+          </div>
           <div class="tags">
             <span
               v-for="tag in trimTags(post.tags, maxTagsLength)"
@@ -62,6 +70,21 @@ export default {
     trimTitle,
     trimTags,
     trimDescription,
+    diffDate(createdAtString, updatedAtString) {
+      const createdAt = new Date(createdAtString)
+      const updatedAt = new Date(updatedAtString)
+      const createdDate = new Date(
+        createdAt.getYear(),
+        createdAt.getMonth(),
+        createdAt.getDate(),
+      )
+      const updatedDate = new Date(
+        updatedAt.getYear(),
+        updatedAt.getMonth(),
+        updatedAt.getDate(),
+      )
+      return updatedDate - createdDate
+    },
   },
 }
 </script>
@@ -130,6 +153,9 @@ article {
     display: flex;
     gap: 16px;
   }
+}
+.updated-date {
+  color: var(--color-date);
 }
 
 @include viewpoint-xl {

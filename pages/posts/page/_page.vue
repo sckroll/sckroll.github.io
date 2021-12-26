@@ -39,7 +39,15 @@ export default {
 
       // 현재 페이지의 포스트를 배열에 저장
       const paginatedPosts = await $content('posts', { deep: true })
-        .only(['title', 'description', 'img', 'slug', 'tags', 'createdAt'])
+        .only([
+          'title',
+          'description',
+          'img',
+          'slug',
+          'tags',
+          'createdAt',
+          'updatedAt',
+        ])
         .sortBy('createdAt', 'desc')
         .limit(PER_PAGE)
         .skip(skipNumber())
