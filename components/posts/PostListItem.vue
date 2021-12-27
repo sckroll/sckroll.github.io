@@ -4,7 +4,7 @@
       <div
         v-if="featured"
         class="item-background"
-        :style="`background: ${getPattern(post.title)};`"
+        :style="`background-image: ${getPattern(post.title)};`"
       ></div>
       <div class="item-info-container">
         <div class="main-info">
@@ -116,12 +116,13 @@ article {
 }
 .item-background {
   aspect-ratio: 32 / 9;
+  background-position: center;
 }
 .item-info-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  gap: 32px;
+  gap: 64px;
   transition: $fade-default;
 }
 .main-info {
