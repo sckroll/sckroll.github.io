@@ -137,7 +137,7 @@ article {
   padding-bottom: 4px;
   border-bottom: 3px solid transparent;
   font-family: 'NanumSquare', sans-serif;
-  font-size: 1.75em;
+  font-size: 1.5em;
   font-weight: 700;
   transition: $fade-default;
 }
@@ -168,7 +168,7 @@ article {
     gap: 16px;
   }
   .title {
-    font-size: 1.5em;
+    font-size: 1.3em;
   }
   .description {
     font-size: 1.1em;
@@ -182,7 +182,8 @@ article {
     gap: 16px;
   }
   .title {
-    font-size: 1.5em;
+    padding-bottom: 2px;
+    font-size: 1.3em;
   }
   .description {
     font-size: 1.1em;
@@ -199,8 +200,12 @@ article {
   .item-info-container {
     gap: 16px;
   }
+  .main-info {
+    gap: 4px;
+  }
   .title {
-    font-size: 1.3em;
+    padding-bottom: 2px;
+    font-size: 1.2em;
   }
   .description {
     font-size: 1.1em;
