@@ -48,6 +48,10 @@ export default {
 
     &:last-child {
       border-bottom: none;
+
+      &:hover {
+        border-bottom: none;
+      }
     }
     &:hover {
       border-bottom: 1px solid transparent;
