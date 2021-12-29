@@ -76,6 +76,12 @@ $hash-link-margin-top: $header-height + 32px;
       margin: 0;
     }
   }
+  li {
+    ol,
+    ul {
+      margin: 0;
+    }
+  }
   pre {
     code {
       padding: 0;
