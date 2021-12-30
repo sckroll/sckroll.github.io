@@ -55,7 +55,7 @@ class Solution:
 
 ### 반복 구조로 홀짝 노드 처리
 
-- 사용된 변수(`odd`, `even`, `even_head`)는 `n`의 크기에 관계 없이 항상 일정하게 사용되므로 공간 복잡도 $O(1)$을 만족한다.
+- 사용된 변수(`odd`, `even`, `even_head`)는 `n`의 크기에 관계 없이 항상 일정하게 사용되므로 공간 복잡도 O(1)을 만족한다.
 
 ```python
 class ListNode:

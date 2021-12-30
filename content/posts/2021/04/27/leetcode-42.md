@@ -59,7 +59,7 @@ class Solution:
 
 ### 1. 투 포인터를 최대로 이동
 
-- 시간 복잡도는 $O(n)$이다.
+- 시간 복잡도는 O(n)이다.
 
 ```python
 from typing import List
@@ -91,7 +91,7 @@ class Solution:
 
 ### 2. 투 포인터를 최대로 이동
 
-- 시간 복잡도는 $O(n)$이지만, 투 포인터 방식보다 실행 시간이 조금 더 걸린다.
+- 시간 복잡도는 O(n)이지만, 투 포인터 방식보다 실행 시간이 조금 더 걸린다.
 
 ```python
 from typing import List
