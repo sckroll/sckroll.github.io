@@ -26,6 +26,10 @@ export default {
     return {
       experiences: [
         {
+          time: '2022.01 ~',
+          text: '삼성 청년 SW 아카데미 (SSAFY) 7기 입과',
+        },
+        {
           time: '2021.08',
           text: '한국기술교육대학교 (KOREATECH) 컴퓨터공학부 졸업',
         },

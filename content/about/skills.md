@@ -10,13 +10,13 @@
   
 - Node.js (Express, Koa)
 - Database (MongoDB, MySQL, Oracle)
-- Flask
 
 
 ### DevOps & Etc.
 
+- Python
 - Docker
-- Cloud (AWS, Azure, GCP)
+- Cloud (특히 Google Cloud Platform)
 - 자료구조 / 알고리즘
 - 운영체제 / 네트워크
 - Git / GitHub
