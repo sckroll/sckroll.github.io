@@ -63,8 +63,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@include set-viewpoint;
-
 .about-container {
   &.intro {
     min-height: 400px;

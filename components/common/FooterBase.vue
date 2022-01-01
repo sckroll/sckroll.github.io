@@ -19,8 +19,6 @@
 </template>
 
 <style lang="scss" scoped>
-@include set-viewpoint;
-
 footer {
   height: $footer-height;
   display: flex;

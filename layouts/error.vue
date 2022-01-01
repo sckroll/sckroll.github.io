@@ -36,8 +36,6 @@ export default {
 </script>
 
 <style lang="scss">
-@include set-viewpoint;
-
 .error-content {
   display: flex;
   flex-direction: column;

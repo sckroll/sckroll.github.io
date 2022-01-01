@@ -25,8 +25,6 @@ export default {
 </script>
 
 <style lang="scss">
-@include set-viewpoint;
-
 .til-page {
   margin-top: $header-height;
   padding: 64px 32px;

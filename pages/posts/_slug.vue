@@ -93,8 +93,6 @@ export default {
 </script>
 
 <style lang="scss">
-@include set-viewpoint;
-
 $background-height: 70vh;
 
 article {

@@ -86,8 +86,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@include set-viewpoint;
-
 .post-list {
   padding: 64px 32px;
 }

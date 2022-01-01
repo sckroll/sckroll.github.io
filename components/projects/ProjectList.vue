@@ -23,8 +23,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@include set-viewpoint;
-
 .project-list {
   padding: 64px 32px;
 

@@ -84,8 +84,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@include set-viewpoint;
-
 header {
   position: fixed;
   display: flex;

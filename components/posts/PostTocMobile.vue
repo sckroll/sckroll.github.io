@@ -56,8 +56,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@include set-viewpoint;
-
 .post-mobile-toc {
   z-index: 1;
   position: fixed;

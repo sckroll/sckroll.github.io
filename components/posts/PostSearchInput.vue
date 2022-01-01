@@ -118,8 +118,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@include set-viewpoint;
-
 .search-input {
   display: flex;
   align-items: center;

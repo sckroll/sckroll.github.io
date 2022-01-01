@@ -16,8 +16,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@include set-viewpoint;
-
 section {
   flex: 1;
 }

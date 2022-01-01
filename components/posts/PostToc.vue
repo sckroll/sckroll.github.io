@@ -57,8 +57,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@include set-viewpoint;
-
 .toc-container {
   width: 20%;
 }

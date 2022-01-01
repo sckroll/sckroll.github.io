@@ -53,8 +53,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@include set-viewpoint;
-
 $background-height: 70vh;
 
 .content-container {

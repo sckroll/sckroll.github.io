@@ -64,8 +64,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@include set-viewpoint;
-
 .timeline {
   display: flex;
   margin: -16px 0 24px;

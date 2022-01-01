@@ -29,8 +29,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@include set-viewpoint;
-
 .nav-menu {
   display: flex;
   align-items: center;

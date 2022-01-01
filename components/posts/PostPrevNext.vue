@@ -35,8 +35,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@include set-viewpoint;
-
 .prev-next-nav {
   display: flex;
   justify-content: center;

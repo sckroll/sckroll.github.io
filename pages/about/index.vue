@@ -132,8 +132,6 @@ export default {
 </script>
 
 <style lang="scss">
-@include set-viewpoint;
-
 .about-page {
   width: 100%;
   display: flex;

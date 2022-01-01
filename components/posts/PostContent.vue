@@ -16,8 +16,6 @@ export default {
 </script>
 
 <style lang="scss">
-@include set-viewpoint;
-
 .post-content {
   width: 80%;
   padding-right: 32px;

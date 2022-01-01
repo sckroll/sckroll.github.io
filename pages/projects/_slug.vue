@@ -48,8 +48,6 @@ export default {
 </script>
 
 <style lang="scss">
-@include set-viewpoint;
-
 .project-container {
   margin-top: calc(#{$header-height} + 64px);
 }

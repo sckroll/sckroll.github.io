@@ -30,8 +30,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@include set-viewpoint;
-
 article {
   cursor: pointer;
   display: flex;
