@@ -1,15 +1,11 @@
 <template>
   <div class="post-list-contents">
     <template v-if="featured">
-      <post-list-item featured :post="featuredPost" />
-      <post-list-item
-        v-for="post in otherPosts"
-        :key="post.slug"
-        :post="post"
-      />
+      <list-item featured :post="featuredPost" />
+      <list-item v-for="post in otherPosts" :key="post.slug" :post="post" />
     </template>
     <template v-else>
-      <post-list-item v-for="post in posts" :key="post.slug" :post="post" />
+      <list-item v-for="post in posts" :key="post.slug" :post="post" />
     </template>
   </div>
 </template>
