@@ -89,6 +89,11 @@ export default {
       return updatedDate - createdDate
     },
   },
+  head() {
+    return {
+      title: this.post.title,
+    }
+  },
 }
 </script>
 

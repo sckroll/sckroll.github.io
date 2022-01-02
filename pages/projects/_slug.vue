@@ -44,6 +44,11 @@ export default {
       error({ statusCode: e.statusCode || e.status || 500 })
     }
   },
+  head() {
+    return {
+      title: this.project.name,
+    }
+  },
 }
 </script>
 
