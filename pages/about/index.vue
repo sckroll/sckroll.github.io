@@ -128,6 +128,9 @@ export default {
       this.sections[sectionIndex].isShow = true
     },
   },
+  head: {
+    title: '소개',
+  },
 }
 </script>
 

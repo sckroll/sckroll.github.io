@@ -19,6 +19,9 @@ export default {
       error({ statusCode: e.statusCode || e.status || 500 })
     }
   },
+  head: {
+    title: '프로젝트',
+  },
 }
 </script>
 

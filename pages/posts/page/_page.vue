@@ -66,6 +66,9 @@ export default {
       perPage: PER_PAGE,
     }
   },
+  head: {
+    title: '포스트',
+  },
 }
 </script>
 

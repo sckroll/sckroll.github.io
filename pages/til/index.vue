@@ -21,6 +21,9 @@ export default {
       error({ statusCode: e.statusCode || e.status || 500 })
     }
   },
+  head: {
+    title: 'TIL',
+  },
 }
 </script>
 

@@ -31,6 +31,9 @@ export default {
       console.error(e)
     }
   },
+  head: {
+    title: '포스트 검색',
+  },
 }
 </script>
 
