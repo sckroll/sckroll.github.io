@@ -31,8 +31,10 @@ export default {
       error({ statusCode: e.statusCode || e.status || 500 })
     }
   },
-  head: {
-    title: '홈',
+  head() {
+    return {
+      title: '홈',
+    }
   },
 }
 </script>
