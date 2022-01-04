@@ -112,6 +112,15 @@ $hash-link-margin-top: $header-height + 32px;
       width: 100%;
     }
   }
+  summary {
+    cursor: pointer;
+    transition: $fade-default;
+
+    &:hover {
+      color: $color-primary;
+      transition: $fade-default;
+    }
+  }
   .nuxt-content-highlight {
     background-color: $color-grey-3;
     margin: 32px 0;

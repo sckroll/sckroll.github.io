@@ -16,6 +16,10 @@ https://leetcode.com/problems/palindrome-pairs/
 - 결과는 예상대로 시간 초과(TLE)였다. 괜히 난이도 Hard가 아니지...
 - 트라이를 구현하는 방법은 알지만, 이를 활용하는 방법을 모르는 것이 문제였다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 
@@ -35,10 +39,17 @@ class MySolution1:
         return result
 ```
 
+</div>
+</details>
+
 ### 두 번째 시도
 
 - 만약 1번 풀이에서 이중 루프의 시간 복잡도를 O(n log n)으로 줄인다면?
 - 나름 기대를 품고 구현했으나 TLE가 뜨는 건 마찬가지였다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -61,6 +72,9 @@ class MySolution2:
         return result
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 팰린드롬을 브루트 포스로 계산
@@ -73,6 +87,10 @@ class MySolution2:
 - 풀이를 보고 나니 왜 난이도가 Hard인지 알겠다. 정신 나갈 것 같다.
 - 한 번만 봐서는 이해하기 어려운 풀이법이니 다시 정리해서 포스팅해야겠다.
 - 트라이를 구현해서 문제를 풀면 모든 입력 값을 트라이로 만들어두고 딱 한 번씩만 탐색하기 때문에 O(n)의 시간 복잡도로 풀 수 있다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 import collections
@@ -158,6 +176,9 @@ class Solution2:
 
         return results
 ```
+
+</div>
+</details>
 
 ## 출처
 
