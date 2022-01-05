@@ -1,6 +1,6 @@
 <template>
   <section class="prev-next-nav">
-    <div class="wrapper viewpoint">
+    <div class="wrapper">
       <span class="post-link">
         <span class="post-label">&lt; 다음 |</span>
         <nuxt-link v-if="next" :to="{ path: next.slug }">{{
@@ -40,6 +40,7 @@ export default {
   justify-content: center;
 }
 .wrapper {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   padding: 16px 32px;

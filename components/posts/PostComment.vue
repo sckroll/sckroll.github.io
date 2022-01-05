@@ -1,6 +1,6 @@
 <template>
   <section class="comment-container">
-    <div ref="comment" class="comment-center viewpoint"></div>
+    <div ref="comment" class="comment-center"></div>
   </section>
 </template>
 
@@ -59,9 +59,9 @@ export default {
 .comment-container {
   display: flex;
   justify-content: center;
-  width: 100%;
 }
 .comment-center {
+  width: 100%;
   padding: 0 32px;
 }
 .utterances {
