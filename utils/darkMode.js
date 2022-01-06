@@ -1,5 +1,5 @@
 export const isDarkMode = () => {
-  const { matches } = window.matchMedia('(prefer-color-scheme: dark)')
+  const { matches } = window.matchMedia('(prefers-color-scheme: dark)')
 
   const isStorageValueDark =
     localStorage.getItem('sckroll-dark-mode') === 'true'
