@@ -15,8 +15,6 @@ export default {
   mounted() {
     // 다크 모드 설정
     const darkModeState = isDarkMode()
-    const colorMode = darkModeState ? 'dark' : 'light'
-    document.documentElement.setAttribute('color-mode', colorMode)
     this.$store.commit('SET_DARK_MODE', darkModeState)
   },
 }
