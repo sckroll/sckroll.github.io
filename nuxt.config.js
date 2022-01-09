@@ -19,8 +19,7 @@ export default {
       {
         rel: 'stylesheet',
         type: 'text/css',
-        href:
-          'https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css',
+        href: 'https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css',
       },
     ],
   },
@@ -33,7 +32,13 @@ export default {
   plugins: [],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
-  components: true,
+  components: [
+    '~/components/about',
+    '~/components/common',
+    '~/components/posts',
+    '~/components/projects',
+    '~/components/til',
+  ],
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
   buildModules: [
