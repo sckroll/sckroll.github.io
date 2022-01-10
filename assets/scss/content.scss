@@ -90,7 +90,7 @@ $hash-link-margin-top: $header-height + 32px;
   }
   blockquote {
     border-left: 8px solid $color-primary;
-    background-color: var(--color-blockquote);
+    background-color: $color-grey-7;
     margin: 16px 0;
     padding: 16px 32px;
   }
@@ -138,5 +138,10 @@ $hash-link-margin-top: $header-height + 32px;
     .language-scss {
       margin: 0;
     }
+  }
+}
+.dark-mode .nuxt-content {
+  blockquote {
+    background-color: $color-grey-2;
   }
 }
