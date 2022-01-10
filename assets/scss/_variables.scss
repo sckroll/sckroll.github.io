@@ -10,68 +10,6 @@ $color-grey-5: #aaaaaa;
 $color-grey-6: #cccccc;
 $color-grey-7: #eeeeee;
 
-/* Color variables (Light mode) */
-$color-light-background: white;
-$color-light-text: black;
-$color-light-header: white;
-$color-light-footer: $color-grey-7;
-$color-light-search: $color-grey-3;
-$color-light-sheet: white;
-$color-light-info: $color-grey-3;
-$color-light-enabled: $color-grey-3;
-$color-light-disabled: $color-grey-6;
-$color-light-meta: white;
-$color-light-blockquote: $color-grey-7;
-$color-light-divider: $color-grey-7;
-$color-light-date: $color-grey-5;
-
-/* Color variables (Dark mode) */
-$color-dark-background: $color-grey-0;
-$color-dark-text: white;
-$color-dark-header: $color-grey-1;
-$color-dark-footer: $color-grey-1;
-$color-dark-search: $color-grey-6;
-$color-dark-sheet: $color-grey-1;
-$color-dark-info: $color-grey-5;
-$color-dark-enabled: $color-grey-6;
-$color-dark-disabled: $color-grey-3;
-$color-dark-meta: $color-grey-0;
-$color-dark-blockquote: $color-grey-2;
-$color-dark-divider: $color-grey-1;
-$color-dark-date: $color-grey-3;
-
-/* Color variables with var() */
-:root[color-mode="light"] {
-  --color-background: #{$color-light-background};
-  --color-text: #{$color-light-text};
-  --color-header: #{$color-light-header};
-  --color-footer: #{$color-light-footer};
-  --color-search: #{$color-light-search};
-  --color-sheet: #{$color-light-sheet};
-  --color-post-info: #{$color-light-info};
-  --color-enabled: #{$color-light-enabled};
-  --color-disabled: #{$color-light-disabled};
-  --color-meta-theme: #{$color-light-meta};
-  --color-blockquote: #{$color-light-blockquote};
-  --color-divider: #{$color-light-divider};
-  --color-date: #{$color-light-date};
-}
-:root[color-mode="dark"] {
-  --color-background: #{$color-dark-background};
-  --color-text: #{$color-dark-text};
-  --color-header: #{$color-dark-header};
-  --color-footer: #{$color-dark-footer};
-  --color-search: #{$color-dark-search};
-  --color-sheet: #{$color-dark-sheet};
-  --color-post-info: #{$color-dark-info};
-  --color-enabled: #{$color-dark-enabled};
-  --color-disabled: #{$color-dark-disabled};
-  --color-meta-theme: #{$color-dark-meta};
-  --color-blockquote: #{$color-dark-blockquote};
-  --color-divider: #{$color-dark-divider};
-  --color-date: #{$color-dark-date};
-}
-
 /* Viewpoint variables */
 $breakpoint-xl: 1200px;
 $breakpoint-lg: 992px;

@@ -1,4 +1,3 @@
-// import { toggleDarkMode } from '@/utils/darkMode'
 import { setMetaThemeColor } from '@/utils/metaThemeColor'
 
 export const state = () => ({
@@ -13,7 +12,6 @@ export const mutations = {
   SET_DARK_MODE(state, isDarkMode) {
     if (state.isDarkMode !== isDarkMode) {
       state.isDarkMode = isDarkMode
-      // toggleDarkMode(isDarkMode)
       setMetaThemeColor()
     }
   },
