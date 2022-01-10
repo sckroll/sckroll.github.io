@@ -92,14 +92,14 @@ header {
   z-index: 10;
   width: 100%;
   height: $header-height;
-  background-color: var(--color-background);
-  color: var(--color-text);
+  background-color: white;
+  color: black;
   padding-bottom: 16px;
   font-family: 'NanumSquare', sans-serif;
   transition: $fade-default;
 
   &.scrolled {
-    background-color: var(--color-header);
+    background-color: white;
     box-shadow: 0 2px 4px 2px rgba(black, 0.2);
     transition: $fade-default;
   }
@@ -109,9 +109,25 @@ header {
     transition: $fade-default;
 
     &.scrolled {
-      background-color: var(--color-header);
-      color: var(--color-text);
+      background-color: white;
+      color: black;
       transition: $fade-default;
+    }
+  }
+}
+.dark-mode header {
+  background-color: $color-grey-0;
+  color: white;
+
+  &.scrolled {
+    background-color: $color-grey-1;
+  }
+  &.reversed {
+    background-color: transparent;
+
+    &.scrolled {
+      background-color: $color-grey-1;
+      color: white;
     }
   }
 }

@@ -39,7 +39,7 @@ export default {
   flex-direction: column;
 
   * {
-    border-bottom: 1px solid var(--color-divider);
+    border-bottom: 1px solid $color-grey-7;
     transition: $fade-default;
 
     &:last-child {
@@ -53,6 +53,11 @@ export default {
       border-bottom: 1px solid transparent;
       transition: $fade-default;
     }
+  }
+}
+.dark-mode .post-list-contents {
+  * {
+    border-bottom: 1px solid $color-grey-1;
   }
 }
 </style>

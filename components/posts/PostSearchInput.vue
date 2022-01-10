@@ -125,8 +125,11 @@ export default {
 .search-icon {
   margin-right: 16px;
   font-size: 1.25em;
-  color: var(--color-search);
+  color: $color-grey-3;
   transition: $fade-default;
+}
+.dark-mode .search-icon {
+  color: $color-grey-6;
 }
 .input-area {
   display: flex;
@@ -134,12 +137,12 @@ export default {
   input {
     width: 256px;
     border: none;
-    border-bottom: 3px solid var(--color-search);
+    border-bottom: 3px solid $color-grey-3;
     background-color: transparent;
     padding: 8px 0;
     font-size: 0.9em;
-    color: var(--color-text);
-    caret-color: var(--color-text);
+    color: black;
+    caret-color: black;
     transition: $fade-default;
 
     &:hover {
@@ -150,6 +153,13 @@ export default {
       outline: none;
       border-bottom: 3px solid $color-primary;
     }
+  }
+}
+.dark-mode .input-area {
+  input {
+    border-bottom: 3px solid $color-grey-6;
+    color: white;
+    caret-color: white;
   }
 }
 .search-menu-button {
@@ -169,13 +179,18 @@ export default {
   }
   .search-menu-icon {
     font-size: 1.25em;
-    color: var(--color-search);
+    color: $color-grey-3;
     transition: $fade-default;
   }
   .search-menu-overlay {
     width: inherit;
     height: inherit;
     position: absolute;
+  }
+}
+.dark-mode .search-menu-button {
+  .search-menu-icon {
+    color: $color-grey-6;
   }
 }
 .search-clear-button {
@@ -185,13 +200,16 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: var(--color-search);
+  color: $color-grey-3;
   transition: $fade-default;
 
   &:hover {
     color: $color-primary;
     transition: $fade-default;
   }
+}
+.dark-mode .search-clear-button {
+  color: $color-grey-6;
 }
 
 @include viewpoint-sm {

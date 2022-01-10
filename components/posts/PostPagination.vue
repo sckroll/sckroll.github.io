@@ -131,7 +131,7 @@ export default {
   justify-content: center;
   align-items: center;
   font-size: 1.5em;
-  color: var(--color-enabled);
+  color: $color-grey-3;
   transition: $fade-default;
 
   &:hover {
@@ -140,7 +140,14 @@ export default {
   }
   &.disabled {
     cursor: default;
-    color: var(--color-disabled);
+    color: $color-grey-6;
+  }
+}
+.dark-mode .pagination-button {
+  color: $color-grey-6;
+
+  &.disabled {
+    color: $color-grey-3;
   }
 }
 .input-area {
@@ -151,14 +158,14 @@ export default {
   input {
     width: 16px;
     border: none;
-    border-bottom: 3px solid var(--color-enabled);
+    border-bottom: 3px solid $color-grey-3;
     margin-right: 4px;
     padding: 9px 0 2px;
     font-size: 1em;
     text-align: center;
     background-color: transparent;
-    caret-color: var(--color-text);
-    color: var(--color-text);
+    caret-color: black;
+    color: black;
     transition: $fade-default;
 
     &:hover {
@@ -180,6 +187,13 @@ export default {
     &[type='number'] {
       -moz-appearance: textfield;
     }
+  }
+}
+.dark-mode .input-area {
+  input {
+    border-bottom: 3px solid $color-grey-6;
+    caret-color: white;
+    color: white;
   }
 }
 </style>

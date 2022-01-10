@@ -23,8 +23,11 @@ footer {
   height: $footer-height;
   display: flex;
   justify-content: center;
-  background-color: var(--color-footer);
+  background-color: $color-grey-7;
   transition: $fade-default;
+}
+.dark-mode footer {
+  background-color: $color-grey-1;
 }
 .footer-container {
   display: flex;

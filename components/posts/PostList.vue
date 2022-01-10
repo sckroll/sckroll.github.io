@@ -105,13 +105,16 @@ export default {
   display: flex;
   align-items: center;
   font-size: 1.5em;
-  color: var(--color-search);
+  color: $color-grey-3;
   transition: $fade-default;
 
   &:hover {
     color: $color-primary;
     transition: $fade-default;
   }
+}
+.dark-mode .search-button {
+  color: $color-grey-6;
 }
 .search-message {
   height: 256px;

@@ -74,7 +74,7 @@ $background-height: 70vh;
   bottom: 32px;
   right: 32px;
   padding: 8px 16px;
-  background-color: var(--color-sheet);
+  background-color: white;
   box-shadow: 0 1px 2px 1px rgba(black, 0.2);
   font-size: 1.25em;
   transition: $fade-default;
@@ -83,6 +83,9 @@ $background-height: 70vh;
     box-shadow: 0 2px 4px 2px rgba(black, 0.15);
     transition: $fade-default;
   }
+}
+.dark-mode .toc-mobile-button {
+  background-color: $color-grey-1;
 }
 
 @include viewpoint-xl {

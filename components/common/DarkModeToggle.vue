@@ -21,6 +21,7 @@ export default {
   },
   methods: {
     toggleColorMode() {
+      this.$colorMode.preference = this.isDarkMode ? 'light' : 'dark'
       this.$store.commit('SET_DARK_MODE', !this.isDarkMode)
     },
   },

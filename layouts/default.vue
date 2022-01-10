@@ -9,13 +9,17 @@
 </template>
 
 <script>
-import { isDarkMode } from '~/utils/darkMode'
+// import { isDarkMode } from '~/utils/darkMode'
 
 export default {
   mounted() {
     // 다크 모드 설정
-    const darkModeState = isDarkMode()
-    this.$store.commit('SET_DARK_MODE', darkModeState)
+    // const darkModeState = isDarkMode()
+    // this.$store.commit('SET_DARK_MODE', darkModeState)
+
+    // 모바일 브라우저 상태 바에 색상 적용
+    const isDarkMode = window.__NUXT_COLOR_MODE__.value === 'dark'
+    this.$store.commit('SET_DARK_MODE', isDarkMode)
   },
 }
 </script>

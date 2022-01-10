@@ -72,7 +72,7 @@ export default {
   left: -32px;
   width: 64px;
   padding: 16px;
-  background-color: var(--color-sheet);
+  background-color: white;
   box-shadow: 0 2px 4px 2px rgba(black, 0.2);
 
   .item {
@@ -94,5 +94,8 @@ export default {
       transition: $fade-default;
     }
   }
+}
+.dark-mode .dropdown-wrapper {
+  background-color: $color-grey-1;
 }
 </style>

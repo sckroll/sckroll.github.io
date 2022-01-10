@@ -47,6 +47,7 @@ export default {
     '@nuxtjs/fontawesome',
     '@nuxtjs/style-resources',
     '@nuxtjs/google-fonts',
+    '@nuxtjs/color-mode',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)

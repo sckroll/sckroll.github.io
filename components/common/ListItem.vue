@@ -100,7 +100,7 @@ article {
   &:hover {
     padding: 32px;
     box-shadow: 0 2px 8px 4px rgba(black, 0.15);
-    background-color: var(--color-sheet);
+    background-color: white;
     transition: $fade-default;
 
     &.featured {
@@ -112,6 +112,11 @@ article {
   }
   &.featured {
     padding-top: 0;
+  }
+}
+.dark-mode article {
+  &:hover {
+    background-color: $color-grey-1;
   }
 }
 .item-background {
@@ -143,20 +148,29 @@ article {
 }
 .description {
   font-size: 1.2em;
-  color: var(--color-post-info);
+  color: $color-grey-3;
+}
+.dark-mode .description {
+  color: $color-grey-5;
 }
 .other-info {
   display: flex;
   justify-content: space-between;
-  color: var(--color-post-info);
+  color: $color-grey-3;
 
   .tags {
     display: flex;
     gap: 16px;
   }
 }
+.dark-mode .other-info {
+  color: $color-grey-5;
+}
 .updated-date {
-  color: var(--color-date);
+  color: $color-grey-5;
+}
+.dark-mode .updated-date {
+  color: $color-grey-3;
 }
 
 @include viewpoint-xl {

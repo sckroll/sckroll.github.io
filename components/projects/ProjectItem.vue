@@ -38,7 +38,7 @@ article {
   gap: 32px;
   height: 400px;
   padding: 16px;
-  background-color: var(--color-sheet);
+  background-color: white;
   box-shadow: 0 1px 2px 1px rgba(black, 0.2);
   transition: $fade-default;
 
@@ -62,6 +62,9 @@ article {
   .stacks {
     margin: 16px 0 8px;
   }
+}
+.dark-mode article {
+  background-color: $color-grey-1;
 }
 
 @include viewpoint-md {

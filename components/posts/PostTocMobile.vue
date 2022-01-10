@@ -62,8 +62,11 @@ export default {
   right: 32px;
   bottom: 96px;
   padding: 16px;
-  background-color: var(--color-sheet);
+  background-color: white;
   box-shadow: 0 1px 2px 1px rgba(black, 0.2);
+}
+.dark-mode .post-mobile-toc {
+  background-color: $color-grey-1;
 }
 .toc-list {
   .toc-item {
