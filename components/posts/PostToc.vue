@@ -40,17 +40,17 @@ export default {
     }
   },
   mounted() {
-    const isTocOpened = localStorage.getItem('sckrollTocState')
+    const isTocOpened = localStorage.getItem('sckroll-toc-state')
     if (isTocOpened && isTocOpened !== 'true') {
       this.isExpanded = false
     } else {
-      localStorage.setItem('sckrollTocState', true)
+      localStorage.setItem('sckroll-toc-state', true)
     }
   },
   methods: {
     toggleToc() {
       this.isExpanded = !this.isExpanded
-      localStorage.setItem('sckrollTocState', this.isExpanded)
+      localStorage.setItem('sckroll-toc-state', this.isExpanded)
     },
   },
 }
