@@ -14,6 +14,10 @@ https://leetcode.com/problems/minimum-height-trees/
 
 - 트리 순회 결과를 우선순위 큐(힙)에 저장 후 높이가 가장 낮은 결과들만 추출하여 리턴하여 구현했으나 TLE가 떴다...
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 import collections, heapq
@@ -61,9 +65,16 @@ class MySolution1:
         return result
 ```
 
+</div>
+</details>
+
 ### 두 번째 시도 (시간 초과)
 
 - 우선순위 큐를 사용하는 대신 트리를 순회하면서 최소 높이의 트리만 루트 값을 `result` 리스트에 저장하기로 했으나, 마찬가지로 TLE가 뜨고 말았다. 우선순위 큐가 원인이 아니라 트리를 순회하는 부분이 문제인 듯 하다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -110,12 +121,19 @@ class MySolution2:
         return result
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 단계별 리프 노드 제거
 
 - 최소 높이를 구성하려면 가장 가운데에 위치한 값이 루트여야 한다.
 - 즉, 리프 노드를 하나씩 제거하면서 남아 있는 값을 찾으면 해당 값이 가장 가운데에 있는 값이므로 해당 값을 루트로 하여 트리를 구성하면 높이가 최소인 트리를 구성할 수 있다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -157,6 +175,9 @@ class Solution1:
 
         return leaves
 ```
+
+</div>
+</details>
 
 ## 출처
 

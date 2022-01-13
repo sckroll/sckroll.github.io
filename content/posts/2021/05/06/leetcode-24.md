@@ -10,6 +10,10 @@ https://leetcode.com/problems/swap-nodes-in-pairs/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -43,11 +47,18 @@ class Solution:
         return root
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 값만 교환
 
 - 원래 의도와는 맞지 않는 변칙적인 풀이법이므로 추천하지 않는 풀이법이다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class ListNode:
@@ -68,7 +79,14 @@ class Solution:
         return head
 ```
 
+</div>
+</details>
+
 ### 2. 반복 구조로 스왑
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class ListNode:
@@ -96,10 +114,17 @@ class Solution:
         return root.next
 ```
 
+</div>
+</details>
+
 ### 3. 재귀 구조로 스왑
 
 - 2번 풀이에 비해 공간 복잡도가 낮은 방법이다.
 - 최종적으로는 백트래킹되면서 연결 리스트가 이어지게 된다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class ListNode:
@@ -119,6 +144,9 @@ class Solution:
             return p
         return head
 ```
+
+</div>
+</details>
 
 ## 출처
 

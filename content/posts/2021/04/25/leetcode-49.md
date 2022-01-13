@@ -10,6 +10,10 @@ https://leetcode.com/problems/group-anagrams/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 from collections import defaultdict
@@ -32,9 +36,16 @@ class Solution:
         return list(words.values())
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 정렬하여 딕셔너리에 추가
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -50,6 +61,9 @@ class Solution:
             anagrams[''.join(sorted(word))].append(word)
         return list(anagrams.values())
 ```
+
+</div>
+</details>
 
 ## 배운 점
 

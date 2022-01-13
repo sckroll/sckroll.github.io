@@ -10,6 +10,10 @@ https://leetcode.com/problems/combinations/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 
@@ -31,9 +35,16 @@ class Solution:
         return result
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. DFS로 `k`개 조합 생성
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -57,7 +68,14 @@ class Solution1:
         return results
 ```
 
+</div>
+</details>
+
 ### 2. `itertools` 모듈 사용
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -72,6 +90,9 @@ class Solution2:
 
         return list(map(list, itertools.combinations(range(1, n + 1), k)))
 ```
+
+</div>
+</details>
 
 ## 출처
 

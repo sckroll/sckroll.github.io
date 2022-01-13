@@ -13,6 +13,10 @@ https://leetcode.com/problems/cheapest-flights-within-k-stops/
 - 다익스트라 알고리즘을 응용하는 문제라서 만만하게 봤다가 무수한 오답 처리만 받았다.
 - 정신 나갈 것 같다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 import collections
@@ -60,6 +64,9 @@ class MySolution1:
         return distance[dst] if dst in distance else -1
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 다익스트라 알고리즘 응용
@@ -69,6 +76,10 @@ class MySolution1:
   - `k` 제한 이내에는 몇 번이나 추가로 방문해도 상관이 없는 문제이기 때문이다.
   - 참고: https://github.com/onlybooks/algorithm-interview/issues/71
 - 하지만 이 풀이법도 시간 초과로 인한 오답 처리가 뜬다. 리트코드의 테스트 케이스가 추가된 것 같다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -99,10 +110,17 @@ class Solution1:
         return -1
 ```
 
+</div>
+</details>
+
 ### 2. 벨만-포드 알고리즘(Bellman-Ford’s algorithm) 사용
 
 - 다익스트라 알고리즘과는 다르게 가중치가 음수일 경우에도 사용할 수 있다.
 - 하지만 정작 테스트 케이스에는 음수가 없다... 왜 벨만-포드 알고리즘으로 풀면 정답 처리가 되는지는 잘 모르겠다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -125,6 +143,9 @@ class Solution2:
 
         return distance[dst]
 ```
+
+</div>
+</details>
 
 ## 배운 점
 

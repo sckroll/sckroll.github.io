@@ -10,6 +10,10 @@ https://leetcode.com/problems/permutations/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 
@@ -34,11 +38,18 @@ class Solution:
         return result
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. DFS를 활용한 순열 생성
 
 - 위의 풀이와 마찬가지로 주의할 점은 리스트에 결과를 추가할 때 리스트를 복사(`[:]`)하여 추가해야 한다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -67,7 +78,14 @@ class Solution1:
         return results
 ```
 
+</div>
+</details>
+
 ### 2. `itertools` 모듈 사용
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -82,6 +100,9 @@ class Solution2:
         
         return list(map(list, itertools.permutations(nums)))
 ```
+
+</div>
+</details>
 
 ## 배운 점
 

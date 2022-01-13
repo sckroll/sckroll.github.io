@@ -10,6 +10,10 @@ https://leetcode.com/problems/longest-substring-without-repeating-characters/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 class Solution:
     def my_solution(self, s: str) -> int:
@@ -26,11 +30,18 @@ class Solution:
         return result
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 슬라이딩 윈도우와 투 포인터로 사이즈 조절
 
 - 전체적인 로직은 내가 풀었던 방법과 비슷하다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class Solution:
@@ -52,6 +63,9 @@ class Solution:
 
         return max_length
 ```
+
+</div>
+</details>
 
 ## 배운 점
 

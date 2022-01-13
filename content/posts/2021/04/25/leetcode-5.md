@@ -10,6 +10,10 @@ https://leetcode.com/problems/longest-palindromic-substring/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 class Solution:
     def my_solution(self, s: str) -> str:
@@ -25,6 +29,9 @@ class Solution:
                     return curr
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 중앙을 중심으로 확장하는 풀이 (투 포인터)
@@ -33,6 +40,10 @@ class Solution:
   - 다이나믹 프로그래밍(DP)으로 풀 수 있지만, 덜 직관적이며 이 문제에서는 실행 속도가 더 늦기 때문에 투 포인터를 사용하여 문제를 풀었다.
 - 각각 2칸, 3칸으로 이루어진 2개의 포인터가 왼쪽에서 오른쪽으로 슬라이딩하면서 이동하는데, 이때 포인터 영역(슬라이딩 윈도우)에 들어온 문자열이 팰린드롬이라면 그 자리에 멈추고 투 포인터가 점점 확장하는 식이다.
 - 2칸 포인터는 모든 짝수의 경우, 3칸 포인터는 모든 홀수의 경우에 대해 판별한다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class Solution:
@@ -60,6 +71,9 @@ class Solution:
             result = max(result, expand(i, i + 1), expand(i, i + 2), key=len)
         return result
 ```
+
+</div>
+</details>
 
 ## 출처
 

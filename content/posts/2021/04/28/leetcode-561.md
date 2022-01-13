@@ -10,6 +10,10 @@ https://leetcode.com/problems/array-partition-i/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 
@@ -23,11 +27,18 @@ class Solution:
         return result
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 오름차순 풀이
 
 - 정렬된 상태에서 앞에서부터 오름차순으로 인접 요소 페어를 생성하며, 이 페어들의 합이 곧 만들 수 있는 최대 합이 된다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -49,9 +60,16 @@ class Solution:
         return result
 ```
 
+</div>
+</details>
+
 ### 2. 짝수 번째 값 계산
 
 - 정렬된 상태에서는 두 수씩 페어로 묶을 때 짝수 번째 인덱스에 항상 작은 값이 위치하고 있다는 점을 이용한 풀이법이다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -70,9 +88,16 @@ class Solution:
         return result
 ```
 
+</div>
+</details>
+
 ## 3. 파이썬다운 방식
 
 - 더 이상의 자세한 설명은 생략한다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -82,6 +107,9 @@ class Solution:
     def solution3(self, nums: List[int]) -> int:
         return sum(sorted(nums)[::2])
 ```
+
+</div>
+</details>
 
 ## 출처
 

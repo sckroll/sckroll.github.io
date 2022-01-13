@@ -10,6 +10,10 @@ https://leetcode.com/problems/most-common-word/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 import re
@@ -32,9 +36,16 @@ class Solution:
         return max(counter.items(), key=lambda x: x[1])[0]
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 리스트 컴프리헨션과 `defaultdict()` 사용
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -56,7 +67,14 @@ class Solution:
         return max(counts, key=counts.get)
 ```
 
+</div>
+</details>
+
 ### 2. 리스트 컴프리헨션과 `Counter` 객체 사용
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -76,6 +94,9 @@ class Solution:
         return counts.most_common(1)[0][0]
 ```
 
+</div>
+</details>
+
 ## 배운 점
 
 ### 정규식 관련
@@ -86,10 +107,11 @@ class Solution:
 ### 특수문자를 공백으로 치환한 이유
 
 - 여기서 특수문자를 **제거**하지 않고 **공백으로 치환**하는 이유는 아래와 같다.
-  ```python
+
+```python
   paragraph = 'a, a, a, a, b,b,b,c, c'
   banned = ['a']
-  ```
+```
   - 만약 특수문자를 제거한다면 출력값은 `b`가 나와야 하지만, `bbbc`가 출력된다. 특수문자가 제거된 상태에서 `split()`을 하면 문자가 붙어버리기 때문이다. 따라서 이를 방지하기 위해 특수문자를 공백으로 치환해야 한다.
 
 ### 기타

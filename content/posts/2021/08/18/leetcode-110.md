@@ -10,6 +10,10 @@ https://leetcode.com/problems/balanced-binary-tree/submissions/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import Optional
 
@@ -51,9 +55,16 @@ class MySolution1:
         return result
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 재귀 구조로 높이 차이 계산
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import Optional
@@ -83,6 +94,9 @@ class Solution1:
 
         return check(root) != -1
 ```
+
+</div>
+</details>
 
 ## 출처
 

@@ -14,6 +14,10 @@ https://leetcode.com/problems/network-delay-time/
 - 모든 노드에 대한 거리를 구하여 리스트 `distance`에 저장한 상태에서 무한대가 아닌 거리의 최댓값이 이 문제의 정답이 된다.
   - 여기선 무한대(`float('inf')`) 대신 `101`로 설정하였는데, 문제에서 언급된 각 노드의 가중치(`w`)의 최댓값이 `100`이기 때문이다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 import collections
@@ -51,6 +55,9 @@ class MySolution1:
         return max(distance) if max(distance) != 101 else -1
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 다익스트라 알고리즘 구현
@@ -59,6 +66,10 @@ class MySolution1:
   - 모든 노드가 신호를 받는 데 걸리는 시간 = 가장 오래 걸리는 노드까지의 (최단) 시간
   - 모든 노드에 도달할 수 있는지 여부 = 모든 노드의 다익스트라 알고리즘 계산 값이 존재하는지의 여부
 - 전반적인 로직은 비슷하지만, 모든 노드까지의 거리에 대해 미리 무한대 값을 할당하는 대신, `dist` 딕셔너리의 키(노드) 존재 유무를 통해 노드의 거리를 판단한다. 즉, `dist`에 키가 존재하지 않으면 해당 노드까지의 거리는 무한대이며, 키가 존재하면 그 값이 해당 노드까지의 거리가 된다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -95,6 +106,9 @@ class Solution1:
             return max(dist.values())
         return -1
 ```
+
+</div>
+</details>
 
 ## 출처
 

@@ -10,6 +10,10 @@ https://leetcode.com/problems/reverse-linked-list/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -26,9 +30,16 @@ class Solution:
         return reversed_list
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 재귀 구조로 뒤집기
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class ListNode:
@@ -48,7 +59,14 @@ class Solution:
         return reverse(head)
 ```
 
+</div>
+</details>
+
 ### 2. 반복 구조로 뒤집기
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class ListNode:
@@ -67,6 +85,9 @@ class Solution:
 
         return prev
 ```
+
+</div>
+</details>
 
 ## 출처
 

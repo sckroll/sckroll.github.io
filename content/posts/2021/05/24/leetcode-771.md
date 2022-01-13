@@ -10,6 +10,10 @@ https://leetcode.com/problems/jewels-and-stones/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from collections import Counter
 
@@ -24,11 +28,18 @@ class Solution:
         return result
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 해시 테이블을 이용한 풀이
 
 - 코드를 줄이지 않고 정석으로 풀이한 방법이다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from collections import Counter
@@ -54,7 +65,14 @@ class Solution:
         return count
 ```
 
+</div>
+</details>
+
 ### 2. defaultdict를 이용한 비교 생략
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from collections import defaultdict
@@ -76,9 +94,16 @@ class Solution:
         return count
 ```
 
+</div>
+</details>
+
 ### 3. Counter로 계산 생략
 
 - 내가 푼 방법과 동일하지만, `collections.Counter`는 존재하지 않는 키의 경우 `KeyError` 대신 `0`을 출력한다. 따라서 내가 푼 방법처럼 에러에 대한 예외 처리를 해줄 필요가 없다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from collections import Counter
@@ -97,6 +122,9 @@ class Solution:
         return count
 ```
 
+</div>
+</details>
+
 ### 4. 파이썬다운 방식
 
 - 해시 테이블과는 관련이 없지만, 단 한 줄로 풀 수 있다.
@@ -106,11 +134,18 @@ class Solution:
     ![leetcode-771](/images/210524-leetcode-771.png)
 - `s in jewels` 부분으로 인해 `True`, `False`로만 값이 결정되게 되고, `sum` 함수의 결과는 `True`의 개수가 된다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 class Solution:
     def solution4(self, jewels: str, stones: str) -> int:
         return sum(s in jewels for s in stones)
 ```
+
+</div>
+</details>
 
 ## 출처
 

@@ -10,6 +10,10 @@ https://leetcode.com/problems/merge-two-sorted-lists/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -62,9 +66,16 @@ class Solution:
         return merged_node
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 재귀 구조로 연결
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class ListNode:
@@ -86,16 +97,19 @@ class Solution:
         return l1
 ```
 
+</div>
+</details>
+
 ## 배운 점
 
 ### 연산자 우선순위
 
 - 풀이 1번에 사용된 다음 `if` 구문은 괄호를 모두 생략할 수 있다.
   ```python
-  if (not l1) or (l2 and (l1.val > l2.val)):
+    if (not l1) or (l2 and (l1.val > l2.val)):
   ```
   ```python
-  if not l1 or l2 and l1.val > l2.val:
+    if not l1 or l2 and l1.val > l2.val:
   ```
   위의 `if` 구문에서 가장 우선순위가 높은 연산자는 `>`이며, 그 다음은 `not l1`이다. 그리고 `and`, `or` 순이다.  
   하지만 `and`가 `or`보다 먼저 실행되는 점을 포함하여 연산자의 우선순위를 모르고 있다면 괄호를 사용하는 편이 더 좋아 보인다. 괄호는 파이썬의 모든 연산자 중에서 가장 우선순위가 높기 때문이다. 실제로 본인도 헷갈리는 부분이고, 가독성을 위해서라도 괄호를 쓰는 편이 더 좋다고 생각한다.

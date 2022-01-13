@@ -10,6 +10,10 @@ https://leetcode.com/problems/valid-parentheses/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 class Solution:
     def my_solution(self, s: str) -> bool:
@@ -29,11 +33,18 @@ class Solution:
         return not stack
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 스택 일치 여부 판별
 
 - 매핑 테이블을 만들어 놓고 해당 괄호가 매핑 테이블에 존재하는지 확인하면서 문제를 해결할 수 있다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class Solution:
@@ -53,6 +64,9 @@ class Solution:
                 return False
         return len(stack) == 0
 ```
+
+</div>
+</details>
 
 ## 출처
 

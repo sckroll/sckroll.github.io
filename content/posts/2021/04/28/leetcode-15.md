@@ -12,6 +12,10 @@ https://leetcode.com/problems/3sum/
 
 - 효율적인 해결 방법을 찾지 못해 브루트 포스로 풀었고, 당연히 시간 초과로 인해 오답 처리되었다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 
@@ -32,6 +36,9 @@ class Solution:
         return [list(triplet) for triplet in triplets]
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 브루트 포스 (해결 불가)
@@ -43,6 +50,10 @@ class Solution:
 ### 2. 투 포인터로 합 계산
 
 - 시간 복잡도는 O(n^2)이다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -86,6 +97,9 @@ class Solution:
 
         return results
 ```
+
+</div>
+</details>
 
 ## 배운 점
 

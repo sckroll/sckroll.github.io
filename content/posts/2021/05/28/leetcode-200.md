@@ -12,6 +12,10 @@ https://leetcode.com/problems/number-of-islands/
 
 - 실행 시간과 메모리 최적화가 필요한 풀이법이다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List, Tuple
 
@@ -60,9 +64,16 @@ class Solution:
         return islands
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. DFS로 그래프 탐색
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -101,9 +112,16 @@ class Solution1:
         return count
 ```
 
+</div>
+</details>
+
 ### 1-1. 풀이 1에서 `grid` 변수를 클래스의 멤버 변수로 선언
 
 - `dfs` 함수를 호출할 때마다 매번 `grid` 변수를 넘기는 것을 방지하는 방법이다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -144,9 +162,16 @@ class Solution1:
         return count
 ```
 
+</div>
+</details>
+
 ### 1-2. 풀이 1에서 `dfs` 함수를 `numIslands`의 중첩 함수로 변경
 
 - `grid` 변수 앞에 매번 `self.`를 붙임으로 인해 가독성이 떨어지는 것을 방지하는 방법이다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -182,6 +207,9 @@ class Solution1:
                     count += 1
         return count
 ```
+
+</div>
+</details>
 
 ## 출처
 

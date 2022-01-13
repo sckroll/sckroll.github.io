@@ -10,6 +10,10 @@ https://leetcode.com/problems/add-two-numbers/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -50,12 +54,19 @@ class Solution:
         return result
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 자료형 변환
 
 - 연결 리스트를 문자열로 이어 붙인 다음 숫자로 변환하고 이를 모두 계산한 다음 다시 연결 리스트로 변환한다면?
 - 풀이는 가능하나 여러모로 부족한 느낌이 든다...
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -102,7 +113,14 @@ class Solution:
         return to_reversed_linked_list(str(result_str))
 ```
 
+</div>
+</details>
+
 ### 2. 전가산기 구현
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class ListNode:
@@ -136,28 +154,32 @@ class Solution:
         return root.next
 ```
 
+</div>
+</details>
+
 ## 배운 점
 
 ### `functools.reduce()`
 
 - 풀이 1번에서 숫자형 리스트를 문자형으로 바꿨다가 다시 숫자형으로 바꾸는 코드를 `functools.reduce()`를 통해 숫자형 리스트에서 바로 숫자형으로 바꿀 수 있다. `function` 모듈은 '함수를 다루는 함수'를 뜻하는 고계 함수(Higher-Order Function)를 지원하며, 리트코드에 기본적으로 임포트되어 있다.
-  ```python
+
+```python
   # before
   int(''.join(str(e) for e in a))
-  ```
-  ```python
+```
+```python
   # after
   from functools import reduce
   reduce(lambda x, y: 10 * x + y, a, 0)
   ```
 - `reduce` 함수를 사용할 때 `operator` 모듈의 `add`와 `mul` 함수를 함께 사용하면 좀 더 가독성을 높일 수 있다.
-  ```python
+```python
   from functools import reduce
   from operator import add, mul
 
   reduce(add, [1, 2, 3, 4, 5])  # 15
   reduce(mul, [1, 2, 3, 4, 5])  # 120
-  ```
+```
 
 ### `divmod()`
 

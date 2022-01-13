@@ -12,6 +12,10 @@ https://leetcode.com/problems/longest-univalue-path/
 
 - 543번 문제를 응용해서 풀어보려 했으나 역부족이었다...
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -55,12 +59,19 @@ class MySolution1:
         return self.longest
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 상태값 거리 계산 DFS
 
 - 내 예상대로 543번 문제와 유사한 방법으로 풀 수 있는 문제였다.
 - 백트래킹 과정에서 현재 노드는 양쪽 자식 노드를 모두 연결할 수 있지만, 현재 노드의 부모 노드는 현재 노드의 양쪽 자식 노드 중 하나만 연결해야 한다는 트리의 특징을 간과했기 때문에 제대로 풀이하지 못한 듯하다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class TreeNode:
@@ -105,6 +116,9 @@ class Solution1:
         dfs(root)
         return self.result
 ```
+
+</div>
+</details>
 
 ## 출처
 

@@ -10,6 +10,10 @@ https://leetcode.com/problems/palindrome-linked-list/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -30,11 +34,18 @@ class Solution:
         return nums == nums[::-1]
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 리스트 변환
 
 - 리스트의 `pop()` 함수를 이용하여 문제를 해결할 수 있다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -67,9 +78,16 @@ class Solution:
         return True
 ```
 
+</div>
+</details>
+
 ### 2. 데크(Deque)를 이용한 최적화
 
 - 풀이 1에서 `pop(0)`을 하는 과정의 시간 복잡도가 O(n)이기 때문에, 데크를 사용하여 이를 O(1)으로 단축시킬 수 있다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List, Deque
@@ -105,9 +123,16 @@ class Solution:
         return True
 ```
 
+</div>
+</details>
+
 ### 3. 런너(Runner) 기법을 이용한 풀이
 
 - 런너 기법에 대한 설명은 하단 참고
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class ListNode:
@@ -145,6 +170,9 @@ class Solution:
         return not rev
 ```
 
+</div>
+</details>
+
 ## 배운 점
 
 ### 런너(Runner) 기법
@@ -157,24 +185,25 @@ class Solution:
 ### 파이썬의 다중 할당
 
 - 풀이 3에서 아래의 다중 할당 코드를 두 줄로 분리하여 가독성을 개선하면 에러가 난다.
-  ```python
+
+```python
   while fast and fast.next:
       fast = fast.next.next
       rev, rev.next, slow = slow, rev, slow.next
-  ```
-  ```python
+```
+```python
   while fast and fast.next:
       fast = fast.next.next
       rev, rev.next = slow, rev
       slow = slow.next
-  ```
+```
 - 분리하기 전의 코드는 다중 할당을 하게 되면 각 3개의 변수에 할당을 하는 작업이 동시에 일어난다. 하지만 두 줄로 분리한 코드는 `rev`와 `rev.next`에만 할당이 끝나면 `slow`는 `rev`와 같은 값을 참조하게 되므로 결국 원하지 않은 값을 얻게 된다.
   - 정확히는 우변의 값을 좌변에 할당하기 전에 평가(evaluate)한다. 스택 오버플로우의 예시를 참고하자면 다음과 같다.
-    ```python
+  ```python
     x = 1
     y = 2
-    ```
-    ```python
+  ```
+  ```python
     x, y = y, x + y
     print(x, y)   # 2, 3
 
@@ -184,8 +213,8 @@ class Solution:
     x = ham
     y = spam
     print(x, y)   # 2, 3
-    ```
-    ```python
+  ```
+  ```python
     x = y
     y = x + y
     print(x, y)   # 2, 4
@@ -194,9 +223,9 @@ class Solution:
     x = y
     y = y + y
     print(x, y)   # 2, 4
-    ```
+  ```
 - `rev = 1`, `slow = 2->3`으로 예시를 들자면, 전자에서는 `rev = 2->3`, `rev.next = 1`, `slow = 3`이 되고 `rev.next = 1`이므로 최종적으로는 `rev = 2->1`, `slow = 3`이 된다.
-  ```python
+```python
   rev = ListNode(1)
   slow = ListNode(2, ListNode(3))
 
@@ -211,9 +240,9 @@ class Solution:
 
   print(rev)  # ListNode{val: 2, next: ListNode{val: 1, next: None}}
   print(slow) # ListNode{val: 3, next: None}
-  ```
+```
 - 하지만 후자에서는 `rev = 2->3`이고 `rev.next = 1`이므로 `rev = 2->1`이 되는데, `rev = slow`이기 때문에 동일한 참조 값을 가지게 되어 `slow = 2->1`이 함께 되어 버린다. 따라서 `slow = slow.next`는 `slow = 1`이 되므로 최종 결과는 `rev = 2->1`, `slow = 1`이 된다.
-  ```python
+```python
   rev = ListNode(1)
   slow = ListNode(2, ListNode(3))
 
@@ -230,7 +259,7 @@ class Solution:
 
   print(rev)  # ListNode{val: 2, next: ListNode{val: 1, next: None}}
   print(slow) # ListNode{val: 1, next: None}
-  ```
+```
 
 ## 출처
 

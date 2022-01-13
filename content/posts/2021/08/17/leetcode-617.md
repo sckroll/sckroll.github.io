@@ -12,6 +12,10 @@ https://leetcode.com/problems/merge-two-binary-trees/
 
 - 도저히 감이 잡히지 않는다... 연습 많이 해야겠다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import Optional
 
@@ -40,12 +44,19 @@ class MySolution1:
         return root1
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 재귀 탐색 (후위 순회)
 
 - 내가 풀었던 방법인 기존에 존재하는 노드에 다른 노드의 값을 합치는 방법 대신 새로운 노드를 만든 후 왼쪽과 오른쪽 자식에 재귀 호출을 하는 방법을 사용한다.
 - 그리고 어느 한쪽 노드가 존재하지 않는다면 존재하는 노드만 리턴하고, 양쪽 자식 노드가 모두 존재하지 않는다면 (암묵적으로) None을 리턴한다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import Optional
@@ -68,6 +79,9 @@ class Solution1:
         else:
             return root1 or root2
 ```
+
+</div>
+</details>
 
 ## 출처
 

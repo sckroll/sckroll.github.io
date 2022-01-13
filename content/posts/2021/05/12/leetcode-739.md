@@ -10,6 +10,10 @@ https://leetcode.com/problems/daily-temperatures/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 
@@ -30,9 +34,16 @@ class Solution:
         return result
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 스택 값 비교
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class Solution:
@@ -47,6 +58,9 @@ class Solution:
             stack.append(i)
         return answer
 ```
+
+</div>
+</details>
 
 ## 출처
 

@@ -12,6 +12,10 @@ https://leetcode.com/problems/maximum-depth-of-binary-tree/
 
 - DFS 재귀 호출을 사용하여 좌, 우 자식 노드 중 더 깊은 방향을 리턴한다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -29,11 +33,18 @@ class MySolution1:
         return dfs(root, 1)
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 반복 구조로 BFS 풀이
 
 - DFS 구조보다 BFS로 푸는 것이 조금 더 빠르다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 import collections
@@ -67,6 +78,9 @@ class Solution1:
         # BFS 반복 횟수 == 깊이
         return depth
 ```
+
+</div>
+</details>
 
 ## 출처
 

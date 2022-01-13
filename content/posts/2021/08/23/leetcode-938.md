@@ -10,6 +10,10 @@ https://leetcode.com/problems/range-sum-of-bst/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import Optional
 
@@ -40,9 +44,16 @@ class MySolution1:
         return self.sum_number
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 재귀 구조 DFS로 브루트 포스 탐색
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import Optional
@@ -63,7 +74,14 @@ class Solution1:
         return (root.val if low <= root.val <= high else 0) + self.rangeSumBST(root.left, low, high) + self.rangeSumBST(root.right, low, high)
 ```
 
+</div>
+</details>
+
 ### 2. DFS 가지치기로 필요한 노드 탐색
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import Optional
@@ -91,7 +109,14 @@ class Solution2:
         return dfs(root)
 ```
 
+</div>
+</details>
+
 ### 3. 반복 구조 DFS로 필요한 노드 탐색
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import Optional
@@ -122,9 +147,16 @@ class Solution3:
         return sum
 ```
 
+</div>
+</details>
+
 ### 4. 반복 구조 BFS로 필요한 노드 탐색
 
 - 스택을 큐로 변경하였으며, 성능을 위해서는 Deque를 이용하는 것이 더 좋다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import Optional
@@ -155,6 +187,8 @@ class Solution4:
         return sum
 ```
 
+</div>
+</details>
 
 ## 출처
 

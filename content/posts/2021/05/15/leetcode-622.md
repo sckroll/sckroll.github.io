@@ -12,6 +12,10 @@ https://leetcode.com/problems/design-circular-queue/
 
 - 원형 큐(환형 큐, 링 버퍼)를 구현하는 데 사용한 큐는 데크를 사용하였다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from collections import deque
 
@@ -51,6 +55,9 @@ class MyCircularQueue:
         return len(self.queue) == self.max
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 배열을 이용한 풀이
@@ -58,6 +65,10 @@ class MyCircularQueue:
 - 원형 큐(환형 큐, 링 버퍼)의 원리는 투 포인터 방법과 유사하다.
 - 배열로 구현하면 공간을 재활용한다는 원형 큐의 이점을 누릴 수 있다.
 - `front` 포인터와 `rear` 포인터가 만날 경우 `front` 포인터 위치의 요소 존재 여부에 따라 `isFull()`, `isEmpty()`를 결정한다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class solution1:
@@ -104,6 +115,9 @@ class solution1:
     def isFull(self) -> bool:
         return self.front == self.rear and self.q[self.front] is not None
 ```
+
+</div>
+</details>
 
 ## 출처
 

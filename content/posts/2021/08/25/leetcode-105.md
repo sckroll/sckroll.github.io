@@ -13,6 +13,10 @@ https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-tr
 - 전위 순회와 중위 순회를 동시에 활용할 방법이 떠오르지 않아 풀 수가 없었다.
 - 아래 코드는 전위 순회로만 트리를 구성하는 과정을 구현한 것이다. 당연하지만 중위 순회 결과와는 일치하지 않는다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 import collections
 from typing import Optional, List
@@ -43,6 +47,9 @@ class MySolution1:
         return root
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 전위 순회 결과로 중위 순회 분할 정복
@@ -50,6 +57,10 @@ class MySolution1:
 - 전위 순회의 첫 번째 값은 부모 노드이므로 정확히 중위 순회 결과를 왼쪽과 오른쪽으로 분할시키는 역할을 한다.
 - 만약 분할된 전위 순회 결과의 첫 번째 노드가 분할된 중위 순회 결과의 마지막에 위치해 있다면, 해당 노드의 오른쪽 자식 노드는 존재하지 않는다는 의미이다.
 - 마찬가지로 전위 순회 결과의 첫 번째 노드가 분할된 중위 순회 결과의 첫 번째에 위치해 있다면, 해당 노드의 왼쪽 자식 노드는 존재하지 않는다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import Optional, List
@@ -77,9 +88,16 @@ class Solution1:
             return node
 ```
 
+</div>
+</details>
+
 ### 2. 풀이 1의 preorder를 Deque로 변환 후 사용
 
 - 책에는 예시가 없어서 직접 구현해보았다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 import collections
@@ -110,6 +128,9 @@ class Solution2:
         preorder_queue = collections.deque(preorder)
         return dfs(preorder_queue, inorder)
 ```
+
+</div>
+</details>
 
 ## 출처
 

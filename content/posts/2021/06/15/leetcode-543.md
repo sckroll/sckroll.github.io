@@ -13,6 +13,10 @@ https://leetcode.com/problems/diameter-of-binary-tree/
 - 노드의 값이 모두 다른 경우는 별다른 문제가 없지만, 모든 요소의 값이 똑같을 경우 아래 방법으로 해결할 수 없다.
 - ex: `[0, 0, 0, 0, None, None, 0, None, None, None, 0]`
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -59,6 +63,9 @@ class MySolution1:
         return max_length
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 상태값 누적 트리 DFS
@@ -69,6 +76,10 @@ class MySolution1:
 - 중첩 함수(`dfs`)를 사용할 때 클래스 변수(`self.longest`)를 사용한 이유
   - 중첩 함수에서 부모 함수(`diameterOfBinaryTree`)의 변수를 재할당하면 참조 ID가 변경되어 별도의 로컬 변수로 선언되기 때문이다.
   - 단, `self.longest`의 값이 리스트나 딕셔너리라면 굳이 클래스 변수를 사용할 필요가 없다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class TreeNode:
@@ -100,6 +111,9 @@ class Solution1:
         dfs(root)
         return self.longest
 ```
+
+</div>
+</details>
 
 ## 배운 점
 

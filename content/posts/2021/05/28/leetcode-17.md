@@ -10,6 +10,10 @@ https://leetcode.com/problems/letter-combinations-of-a-phone-number/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 
@@ -44,9 +48,16 @@ class Solution:
         return result
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 모든 조합 탐색
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -82,6 +93,9 @@ class Solution1:
 
         return result
 ```
+
+</div>
+</details>
 
 ## 출처
 

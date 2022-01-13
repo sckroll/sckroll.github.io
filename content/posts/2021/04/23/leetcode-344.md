@@ -10,6 +10,10 @@ https://leetcode.com/problems/reverse-string/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 
@@ -22,9 +26,16 @@ class Solution:
             s.append(char)
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 투 포인터(Two Pointer)를 이용한 스왑
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -41,7 +52,14 @@ class Solution:
             right -= 1
 ```
 
+</div>
+</details>
+
 ### 2. 파이썬다운 방식 (Pythonic way)
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -54,7 +72,14 @@ class Solution:
         s.reverse()
 ```
 
+</div>
+</details>
+
 ### 3. 슬라이싱을 사용하여 푸는 방법
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class Solution:
@@ -66,6 +91,9 @@ class Solution:
         # (공간 복잡도를 O(1)로 제한하기 때문)
         # s = s[::-1]
 ```
+
+</div>
+</details>
 
 ## 배운 점
 

@@ -12,6 +12,10 @@ https://leetcode.com/problems/product-of-array-except-self/
 
 - 나눗셈을 하지 않고 O(n)에 푸는 제약 사항이 있었지만 지키지 않았다. 하지만 제출할 땐 아무 문제가 없었다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 
@@ -38,6 +42,9 @@ class Solution:
         return answer
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 왼쪽 곱셈 결과에 오른쪽 값을 차례대로 곱셈
@@ -52,6 +59,10 @@ class Solution:
 |out||1|1|2|6||||
 ||||24|12|4|1|p
 |||24|12|8|6||out (최종 결과)
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -79,6 +90,9 @@ class Solution:
             p *= nums[i]
         return out
 ```
+
+</div>
+</details>
 
 
 ## 출처

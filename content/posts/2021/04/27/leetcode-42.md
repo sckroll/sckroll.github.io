@@ -10,6 +10,10 @@ https://leetcode.com/problems/trapping-rain-water/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 
@@ -55,11 +59,18 @@ class Solution:
         return total
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 투 포인터를 최대로 이동
 
 - 시간 복잡도는 O(n)이다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -89,9 +100,16 @@ class Solution:
         return volume
 ```
 
+</div>
+</details>
+
 ### 2. 투 포인터를 최대로 이동
 
 - 시간 복잡도는 O(n)이지만, 투 포인터 방식보다 실행 시간이 조금 더 걸린다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -119,6 +137,9 @@ class Solution:
             stack.append(i)
         return volume
 ```
+
+</div>
+</details>
 
 ## 출처
 

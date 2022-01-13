@@ -10,6 +10,10 @@ https://leetcode.com/problems/two-sum/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 
@@ -22,6 +26,9 @@ class Solution:
                     return [i, j]
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 브루트 포스
@@ -33,6 +40,10 @@ class Solution:
 ### 2. `in`을 이용한 탐색
 
 - 시간 복잡도 O(n^2)이고, `in`의 시간 복잡도는 O(n)이지만, 파이썬 내부 함수로 구현된 `in`은 속도가 빠르다고 한다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -48,9 +59,16 @@ class Solution:
                 return [i, nums[i + 1:].index(complement) + (i + 1)]
 ```
 
+</div>
+</details>
+
 ### 3. 첫 번째 수를 뺀 결과 키 조회
 
 - 시간 복잡도는 O(n)이다. 딕셔너리의 조회는 평균적으로 시간 복잡도가 O(1)이기 때문이다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -71,10 +89,17 @@ class Solution:
                 return [i, nums_map[target - num]]
 ```
 
+</div>
+</details>
+
 ### 4. 조회 구조 개선
 
 - 시간 복잡도는 O(n)이다.
 - 전체를 모두 저장할 필요 없이 정답을 찾으면 함수를 바로 빠져나올 수 있으나, 두 번째 값을 찾기 위해 매번 비교해야 하기 때문에 풀이 3에 비해 성능상의 큰 이점은 없다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -91,10 +116,17 @@ class Solution:
             nums_map[num] = i
 ```
 
+</div>
+</details>
+
 ### 풀이 불가: 투 포인터 이용
 
 - 두 개의 포인터가 간격을 좁혀가며 타겟을 찾는 방식
 - 하지만 `nums`는 정렬되어 있어야 하며, 정렬한 이후에는 인덱스가 섞이기 때문에 투 포인터를 사용하여 문제를 해결할 수 없다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -114,6 +146,9 @@ class Solution:
             else:
                 return [left, right]
 ```
+
+</div>
+</details>
 
 ## 출처
 

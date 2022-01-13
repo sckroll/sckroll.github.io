@@ -12,6 +12,10 @@ https://leetcode.com/problems/design-circular-deque/
 
 - 이중 연결 리스트를 만들어서 해결하였다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 # 노드 클래스
 class Node:
@@ -110,9 +114,16 @@ class MyCircularDeque:
         return self.length == self.max
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 이중 연결 리스트를 이용한 데크 구현
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 # 노드 클래스
@@ -188,6 +199,9 @@ class solution1:
     def isFull(self) -> bool:
         return self.len == self.k
 ```
+
+</div>
+</details>
 
 ## 배운 점
 

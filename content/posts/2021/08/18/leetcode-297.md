@@ -12,6 +12,10 @@ https://leetcode.com/problems/serialize-and-deserialize-binary-tree/
 
 - 직렬화의 결과로 문자열이 나와야 하지만, 아래 예시처럼 직렬화의 결과가 리스트여도 테스트 케이스는 무난하게 통과한다. 문자열로 변경해야 한다면 직렬화 메소드의 리턴 값을 `''.join(result)`으로 변경하면 된다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 import collections
 
@@ -73,9 +77,16 @@ class MySolution1:
         return result
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 직렬화 & 역직렬화 구현
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 import collections
@@ -140,6 +151,9 @@ class Solution1:
 
         return root
 ```
+
+</div>
+</details>
 
 ## 출처
 

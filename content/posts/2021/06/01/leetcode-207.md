@@ -12,6 +12,10 @@ https://leetcode.com/problems/course-schedule/
 
 - 나름대로 제한 시간을 두고 풀어보려 했으나... 어쩔 수 없었다. 우선 킵해놓고 나중에 다시 풀어봐야겠다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1"></div>
+
 ```python
 from typing import List
 import collections
@@ -41,12 +45,19 @@ class MySolution1:
         return min(result)
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. DFS로 순환 구조 판별 (시간 초과)
 
 - 모든 코스를 완료할 수 있는지 판별하기 위해서는 모든 코스가 순환 구조를 이루고 있는지 확인해야 한다.
 - 하지만 해당 풀이법을 사용하면 시간 초과로 인해 오답 처리가 되었다. 아마 리트코드 테스트 케이스가 추가된 듯 싶다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -88,10 +99,17 @@ class Solution1:
         return True
 ```
 
+</div>
+</details>
+
 ### 2. 가지치기를 이용한 최적화
 
 - DFS는 순환이 발견될 때까지 모든 자식 노드를 탐색하기 때문에 불필요하게 동일한 그래프를 여러 번 탐색할 수도 있다.
 - 따라서 한 번 방문한 그래프는 무조건 `True`로 리턴하도록 하여 가지치기를 구현한다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -140,19 +158,22 @@ class Solution2:
         return True
 ```
 
+</div>
+</details>
+
 ## 배운 점
 
 ### `defaultdict` 순회 문제
 
 - 풀이 1과 풀이 2에서 순환 구조를 판별할 때 아래 코드를 사용했다.
-  ```python
+```python
   # 순환 구조 판별
   for x in list(graph):
       if not dfs(x):
           return False
   ```
 - 만약 `list()`를 사용하지 않는다면 다음과 같은 에러가 뜬다.
-  ```python
+```python
   # 순환 구조 판별
   for x in graph:
       if not dfs(x):

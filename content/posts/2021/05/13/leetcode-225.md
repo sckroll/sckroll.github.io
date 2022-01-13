@@ -13,6 +13,10 @@ https://leetcode.com/problems/implement-stack-using-queues/
 - 문제에서 오직 두 개의 큐를 사용해서 스택을 구현하라길래 Deque를 두 개 사용하여 풀었다.
 - 큐의 기본 연산인 `뒤에서 push`, `앞에서 pop`만 사용했으며, `len()` 함수 대신 스택의 원소 개수를 변수에 저장하여 `empty()` 메소드를 구현하였다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 class MyStack:
     def __init__(self):
@@ -50,12 +54,19 @@ class MyStack:
         return value
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### `push()` 할 떄 큐를 이용해 재정렬
 
 - 요소 삽입 시 시간 복잡도가 O(n)이다.
 - 위의 풀이보다는 비교적 간단하게 구현할 수 있다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class solution1:
@@ -78,6 +89,9 @@ class solution1:
     def empty(self) -> bool:
         return len(self.q) == 0
 ```
+
+</div>
+</details>
 
 ## 출처
 

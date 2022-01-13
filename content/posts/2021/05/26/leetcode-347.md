@@ -12,6 +12,10 @@ https://leetcode.com/problems/top-k-frequent-elements/
 
 - 풀긴 풀었지만 실행 시간이 너무 느리다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 from collections import defaultdict
@@ -32,12 +36,19 @@ class Solution:
         return result
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. Counter를 이용한 음수 순 추출
 
 - 우선순위 큐를 이용하여 `k`번만큼 추출하는 방법을 사용한다.
 - 마지막에 `heapify()`를 하는 방법과 매번 `heappush()`를 하는 방법이 있지만, 후자를 사용하면 매번 `heapify()`가 일어나기 때문에 별도로 처리할 필요가 없다. 여기서는 `heapify()`를 매번 쓰는 방법을 사용한다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -63,11 +74,16 @@ class Solution:
         return topk
 ```
 
+</div>
+</details>
+
 ### 2. 파이썬다운 방식
 
 - `Counter.most_common(n)` 메소드를 사용하여 빈도 수가 높은 순서대로 `n`개를 선택할 수 있다.
 - 단, `zip` 함수와 별표(`*`)를 함께 사용하여 각 튜플의 `0`번 인덱스만 추출한다.
 - 리턴 타입은 튜플이지만, 리스트와 마찬가지로 정답으로 처리된다.
+
+
 
 ```python
 from typing import List
@@ -77,6 +93,9 @@ class Solution:
     def solution2(self, nums: List[int], k: int) -> List[int]:
         return list(zip(*Counter(nums).most_common(k)))[0]
 ```
+
+</div>
+</details>
 
 ## 배운 점
 

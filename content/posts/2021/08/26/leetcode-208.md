@@ -20,6 +20,10 @@ https://leetcode.com/problems/implement-trie-prefix-tree/
 - 트라이는 다진 트리(m-ary Tree)이기 때문에 이진 트리처럼 `left`와 `right`를 나눌 필요 없이 딕셔너리 하나로 자식 노드를 관리할 수 있다.
 - 일반 딕셔너리 대신 `defaultdict`를 사용하면 코드를 더 줄일 수 있다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 import collections
 
@@ -85,6 +89,9 @@ class Trie:
         # 자식 노드가 존재하는지 여부만 판별하기 때문에 True 반환
         return True
 ```
+
+</div>
+</details>
 
 ## 출처
 

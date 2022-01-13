@@ -12,6 +12,10 @@ https://leetcode.com/problems/invert-binary-tree/
 
 - 포화 이진 트리일 때 뒤집는 데 성공했지만, 그 외의 트리에는 적용하지 못했다. 너무 오랜만에 풀어서 그런가, 머리가 잘 돌아가지 않는 느낌...
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import Optional, List, Deque
 import collections
@@ -54,12 +58,19 @@ class MySolution1:
         return root
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 파이썬다운 방식 (Bottom-Up)
 
 - 트리의 우측 하단부터 재귀를 시도하며(실제로는 자식 노드인 None부터 시작), 부모 노드가 스왑될 땐 자식 노드들도 따라오는 점을 기억하자.
 - 즉, 2의 자식 노드가 3과 1이고 7의 자식 노드가 9와 6일 때, 스왑되고 난 뒤에 7의 자식 노드가 3과 1이 되는 일은 없다는 의미다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import Optional
@@ -81,7 +92,14 @@ class Solution1:
         return None
 ```
 
+</div>
+</details>
+
 ### 2. 반복 구조로 BFS (Top-Down)
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import Optional
@@ -111,9 +129,16 @@ class Solution2:
         return root
 ```
 
+</div>
+</details>
+
 ### 3. 반복 구조로 DFS
 
 - 풀이 2번에서 큐(Deque) 대신에 스택을 사용하면 된다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import Optional
@@ -143,9 +168,16 @@ class Solution3:
         return root
 ```
 
+</div>
+</details>
+
 ### 4. 반복 구조로 DFS 후위 순회
 
 - 풀이 2번 혹은 3번에서 적용한 방식인 전위 순회 대신, 큐/스택에 삽입하는 코드를 스왑하는 코드보다 먼저 실행하는 후위 순회를 사용해도 결과는 같다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import Optional
@@ -174,6 +206,9 @@ class Solution4:
 
         return root
 ```
+
+</div>
+</details>
 
 ## 출처
 

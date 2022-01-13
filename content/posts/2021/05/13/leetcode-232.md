@@ -12,6 +12,10 @@ https://leetcode.com/problems/implement-queue-using-stacks/
 
 - 전반적으로 225번 문제와 유사하다. 차이점이 있다면 Deque 대신 파이썬 리스트(스택)으로 큐를 구현하는 것이다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 class MyQueue:
     def __init__(self):
@@ -44,6 +48,9 @@ class MyQueue:
         return self.length == 0
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 스택 2개 사용
@@ -51,6 +58,10 @@ class MyQueue:
 - `push()`는 `input` 스택에만 저장한다.
 - `peek()`는 `output` 스택의 마지막 원소, 즉 가장 위의 값만 사용하면 되므로 `input` 스택에 어떤 원소가 push되든 `output` 스택만 사용한다.
 - `pop()`은 `output` 스택이 비어있을 수도 있으므로 `peek()` 메소드 사용 후 `output` 스택에서 pop한다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class solution1:
@@ -75,6 +86,9 @@ class solution1:
     def empty(self) -> bool:
         return self.input == [] and self.output == []
 ```
+
+</div>
+</details>
 
 ## 출처
 

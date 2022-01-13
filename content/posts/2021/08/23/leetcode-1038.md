@@ -10,6 +10,10 @@ https://leetcode.com/problems/binary-search-tree-to-greater-sum-tree/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -39,11 +43,18 @@ class MySolution1:
         return root
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 중위 순회로 노드 값 누적
 
 - 오른쪽 자식 -> 부모 -> 왼쪽 자식 순으로 순회하므로 중위(In-Order) 순회에 해당된다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class TreeNode:
@@ -66,6 +77,9 @@ class Solution1:
 
         return root
 ```
+
+</div>
+</details>
 
 ## 출처
 

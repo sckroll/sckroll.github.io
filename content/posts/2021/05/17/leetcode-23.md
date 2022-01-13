@@ -15,6 +15,10 @@ https://leetcode.com/problems/merge-k-sorted-lists/
 - 매 루프마다 각 연결 리스트의 head value를 리스트로 저장하고, 최솟값에 해당하는 연결 리스트의 값을 `result`에 저장 후 갱신하는 방법을 사용했다.
 - 결과는 이상이 없지만 시간 초과로 인하여 오답 처리가 되었다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 
@@ -39,10 +43,17 @@ class Solution:
         return result.next
 ```
 
+</div>
+</details>
+
 ### 두 번째 시도
 
 - 매 루프마다 각 연결 리스트의 head value를 리스트로 저장하는 방법 대신 루프 이전에 미리 리스트를 생성해놓고, 최솟값을 찾으면 해당 인덱스의 값을 변경하는 방법을 사용했다.
 - 무사히 통과는 했으나, 여전히 느리다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -68,11 +79,18 @@ class Solution:
         return result.next
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 우선순위 큐를 이용한 리스트 병합
 
 - `heapq` 모듈(최소 힙)을 사용하여 간단하게 해결할 수 있음
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -103,6 +121,9 @@ class solution:
 
         return root.next
 ```
+
+</div>
+</details>
 
 - `heapq` 모듈을 사용하여 문제를 푼 결과 압도적인 실행 시간 차이를 보여준다.
 

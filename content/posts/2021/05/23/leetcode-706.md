@@ -15,6 +15,10 @@ https://leetcode.com/problems/design-hashmap/
 - 테이블(리스트)을 키의 최대 개수만큼 미리 할당하여 사용하였다.
 - 실행 시간은 빠르지만, 메모리 공간의 낭비가 심하며, 해시 테이블의 로직을 사용하지 않은 일종의 편법이므로 올바른 풀이법은 아니다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 class MyHashMap1:
     def __init__(self):
@@ -33,10 +37,17 @@ class MyHashMap1:
         self.table[key] = -1
 ```
 
+</div>
+</details>
+
 ### 두 번째 시도
 
 - 해시 테이블(리스트)의 공간을 적게 할당하는 대신 해시 충돌을 개별 체이닝 방식(연결 리스트)으로 처리하였다.
 - 실행 시간은 첫 번째 시도에 비해 압도적으로 느리지만, 메모리 공간을 절약할 수 있다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class ListNode:
@@ -82,9 +93,16 @@ class MyHashMap2:
             prev, curr = curr, curr.next
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 개별 체이닝 방식을 이용한 해시 테이블 구현
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from collections import defaultdict
@@ -167,6 +185,9 @@ class solution1:
                 return
             prev, p = p, p.next
 ```
+
+</div>
+</details>
 
 ## 배운 점
 

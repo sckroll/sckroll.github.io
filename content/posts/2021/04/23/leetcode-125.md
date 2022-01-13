@@ -10,6 +10,10 @@ https://leetcode.com/problems/valid-palindrome/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 class Solution:
     def my_solution(self, s: str) -> bool:
@@ -22,9 +26,16 @@ class Solution:
         return string.lower() == string[::-1].lower()
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 리스트로 변환하여 푸는 방법
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 class Solution:
@@ -43,7 +54,14 @@ class Solution:
         return True
 ```
 
+</div>
+</details>
+
 ### 2. 데크(Deque)를 사용하여 푸는 방법
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import Deque  # 데크 타입 힌트를 위해 추가
@@ -67,7 +85,14 @@ class Solution:
         return True
 ```
 
+</div>
+</details>
+
 ### 3. 슬라이싱을 사용하여 푸는 방법
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 import re
@@ -84,6 +109,9 @@ class Solution:
         # 슬라이싱
         return s == s[::-1]
 ```
+
+</div>
+</details>
 
 ## 배운 점
 

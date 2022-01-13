@@ -13,6 +13,10 @@ https://leetcode.com/problems/subsets/
 - 부분 집합은 모든 탐색의 경로가 정답이 된다.
 - 별도의 종료 조건 없이 탐색이 끝나면 저절로 함수가 종료되게 설정하였다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 
@@ -30,12 +34,19 @@ class MySolution1:
         return result
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 트리의 모든 DFS 결과
 
 - 풀이를 보면서 깨달은 사실인데, 부분 집합을 구하는 과정에서 별도의 리스트를 생성하고 변형하는 과정 없이 `nums` 리스트의 값을 순회하면서 기존 `curr_set`에 요소를 추가만 하여 재귀를 호출해도 큰 문제는 되지 않는다. 따라서 굳이 얕은 복사(`[:]`)를 수행하지 않아도 된다.
 - 그 외에는 내가 푼 방법과 큰 차이가 없다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -56,6 +67,9 @@ class Solution1:
         dfs(0, [])
         return result
 ```
+
+</div>
+</details>
 
 ## 출처
 

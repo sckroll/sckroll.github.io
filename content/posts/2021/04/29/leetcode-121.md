@@ -10,6 +10,10 @@ https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 
@@ -28,11 +32,18 @@ class Solution:
         return profit
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 브루트 포스로 계산 (풀이 불가)
 
 - 시간 복잡도는 O(n^2)이지만, 제출 시 시간 초과로 인하여 오답 처리가 된다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -49,9 +60,16 @@ class Solution:
         return max_price
 ```
 
+</div>
+</details>
+
 ### 2. 저점과 현재 값과의 차이 계산
 
 - 시간 복잡도는 O(n)이다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -70,6 +88,9 @@ class Solution:
 
         return profit
 ```
+
+</div>
+</details>
 
 ## 배운 점
 

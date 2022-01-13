@@ -12,6 +12,10 @@ https://leetcode.com/problems/minimum-distance-between-bst-nodes/
 
 - 도저히 풀이 방법이 떠오르지 않아 다음에 다시 재도전하기로 했다.
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import Optional
 
@@ -40,12 +44,19 @@ class MySolution1:
         return self.min_distance
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 1. 재귀 구조로 중위 순회
 
 - 루트 노드와 가장 차이가 작을 수 있는 노드는 왼쪽 자식 노드의 오른쪽 끝 자식 노드와 오른쪽 자식 노드의 왼쪽 끝 자식 노드가 해당된다.
 - 중위 순회를 하다 보면 위의 두 노드와 루트 노드를 자동으로 비교하게 된다.
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 import sys
@@ -81,7 +92,15 @@ class Solution1:
         return self.result
 ```
 
+</div>
+</details>
+
 ### 2. 반복 구조로 중위 순회
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 
 ```python
 import sys
@@ -118,6 +137,9 @@ class Solution2:
 
         return result
 ```
+
+</div>
+</details>
 
 ## 출처
 

@@ -10,6 +10,10 @@ https://leetcode.com/problems/reorder-data-in-log-files/
 
 ## 나의 풀이
 
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
+
 ```python
 from typing import List
 
@@ -30,9 +34,16 @@ class Solution:
         return result + dig
 ```
 
+</div>
+</details>
+
 ## 문제 풀이
 
 ### 람다와 `+` 연산자를 사용하는 방법
+
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
@@ -56,6 +67,9 @@ class Solution:
         # 3. '+' 연산자로 두 개의 리스트를 병합
         return letters + digits
 ```
+
+</div>
+</details>
 
 ## 배운 점
 
