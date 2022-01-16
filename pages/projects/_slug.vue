@@ -2,7 +2,7 @@
   <article class="project-container">
     <header class="project-header">
       <div class="main">
-        <h1>{{ project.name }}</h1>
+        <h1>{{ project.title }}</h1>
         <p>{{ project.description }}</p>
       </div>
       <div class="sub">
