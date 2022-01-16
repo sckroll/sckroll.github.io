@@ -9,7 +9,7 @@ export default {
   async asyncData({ $content, error }) {
     try {
       const projects = await $content('projects')
-        .only(['name', 'slug', 'description', 'image', 'stacks'])
+        .only(['title', 'slug', 'description', 'image', 'stacks'])
         .sortBy('period', 'desc')
         .fetch()
       return {

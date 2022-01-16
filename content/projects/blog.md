@@ -1,5 +1,5 @@
 ---
-name: 개인 홈페이지 및 블로그
+title: 개인 홈페이지 및 블로그
 description: 지금 보고 계신 웹 사이트를 만들었습니다
 image: blog/main.png
 period: 2021년 08월 ~ 09월 (리뉴얼 버전 기준)
