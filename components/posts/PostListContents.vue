@@ -1,11 +1,22 @@
 <template>
   <div class="post-list-contents">
-    <template v-if="featured">
-      <list-item thumbnail :post="featuredPost" />
-      <list-item v-for="post in otherPosts" :key="post.slug" :post="post" />
+    <template v-if="project">
+      <list-item
+        v-for="currProject in posts"
+        :key="currProject.slug"
+        :post="currProject"
+        thumbnail
+        project
+      />
     </template>
     <template v-else>
-      <list-item v-for="post in posts" :key="post.slug" :post="post" />
+      <template v-if="featured">
+        <list-item thumbnail :post="featuredPost" />
+        <list-item v-for="post in otherPosts" :key="post.slug" :post="post" />
+      </template>
+      <template v-else>
+        <list-item v-for="post in posts" :key="post.slug" :post="post" />
+      </template>
     </template>
   </div>
 </template>
@@ -18,6 +29,10 @@ export default {
       required: true,
     },
     featured: {
+      type: Boolean,
+      default: false,
+    },
+    project: {
       type: Boolean,
       default: false,
     },

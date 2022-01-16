@@ -1,6 +1,8 @@
 <template>
   <div class="project-page">
-    <project-list :projects="projects">프로젝트 목록</project-list>
+    <post-list :posts="projects" project>
+      <template v-slot:title>프로젝트 목록</template>
+    </post-list>
   </div>
 </template>
 
@@ -9,7 +11,7 @@ export default {
   async asyncData({ $content, error }) {
     try {
       const projects = await $content('projects')
-        .only(['title', 'slug', 'description', 'image', 'stacks'])
+        .only(['title', 'slug', 'description', 'image', 'stacks', 'period'])
         .sortBy('period', 'desc')
         .fetch()
       return {

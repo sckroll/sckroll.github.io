@@ -1,11 +1,13 @@
 <template>
-  <nuxt-link :to="`/posts/${post.slug}`">
+  <nuxt-link :to="`/${project ? 'projects' : 'posts'}/${post.slug}`">
     <article :class="{ thumbnail }">
       <div
         v-if="thumbnail"
-        class="item-background"
-        :style="`background-image: ${getPattern(post.title)};`"
-      ></div>
+        class="item-thumbnail"
+        :style="`background-image: ${thumbnailImage};`"
+      >
+        <div class="thumbnail-overlay"></div>
+      </div>
       <div class="item-info-container">
         <div class="main-info">
           <div class="title-container">
@@ -17,7 +19,18 @@
             {{ trimDescription(post.description, maxDescriptionLength) }}
           </h3>
         </div>
-        <div class="other-info">
+        <div v-if="project" class="other-info">
+          <div class="period">개발 기간: {{ post.period }}</div>
+          <div class="stacks">
+            사용 스택:
+            <project-stack
+              v-for="(stack, index) in post.stacks"
+              :key="index"
+              :stack="stack"
+            ></project-stack>
+          </div>
+        </div>
+        <div v-else class="other-info">
           <div class="posted-date">
             <span class="created-date">{{ formatDate(post.createdAt) }}</span>
             <span
@@ -56,6 +69,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    project: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
@@ -63,6 +80,13 @@ export default {
       maxTagsLength: 3,
       maxDescriptionLength: 70,
     }
+  },
+  computed: {
+    thumbnailImage() {
+      return this.post.image
+        ? `url(/images/projects/${this.post.image})`
+        : this.getPattern(this.post.title)
+    },
   },
   methods: {
     getPattern,
@@ -119,9 +143,13 @@ article {
     background-color: $color-grey-1;
   }
 }
-.item-background {
+.item-thumbnail {
   aspect-ratio: 32 / 9;
   background-position: center;
+}
+.thumbnail-overlay {
+  height: 100%;
+  background-color: rgba(black, 0.1);
 }
 .item-info-container {
   display: flex;
@@ -161,6 +189,9 @@ article {
   .tags {
     display: flex;
     gap: 16px;
+  }
+  .stacks {
+    margin: 16px 0 8px;
   }
 }
 .dark-mode .other-info {
