@@ -91,7 +91,7 @@ export default {
   },
   head() {
     return {
-      title: this.post.title,
+      title: `${this.post.title} | 포스트`,
     }
   },
 }
