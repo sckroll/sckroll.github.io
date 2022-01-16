@@ -1,7 +1,7 @@
 <template>
   <div class="post-list-contents">
     <template v-if="featured">
-      <list-item featured :post="featuredPost" />
+      <list-item thumbnail :post="featuredPost" />
       <list-item v-for="post in otherPosts" :key="post.slug" :post="post" />
     </template>
     <template v-else>

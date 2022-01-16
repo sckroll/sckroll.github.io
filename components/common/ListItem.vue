@@ -1,8 +1,8 @@
 <template>
   <nuxt-link :to="`/posts/${post.slug}`">
-    <article :class="{ featured }">
+    <article :class="{ thumbnail }">
       <div
-        v-if="featured"
+        v-if="thumbnail"
         class="item-background"
         :style="`background-image: ${getPattern(post.title)};`"
       ></div>
@@ -52,7 +52,7 @@ export default {
       type: Object,
       required: true,
     },
-    featured: {
+    thumbnail: {
       type: Boolean,
       default: false,
     },
@@ -103,14 +103,14 @@ article {
     background-color: white;
     transition: $fade-default;
 
-    &.featured {
+    &.thumbnail {
       padding-top: 32px;
     }
     .title {
       border-bottom: 3px solid $color-primary;
     }
   }
-  &.featured {
+  &.thumbnail {
     padding-top: 0;
   }
 }
