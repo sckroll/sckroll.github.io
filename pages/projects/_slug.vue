@@ -46,7 +46,7 @@ export default {
   },
   head() {
     return {
-      title: this.project.name,
+      title: this.project.title,
     }
   },
 }
