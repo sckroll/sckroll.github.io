@@ -33,10 +33,6 @@ export default {
           path: '/posts',
         },
         {
-          name: 'TIL',
-          path: '/til',
-        },
-        {
           name: 'Projects',
           path: '/projects',
         },
