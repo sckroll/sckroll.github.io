@@ -53,25 +53,16 @@ export default {
   display: flex;
   flex-direction: column;
 
-  * {
+  a {
     border-bottom: 1px solid $color-grey-7;
-    transition: $fade-default;
 
     &:last-child {
       border-bottom: none;
-
-      &:hover {
-        border-bottom: none;
-      }
-    }
-    &:hover {
-      border-bottom: 1px solid transparent;
-      transition: $fade-default;
     }
   }
 }
 .dark-mode .post-list-contents {
-  * {
+  a {
     border-bottom: 1px solid $color-grey-1;
   }
 }
