@@ -190,9 +190,6 @@ article {
     display: flex;
     gap: 16px;
   }
-  .stacks {
-    margin: 16px 0 8px;
-  }
 }
 .dark-mode .other-info {
   color: $color-grey-5;

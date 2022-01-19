@@ -1,5 +1,5 @@
 <template>
-  <div class="post-list-contents">
+  <div class="post-list-contents" :class="{ project }">
     <template v-if="project">
       <list-item
         v-for="currProject in posts"
@@ -60,10 +60,24 @@ export default {
       border-bottom: none;
     }
   }
+  &.project {
+    gap: 32px;
+
+    a {
+      border-bottom: none;
+    }
+  }
 }
 .dark-mode .post-list-contents {
   a {
     border-bottom: 1px solid $color-grey-1;
+  }
+  &.project {
+    gap: 32px;
+
+    a {
+      border-bottom: none;
+    }
   }
 }
 </style>
