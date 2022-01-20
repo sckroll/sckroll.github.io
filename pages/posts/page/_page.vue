@@ -53,9 +53,27 @@ export default {
         .skip(skipNumber())
         .fetch()
 
+      // 모든 포스트의 태그를 추출, 빈도 순으로 정렬
+      const tagCounter = new Map()
+      allPosts
+        .map(post => post.tags)
+        .forEach(tags => {
+          tags.split(', ').forEach(tag => {
+            if (tagCounter.has(tag)) {
+              tagCounter.set(tag, tagCounter.get(tag) + 1)
+            } else {
+              tagCounter.set(tag, 1)
+            }
+          })
+        })
+      const sortedTags = [...tagCounter]
+        .sort((a, b) => b[1] - a[1])
+        .map(item => item[0])
+
       return {
         totalPostCount,
         paginatedPosts,
+        sortedTags,
       }
     } catch (e) {
       error({ statusCode: e.statusCode || e.status || 500 })
