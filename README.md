@@ -1,7 +1,7 @@
 # sckroll.github.io
 
-Sckroll 개인 웹 사이트  
-(Nuxt로 구현하여 push-dir로 배포)
+포트폴리오 겸 블로그 사이트 리포지토리  
+([Nuxt](https://nuxtjs.org/)와 [nuxt/content](https://content.nuxtjs.org/)로 개발했으며, [push-dir](https://github.com/L33T-KR3W/push-dir)로 GitHub Pages에 배포)
 
 ### Yarn 사용법
 ```bash
@@ -19,7 +19,7 @@ $ yarn start
 $ yarn generate
 ```
 
-### push-dir를 통한 정적 웹 사이트 업데이트
+### push-dir를 통한 정적 웹 페이지 배포
 ```bash
 # push-dir 설치
 $ yarn add push-dir --dev
