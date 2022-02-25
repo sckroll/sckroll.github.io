@@ -1,9 +1,10 @@
 @import './variables';
 @import './mixin';
 @import './content';
+@import './fonts';
 
 html {
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Metropolis', 'Noto Sans KR', sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
