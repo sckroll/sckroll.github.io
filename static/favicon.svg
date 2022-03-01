@@ -1,0 +1,13 @@
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    path {
+      stroke: black;
+    }
+    @media (prefers-color-scheme: dark) {
+      path {
+        stroke: white;
+      }
+    }
+  </style>
+  <path d="M256 64C149.961 64 64 149.961 64 256V448H256M256 64C362.039 64 448 149.961 448 256V448H256M256 64V160M256 160C220.654 160 224 188.654 224 224V288C224 323.346 220.654 352 256 352M256 160C291.346 160 288 188.654 288 224V288C288 323.346 291.346 352 256 352M256 352V448" stroke-width="32"/>
+</svg>

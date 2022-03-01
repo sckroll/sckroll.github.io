@@ -15,7 +15,11 @@ export default {
       { name: 'theme-color', content: 'white' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      { rel: 'icon', href: '/favicon.svg' },
+      { rel: 'mask-icon', href: '/mask-icon.svg', color: 'white' },
+      { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
+      { rel: 'manifest', href: '/manifest.json' },
       {
         rel: 'stylesheet',
         type: 'text/css',
