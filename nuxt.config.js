@@ -42,6 +42,7 @@ export default {
     '~/components/posts',
     '~/components/projects',
     '~/components/til',
+    '~/components/future/common',
   ],
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
