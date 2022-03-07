@@ -1,10 +1,11 @@
-@import './variables';
-@import './mixin';
-@import './content';
-@import './fonts';
+@import "./variables";
+@import "./mixin";
+@import "./content";
+@import "./fonts";
 
 html {
-  font-family: 'Spoqa Han Sans Neo', sans-serif;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
+    "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
   font-size: 16px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -25,14 +26,16 @@ body {
   background-color: white;
   color: black;
   transition: $fade-default;
-
 }
 .dark-mode body {
   background-color: $color-grey-0;
   color: white;
 }
-h1, h2, h3, h4 {
-  font-family: 'Metropolis', 'Spoqa Han Sans Neo', sans-serif;
+h1,
+h2,
+h3,
+h4 {
+  font-family: "Metropolis", "Spoqa Han Sans Neo", sans-serif;
 }
 a {
   color: inherit;
