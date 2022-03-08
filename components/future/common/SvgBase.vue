@@ -2,7 +2,7 @@
   <svg
     :width="width"
     :height="height"
-    :viewBox="`0 0 ${width} ${height}`"
+    :viewBox="icon ? '0 0 32 32' : `0 0 ${width} ${height}`"
     :fill="fill"
     xmlns="http://www.w3.org/2000/svg"
   >
@@ -24,6 +24,10 @@ export default {
     height: {
       type: Number,
       default: 32,
+    },
+    icon: {
+      type: Boolean,
+      default: false,
     },
   },
 }
