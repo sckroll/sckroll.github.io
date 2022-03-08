@@ -1,6 +1,6 @@
 <template>
   <div class="logo-container">
-    <SvgBase :width="102" :height="24">
+    <SvgBase width="102" height="24">
       <LogoText></LogoText>
     </SvgBase>
     <SvgBase>

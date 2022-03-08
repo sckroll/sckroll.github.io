@@ -5,7 +5,7 @@
       <li>Posts</li>
       <li>Projects</li>
       <li>
-        <SvgBase icon :width="24" :height="24">
+        <SvgBase icon width="24" height="24">
           <IconLogo></IconLogo>
         </SvgBase>
       </li>
