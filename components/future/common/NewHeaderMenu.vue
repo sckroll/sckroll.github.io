@@ -5,8 +5,9 @@
       <li>Posts</li>
       <li>Projects</li>
       <li>
-        <SvgBase icon width="24" height="24">
-          <IconLogo></IconLogo>
+        <SvgBase icon>
+          <IconLight></IconLight>
+          <!-- <IconDark></IconDark> -->
         </SvgBase>
       </li>
     </ul>
@@ -26,11 +27,14 @@ ul {
   list-style: none;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   gap: 32px;
   font-family: 'Metropolis', sans-serif;
   font-size: 1.25em;
+  font-weight: 300;
 }
 li {
-  height: 1.25em;
+  display: flex;
+  align-items: center;
 }
 </style>
