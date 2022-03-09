@@ -1,5 +1,5 @@
 <template>
-  <div>test</div>
+  <div class="new-page-components">test</div>
 </template>
 
 <script>
@@ -8,4 +8,9 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+.new-page-components {
+  width: 1200px;
+  padding: 64px 32px;
+}
+</style>
