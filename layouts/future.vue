@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <NewHeaderBase></NewHeaderBase>
-    <main class="main-container">
+    <HeaderImage></HeaderImage>
+    <main class="new-main-container">
       <Nuxt />
     </main>
   </div>
@@ -30,5 +31,12 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+}
+main.new-main-container {
+  position: relative;
+  top: $header-height;
+  height: calc(100vh - $header-height);
+  display: flex;
+  justify-content: center;
 }
 </style>
