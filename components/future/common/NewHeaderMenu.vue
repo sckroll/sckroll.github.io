@@ -29,7 +29,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   gap: 32px;
-  font-family: 'Metropolis', sans-serif;
+  font-family: Metropolis, sans-serif;
   font-size: 1.25em;
   font-weight: 300;
 }
