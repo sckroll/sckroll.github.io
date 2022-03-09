@@ -15,21 +15,47 @@ export default {}
 
 <style lang="scss" scoped>
 header {
+  width: 100%;
   display: flex;
   justify-content: center;
 
   .header-container {
-    width: 1200px;
-    height: 96px;
+    height: $header-height;
     display: flex;
     align-items: flex-end;
     padding: 0 32px 8px;
   }
   .header-center {
     width: 100%;
-    height: 48px;
+    height: calc($header-height / 2);
     display: flex;
     justify-content: space-between;
+  }
+}
+
+@include viewpoint-xl {
+  .header-container {
+    width: $breakpoint-xl;
+  }
+}
+@include viewpoint-lg {
+  .header-container {
+    width: $breakpoint-lg;
+  }
+}
+@include viewpoint-md {
+  .header-container {
+    width: $breakpoint-md;
+  }
+}
+@include viewpoint-sm {
+  .header-container {
+    width: $breakpoint-sm;
+  }
+}
+@include viewpoint-xs {
+  .header-container {
+    width: 100%;
   }
 }
 </style>
