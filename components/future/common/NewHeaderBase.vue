@@ -19,6 +19,7 @@ header {
   width: 100%;
   display: flex;
   justify-content: center;
+  z-index: 10;
 
   .header-container {
     height: $header-height;
