@@ -35,11 +35,18 @@ section.header-area {
     font-size: 2em;
     font-weight: 300;
     margin-bottom: 32px;
+    line-height: 1.5em;
   }
   a {
     font-size: 1.25em;
     padding-bottom: 4px;
     border-bottom: 2px solid white;
+    transition: all 0.15s ease;
+
+    &:hover {
+      border-bottom: 2px solid blue;
+      transition: all 0.15s ease;
+    }
   }
 }
 section.content-area {
