@@ -7,6 +7,7 @@
           오늘도 공부하는 Sckroll의<br />
           홈페이지에 오신 것을 환영합니다.
         </h1>
+        <nuxt-link to="/about">제가 누군지 궁금하세요?</nuxt-link>
       </div>
     </section>
     <section class="content-area"></section>
@@ -33,6 +34,12 @@ section.header-area {
   h1 {
     font-size: 2em;
     font-weight: 300;
+    margin-bottom: 32px;
+  }
+  a {
+    font-size: 1.25em;
+    padding-bottom: 4px;
+    border-bottom: 2px solid white;
   }
 }
 section.content-area {
