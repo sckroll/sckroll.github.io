@@ -5,6 +5,7 @@
     <main class="new-main-container">
       <Nuxt />
     </main>
+    <NewFooterBase></NewFooterBase>
   </div>
 </template>
 
