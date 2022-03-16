@@ -1,18 +1,18 @@
 <template>
   <footer>
     <div class="footer-container">
-      <ul class="links">
-        <li class="link">
+      <div class="links">
+        <a href="mailto://kimsc0714@gmail.com" class="link">
           <SvgBase icon>
             <IconEmail></IconEmail>
           </SvgBase>
-        </li>
-        <li class="link">
+        </a>
+        <a href="https://github.com/sckroll" class="link">
           <SvgBase icon width="28" height="28">
             <IconGitHub></IconGitHub>
           </SvgBase>
-        </li>
-      </ul>
+        </a>
+      </div>
       <div class="copyright">
         &copy; {{ new Date().getFullYear() }} Developed & designed by Sckroll.
       </div>
@@ -22,6 +22,7 @@
 
 <style lang="scss" scoped>
 footer {
+  z-index: 1;
   display: flex;
   justify-content: center;
 }
@@ -32,12 +33,12 @@ footer {
   padding: 32px;
 }
 .links {
-  list-style: none;
   display: flex;
   gap: 32px;
   padding: 0;
 
   .link {
+    cursor: pointer;
     width: 32px;
     height: 32px;
     display: flex;
