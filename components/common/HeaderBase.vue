@@ -91,7 +91,6 @@ header {
   background-color: white;
   color: black;
   padding-bottom: 16px;
-  font-family: 'NanumSquare', sans-serif;
   transition: $fade-default;
 
   &.scrolled {

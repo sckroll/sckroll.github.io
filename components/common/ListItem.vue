@@ -169,7 +169,6 @@ article {
 .title {
   padding-bottom: 4px;
   border-bottom: 3px solid transparent;
-  font-family: 'NanumSquare', sans-serif;
   font-size: 1.5em;
   font-weight: 700;
   transition: $fade-default;

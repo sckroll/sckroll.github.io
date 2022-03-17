@@ -44,7 +44,6 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 16px 32px;
-  font-family: 'NanumSquare', sans-serif;
   font-size: 1.25em;
   line-height: 180%;
 }

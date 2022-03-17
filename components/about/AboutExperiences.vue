@@ -106,7 +106,6 @@ export default {
       margin-left: 32px;
     }
     .time {
-      font-family: 'NanumSquare', sans-serif;
       font-size: 1.25em;
       font-weight: 700;
     }

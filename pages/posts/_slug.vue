@@ -130,7 +130,6 @@ article {
 
   .info-main {
     p {
-      font-family: 'NanumSquare', sans-serif;
       margin-top: 8px;
     }
   }

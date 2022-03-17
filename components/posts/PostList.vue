@@ -137,7 +137,6 @@ export default {
 }
 .more-button {
   cursor: pointer;
-  font-family: 'NanumSquare', sans-serif;
   font-size: 1.25em;
   font-weight: 700;
   padding: 4px 0;

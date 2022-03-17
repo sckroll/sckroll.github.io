@@ -76,7 +76,6 @@ export default {
     }
     div {
       font-size: 1.25em;
-      font-family: 'NanumSquare', sans-serif;
       font-weight: 600;
     }
     .btn-icon {
