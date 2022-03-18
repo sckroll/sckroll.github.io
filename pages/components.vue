@@ -10,13 +10,21 @@
         <nuxt-link to="/about">제가 누군지 궁금하세요?</nuxt-link>
       </div>
     </section>
-    <section class="content-area"></section>
+    <section class="content-area">
+      <h1>컴포넌트 테스트</h1>
+      <ToggleSwitch v-model="toggle"></ToggleSwitch>
+    </section>
   </div>
 </template>
 
 <script>
 export default {
   layout: 'future',
+  data() {
+    return {
+      toggle: false,
+    }
+  },
 }
 </script>
 
@@ -44,11 +52,12 @@ section.header-area {
     transition: all 0.15s ease;
 
     &:hover {
-      border-bottom: 2px solid blue;
-      transition: all 0.15s ease;
+      color: $color-primary;
+      border-bottom: 2px solid $color-primary;
     }
   }
 }
 section.content-area {
+  margin: 32px 0;
 }
 </style>
