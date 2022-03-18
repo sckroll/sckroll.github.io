@@ -1,9 +1,15 @@
 <template>
   <nav class="header-menu">
     <ul>
-      <li>About</li>
-      <li>Posts</li>
-      <li>Projects</li>
+      <li>
+        <nuxt-link to="/about">About</nuxt-link>
+      </li>
+      <li>
+        <nuxt-link to="/posts">Posts</nuxt-link>
+      </li>
+      <li>
+        <nuxt-link to="/projects">Projects</nuxt-link>
+      </li>
       <li>
         <SvgBase icon>
           <IconLight></IconLight>
