@@ -59,6 +59,7 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', this.onScroll)
+    this.scrollPos = document.documentElement.scrollTop
   },
   beforeDestroy() {
     window.removeEventListener('scroll', this.onScroll)
