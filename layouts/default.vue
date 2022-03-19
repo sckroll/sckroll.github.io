@@ -1,7 +1,8 @@
 <template>
   <div class="container">
     <HeaderBase></HeaderBase>
-    <main class="main-container">
+    <HeaderImage></HeaderImage>
+    <main>
       <Nuxt />
     </main>
     <FooterBase></FooterBase>
@@ -27,10 +28,10 @@ export default {
   flex-direction: column;
   justify-content: space-between;
 }
-
-.main-container {
+main {
+  position: relative;
+  top: $header-height;
   display: flex;
   justify-content: center;
-  width: 100%;
 }
 </style>

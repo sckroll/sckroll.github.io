@@ -1,26 +1,26 @@
 <template>
-  <header :class="{ reversed: isPostPage && !isError }">
+  <header :class="{ 'fix-light': hasHeaderImage, scrolled: isScrolled }">
     <div class="header-container">
-      <SckrollLogo></SckrollLogo>
-      <HeaderMenu :menu="menu" @drawer-open="openDrawer"></HeaderMenu>
+      <div class="header-center">
+        <Logo></Logo>
+        <HeaderMenu :menu="menu" @drawer-open="openDrawer"></HeaderMenu>
+      </div>
     </div>
     <transition name="fade">
       <div v-if="drawer" class="overlay" @click="closeDrawer"></div>
     </transition>
     <transition name="slide-fade">
-      <nav-drawer v-if="drawer" :menu="menu" @drawer-close="closeDrawer" />
+      <NavDrawer
+        v-if="drawer"
+        :menu="menu"
+        @drawer-close="closeDrawer"
+      ></NavDrawer>
     </transition>
   </header>
 </template>
 
 <script>
 export default {
-  props: {
-    landing: {
-      type: Boolean,
-      default: false,
-    },
-  },
   data() {
     return {
       menu: [
@@ -39,16 +39,19 @@ export default {
       ],
       drawer: false,
       scrollThreshold: 86,
+      scrollPos: 0,
     }
   },
   computed: {
-    isPostPage() {
-      const path = this.$route.path
-      return (
-        path.includes('/posts/') &&
-        !path.includes('/page/') &&
-        !path.includes('/search')
-      )
+    hasHeaderImage() {
+      const state = ['index', 'posts/slug'].includes(this.$route.name)
+      this.$store.commit('SET_HEADER_IMAGE_STATE', state)
+      return state
+    },
+    isScrolled() {
+      const state = this.scrollPos > this.scrollThreshold
+      this.$store.commit('SET_SCROLL_STATE', state)
+      return state
     },
     isError() {
       return this.$store.state.isErrorPage
@@ -62,12 +65,7 @@ export default {
   },
   methods: {
     onScroll(e) {
-      const currScrollPos = e.target.documentElement.scrollTop
-      if (currScrollPos > this.scrollThreshold) {
-        this.$el.classList.add('scrolled')
-      } else {
-        this.$el.classList.remove('scrolled')
-      }
+      this.scrollPos = e.target.documentElement.scrollTop
     },
     openDrawer() {
       this.drawer = true
@@ -82,55 +80,33 @@ export default {
 <style lang="scss" scoped>
 header {
   position: fixed;
+  width: 100%;
   display: flex;
-  align-items: flex-end;
   justify-content: center;
   z-index: 10;
-  width: 100%;
-  height: $header-height;
-  background-color: white;
-  color: black;
-  padding-bottom: 16px;
-  transition: $fade-default;
 
-  &.scrolled {
-    background-color: white;
-    box-shadow: 0 2px 4px 2px rgba(black, 0.2);
-    transition: $fade-default;
+  .header-container {
+    height: $header-height;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 32px 8px;
   }
-  &.reversed {
-    background-color: transparent;
+  .header-center {
+    width: 100%;
+    height: calc($header-height / 2);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &.fix-light {
     color: white;
-    transition: $fade-default;
-
-    &.scrolled {
-      background-color: white;
-      color: black;
-      transition: $fade-default;
-    }
   }
-}
-.dark-mode header {
-  background-color: $color-grey-0;
-  color: white;
-
   &.scrolled {
-    background-color: $color-grey-1;
+    background-color: rgba(black, 0.5);
+    color: white;
+    backdrop-filter: blur(4px);
+    transition: $fade-default;
   }
-  &.reversed {
-    background-color: transparent;
-
-    &.scrolled {
-      background-color: $color-grey-1;
-      color: white;
-    }
-  }
-}
-.header-container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 32px;
 }
 .overlay {
   position: absolute;

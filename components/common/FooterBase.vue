@@ -1,18 +1,20 @@
 <template>
   <footer>
     <div class="footer-container">
-      <div class="icon-links">
-        <a href="https://github.com/sckroll" class="github-link">
-          <fa-icon :icon="['fab', 'github']" />
-          <span>github.com/sckroll</span>
+      <div class="links">
+        <a href="mailto://kimsc0714@gmail.com" class="link">
+          <SvgBase icon>
+            <IconEmail></IconEmail>
+          </SvgBase>
         </a>
-        <a href="mailto://kimsc0714@gmail.com" class="email-link">
-          <fa-icon :icon="['far', 'envelope']" />
-          <span>kimsc0714@gmail.com</span>
+        <a href="https://github.com/sckroll" class="link">
+          <SvgBase icon width="28" height="28">
+            <IconGitHub></IconGitHub>
+          </SvgBase>
         </a>
       </div>
       <div class="copyright">
-        ⓒ {{ new Date().getFullYear() }} Sckroll. All rights reserved.
+        &copy; {{ new Date().getFullYear() }} Developed & designed by Sckroll.
       </div>
     </div>
   </footer>
@@ -20,57 +22,28 @@
 
 <style lang="scss" scoped>
 footer {
-  height: $footer-height;
   display: flex;
   justify-content: center;
-  background-color: $color-grey-7;
-  transition: $fade-default;
-}
-.dark-mode footer {
-  background-color: $color-grey-1;
 }
 .footer-container {
   display: flex;
   justify-content: space-between;
-  padding: 0 32px;
-}
-.icon-links {
-  display: flex;
   align-items: center;
+  padding: 32px;
+}
+.links {
+  display: flex;
+  gap: 32px;
+  padding: 0;
 
-  a {
+  .link {
+    cursor: pointer;
+    width: 32px;
+    height: 32px;
     display: flex;
+    justify-content: center;
     align-items: center;
-    margin-right: 32px;
-    padding: 4px 0;
-    border-top: 3px solid transparent;
-    border-bottom: 3px solid transparent;
-    transition: $fade-default;
-
-    &:hover {
-      border-bottom: 3px solid $color-primary;
-      transition: $fade-default;
-    }
-    &:active {
-      color: $color-primary;
-      transition: $fade-default;
-    }
-    &:last-child {
-      margin-right: 0;
-    }
   }
-  svg {
-    font-size: 1.5em;
-    margin-right: 8px;
-  }
-  span {
-    font-size: 0.8em;
-  }
-}
-.copyright {
-  display: flex;
-  align-items: center;
-  font-size: 0.8em;
 }
 
 @include viewpoint-xl {
@@ -92,32 +65,16 @@ footer {
   .footer-container {
     width: $breakpoint-sm;
   }
-  .icon-links {
-    a {
-      margin-right: 16px;
-    }
-    svg {
-      margin-right: 0;
-    }
-    span {
-      display: none;
-    }
-  }
 }
 @include viewpoint-xs {
   .footer-container {
-    width: 100vw;
+    width: 100%;
+    flex-direction: column;
+    gap: 16px;
   }
-  .icon-links {
-    a {
-      margin-right: 16px;
-    }
-    svg {
-      margin-right: 0;
-    }
-    span {
-      display: none;
-    }
+  .copyright {
+    font-size: 0.8em;
+    text-align: center;
   }
 }
 </style>

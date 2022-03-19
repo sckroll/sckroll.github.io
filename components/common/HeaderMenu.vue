@@ -1,11 +1,13 @@
 <template>
-  <nav class="nav-menu">
-    <div class="links">
-      <nuxt-link v-for="(item, index) in menu" :key="index" :to="item.path">
-        {{ item.name }}
-      </nuxt-link>
-      <dark-mode-toggle></dark-mode-toggle>
-    </div>
+  <nav class="header-menu">
+    <ul class="desktop-menu">
+      <li v-for="(item, index) in menu" :key="index">
+        <nuxt-link :to="item.path">{{ item.name }}</nuxt-link>
+      </li>
+      <li>
+        <ColorModeToggle></ColorModeToggle>
+      </li>
+    </ul>
     <span class="mobile-menu" @click="openDrawer">
       <fa-icon :icon="['fa', 'bars']" />
     </span>
@@ -29,33 +31,37 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.nav-menu {
+nav.header-menu {
   display: flex;
   align-items: center;
+}
+ul {
   list-style: none;
-  padding: 0;
-  font-size: 1.25em;
-  font-weight: 600;
-}
-.links {
   display: flex;
-  padding: 0;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+  font-family: Metropolis, sans-serif;
+  font-size: 1.25em;
 }
-a {
-  margin-right: 32px;
-  display: inline;
-  padding: 4px 0;
-  border-top: 3px solid transparent;
-  border-bottom: 3px solid transparent;
-  transition: $fade-default;
+li {
+  display: flex;
+  align-items: center;
 
-  &:hover {
-    border-bottom: 3px solid $color-primary;
+  a {
+    padding: 4px 0;
+    border-top: 3px solid transparent;
+    border-bottom: 3px solid transparent;
     transition: $fade-default;
-  }
-  &:active {
-    color: $color-primary;
-    transition: $fade-default;
+
+    &:hover {
+      border-bottom: 3px solid $color-primary;
+      transition: $fade-default;
+    }
+    &:active {
+      color: $color-primary;
+      transition: $fade-default;
+    }
   }
 }
 .nuxt-link-active {
@@ -63,18 +69,12 @@ a {
   border-bottom: 3px solid $color-primary;
   transition: $fade-default;
 }
-.scrolled {
-  .nuxt-link-active {
-    color: $color-primary;
-    transition: $fade-default;
-  }
-}
 .mobile-menu {
   display: none;
 }
 
 @include viewpoint-sm {
-  .links {
+  .desktop-menu {
     display: none;
   }
   .mobile-menu {
@@ -82,7 +82,7 @@ a {
   }
 }
 @include viewpoint-xs {
-  .links {
+  .desktop-menu {
     display: none;
   }
   .mobile-menu {

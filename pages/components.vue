@@ -19,7 +19,6 @@
 
 <script>
 export default {
-  layout: 'future',
   data() {
     return {
       toggle: false,

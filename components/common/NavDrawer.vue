@@ -1,15 +1,15 @@
 <template>
-  <nav>
+  <nav class="drawer">
     <ul>
       <li v-for="item in menu" :key="item.name">
-        <nuxt-link :to="item.path" @click.native="closeDrawer">{{
-          item.name
-        }}</nuxt-link>
-      </li>
-      <li>
-        <dark-mode-toggle></dark-mode-toggle>
+        <nuxt-link :to="item.path" @click.native="closeDrawer">
+          {{ item.name }}
+        </nuxt-link>
       </li>
     </ul>
+    <div class="toggle-container">
+      <ColorModeToggle></ColorModeToggle>
+    </div>
   </nav>
 </template>
 
@@ -30,32 +30,29 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-nav {
+nav.drawer {
   position: absolute;
   top: 0;
   right: 0;
+  flex-direction: column;
+  justify-content: space-between;
   background-color: white;
   color: black;
   box-shadow: 0 2px 4px 2px rgba(black, 0.2);
   width: 40%;
   height: 100vh;
-  padding: 32px;
+  padding: 48px 32px;
 
   ul {
-    margin-top: 32px;
-    padding: 0;
     list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    font-family: Metropolis, sans-serif;
     font-size: 1.5em;
+    padding: 0;
   }
   li {
-    margin: 24px 0;
-
-    &:first-child {
-      margin-top: 0;
-    }
-    &:last-child {
-      margin-bottom: 0;
-    }
     a {
       padding: 4px 0;
       border-top: 3px solid transparent;
@@ -73,34 +70,37 @@ nav {
     }
   }
 }
-.dark-mode nav {
+.toggle-container {
+  display: flex;
+}
+.dark-mode nav.drawer {
   background-color: $color-grey-1;
   color: white;
 }
 
 @include viewpoint-xl {
-  nav {
+  nav.drawer {
     display: none;
   }
 }
 @include viewpoint-lg {
-  nav {
+  nav.drawer {
     display: none;
   }
 }
 @include viewpoint-md {
-  nav {
+  nav.drawer {
     display: none;
   }
 }
 @include viewpoint-sm {
-  nav {
-    display: block;
+  nav.drawer {
+    display: flex;
   }
 }
 @include viewpoint-xs {
-  nav {
-    display: block;
+  nav.drawer {
+    display: flex;
     width: 50%;
   }
 }

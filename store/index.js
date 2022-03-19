@@ -3,6 +3,8 @@ import { setMetaThemeColor } from '@/utils/metaThemeColor'
 export const state = () => ({
   isErrorPage: false,
   isDarkMode: false,
+  isScrolled: false,
+  hasHeaderImage: false,
 })
 
 export const mutations = {
@@ -14,5 +16,11 @@ export const mutations = {
       state.isDarkMode = isDarkMode
       setMetaThemeColor()
     }
+  },
+  SET_SCROLL_STATE(state, isScrolled) {
+    state.isScrolled = isScrolled
+  },
+  SET_HEADER_IMAGE_STATE(state, hasHeaderImage) {
+    state.hasHeaderImage = hasHeaderImage
   },
 }
