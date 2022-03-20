@@ -29,20 +29,33 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px;
+  padding: 32px 32px 32px 24px;
 }
 .links {
   display: flex;
-  gap: 32px;
+  gap: 16px;
   padding: 0;
 
   .link {
     cursor: pointer;
-    width: 32px;
-    height: 32px;
+    width: 48px;
+    height: 48px;
     display: flex;
     justify-content: center;
     align-items: center;
+    border: 2px solid transparent;
+    transition: all 0.15s ease;
+
+    &:hover {
+      border: 2px solid rgba(white, 0.5);
+    }
+    &:active {
+      border: 2px solid $color-primary;
+
+      svg {
+        fill: $color-primary;
+      }
+    }
   }
 }
 
@@ -70,7 +83,7 @@ footer {
   .footer-container {
     width: 100%;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
   }
   .copyright {
     font-size: 0.8em;

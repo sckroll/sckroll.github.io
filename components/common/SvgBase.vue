@@ -34,6 +34,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+svg {
+  transition: all 0.15s ease;
+}
 .dark-mode svg {
   fill: white;
 }
