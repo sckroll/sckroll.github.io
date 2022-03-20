@@ -85,6 +85,7 @@ header {
   display: flex;
   justify-content: center;
   z-index: 10;
+  transition: $fade-default;
 
   .header-container {
     height: $header-height;
@@ -106,7 +107,6 @@ header {
     background-color: rgba(black, 0.5);
     color: white;
     backdrop-filter: blur(4px);
-    transition: $fade-default;
   }
 }
 .overlay {
