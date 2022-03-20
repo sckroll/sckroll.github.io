@@ -1,9 +1,15 @@
 <template>
-  <div class="header-image-container"></div>
+  <div v-if="hasHeaderImage" class="header-image-container"></div>
 </template>
 
 <script>
-export default {}
+export default {
+  computed: {
+    hasHeaderImage() {
+      return this.$store.state.hasHeaderImage
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>
