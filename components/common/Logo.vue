@@ -31,8 +31,13 @@ export default {
   display: flex;
   gap: 24px;
   align-items: center;
+  border-bottom: none;
   transition: $fade-default;
 
+  &:hover,
+  &:active {
+    border-bottom: none;
+  }
   &.fix-light svg {
     fill: white;
   }
