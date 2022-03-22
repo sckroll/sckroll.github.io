@@ -42,6 +42,18 @@ a {
   color: inherit;
   text-decoration: none;
   word-wrap: break-word;
+  padding-bottom: 2px;
+  border-bottom: 2px solid $color-grey-5;
+  transition: $fade-default;
+
+  &:hover {
+    border-bottom: 2px solid $color-primary;
+    transition: $fade-default;
+  }
+  &:active {
+    color: $color-primary;
+    transition: $fade-default;
+  }
 }
 
 .fade-enter-active,

@@ -80,12 +80,6 @@ section.header-area {
     font-size: 1.25em;
     padding-bottom: 4px;
     border-bottom: 2px solid white;
-    transition: all 0.15s ease;
-
-    &:hover {
-      color: $color-primary;
-      border-bottom: 2px solid $color-primary;
-    }
   }
 }
 section.content-area {

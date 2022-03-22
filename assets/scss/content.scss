@@ -94,19 +94,6 @@ $hash-link-margin-top: $header-height + 32px;
     margin: 16px 0;
     padding: 16px 32px;
   }
-  a {
-    border-bottom: 2px solid $color-grey-5;
-    transition: $fade-default;
-
-    &:hover {
-      border-bottom: 2px solid $color-primary;
-      transition: $fade-default;
-    }
-    &:active {
-      color: $color-primary;
-      transition: $fade-default;
-    }
-  }
   table {
     img {
       width: 100%;
