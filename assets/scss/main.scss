@@ -55,6 +55,39 @@ a {
     transition: $fade-default;
   }
 }
+.icon-link {
+  cursor: pointer;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid transparent;
+  transition: all 0.15s ease;
+
+  &:hover {
+    border: 2px solid rgba(black, 0.5);
+  }
+  &:active {
+    border: 2px solid $color-primary;
+
+    svg {
+      fill: $color-primary;
+    }
+  }
+}
+.dark-mode .icon-link {
+  &:hover {
+    border: 2px solid rgba(white, 0.5);
+  }
+  &:active {
+    border: 2px solid $color-primary;
+
+    svg {
+      fill: $color-primary;
+    }
+  }
+}
 
 .fade-enter-active,
 .fade-leave-active,

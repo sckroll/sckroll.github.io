@@ -2,12 +2,12 @@
   <footer>
     <div class="footer-container">
       <div class="links">
-        <a href="mailto://kimsc0714@gmail.com" class="link">
+        <a href="mailto://kimsc0714@gmail.com" class="icon-link">
           <SvgBase icon>
             <IconEmail></IconEmail>
           </SvgBase>
         </a>
-        <a href="https://github.com/sckroll" class="link">
+        <a href="https://github.com/sckroll" class="icon-link">
           <SvgBase icon width="28" height="28">
             <IconGitHub></IconGitHub>
           </SvgBase>
@@ -36,7 +36,7 @@ footer {
   gap: 16px;
   padding: 0;
 
-  .link {
+  /* .icon-link {
     cursor: pointer;
     width: 48px;
     height: 48px;
@@ -56,7 +56,7 @@ footer {
         fill: $color-primary;
       }
     }
-  }
+  } */
 }
 
 @include viewpoint-xl {

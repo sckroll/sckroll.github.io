@@ -1,5 +1,5 @@
 <template>
-  <div class="color-mode-toggle" @click="toggleColorMode">
+  <div class="color-mode-toggle icon-link" @click="toggleColorMode">
     <SvgBase
       icon
       :class="{ 'fix-light': hasHeaderImage, scrolled: isScrolled }"
