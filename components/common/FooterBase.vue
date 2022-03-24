@@ -35,28 +35,6 @@ footer {
   display: flex;
   gap: 16px;
   padding: 0;
-
-  /* .icon-link {
-    cursor: pointer;
-    width: 48px;
-    height: 48px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: 2px solid transparent;
-    transition: all 0.15s ease;
-
-    &:hover {
-      border: 2px solid rgba(white, 0.5);
-    }
-    &:active {
-      border: 2px solid $color-primary;
-
-      svg {
-        fill: $color-primary;
-      }
-    }
-  } */
 }
 
 @include viewpoint-xl {
