@@ -37,7 +37,6 @@ export default {
     '~/components/posts',
     '~/components/projects',
     '~/components/til',
-    '~/components/future/common',
   ],
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
@@ -46,7 +45,6 @@ export default {
     '@nuxtjs/eslint-module',
     '@nuxtjs/fontawesome',
     '@nuxtjs/style-resources',
-    '@nuxtjs/google-fonts',
     '@nuxtjs/color-mode',
   ],
 
@@ -112,12 +110,5 @@ export default {
 
   styleResources: {
     scss: '~assets/scss/*.scss',
-  },
-
-  googleFonts: {
-    families: {
-      'Noto+Sans+KR': [100, 300, 400, 500, 700, 900],
-    },
-    display: 'swap',
   },
 }
