@@ -1,9 +1,4 @@
 <template>
-  <!-- <div class="landing-container">
-    <post-list featured :posts="posts">
-      <template v-slot:title>최근 포스트</template>
-    </post-list>
-  </div> -->
   <div class="page-container">
     <section class="header-area">
       <div class="header-area-center">
@@ -16,8 +11,9 @@
       </div>
     </section>
     <section class="content-area">
-      <h1>컴포넌트 테스트</h1>
-      <ToggleSwitch v-model="toggle"></ToggleSwitch>
+      <post-list featured :posts="posts">
+        <template v-slot:title>최근 포스트</template>
+      </post-list>
     </section>
   </div>
 </template>
