@@ -11,9 +11,9 @@
       </div>
     </section>
     <section class="content-area">
-      <post-list featured :posts="posts">
+      <PostList featured :posts="posts">
         <template v-slot:title>최근 포스트</template>
-      </post-list>
+      </PostList>
     </section>
   </div>
 </template>
