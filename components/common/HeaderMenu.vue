@@ -8,7 +8,11 @@
         <ColorModeToggle></ColorModeToggle>
       </li>
     </ul>
-    <div class="mobile-menu icon-link" @click="openDrawer">
+    <div
+      class="mobile-menu icon-link"
+      :class="{ 'fix-light': hasHeaderImage, scrolled: isScrolled }"
+      @click="openDrawer"
+    >
       <SvgBase icon>
         <IconHamburger></IconHamburger>
       </SvgBase>
@@ -22,6 +26,14 @@ export default {
     menu: {
       type: Array,
       required: true,
+    },
+  },
+  computed: {
+    hasHeaderImage() {
+      return this.$store.state.hasHeaderImage
+    },
+    isScrolled() {
+      return this.$store.state.isScrolled
     },
   },
   methods: {
@@ -73,6 +85,23 @@ li {
 }
 .mobile-menu {
   display: none;
+
+  &.fix-light {
+    &:hover {
+      border: 2px solid rgba(white, 0.5);
+    }
+    svg {
+      fill: white;
+    }
+  }
+  &.scrolled {
+    &:hover {
+      border: 2px solid rgba(white, 0.5);
+    }
+    svg {
+      fill: white;
+    }
+  }
 }
 
 @include viewpoint-sm {

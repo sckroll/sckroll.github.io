@@ -12,14 +12,22 @@
 
 <script>
 export default {
+  props: {
+    drawer: {
+      type: Boolean,
+      default: false,
+    },
+  },
   computed: {
     isDarkMode() {
       return this.$store.state.isDarkMode
     },
     hasHeaderImage() {
+      if (this.mobile) return false
       return this.$store.state.hasHeaderImage
     },
     isScrolled() {
+      if (this.mobile) return false
       return this.$store.state.isScrolled
     },
   },

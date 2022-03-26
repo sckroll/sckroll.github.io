@@ -8,7 +8,7 @@
       </li>
     </ul>
     <div class="toggle-container">
-      <ColorModeToggle></ColorModeToggle>
+      <ColorModeToggle drawer></ColorModeToggle>
     </div>
   </nav>
 </template>
