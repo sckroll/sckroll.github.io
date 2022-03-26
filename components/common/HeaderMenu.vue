@@ -8,9 +8,11 @@
         <ColorModeToggle></ColorModeToggle>
       </li>
     </ul>
-    <span class="mobile-menu" @click="openDrawer">
-      <fa-icon :icon="['fa', 'bars']" />
-    </span>
+    <div class="mobile-menu icon-link" @click="openDrawer">
+      <SvgBase icon>
+        <IconHamburger></IconHamburger>
+      </SvgBase>
+    </div>
   </nav>
 </template>
 
@@ -78,7 +80,7 @@ li {
     display: none;
   }
   .mobile-menu {
-    display: block;
+    display: flex;
   }
 }
 @include viewpoint-xs {
@@ -86,7 +88,7 @@ li {
     display: none;
   }
   .mobile-menu {
-    display: block;
+    display: flex;
   }
 }
 </style>
