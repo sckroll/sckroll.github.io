@@ -23,11 +23,11 @@ export default {
       return this.$store.state.isDarkMode
     },
     hasHeaderImage() {
-      if (this.mobile) return false
+      if (this.drawer) return false
       return this.$store.state.hasHeaderImage
     },
     isScrolled() {
-      if (this.mobile) return false
+      if (this.drawer) return false
       return this.$store.state.isScrolled
     },
   },
