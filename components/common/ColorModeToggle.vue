@@ -1,9 +1,10 @@
 <template>
-  <div class="color-mode-toggle icon-link" @click="toggleColorMode">
-    <SvgBase
-      icon
-      :class="{ 'fix-light': hasHeaderImage, scrolled: isScrolled }"
-    >
+  <div
+    class="color-mode-toggle icon-link"
+    :class="{ 'fix-light': hasHeaderImage, scrolled: isScrolled }"
+    @click="toggleColorMode"
+  >
+    <SvgBase icon>
       <IconDark v-if="isDarkMode"></IconDark>
       <IconLight v-else></IconLight>
     </SvgBase>
@@ -44,15 +45,17 @@ export default {
 .color-mode-toggle {
   cursor: pointer;
   display: flex;
-}
-svg {
-  transition: $fade-default;
 
-  &.fix-light {
-    fill: white;
-  }
+  &.fix-light,
   &.scrolled {
-    fill: white;
+    &.icon-link {
+      &:hover {
+        border: 2px solid rgba(white, 0.5);
+      }
+      svg {
+        fill: white;
+      }
+    }
   }
 }
 </style>
