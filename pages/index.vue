@@ -64,6 +64,7 @@ section.header-area {
   height: calc(70vh - $header-height);
   display: flex;
   align-items: center;
+  color: white;
 }
 .header-area-center {
   h1 {
