@@ -102,7 +102,6 @@ export default {
         'faAngleDoubleRight',
         'faUndoAlt',
       ],
-      brands: ['faGithub'],
     },
   },
 
