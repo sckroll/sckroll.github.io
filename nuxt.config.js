@@ -91,12 +91,10 @@ export default {
     component: 'Fa',
     suffix: true,
     icons: {
-      regular: ['faSun', 'faMoon', 'faEnvelope'],
       solid: [
         'faSearch',
         'faChevronUp',
         'faChevronDown',
-        'faBars',
         'faEllipsisV',
         'faAngleLeft',
         'faAngleRight',
