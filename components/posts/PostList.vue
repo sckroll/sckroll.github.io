@@ -92,9 +92,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.post-list {
-  padding: 64px 32px;
-}
 .component-title {
   display: flex;
   justify-content: space-between;
@@ -149,21 +146,6 @@ export default {
   }
 }
 
-@include viewpoint-xl {
-  .post-list {
-    width: $breakpoint-xl;
-  }
-}
-@include viewpoint-lg {
-  .post-list {
-    width: $breakpoint-lg;
-  }
-}
-@include viewpoint-md {
-  .post-list {
-    width: $breakpoint-md;
-  }
-}
 @include viewpoint-sm {
   .component-title {
     h1 {
@@ -174,9 +156,6 @@ export default {
       display: block;
       margin-bottom: 64px;
     }
-  }
-  .post-list {
-    width: $breakpoint-sm;
   }
 }
 @include viewpoint-xs {
@@ -189,9 +168,6 @@ export default {
       display: block;
       margin-bottom: 64px;
     }
-  }
-  .post-list {
-    width: 100vw;
   }
 }
 </style>
