@@ -30,7 +30,7 @@ export default {
 }
 main {
   position: relative;
-  top: $header-height;
+  margin-top: $header-height;
   display: flex;
   justify-content: center;
 }
