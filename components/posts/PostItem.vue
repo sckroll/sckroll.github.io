@@ -1,5 +1,46 @@
 <template>
-  <nuxt-link :to="`/posts/${post.slug}`"> </nuxt-link>
+  <nuxt-link :to="`/posts/${post.slug}`">
+    <article :class="{ thumbnail }">
+      <div
+        v-if="thumbnail"
+        class="item-thumbnail"
+        :style="`background-image: ${thumbnailImage};`"
+      >
+        <div class="thumbnail-overlay"></div>
+      </div>
+      <div class="item-info-container">
+        <div class="main-info">
+          <div class="title-container">
+            <h2 class="title">
+              {{ trimTitle(post.title, maxTitleLength) }}
+            </h2>
+          </div>
+          <h3 class="description">
+            {{ trimDescription(post.description, maxDescriptionLength) }}
+          </h3>
+        </div>
+        <div class="other-info">
+          <div class="posted-date">
+            <span class="created-date">{{ formatDate(post.createdAt) }}</span>
+            <span
+              v-if="diffDate(post.createdAt, post.updatedAt) > 0"
+              class="updated-date"
+            >
+              (수정: {{ formatDate(post.updatedAt) }})
+            </span>
+          </div>
+          <div class="tags">
+            <span
+              v-for="tag in trimTags(post.tags, maxTagsLength)"
+              :key="tag"
+              class="tag"
+              >#{{ tag }}</span
+            >
+          </div>
+        </div>
+      </div>
+    </article>
+  </nuxt-link>
 </template>
 
 <script>

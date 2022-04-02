@@ -11,6 +11,7 @@
       </div>
     </section>
     <section class="content-area">
+      <PostItem :post="dummyPost"></PostItem>
       <PostList featured :posts="posts">
         <template v-slot:title>최근 포스트</template>
       </PostList>
@@ -46,6 +47,13 @@ export default {
   data() {
     return {
       toggle: false,
+      dummyPost: {
+        slug: 'dummy',
+        title: '더미 포스트',
+        description: '포스트 아이템 컴포넌트 테스트용 포스트입니다.',
+        tags: 'test',
+        createdAt: new Date(),
+      },
     }
   },
   head() {
