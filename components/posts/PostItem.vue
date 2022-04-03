@@ -1,41 +1,30 @@
 <template>
   <nuxt-link :to="`/posts/${post.slug}`">
-    <article :class="{ thumbnail }">
-      <div
-        v-if="thumbnail"
-        class="item-thumbnail"
-        :style="`background-image: ${thumbnailImage};`"
-      >
+    <article class="post-item">
+      <div class="post-thumbnail" :style="`background-image: ${thumbnail};`">
         <div class="thumbnail-overlay"></div>
       </div>
-      <div class="item-info-container">
-        <div class="main-info">
-          <div class="title-container">
-            <h2 class="title">
-              {{ trimTitle(post.title, maxTitleLength) }}
-            </h2>
-          </div>
-          <h3 class="description">
-            {{ trimDescription(post.description, maxDescriptionLength) }}
-          </h3>
-        </div>
+      <div class="post-info-container">
+        <h2 class="title">{{ post.title }}</h2>
+        <h3 class="description">{{ post.description }}</h3>
         <div class="other-info">
           <div class="posted-date">
-            <span class="created-date">{{ formatDate(post.createdAt) }}</span>
-            <span
+            <div class="created-date">{{ formatDate(post.createdAt) }}</div>
+            <div
               v-if="diffDate(post.createdAt, post.updatedAt) > 0"
               class="updated-date"
             >
               (수정: {{ formatDate(post.updatedAt) }})
-            </span>
+            </div>
           </div>
           <div class="tags">
-            <span
+            <div
               v-for="tag in trimTags(post.tags, maxTagsLength)"
               :key="tag"
               class="tag"
-              >#{{ tag }}</span
             >
+              #{{ tag }}
+            </div>
           </div>
         </div>
       </div>
@@ -44,6 +33,7 @@
 </template>
 
 <script>
+import { getPattern } from '@/utils/pattern'
 import { formatDate } from '@/utils/handleDate'
 import { trimTitle, trimTags, trimDescription } from '@/utils/handlePostInfo'
 
@@ -52,10 +42,6 @@ export default {
     post: {
       type: Object,
       required: true,
-    },
-    thumbnail: {
-      type: Boolean,
-      default: false,
     },
   },
   data() {
@@ -66,13 +52,14 @@ export default {
     }
   },
   computed: {
-    thumbnailImage() {
+    thumbnail() {
       return this.post.image
         ? `url(/images/projects/${this.post.image})`
         : this.getPattern(this.post.title)
     },
   },
   methods: {
+    getPattern,
     formatDate,
     trimTitle,
     trimTags,
@@ -96,4 +83,131 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+article.post-item {
+  border: 2px solid $color-grey-5;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  transition: $fade-default;
+
+  &:hover {
+    background-color: $color-grey-7;
+
+    &.thumbnail {
+      padding-top: 32px;
+    }
+    .title {
+      border-bottom: 2px solid $color-primary;
+    }
+  }
+  &:active {
+    border: 2px solid $color-primary;
+  }
+}
+.post-thumbnail {
+  aspect-ratio: 16 / 9;
+  background-position: center;
+}
+.thumbnail-overlay {
+  height: 100%;
+  background-color: rgba(black, 0.1);
+}
+.post-info-container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+
+  .title {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: $fade-default;
+  }
+  .description {
+    color: $color-grey-3;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+  }
+  .other-info {
+    display: flex;
+    justify-content: space-between;
+    color: $color-grey-3;
+  }
+  .posted-date {
+    display: flex;
+    gap: 8px;
+  }
+  .updated-date {
+    color: $color-grey-5;
+  }
+  .tags {
+    display: flex;
+    gap: 16px;
+  }
+}
+
+.dark-mode {
+  article.post-item {
+    border: 2px solid $color-grey-5;
+  }
+  .description {
+    color: $color-grey-5;
+  }
+  .other-info {
+    color: $color-grey-5;
+  }
+  .updated-date {
+    color: $color-grey-3;
+  }
+}
+
+@include viewpoint-sm {
+  .post-info-container {
+    gap: 8px;
+
+    .title {
+      padding-bottom: 2px;
+      font-size: 1.25em;
+    }
+    .description {
+      font-size: 1em;
+    }
+    .other-info {
+      display: block;
+      font-size: 0.8em;
+    }
+    .tags {
+      justify-content: flex-end;
+      gap: 8px;
+    }
+  }
+}
+@include viewpoint-xs {
+  .post-info-container {
+    gap: 8px;
+
+    .title {
+      padding-bottom: 2px;
+      font-size: 1.25em;
+    }
+    .description {
+      font-size: 1em;
+    }
+    .other-info {
+      display: block;
+      font-size: 0.8em;
+    }
+    .tags {
+      justify-content: flex-end;
+      gap: 8px;
+    }
+  }
+}
+</style>
