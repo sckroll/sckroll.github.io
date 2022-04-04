@@ -170,6 +170,13 @@ article.post-item {
   }
 }
 
+@include viewpoint-lg {
+  .post-info-container {
+    .other-info {
+      display: block;
+    }
+  }
+}
 @include viewpoint-sm {
   .post-info-container {
     gap: 8px;

@@ -25,4 +25,20 @@ section.post-list-contents {
     border-bottom: none;
   }
 }
+
+@include viewpoint-md {
+  section.post-list-contents {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@include viewpoint-sm {
+  section.post-list-contents {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@include viewpoint-xs {
+  section.post-list-contents {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
 </style>
