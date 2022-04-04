@@ -120,20 +120,22 @@ article.post-item {
   gap: 16px;
 
   .title {
-    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
     padding-bottom: 4px;
     border-bottom: 2px solid transparent;
     transition: $fade-default;
   }
   .description {
-    color: $color-grey-3;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+    color: $color-grey-3;
   }
   .other-info {
     display: flex;

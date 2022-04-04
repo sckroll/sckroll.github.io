@@ -11,7 +11,6 @@
       </div>
     </section>
     <section class="content-area">
-      <PostItem :post="dummyPosts[0]"></PostItem>
       <NewPostListContents :posts="dummyPosts"></NewPostListContents>
       <PostList featured :posts="posts">
         <template v-slot:title>최근 포스트</template>
