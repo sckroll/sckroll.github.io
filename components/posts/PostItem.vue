@@ -5,8 +5,10 @@
         <div class="thumbnail-overlay"></div>
       </div>
       <div class="post-info-container">
-        <h2 class="title">{{ post.title }}</h2>
-        <h3 class="description">{{ post.description }}</h3>
+        <div class="main-info">
+          <h2 class="title">{{ post.title }}</h2>
+          <h3 class="description">{{ post.description }}</h3>
+        </div>
         <div class="other-info">
           <div class="posted-date">
             <div class="created-date">{{ formatDate(post.createdAt) }}</div>
@@ -85,6 +87,7 @@ export default {
 
 <style lang="scss" scoped>
 article.post-item {
+  height: 100%;
   border: 2px solid $color-grey-5;
   padding: 32px;
   display: flex;
@@ -115,10 +118,16 @@ article.post-item {
   background-color: rgba(black, 0.1);
 }
 .post-info-container {
+  height: 160px;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  justify-content: space-between;
 
+  .main-info {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
   .title {
     overflow: hidden;
     text-overflow: ellipsis;
@@ -127,6 +136,7 @@ article.post-item {
     -webkit-box-orient: vertical;
     padding-bottom: 4px;
     border-bottom: 2px solid transparent;
+    font-size: 1.4em;
     transition: $fade-default;
   }
   .description {
@@ -136,6 +146,7 @@ article.post-item {
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     color: $color-grey-3;
+    font-size: 1.1em;
   }
   .other-info {
     display: flex;
