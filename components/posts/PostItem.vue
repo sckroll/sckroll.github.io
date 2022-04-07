@@ -169,6 +169,10 @@ article.post-item {
 .dark-mode {
   article.post-item {
     border: 2px solid $color-grey-5;
+
+    &:hover {
+      background-color: $color-grey-1;
+    }
   }
   .description {
     color: $color-grey-5;
