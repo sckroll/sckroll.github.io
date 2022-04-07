@@ -14,7 +14,7 @@
         </a>
       </div>
       <div class="copyright">
-        &copy; {{ new Date().getFullYear() }} Developed & designed by Sckroll.
+        &copy; {{ new Date().getFullYear() }} Designed & developed by Sckroll.
       </div>
     </div>
   </footer>
