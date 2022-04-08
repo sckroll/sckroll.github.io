@@ -173,6 +173,9 @@ article.post-item {
     &:hover {
       background-color: $color-grey-1;
     }
+    &:active {
+      border: 2px solid $color-primary;
+    }
   }
   .description {
     color: $color-grey-5;
