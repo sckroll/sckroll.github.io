@@ -11,10 +11,10 @@
       </div>
     </section>
     <section class="content-area">
-      <NewPostListContents :posts="dummyPosts"></NewPostListContents>
-      <PostList featured :posts="posts">
+      <NewPostListContents :posts="posts"></NewPostListContents>
+      <!-- <PostList featured :posts="posts">
         <template v-slot:title>최근 포스트</template>
-      </PostList>
+      </PostList> -->
     </section>
   </div>
 </template>
