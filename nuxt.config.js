@@ -15,7 +15,6 @@ export default {
       { name: 'theme-color', content: 'white' },
     ],
     link: [
-      // { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'icon', href: '/favicon.svg' },
       { rel: 'mask-icon', href: '/mask-icon.svg', color: 'white' },
       { rel: 'apple-touch-icon', href: '/apple-touch-icon.png' },
@@ -36,7 +35,6 @@ export default {
     '~/components/common',
     '~/components/posts',
     '~/components/projects',
-    '~/components/til',
   ],
 
   // Modules for dev and build (recommended) (https://go.nuxtjs.dev/config-modules)
