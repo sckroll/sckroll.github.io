@@ -55,6 +55,13 @@ export default {
       svg {
         fill: white;
       }
+      &:active {
+        border: 2px solid $color-primary;
+
+        svg {
+          fill: $color-primary;
+        }
+      }
     }
   }
 }
