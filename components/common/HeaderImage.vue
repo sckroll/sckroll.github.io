@@ -1,5 +1,7 @@
 <template>
-  <div v-if="hasHeaderImage" class="header-image-container"></div>
+  <div v-if="hasHeaderImage" class="header-image-container">
+    <HeaderIntro></HeaderIntro>
+  </div>
 </template>
 
 <script>
@@ -19,7 +21,6 @@ export default {
   position: absolute;
   display: flex;
   justify-content: center;
-  align-items: flex-end;
-  background: linear-gradient(to right, red, blue);
+  background: linear-gradient(to right, rgb(7, 0, 112), rgb(0, 0, 27));
 }
 </style>
