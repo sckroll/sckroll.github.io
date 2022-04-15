@@ -51,9 +51,6 @@ export default {
 
 <style lang="scss" scoped>
 .header-intro {
-  /* display: grid;
-  grid-template-columns: repeat(20, 1fr);
-  align-items: center; */
   position: absolute;
   width: 1200px;
   height: 70vh;
