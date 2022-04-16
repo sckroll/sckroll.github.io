@@ -26,6 +26,7 @@ html {
 body {
   background-color: white;
   color: black;
+  transition: $fade-default;
 }
 .dark-mode body {
   background-color: $color-grey-0;
