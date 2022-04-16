@@ -1,92 +1,40 @@
 <template>
   <div class="header-intro">
-    <SvgBase
-      width="96"
-      height="96"
-      :style="`top: ${getRandomTop()}px; left: ${getRandomleft()}px`"
-    >
-      <ShapeArch></ShapeArch>
-    </SvgBase>
-    <SvgBase
-      width="96"
-      height="96"
-      :style="`top: ${getRandomTop()}px; left: ${getRandomleft()}px`"
-    >
-      <ShapeSquare></ShapeSquare>
-    </SvgBase>
-    <SvgBase
-      width="96"
-      height="96"
-      :style="`top: ${getRandomTop()}px; left: ${getRandomleft()}px`"
-    >
-      <ShapeCircle></ShapeCircle>
-    </SvgBase>
-    <SvgBase
-      width="96"
-      height="96"
-      :style="`top: ${getRandomTop()}px; left: ${getRandomleft()}px`"
-    >
-      <ShapeQuarterCircle></ShapeQuarterCircle>
-    </SvgBase>
+    <div class="color-bar"></div>
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      positions: new Set(),
-    }
-  },
-  methods: {
-    getRandomTop() {
-      return Math.floor(Math.random() * 7) * 96
-    },
-    getRandomleft() {
-      return Math.floor(Math.random() * 14) * 96
-    },
-  },
-}
+export default {}
 </script>
 
 <style lang="scss" scoped>
+$bar-width: calc(100vw / 12);
+
 .header-intro {
   position: absolute;
-  width: 1200px;
+  width: 100%;
   height: 70vh;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
 
-  svg {
-    position: absolute;
-    top: -96px;
-    left: -96px;
-  }
-
-  path,
-  g,
-  circle {
-    stroke: rgba(white, 0.15);
-  }
-  path,
-  g {
-    transform-origin: 50% 50%;
-    animation: clockwise 4s ease infinite;
+  .color-bar {
+    background-color: $color-primary;
+    animation: bar-move 12s linear infinite;
   }
 }
-@keyframes clockwise {
+@keyframes bar-move {
   0% {
-    transform: rotate(0deg);
+    transform: translateX(0);
   }
-  25% {
-    transform: rotate(90deg);
+  90% {
+    transform: translateX(100vw);
   }
-  50% {
-    transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(270deg);
+  90.0001% {
+    transform: translateX(-$bar-width);
   }
   100% {
-    transform: rotate(360deg);
+    transform: translateX(0);
   }
 }
 </style>
