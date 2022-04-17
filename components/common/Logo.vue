@@ -4,10 +4,12 @@
     class="logo-container"
     :class="{ 'fix-light': hasHeaderImage, scrolled: isScrolled }"
   >
-    <SvgBase width="102" height="24">
-      <LogoText></LogoText>
-    </SvgBase>
-    <SvgBase>
+    <transition name="fade">
+      <SvgBase v-if="!isScrolled" width="102" height="24">
+        <LogoText></LogoText>
+      </SvgBase>
+    </transition>
+    <SvgBase class="logo-icon">
       <IconLogo></IconLogo>
     </SvgBase>
   </nuxt-link>
