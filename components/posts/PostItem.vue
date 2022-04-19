@@ -175,6 +175,10 @@ article.post-item {
 
     &:hover {
       background-color: $color-grey-2;
+
+      .title {
+        color: white;
+      }
     }
   }
   .description {
