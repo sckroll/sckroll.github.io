@@ -88,29 +88,21 @@ export default {
 <style lang="scss" scoped>
 article.post-item {
   height: 100%;
-  border: 2px solid $color-grey-5;
-  padding: 32px;
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  background-color: white;
   transition: $fade-default;
 
   &:hover {
     background-color: $color-grey-7;
-
-    &.thumbnail {
-      padding-top: 32px;
-    }
-    .title {
-      border-bottom: 2px solid $color-primary;
-    }
   }
   &:active {
-    border: 2px solid $color-primary;
+    /* border: 2px solid $color-primary; */
   }
 }
 .post-thumbnail {
   aspect-ratio: 16 / 9;
+  flex: 2;
   background-position: center;
 }
 .thumbnail-overlay {
@@ -118,7 +110,8 @@ article.post-item {
   background-color: rgba(black, 0.1);
 }
 .post-info-container {
-  height: 160px;
+  padding: 32px;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -126,7 +119,7 @@ article.post-item {
   .main-info {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
   }
   .title {
     overflow: hidden;
@@ -135,7 +128,6 @@ article.post-item {
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     padding-bottom: 4px;
-    border-bottom: 2px solid transparent;
     font-size: 1.4em;
     transition: $fade-default;
   }
@@ -168,13 +160,13 @@ article.post-item {
 
 .dark-mode {
   article.post-item {
-    border: 2px solid $color-grey-5;
+    background-color: $color-grey-1;
 
     &:hover {
-      background-color: $color-grey-1;
+      background-color: $color-grey-2;
     }
     &:active {
-      border: 2px solid $color-primary;
+      /* border: 2px solid $color-primary; */
     }
   }
   .description {

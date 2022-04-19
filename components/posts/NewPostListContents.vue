@@ -18,7 +18,7 @@ export default {
 <style lang="scss" scoped>
 section.post-list-contents {
   display: grid;
-  gap: 16px;
+  gap: 32px;
   grid-template-columns: repeat(2, 1fr);
 
   a {
