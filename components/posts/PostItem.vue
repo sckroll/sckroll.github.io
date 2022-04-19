@@ -30,6 +30,7 @@
           </div>
         </div>
       </div>
+      <div class="bottom-border"></div>
     </article>
   </nuxt-link>
 </template>
@@ -95,9 +96,13 @@ article.post-item {
 
   &:hover {
     background-color: $color-grey-7;
-  }
-  &:active {
-    /* border: 2px solid $color-primary; */
+
+    .title {
+      color: $color-primary;
+    }
+    .bottom-border {
+      width: 100%;
+    }
   }
 }
 .post-thumbnail {
@@ -157,6 +162,12 @@ article.post-item {
     gap: 16px;
   }
 }
+.bottom-border {
+  width: 0;
+  height: 8px;
+  background-color: $color-primary;
+  transition: width 0.2s cubic-bezier(0, 0.7, 0, 1);
+}
 
 .dark-mode {
   article.post-item {
@@ -164,9 +175,6 @@ article.post-item {
 
     &:hover {
       background-color: $color-grey-2;
-    }
-    &:active {
-      /* border: 2px solid $color-primary; */
     }
   }
   .description {
