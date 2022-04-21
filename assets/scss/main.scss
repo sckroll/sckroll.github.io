@@ -77,15 +77,16 @@ a {
     }
   }
 }
+
 .dark-mode .icon-link {
   &:hover {
     border: 2px solid rgba(white, 0.5);
   }
   &:active {
-    border: 2px solid $color-primary;
+    border: 2px solid $color-secondary;
 
     svg {
-      fill: $color-primary;
+      fill: $color-secondary;
     }
   }
 }

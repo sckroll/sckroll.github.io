@@ -46,20 +46,86 @@ export default {
   cursor: pointer;
   display: flex;
 
-  &.fix-light,
-  &.scrolled {
-    &.icon-link {
+  &.icon-link {
+    &.fix-light,
+    &.scrolled {
+      svg {
+        fill: black;
+      }
+      &:hover {
+        border: 2px solid rgba(black, 0.5);
+      }
+    }
+    &.fix-light {
+      svg {
+        fill: white;
+      }
       &:hover {
         border: 2px solid rgba(white, 0.5);
       }
+      &:active {
+        border: 2px solid $color-secondary;
+
+        svg {
+          fill: $color-secondary;
+        }
+      }
+    }
+    &.scrolled {
       svg {
-        fill: white;
+        fill: black;
+      }
+      &:hover {
+        border: 2px solid rgba(black, 0.5);
       }
       &:active {
         border: 2px solid $color-primary;
 
         svg {
           fill: $color-primary;
+        }
+      }
+    }
+  }
+}
+.dark-mode .color-mode-toggle {
+  &.icon-link {
+    &.fix-light,
+    &.scrolled {
+      svg {
+        fill: white;
+      }
+      &:hover {
+        border: 2px solid rgba(white, 0.5);
+      }
+    }
+    &.fix-light {
+      svg {
+        fill: white;
+      }
+      &:hover {
+        border: 2px solid rgba(white, 0.5);
+      }
+      &:active {
+        border: 2px solid $color-secondary;
+
+        svg {
+          fill: $color-secondary;
+        }
+      }
+    }
+    &.scrolled {
+      svg {
+        fill: white;
+      }
+      &:hover {
+        border: 2px solid rgba(white, 0.5);
+      }
+      &:active {
+        border: 2px solid $color-secondary;
+
+        svg {
+          fill: $color-secondary;
         }
       }
     }

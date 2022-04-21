@@ -98,6 +98,13 @@ section.header-area {
     font-size: 1.25em;
     padding-bottom: 4px;
     border-bottom: 2px solid white;
+
+    &:hover {
+      border-bottom: 2px solid $color-secondary;
+    }
+    &:active {
+      color: $color-secondary;
+    }
   }
 }
 section.content-area {

@@ -70,18 +70,15 @@ li {
 
     &:hover {
       border-bottom: 3px solid $color-primary;
-      transition: $fade-default;
     }
     &:active {
       color: $color-primary;
-      transition: $fade-default;
     }
   }
 }
 .nuxt-link-active {
   color: $color-primary;
   border-bottom: 3px solid $color-primary;
-  transition: $fade-default;
 }
 .mobile-menu {
   display: none;
@@ -96,10 +93,36 @@ li {
   }
   &.scrolled {
     &:hover {
-      border: 2px solid rgba(white, 0.5);
+      border: 2px solid rgba(black, 0.5);
     }
     svg {
-      fill: white;
+      fill: black;
+    }
+  }
+}
+.dark-mode {
+  .nuxt-link-active {
+    color: $color-secondary;
+    border-bottom: 3px solid $color-secondary;
+  }
+  li {
+    a {
+      &:hover {
+        border-bottom: 3px solid $color-secondary;
+      }
+      &:active {
+        color: $color-secondary;
+      }
+    }
+  }
+  .mobile-menu {
+    &.scrolled {
+      &:hover {
+        border: 2px solid rgba(white, 0.5);
+      }
+      svg {
+        fill: white;
+      }
     }
   }
 }

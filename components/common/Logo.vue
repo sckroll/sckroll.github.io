@@ -70,7 +70,7 @@ export default {
     transform: translateX(-126px);
 
     svg {
-      fill: white;
+      fill: black;
     }
   }
 
@@ -81,6 +81,13 @@ export default {
     &.scrolled {
       opacity: 0;
       transition: opacity 0.2s cubic-bezier(0, 0.7, 0, 1);
+    }
+  }
+}
+.dark-mode .logo-area {
+  &.scrolled {
+    svg {
+      fill: white;
     }
   }
 }

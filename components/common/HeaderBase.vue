@@ -105,8 +105,8 @@ header {
     color: white;
   }
   &.scrolled {
-    background-color: rgba(black, 0.5);
-    color: white;
+    background-color: rgba(white, 0.3);
+    color: black;
     backdrop-filter: blur(4px);
   }
 }
@@ -118,6 +118,12 @@ header {
   width: 100vw;
   height: 100vh;
   background-color: rgba(black, 0.6);
+}
+.dark-mode {
+  header.scrolled {
+    background-color: rgba(black, 0.3);
+    color: white;
+  }
 }
 
 @include viewpoint-xl {
