@@ -91,7 +91,6 @@ header {
     height: $header-height;
     display: flex;
     align-items: flex-end;
-    // padding: 0 32px 8px;
     padding: 0 24px 8px 32px;
   }
   .header-center {
