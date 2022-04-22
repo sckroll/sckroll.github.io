@@ -66,7 +66,7 @@ export default {
     font-weight: 700;
   }
   .post-empty {
-    color: $color-grey-4;
+    color: $color-grey-500;
   }
   &:last-of-type {
     text-align: right;

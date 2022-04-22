@@ -66,7 +66,7 @@ export default {
   box-shadow: 0 1px 2px 1px rgba(black, 0.2);
 }
 .dark-mode .post-mobile-toc {
-  background-color: $color-grey-1;
+  background-color: $color-grey-800;
 }
 .toc-list {
   .toc-item {

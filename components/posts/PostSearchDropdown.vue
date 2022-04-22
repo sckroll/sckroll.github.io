@@ -86,7 +86,7 @@ export default {
       margin-bottom: 0;
     }
     &:hover {
-      border-bottom: 3px solid $color-grey-5;
+      border-bottom: 3px solid $color-grey-400;
       transition: $fade-default;
     }
     &.selected {
@@ -96,6 +96,6 @@ export default {
   }
 }
 .dark-mode .dropdown-wrapper {
-  background-color: $color-grey-1;
+  background-color: $color-grey-800;
 }
 </style>

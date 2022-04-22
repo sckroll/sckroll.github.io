@@ -131,7 +131,7 @@ export default {
   justify-content: center;
   align-items: center;
   font-size: 1.5em;
-  color: $color-grey-3;
+  color: $color-grey-600;
   transition: $fade-default;
 
   &:hover {
@@ -140,14 +140,14 @@ export default {
   }
   &.disabled {
     cursor: default;
-    color: $color-grey-6;
+    color: $color-grey-300;
   }
 }
 .dark-mode .pagination-button {
-  color: $color-grey-6;
+  color: $color-grey-300;
 
   &.disabled {
-    color: $color-grey-3;
+    color: $color-grey-600;
   }
 }
 .input-area {
@@ -158,7 +158,7 @@ export default {
   input {
     width: 16px;
     border: none;
-    border-bottom: 3px solid $color-grey-3;
+    border-bottom: 3px solid $color-grey-600;
     margin-right: 4px;
     padding: 9px 0 2px;
     font-size: 1em;
@@ -191,7 +191,7 @@ export default {
 }
 .dark-mode .input-area {
   input {
-    border-bottom: 3px solid $color-grey-6;
+    border-bottom: 3px solid $color-grey-300;
     caret-color: white;
     color: white;
   }

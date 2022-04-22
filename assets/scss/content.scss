@@ -20,7 +20,7 @@ $hash-link-margin-top: $header-height + 32px;
     }
     code {
       padding: 2px;
-      background-color: $color-grey-3;
+      background-color: $color-grey-600;
       color: white;
     }
   }
@@ -31,7 +31,7 @@ $hash-link-margin-top: $header-height + 32px;
 
     code {
       padding: 2px;
-      background-color: $color-grey-3;
+      background-color: $color-grey-600;
       color: white;
     }
   }
@@ -42,7 +42,7 @@ $hash-link-margin-top: $header-height + 32px;
 
     code {
       padding: 2px;
-      background-color: $color-grey-3;
+      background-color: $color-grey-600;
       color: white;
     }
     img {
@@ -90,7 +90,7 @@ $hash-link-margin-top: $header-height + 32px;
   }
   blockquote {
     border-left: 8px solid $color-primary;
-    background-color: $color-grey-7;
+    background-color: $color-grey-100;
     margin: 16px 0;
     padding: 16px 32px;
   }
@@ -109,7 +109,7 @@ $hash-link-margin-top: $header-height + 32px;
     }
   }
   .nuxt-content-highlight {
-    background-color: $color-grey-3;
+    background-color: $color-grey-600;
     margin: 32px 0;
 
     .filename {
@@ -129,6 +129,6 @@ $hash-link-margin-top: $header-height + 32px;
 }
 .dark-mode .nuxt-content {
   blockquote {
-    background-color: $color-grey-2;
+    background-color: $color-grey-700;
   }
 }

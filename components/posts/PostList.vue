@@ -108,7 +108,7 @@ export default {
   display: flex;
   align-items: center;
   font-size: 1.5em;
-  color: $color-grey-3;
+  color: $color-grey-600;
   transition: $fade-default;
 
   &:hover {
@@ -117,7 +117,7 @@ export default {
   }
 }
 .dark-mode .search-button {
-  color: $color-grey-6;
+  color: $color-grey-300;
 }
 .search-message {
   height: 256px;
@@ -125,7 +125,7 @@ export default {
   justify-content: center;
   align-items: center;
   font-size: 1.25em;
-  color: $color-grey-4;
+  color: $color-grey-500;
 }
 .more-button-container {
   display: flex;

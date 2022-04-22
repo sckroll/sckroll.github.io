@@ -54,7 +54,7 @@ export default {
   flex-direction: column;
 
   a {
-    border-bottom: 1px solid $color-grey-7;
+    border-bottom: 1px solid $color-grey-100;
 
     &:last-child {
       border-bottom: none;
@@ -70,7 +70,7 @@ export default {
 }
 .dark-mode .post-list-contents {
   a {
-    border-bottom: 1px solid $color-grey-1;
+    border-bottom: 1px solid $color-grey-800;
   }
   &.project {
     gap: 32px;

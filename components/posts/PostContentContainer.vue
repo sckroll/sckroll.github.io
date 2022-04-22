@@ -85,7 +85,7 @@ $background-height: 70vh;
   }
 }
 .dark-mode .toc-mobile-button {
-  background-color: $color-grey-1;
+  background-color: $color-grey-800;
 }
 
 @include viewpoint-xl {

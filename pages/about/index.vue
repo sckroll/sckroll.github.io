@@ -147,7 +147,7 @@ export default {
 
   .nuxt-content {
     a {
-      border-bottom: 2px solid $color-grey-5;
+      border-bottom: 2px solid $color-grey-400;
       transition: $fade-default;
 
       &:hover {

@@ -140,7 +140,7 @@ article {
 }
 .dark-mode article {
   &:hover {
-    background-color: $color-grey-1;
+    background-color: $color-grey-800;
   }
 }
 .item-thumbnail {
@@ -175,15 +175,15 @@ article {
 }
 .description {
   font-size: 1.2em;
-  color: $color-grey-3;
+  color: $color-grey-600;
 }
 .dark-mode .description {
-  color: $color-grey-5;
+  color: $color-grey-400;
 }
 .other-info {
   display: flex;
   justify-content: space-between;
-  color: $color-grey-3;
+  color: $color-grey-600;
 
   .tags {
     display: flex;
@@ -191,13 +191,13 @@ article {
   }
 }
 .dark-mode .other-info {
-  color: $color-grey-5;
+  color: $color-grey-400;
 }
 .updated-date {
-  color: $color-grey-5;
+  color: $color-grey-400;
 }
 .dark-mode .updated-date {
-  color: $color-grey-3;
+  color: $color-grey-600;
 }
 
 @include viewpoint-xl {

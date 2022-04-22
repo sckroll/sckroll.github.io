@@ -74,7 +74,7 @@ nav.drawer {
   display: flex;
 }
 .dark-mode nav.drawer {
-  background-color: $color-grey-1;
+  background-color: $color-grey-800;
   color: white;
 }
 

@@ -95,7 +95,7 @@ article.post-item {
   transition: $fade-default;
 
   &:hover {
-    background-color: $color-grey-7;
+    background-color: $color-grey-100;
 
     .title {
       color: $color-primary;
@@ -142,20 +142,20 @@ article.post-item {
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
-    color: $color-grey-3;
+    color: $color-grey-600;
     font-size: 1.1em;
   }
   .other-info {
     display: flex;
     justify-content: space-between;
-    color: $color-grey-3;
+    color: $color-grey-600;
   }
   .posted-date {
     display: flex;
     gap: 8px;
   }
   .updated-date {
-    color: $color-grey-5;
+    color: $color-grey-400;
   }
   .tags {
     display: flex;
@@ -171,10 +171,10 @@ article.post-item {
 
 .dark-mode {
   article.post-item {
-    background-color: $color-grey-1;
+    background-color: $color-grey-800;
 
     &:hover {
-      background-color: $color-grey-2;
+      background-color: $color-grey-700;
 
       .title {
         color: white;
@@ -182,13 +182,13 @@ article.post-item {
     }
   }
   .description {
-    color: $color-grey-5;
+    color: $color-grey-400;
   }
   .other-info {
-    color: $color-grey-5;
+    color: $color-grey-400;
   }
   .updated-date {
-    color: $color-grey-3;
+    color: $color-grey-600;
   }
 }
 

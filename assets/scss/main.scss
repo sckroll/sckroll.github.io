@@ -29,7 +29,7 @@ body {
   transition: $fade-default;
 }
 .dark-mode body {
-  background-color: $color-grey-0;
+  background-color: $color-grey-900;
   color: white;
 }
 h1,
@@ -44,7 +44,7 @@ a {
   text-decoration: none;
   word-wrap: break-word;
   padding-bottom: 2px;
-  border-bottom: 2px solid $color-grey-5;
+  border-bottom: 2px solid $color-grey-400;
   transition: $fade-default;
 
   &:hover {
