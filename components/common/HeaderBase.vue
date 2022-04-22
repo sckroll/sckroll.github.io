@@ -105,7 +105,7 @@ header {
     color: white;
   }
   &.scrolled {
-    background-color: rgba(white, 0.3);
+    background-color: rgba(white, 0.7);
     color: black;
     backdrop-filter: blur(4px);
   }
@@ -121,7 +121,7 @@ header {
 }
 .dark-mode {
   header.scrolled {
-    background-color: rgba(black, 0.3);
+    background-color: rgba(black, 0.7);
     color: white;
   }
 }
