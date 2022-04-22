@@ -11,7 +11,7 @@
     <div
       class="mobile-menu icon-link"
       :class="{ 'fix-light': hasHeaderImage, scrolled: isScrolled }"
-      @click="openDrawer"
+      @click="toggleDrawer"
     >
       <SvgBase icon>
         <IconHamburger></IconHamburger>
@@ -37,8 +37,8 @@ export default {
     },
   },
   methods: {
-    openDrawer() {
-      this.$emit('drawer-open')
+    toggleDrawer() {
+      this.$emit('drawer-toggle')
     },
   },
 }
@@ -82,6 +82,7 @@ li {
 }
 .mobile-menu {
   display: none;
+  z-index: 20;
 
   &.fix-light {
     &:hover {

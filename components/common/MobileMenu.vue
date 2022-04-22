@@ -36,12 +36,14 @@ nav.drawer {
   right: 0;
   flex-direction: column;
   justify-content: space-between;
-  background-color: white;
+  background-color: rgba(white, 0.7);
+  backdrop-filter: blur(4px);
   color: black;
   box-shadow: 0 2px 4px 2px rgba(black, 0.2);
-  width: 40%;
+  width: 100%;
   height: 100vh;
   padding: 48px 32px;
+  transition: $fade-default;
 
   ul {
     list-style: none;
@@ -74,7 +76,7 @@ nav.drawer {
   display: flex;
 }
 .dark-mode nav.drawer {
-  background-color: $color-grey-800;
+  background-color: rgba(black, 0.7);
   color: white;
 }
 
@@ -101,7 +103,6 @@ nav.drawer {
 @include viewpoint-xs {
   nav.drawer {
     display: flex;
-    width: 50%;
   }
 }
 </style>

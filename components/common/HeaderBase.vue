@@ -3,18 +3,15 @@
     <div class="header-container">
       <div class="header-center">
         <Logo></Logo>
-        <HeaderMenu :menu="menu" @drawer-open="openDrawer"></HeaderMenu>
+        <HeaderMenu :menu="menu" @drawer-toggle="toggleDrawer"></HeaderMenu>
       </div>
     </div>
     <transition name="fade">
-      <div v-if="drawer" class="overlay" @click="closeDrawer"></div>
-    </transition>
-    <transition name="slide-fade">
-      <NavDrawer
+      <MobileMenu
         v-if="drawer"
         :menu="menu"
         @drawer-close="closeDrawer"
-      ></NavDrawer>
+      ></MobileMenu>
     </transition>
   </header>
 </template>
@@ -68,11 +65,11 @@ export default {
     onScroll(e) {
       this.scrollPos = e.target.documentElement.scrollTop
     },
-    openDrawer() {
-      this.drawer = true
-    },
     closeDrawer() {
       this.drawer = false
+    },
+    toggleDrawer() {
+      this.drawer = !this.drawer
     },
   },
 }
@@ -109,15 +106,6 @@ header {
     backdrop-filter: blur(4px);
   }
 }
-.overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: none;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(black, 0.6);
-}
 .dark-mode {
   header.scrolled {
     background-color: rgba(black, 0.7);
@@ -144,16 +132,10 @@ header {
   .header-container {
     width: $breakpoint-sm;
   }
-  .overlay {
-    display: block;
-  }
 }
 @include viewpoint-xs {
   .header-container {
     width: 100%;
-  }
-  .overlay {
-    display: block;
   }
 }
 </style>
