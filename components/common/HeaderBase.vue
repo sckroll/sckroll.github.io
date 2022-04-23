@@ -3,15 +3,11 @@
     <div class="header-container">
       <div class="header-center">
         <Logo></Logo>
-        <HeaderMenu :menu="menu" @drawer-toggle="toggleDrawer"></HeaderMenu>
+        <HeaderMenu :menu="menu"></HeaderMenu>
       </div>
     </div>
     <transition name="fade">
-      <MobileMenu
-        v-if="drawer"
-        :menu="menu"
-        @drawer-close="closeDrawer"
-      ></MobileMenu>
+      <MobileMenu v-if="isVisible" :menu="menu"></MobileMenu>
     </transition>
   </header>
 </template>
@@ -53,6 +49,9 @@ export default {
     isError() {
       return this.$store.state.isErrorPage
     },
+    isVisible() {
+      return this.$store.state.isMobileMenuOpened
+    },
   },
   mounted() {
     window.addEventListener('scroll', this.onScroll)
@@ -64,12 +63,6 @@ export default {
   methods: {
     onScroll(e) {
       this.scrollPos = e.target.documentElement.scrollTop
-    },
-    closeDrawer() {
-      this.drawer = false
-    },
-    toggleDrawer() {
-      this.drawer = !this.drawer
     },
   },
 }

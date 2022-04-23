@@ -2,7 +2,7 @@
   <nav class="drawer">
     <ul>
       <li v-for="item in menu" :key="item.name">
-        <nuxt-link :to="item.path" @click.native="closeDrawer">
+        <nuxt-link :to="item.path" @click.native="closeMenu">
           {{ item.name }}
         </nuxt-link>
       </li>
@@ -28,8 +28,8 @@ export default {
     document.documentElement.classList.remove('scroll-disabled')
   },
   methods: {
-    closeDrawer() {
-      this.$emit('drawer-close')
+    closeMenu() {
+      this.$store.commit('SET_MOBILE_MENU_STATE', false)
     },
   },
 }

@@ -5,6 +5,7 @@ export const state = () => ({
   isDarkMode: false,
   isScrolled: false,
   hasHeaderImage: false,
+  isMobileMenuOpened: false,
 })
 
 export const mutations = {
@@ -22,5 +23,8 @@ export const mutations = {
   },
   SET_HEADER_IMAGE_STATE(state, hasHeaderImage) {
     state.hasHeaderImage = hasHeaderImage
+  },
+  SET_MOBILE_MENU_STATE(state, isMobileMenuOpened) {
+    state.isMobileMenuOpened = isMobileMenuOpened
   },
 }

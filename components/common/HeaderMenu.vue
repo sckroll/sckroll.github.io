@@ -11,10 +11,10 @@
     <div
       class="mobile-menu icon-link"
       :class="{ 'fix-light': hasHeaderImage, scrolled: isScrolled }"
-      @click="toggleDrawer"
+      @click="toggleMenu"
     >
       <SvgBase icon>
-        <IconHamburger></IconHamburger>
+        <IconMenu></IconMenu>
       </SvgBase>
     </div>
   </nav>
@@ -35,10 +35,13 @@ export default {
     isScrolled() {
       return this.$store.state.isScrolled
     },
+    isVisible() {
+      return this.$store.state.isMobileMenuOpened
+    },
   },
   methods: {
-    toggleDrawer() {
-      this.$emit('drawer-toggle')
+    toggleMenu() {
+      this.$store.commit('SET_MOBILE_MENU_STATE', !this.isVisible)
     },
   },
 }
