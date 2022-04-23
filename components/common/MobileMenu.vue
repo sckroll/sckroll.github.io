@@ -21,6 +21,12 @@ export default {
       required: true,
     },
   },
+  mounted() {
+    document.documentElement.classList.add('scroll-disabled')
+  },
+  beforeDestroy() {
+    document.documentElement.classList.remove('scroll-disabled')
+  },
   methods: {
     closeDrawer() {
       this.$emit('drawer-close')

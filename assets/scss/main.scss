@@ -77,6 +77,11 @@ a {
     }
   }
 }
+.scroll-disabled {
+  height: 100%;
+  overflow-y: hidden;
+  touch-action: none;
+}
 
 .dark-mode .icon-link {
   &:hover {
