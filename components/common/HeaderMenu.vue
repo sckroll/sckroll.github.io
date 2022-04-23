@@ -14,7 +14,7 @@
       @click="toggleMenu"
     >
       <SvgBase icon>
-        <IconMenu></IconMenu>
+        <IconMenu :opened="isVisible"></IconMenu>
       </SvgBase>
     </div>
   </nav>
