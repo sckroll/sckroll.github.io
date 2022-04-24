@@ -59,6 +59,7 @@ ul {
   margin-right: 32px;
   font-family: Metropolis, sans-serif;
   font-size: 1.25em;
+  font-weight: 500;
 }
 li {
   display: flex;

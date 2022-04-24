@@ -57,15 +57,16 @@ ul {
   gap: 32px;
   font-family: Metropolis, sans-serif;
   font-size: 2.5em;
+  // font-weight: 500;
   padding: 0;
 }
 li {
   a {
-    border-bottom: 4px solid transparent;
+    border-bottom: 3px solid transparent;
     transition: $fade-default;
 
     &:hover {
-      border-bottom: 4px solid $color-primary;
+      border-bottom: 3px solid $color-primary;
     }
   }
 }
@@ -76,7 +77,7 @@ li {
   }
   a {
     &:hover {
-      border-bottom: 4px solid $color-secondary;
+      border-bottom: 3px solid $color-secondary;
     }
   }
 }
