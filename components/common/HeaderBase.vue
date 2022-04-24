@@ -1,5 +1,11 @@
 <template>
-  <header :class="{ 'fix-light': hasHeaderImage, scrolled: isScrolled }">
+  <header
+    :class="{
+      'fix-light': hasHeaderImage,
+      scrolled: isScrolled,
+      'blur-disabled': isVisible,
+    }"
+  >
     <div class="header-container">
       <div class="header-center">
         <Logo></Logo>
@@ -97,6 +103,10 @@ header {
     background-color: rgba(white, 0.7);
     color: black;
     backdrop-filter: blur(4px);
+
+    &.blur-disabled {
+      backdrop-filter: none;
+    }
   }
 }
 .dark-mode {
