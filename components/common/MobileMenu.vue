@@ -47,7 +47,7 @@ export default {
   box-shadow: 0 2px 4px 2px rgba(black, 0.2);
   width: 100%;
   height: 100vh;
-  padding: calc($header-height + 16px) 32px;
+  padding: calc($header-height + 32px) 32px;
   transition: $fade-default;
 }
 ul {
