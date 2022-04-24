@@ -1,7 +1,11 @@
 <template>
   <div
     class="color-mode-toggle icon-link"
-    :class="{ 'fix-light': hasHeaderImage, scrolled: isScrolled }"
+    :class="{
+      'fix-light': hasHeaderImage,
+      scrolled: isScrolled,
+      'mobile-menu': isMobileMenuVisible,
+    }"
     @click="toggleColorMode"
   >
     <SvgBase icon>
@@ -30,6 +34,9 @@ export default {
     isScrolled() {
       if (this.drawer) return false
       return this.$store.state.isScrolled
+    },
+    isMobileMenuVisible() {
+      return this.$store.state.isMobileMenuOpened
     },
   },
   methods: {
@@ -69,6 +76,21 @@ export default {
 
         svg {
           fill: $color-secondary;
+        }
+      }
+      &.mobile-menu {
+        svg {
+          fill: black;
+        }
+        &:hover {
+          border: 2px solid rgba(black, 0.5);
+        }
+        &:active {
+          border: 2px solid $color-primary;
+
+          svg {
+            fill: $color-primary;
+          }
         }
       }
     }

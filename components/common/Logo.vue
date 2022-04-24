@@ -80,8 +80,17 @@ export default {
   overflow: hidden;
   transition: transform 0.25s cubic-bezier(0, 0.7, 0, 1);
 
-  &.fix-light svg {
-    fill: white;
+  &.fix-light {
+    svg {
+      fill: white;
+      transition: $fade-default;
+    }
+
+    &.mobile-menu {
+      svg {
+        fill: black;
+      }
+    }
   }
   &.scrolled {
     transform: translateX(-126px);
@@ -112,6 +121,13 @@ export default {
     &.scrolled {
       svg {
         fill: white;
+      }
+    }
+    &.fix-light {
+      &.mobile-menu {
+        svg {
+          fill: white;
+        }
       }
     }
   }

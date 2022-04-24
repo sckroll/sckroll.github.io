@@ -7,8 +7,12 @@
     </ul>
     <ColorModeToggle></ColorModeToggle>
     <div
-      class="mobile-menu icon-link"
-      :class="{ 'fix-light': hasHeaderImage, scrolled: isScrolled }"
+      class="mobile-menu-button icon-link"
+      :class="{
+        'fix-light': hasHeaderImage,
+        scrolled: isScrolled,
+        'mobile-menu': isMobileMenuVisible,
+      }"
       @click="toggleMenu"
     >
       <SvgBase icon>
@@ -83,24 +87,32 @@ li {
   color: $color-primary;
   border-bottom: 3px solid $color-primary;
 }
-.mobile-menu {
+.mobile-menu-button {
   display: none;
   z-index: 20;
 
   &.fix-light {
-    &:hover {
-      border: 2px solid rgba(white, 0.5);
-    }
     svg {
       fill: white;
     }
+    &:hover {
+      border: 2px solid rgba(white, 0.5);
+    }
+    &.mobile-menu {
+      svg {
+        fill: black;
+      }
+      &:hover {
+        border: 2px solid rgba(black, 0.5);
+      }
+    }
   }
   &.scrolled {
-    &:hover {
-      border: 2px solid rgba(black, 0.5);
-    }
     svg {
       fill: black;
+    }
+    &:hover {
+      border: 2px solid rgba(black, 0.5);
     }
   }
 }
@@ -119,13 +131,13 @@ li {
       }
     }
   }
-  .mobile-menu {
+  .mobile-menu-button {
     &.scrolled {
-      &:hover {
-        border: 2px solid rgba(white, 0.5);
-      }
       svg {
         fill: white;
+      }
+      &:hover {
+        border: 2px solid rgba(white, 0.5);
       }
     }
   }
@@ -135,7 +147,7 @@ li {
   .desktop-menu {
     display: none;
   }
-  .mobile-menu {
+  .mobile-menu-button {
     display: flex;
   }
 }
@@ -143,7 +155,7 @@ li {
   .desktop-menu {
     display: none;
   }
-  .mobile-menu {
+  .mobile-menu-button {
     display: flex;
   }
 }
