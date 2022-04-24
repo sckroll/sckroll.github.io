@@ -84,10 +84,18 @@ export default {
     }
   }
 }
-.dark-mode .logo-area {
-  &.scrolled {
-    svg {
-      fill: white;
+.dark-mode {
+  .logo-area {
+    &.scrolled {
+      svg {
+        fill: white;
+      }
+    }
+  }
+  .logo-link {
+    &:hover,
+    &:active {
+      border-bottom: none;
     }
   }
 }
