@@ -98,12 +98,26 @@ li {
     &:hover {
       border: 2px solid rgba(white, 0.5);
     }
+    &:active {
+      border: 2px solid $color-secondary;
+
+      svg {
+        fill: $color-secondary;
+      }
+    }
     &.mobile-menu {
       svg {
         fill: black;
       }
       &:hover {
         border: 2px solid rgba(black, 0.5);
+      }
+      &:active {
+        border: 2px solid $color-primary;
+
+        svg {
+          fill: $color-primary;
+        }
       }
     }
   }
@@ -113,6 +127,13 @@ li {
     }
     &:hover {
       border: 2px solid rgba(black, 0.5);
+    }
+    &:active {
+      border: 2px solid $color-primary;
+
+      svg {
+        fill: $color-primary;
+      }
     }
   }
 }
@@ -138,6 +159,30 @@ li {
       }
       &:hover {
         border: 2px solid rgba(white, 0.5);
+      }
+      &:active {
+        border: 2px solid $color-secondary;
+
+        svg {
+          fill: $color-secondary;
+        }
+      }
+    }
+    &.fix-light {
+      &.mobile-menu {
+        svg {
+          fill: white;
+        }
+        &:hover {
+          border: 2px solid rgba(white, 0.5);
+        }
+        &:active {
+          border: 2px solid $color-secondary;
+
+          svg {
+            fill: $color-secondary;
+          }
+        }
       }
     }
   }
