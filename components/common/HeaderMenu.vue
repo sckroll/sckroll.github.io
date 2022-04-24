@@ -4,10 +4,8 @@
       <li v-for="(item, index) in menu" :key="index">
         <nuxt-link :to="item.path">{{ item.name }}</nuxt-link>
       </li>
-      <li>
-        <ColorModeToggle></ColorModeToggle>
-      </li>
     </ul>
+    <ColorModeToggle></ColorModeToggle>
     <div
       class="mobile-menu icon-link"
       :class="{ 'fix-light': hasHeaderImage, scrolled: isScrolled }"
@@ -58,6 +56,7 @@ ul {
   justify-content: space-between;
   align-items: center;
   gap: 32px;
+  margin-right: 32px;
   font-family: Metropolis, sans-serif;
   font-size: 1.25em;
 }

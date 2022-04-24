@@ -43,6 +43,7 @@ export default {
 
 <style lang="scss" scoped>
 .color-mode-toggle {
+  z-index: 20;
   cursor: pointer;
   display: flex;
 
