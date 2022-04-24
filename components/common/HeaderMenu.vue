@@ -12,7 +12,7 @@
       @click="toggleMenu"
     >
       <SvgBase icon>
-        <IconMenu :opened="isVisible"></IconMenu>
+        <IconMenu :opened="isMobileMenuVisible"></IconMenu>
       </SvgBase>
     </div>
   </nav>
@@ -33,13 +33,13 @@ export default {
     isScrolled() {
       return this.$store.state.isScrolled
     },
-    isVisible() {
+    isMobileMenuVisible() {
       return this.$store.state.isMobileMenuOpened
     },
   },
   methods: {
     toggleMenu() {
-      this.$store.commit('SET_MOBILE_MENU_STATE', !this.isVisible)
+      this.$store.commit('SET_MOBILE_MENU_STATE', !this.isMobileMenuVisible)
     },
   },
 }

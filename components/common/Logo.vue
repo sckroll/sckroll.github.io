@@ -5,12 +5,12 @@
       :class="{
         'fix-light': hasHeaderImage,
         scrolled: isScrolled,
-        'mobile-menu': isVisible,
+        'mobile-menu': isMobileMenuVisible,
       }"
     >
       <SvgBase
         class="logo-text"
-        :class="{ scrolled: isScrolled, 'mobile-menu': isVisible }"
+        :class="{ scrolled: isScrolled, 'mobile-menu': isMobileMenuVisible }"
         width="102"
         height="24"
       >
@@ -23,7 +23,7 @@
     <nuxt-link
       to="/"
       class="logo-link"
-      :class="{ scrolled: isScrolled, 'mobile-menu': isVisible }"
+      :class="{ scrolled: isScrolled, 'mobile-menu': isMobileMenuVisible }"
       @click.native="closeMenu"
     ></nuxt-link>
   </div>
@@ -38,7 +38,7 @@ export default {
     isScrolled() {
       return this.$store.state.isScrolled
     },
-    isVisible() {
+    isMobileMenuVisible() {
       return this.$store.state.isMobileMenuOpened
     },
   },

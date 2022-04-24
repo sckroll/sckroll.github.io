@@ -3,7 +3,7 @@
     :class="{
       'fix-light': hasHeaderImage,
       scrolled: isScrolled,
-      'blur-disabled': isVisible,
+      'blur-disabled': isMobileMenuVisible,
     }"
   >
     <div class="header-container">
@@ -13,7 +13,7 @@
       </div>
     </div>
     <transition name="fade">
-      <MobileMenu v-if="isVisible" :menu="menu"></MobileMenu>
+      <MobileMenu v-if="isMobileMenuVisible" :menu="menu"></MobileMenu>
     </transition>
   </header>
 </template>
@@ -55,7 +55,7 @@ export default {
     isError() {
       return this.$store.state.isErrorPage
     },
-    isVisible() {
+    isMobileMenuVisible() {
       return this.$store.state.isMobileMenuOpened
     },
   },
