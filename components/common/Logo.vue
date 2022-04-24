@@ -2,11 +2,15 @@
   <div class="logo-container">
     <div
       class="logo-area"
-      :class="{ 'fix-light': hasHeaderImage, scrolled: isScrolled }"
+      :class="{
+        'fix-light': hasHeaderImage,
+        scrolled: isScrolled,
+        'mobile-menu': isVisible,
+      }"
     >
       <SvgBase
         class="logo-text"
-        :class="{ scrolled: isScrolled }"
+        :class="{ scrolled: isScrolled, 'mobile-menu': isVisible }"
         width="102"
         height="24"
       >
@@ -19,7 +23,8 @@
     <nuxt-link
       to="/"
       class="logo-link"
-      :class="{ scrolled: isScrolled }"
+      :class="{ scrolled: isScrolled, 'mobile-menu': isVisible }"
+      @click.native="closeMenu"
     ></nuxt-link>
   </div>
 </template>
@@ -33,12 +38,21 @@ export default {
     isScrolled() {
       return this.$store.state.isScrolled
     },
+    isVisible() {
+      return this.$store.state.isMobileMenuOpened
+    },
+  },
+  methods: {
+    closeMenu() {
+      this.$store.commit('SET_MOBILE_MENU_STATE', false)
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
 .logo-container {
+  z-index: 20;
   display: flex;
 }
 .logo-link {
@@ -54,6 +68,9 @@ export default {
   }
   &.scrolled {
     width: 32px;
+  }
+  &.mobile-menu {
+    width: 158px;
   }
 }
 .logo-area {
@@ -73,6 +90,9 @@ export default {
       fill: black;
     }
   }
+  &.mobile-menu {
+    transform: translateX(0);
+  }
 
   .logo-text {
     opacity: 1;
@@ -81,6 +101,9 @@ export default {
     &.scrolled {
       opacity: 0;
       transition: opacity 0.2s cubic-bezier(0, 0.7, 0, 1);
+    }
+    &.mobile-menu {
+      opacity: 1;
     }
   }
 }
