@@ -39,15 +39,15 @@ export default {
   position: absolute;
   top: 0;
   right: 0;
-  flex-direction: column;
-  justify-content: space-between;
+  display: flex;
+  align-items: center;
   background-color: rgba(white, 0.7);
   backdrop-filter: blur(4px);
   color: black;
   box-shadow: 0 2px 4px 2px rgba(black, 0.2);
   width: 100%;
   height: 100vh;
-  padding: calc($header-height + 32px) 32px;
+  padding: 0 32px;
   transition: $fade-default;
 }
 ul {
@@ -57,10 +57,11 @@ ul {
   gap: 32px;
   font-family: Metropolis, sans-serif;
   font-size: 2.5em;
-  // font-weight: 500;
   padding: 0;
 }
 li {
+  opacity: 0;
+
   a {
     border-bottom: 3px solid transparent;
     transition: $fade-default;
@@ -68,6 +69,15 @@ li {
     &:hover {
       border-bottom: 3px solid $color-primary;
     }
+  }
+  &:nth-of-type(1) {
+    animation: item-fade-up 0.4s cubic-bezier(0, 0.7, 0, 1) forwards;
+  }
+  &:nth-of-type(2) {
+    animation: item-fade-up 0.4s cubic-bezier(0, 0.7, 0, 1) forwards 0.05s;
+  }
+  &:nth-of-type(3) {
+    animation: item-fade-up 0.4s cubic-bezier(0, 0.7, 0, 1) forwards 0.1s;
   }
 }
 .dark-mode {
@@ -105,6 +115,16 @@ li {
 @include viewpoint-xs {
   .mobile-menu-container {
     display: flex;
+  }
+}
+
+@keyframes item-fade-up {
+  0% {
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
