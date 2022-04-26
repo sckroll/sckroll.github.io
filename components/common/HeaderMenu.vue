@@ -2,7 +2,14 @@
   <nav class="header-menu">
     <ul class="desktop-menu">
       <li v-for="(item, index) in menu" :key="index">
-        <nuxt-link :to="item.path">{{ item.name }}</nuxt-link>
+        <nuxt-link
+          :to="item.path"
+          :class="{
+            'fix-light': hasHeaderImage,
+            scrolled: isScrolled,
+          }"
+          >{{ item.name }}</nuxt-link
+        >
       </li>
     </ul>
     <ColorModeToggle></ColorModeToggle>
@@ -81,6 +88,22 @@ li {
     &:active {
       color: $color-primary;
     }
+    &.fix-light {
+      &:hover {
+        border-bottom: 3px solid $color-secondary;
+      }
+      &:active {
+        color: $color-secondary;
+      }
+      &.scrolled {
+        &:hover {
+          border-bottom: 3px solid $color-primary;
+        }
+        &:active {
+          color: $color-primary;
+        }
+      }
+    }
   }
 }
 .nuxt-link-active {
@@ -149,6 +172,14 @@ li {
       }
       &:active {
         color: $color-secondary;
+      }
+      &.scrolled {
+        &:hover {
+          border-bottom: 3px solid $color-secondary;
+        }
+        &:active {
+          color: $color-secondary;
+        }
       }
     }
   }
