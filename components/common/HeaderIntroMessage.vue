@@ -35,29 +35,24 @@ export default {}
   }
 }
 
-@include viewpoint-xl {
-  .page-container {
-    width: $breakpoint-xl;
-  }
-}
-@include viewpoint-lg {
-  .page-container {
-    width: $breakpoint-lg;
-  }
-}
-@include viewpoint-md {
-  .page-container {
-    width: $breakpoint-md;
-  }
-}
 @include viewpoint-sm {
-  .page-container {
-    width: $breakpoint-sm;
+  .header-intro-message {
+    h1 {
+      font-size: 1.5em;
+    }
+    a {
+      font-size: 1.1em;
+    }
   }
 }
 @include viewpoint-xs {
-  .page-container {
-    width: 100%;
+  .header-intro-message {
+    h1 {
+      font-size: 1.3em;
+    }
+    a {
+      font-size: 1em;
+    }
   }
 }
 </style>
