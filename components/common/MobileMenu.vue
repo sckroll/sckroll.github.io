@@ -40,6 +40,7 @@ export default {
   top: 0;
   right: 0;
   display: flex;
+  justify-content: center;
   align-items: center;
   background-color: rgba(white, 0.7);
   backdrop-filter: blur(4px);
@@ -47,8 +48,11 @@ export default {
   box-shadow: 0 2px 4px 2px rgba(black, 0.2);
   width: 100%;
   height: 100vh;
-  padding: 0 32px;
   transition: $fade-default;
+}
+nav {
+  padding: 0 32px;
+  width: $breakpoint-sm;
 }
 ul {
   list-style: none;
