@@ -78,7 +78,7 @@ export default {
   gap: 24px;
   align-items: center;
   overflow: hidden;
-  transition: transform 0.25s cubic-bezier(0, 0.7, 0, 1);
+  transition: transform 0.25s $move-smooth;
 
   &.fix-light {
     svg {
@@ -105,11 +105,11 @@ export default {
 
   .logo-text {
     opacity: 1;
-    transition: opacity 0.2s cubic-bezier(0, 0.7, 0, 1);
+    transition: opacity 0.2s $move-smooth;
 
     &.scrolled {
       opacity: 0;
-      transition: opacity 0.2s cubic-bezier(0, 0.7, 0, 1);
+      transition: opacity 0.2s $move-smooth;
     }
     &.mobile-menu {
       opacity: 1;

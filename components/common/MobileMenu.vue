@@ -75,13 +75,13 @@ li {
     }
   }
   &:nth-of-type(1) {
-    animation: item-fade-up 0.4s cubic-bezier(0, 0.7, 0, 1) forwards;
+    animation: item-fade-up 0.4s $move-smooth forwards;
   }
   &:nth-of-type(2) {
-    animation: item-fade-up 0.4s cubic-bezier(0, 0.7, 0, 1) forwards 0.05s;
+    animation: item-fade-up 0.4s $move-smooth forwards 0.05s;
   }
   &:nth-of-type(3) {
-    animation: item-fade-up 0.4s cubic-bezier(0, 0.7, 0, 1) forwards 0.1s;
+    animation: item-fade-up 0.4s $move-smooth forwards 0.1s;
   }
 }
 .dark-mode {

@@ -166,7 +166,7 @@ article.post-item {
   width: 0;
   height: 8px;
   background-color: $color-primary;
-  transition: width 0.2s cubic-bezier(0, 0.7, 0, 1);
+  transition: width 0.2s $move-smooth;
 }
 
 .dark-mode {

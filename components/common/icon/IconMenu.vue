@@ -22,7 +22,7 @@ export default {
 .line-2,
 .line-3 {
   transform-origin: center;
-  transition: transform 0.4s cubic-bezier(0, 0.7, 0, 1);
+  transition: transform 0.4s $move-smooth;
 }
 .opened {
   .line-1 {
