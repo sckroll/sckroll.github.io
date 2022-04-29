@@ -32,10 +32,7 @@ body {
   background-color: $color-grey-900;
   color: white;
 }
-h1,
-h2,
-h3,
-h4 {
+.display {
   font-family: Metropolis, Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI",
     "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
 }
@@ -47,6 +44,10 @@ a {
   border-bottom: 2px solid $color-grey-400;
   transition: $fade-default;
 
+  &::before {
+    content: '';
+
+  }
   &:hover {
     border-bottom: 2px solid $color-primary;
     transition: $fade-default;

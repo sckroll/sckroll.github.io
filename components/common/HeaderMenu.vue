@@ -1,6 +1,6 @@
 <template>
   <nav class="header-menu">
-    <ul class="desktop-menu">
+    <ul class="desktop-menu display">
       <li v-for="(item, index) in menu" :key="index">
         <nuxt-link
           :to="item.path"
@@ -68,7 +68,6 @@ ul {
   align-items: center;
   gap: 32px;
   margin-right: 32px;
-  font-family: Metropolis, sans-serif;
   font-size: 1.25em;
   font-weight: 500;
 }

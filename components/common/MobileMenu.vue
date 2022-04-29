@@ -1,7 +1,7 @@
 <template>
   <div class="mobile-menu-container">
     <nav class="mobile-menu-nav">
-      <ul>
+      <ul class="display">
         <li v-for="item in menu" :key="item.name">
           <nuxt-link :to="item.path" @click.native="closeMenu">
             {{ item.name }}
@@ -59,7 +59,6 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  font-family: Metropolis, sans-serif;
   font-size: 2.5em;
   padding: 0;
 }

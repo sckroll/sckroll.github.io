@@ -1,6 +1,6 @@
 <template>
   <div class="header-intro-message">
-    <h1>
+    <h1 class="display">
       프론트엔드 개발자가 되기 위해<br />
       오늘도 공부하는 Sckroll의<br />
       홈페이지에 오신 것을 환영합니다.
