@@ -28,7 +28,8 @@ section.post-list-contents {
 
 @include viewpoint-md {
   section.post-list-contents {
-    grid-template-columns: repeat(1, 1fr);
+    gap: 16px;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 @include viewpoint-sm {

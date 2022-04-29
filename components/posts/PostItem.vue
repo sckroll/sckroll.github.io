@@ -107,7 +107,7 @@ article.post-item {
 }
 .post-thumbnail {
   aspect-ratio: 16 / 9;
-  flex: 2;
+  flex: 3;
   background-position: center;
 }
 .thumbnail-overlay {
@@ -116,7 +116,7 @@ article.post-item {
 }
 .post-info-container {
   padding: 32px;
-  flex: 1;
+  flex: 2;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -132,7 +132,6 @@ article.post-item {
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
-    padding-bottom: 4px;
     font-size: 1.4em;
     transition: $fade-default;
   }
@@ -200,7 +199,39 @@ article.post-item {
 @include viewpoint-lg {
   .post-info-container {
     .other-info {
-      display: block;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .tags {
+      justify-content: flex-end;
+      gap: 8px;
+    }
+  }
+}
+@include viewpoint-md {
+  .post-info-container {
+    padding: 24px;
+
+    .main-info {
+      gap: 4px;
+    }
+    .title {
+      font-size: 1.2em;
+    }
+    .description {
+      font-size: 1em;
+    }
+    .other-info {
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.8em;
+    }
+    .posted-date {
+      gap: 4px;
+    }
+    .tags {
+      justify-content: flex-end;
+      gap: 8px;
     }
   }
 }
@@ -216,8 +247,9 @@ article.post-item {
       font-size: 1em;
     }
     .other-info {
-      display: block;
-      font-size: 0.8em;
+      flex-direction: column;
+      gap: 4px;
+      font-size: 0.9em;
     }
     .tags {
       justify-content: flex-end;
@@ -237,7 +269,8 @@ article.post-item {
       font-size: 1em;
     }
     .other-info {
-      display: block;
+      flex-direction: column;
+      gap: 4px;
       font-size: 0.8em;
     }
     .tags {
