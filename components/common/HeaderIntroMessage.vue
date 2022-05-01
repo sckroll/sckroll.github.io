@@ -5,7 +5,14 @@
       오늘도 공부하는 Sckroll의<br />
       홈페이지에 오신 것을 환영합니다.
     </h1>
-    <nuxt-link to="/about">제가 누군지 궁금하세요?</nuxt-link>
+    <div class="underline-link">
+      <nuxt-link to="/about">
+        제가 누군지 궁금하세요?
+        <div class="underline-outer">
+          <div class="underline-inner"></div>
+        </div>
+      </nuxt-link>
+    </div>
   </div>
 </template>
 
@@ -21,16 +28,35 @@ export default {}
     margin-bottom: 32px;
     line-height: 1.5em;
   }
+  .underline-link {
+    display: flex;
+  }
   a {
     font-size: 1.25em;
-    padding-bottom: 4px;
-    border-bottom: 2px solid white;
+    border-bottom: none;
+    /* padding-bottom: 4px; */
+    /* border-bottom: 2px solid white; */
 
     &:hover {
-      border-bottom: 2px solid $color-secondary;
+      border-bottom: none;
+      /* border-bottom: 2px solid $color-secondary; */
+
+      .underline-inner {
+        width: 100%;
+      }
     }
     &:active {
       color: $color-secondary;
+    }
+    .underline-outer {
+      margin-top: 4px;
+      background-color: white;
+    }
+    .underline-inner {
+      width: 0;
+      height: 2px;
+      background-color: $color-secondary;
+      transition: width 0.2s $move-smooth;
     }
   }
 }
