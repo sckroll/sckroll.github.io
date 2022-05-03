@@ -5,14 +5,9 @@
       오늘도 공부하는 Sckroll의<br />
       홈페이지에 오신 것을 환영합니다.
     </h1>
-    <div class="underline-link">
-      <nuxt-link to="/about">
-        제가 누군지 궁금하세요?
-        <div class="underline-outer">
-          <div class="underline-inner"></div>
-        </div>
-      </nuxt-link>
-    </div>
+    <AnchorLink to="/about" class="about-link">
+      제가 누군지 궁금하세요?
+    </AnchorLink>
   </div>
 </template>
 
@@ -28,36 +23,8 @@ export default {}
     margin-bottom: 32px;
     line-height: 1.5em;
   }
-  .underline-link {
-    display: flex;
-  }
-  a {
+  .about-link {
     font-size: 1.25em;
-    border-bottom: none;
-    /* padding-bottom: 4px; */
-    /* border-bottom: 2px solid white; */
-
-    &:hover {
-      border-bottom: none;
-      /* border-bottom: 2px solid $color-secondary; */
-
-      .underline-inner {
-        width: 100%;
-      }
-    }
-    &:active {
-      color: $color-secondary;
-    }
-    .underline-outer {
-      margin-top: 4px;
-      background-color: white;
-    }
-    .underline-inner {
-      width: 0;
-      height: 2px;
-      background-color: $color-secondary;
-      transition: width 0.2s $move-smooth;
-    }
   }
 }
 
@@ -66,7 +33,7 @@ export default {}
     h1 {
       font-size: 1.5em;
     }
-    a {
+    .about-link {
       font-size: 1.1em;
     }
   }
@@ -76,7 +43,7 @@ export default {}
     h1 {
       font-size: 1.3em;
     }
-    a {
+    .about-link {
       font-size: 1em;
     }
   }
