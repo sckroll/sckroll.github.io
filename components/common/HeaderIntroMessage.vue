@@ -5,7 +5,7 @@
       오늘도 공부하는 Sckroll의<br />
       홈페이지에 오신 것을 환영합니다.
     </h1>
-    <AnchorLink to="/about" class="about-link">
+    <AnchorLink to="/about" class="about-link" underline>
       제가 누군지 궁금하세요?
     </AnchorLink>
   </div>

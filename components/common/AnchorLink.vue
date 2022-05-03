@@ -2,7 +2,7 @@
   <div class="underline-link">
     <nuxt-link :to="to">
       <slot></slot>
-      <div class="underline-outer">
+      <div class="underline-outer" :class="{ visible: underline }">
         <div class="underline-inner"></div>
       </div>
     </nuxt-link>
@@ -15,6 +15,10 @@ export default {
     to: {
       type: String,
       required: true,
+    },
+    underline: {
+      type: Boolean,
+      default: false,
     },
   },
 }
@@ -39,7 +43,10 @@ a {
   }
   .underline-outer {
     margin-top: 4px;
-    background-color: white;
+
+    &.visible {
+      background-color: white;
+    }
   }
   .underline-inner {
     width: 0;
