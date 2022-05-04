@@ -33,7 +33,6 @@ footer {
 }
 .links {
   display: flex;
-  gap: 16px;
   padding: 0;
 }
 
