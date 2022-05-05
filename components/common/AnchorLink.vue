@@ -62,6 +62,7 @@ export default {
 }
 a {
   border-bottom: none;
+  margin-top: 6px;
 
   &:hover {
     border-bottom: none;
@@ -102,8 +103,6 @@ a {
 }
 .dark-mode {
   a {
-    border-bottom: none;
-
     &:hover {
       border-bottom: none;
 
