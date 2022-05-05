@@ -1,5 +1,14 @@
 <template>
+  <a
+    v-if="to"
+    :href="to"
+    class="icon-link"
+    :class="{ reversed: isReversed(), fix }"
+  >
+    <slot></slot>
+  </a>
   <div
+    v-else
     class="icon-link"
     :class="{ reversed: isReversed(), fix }"
     @click="handleClick"
@@ -21,6 +30,10 @@ export default {
     },
     fix: {
       type: Boolean,
+      default: false,
+    },
+    to: {
+      type: [String, Boolean],
       default: false,
     },
   },
