@@ -1,6 +1,6 @@
 <template>
   <div class="underline-link">
-    <nuxt-link :to="to" :class="{ reversed: isReversed(), fix }">
+    <nuxt-link :to="to" :class="{ reversed: isReversed(), fix, thick }">
       <slot></slot>
       <div class="underline-outer" :class="{ visible: underline }">
         <div class="underline-inner"></div>
@@ -29,6 +29,10 @@ export default {
       default: false,
     },
     fix: {
+      type: Boolean,
+      default: false,
+    },
+    thick: {
       type: Boolean,
       default: false,
     },
@@ -100,6 +104,13 @@ a {
       background-color: $color-secondary;
     }
   }
+  &.thick {
+    margin-top: 8px;
+
+    .underline-inner {
+      height: 4px;
+    }
+  }
 }
 .dark-mode {
   a {
@@ -114,17 +125,12 @@ a {
       color: $color-secondary;
     }
     .underline-outer {
-      margin-top: 4px;
-
       &.visible {
         background-color: white;
       }
     }
     .underline-inner {
-      width: 0;
-      height: 2px;
       background-color: $color-secondary;
-      transition: width 0.2s $move-smooth;
     }
     &.reversed:not(.fix) {
       &:active {
