@@ -3,9 +3,9 @@
     <nav class="mobile-menu-nav">
       <ul class="display">
         <li v-for="item in menu" :key="item.name">
-          <nuxt-link :to="item.path" @click.native="closeMenu">
+          <TextLink :to="item.path" thick @click.native="closeMenu">
             {{ item.name }}
-          </nuxt-link>
+          </TextLink>
         </li>
       </ul>
     </nav>
@@ -65,14 +65,6 @@ ul {
 li {
   opacity: 0;
 
-  a {
-    border-bottom: 3px solid transparent;
-    transition: $fade-default;
-
-    &:hover {
-      border-bottom: 3px solid $color-primary;
-    }
-  }
   &:nth-of-type(1) {
     animation: item-fade-up 0.4s $move-smooth forwards;
   }
@@ -87,11 +79,6 @@ li {
   .mobile-menu-container {
     background-color: rgba(black, 0.7);
     color: white;
-  }
-  a {
-    &:hover {
-      border-bottom: 3px solid $color-secondary;
-    }
   }
 }
 

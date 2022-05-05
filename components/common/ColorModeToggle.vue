@@ -1,18 +1,16 @@
 <template>
-  <div
-    class="color-mode-toggle icon-link"
-    :class="{
-      'fix-light': hasHeaderImage,
-      scrolled: isScrolled,
-      'mobile-menu': isMobileMenuVisible,
-    }"
+  <IconLink
+    class="color-mode-toggle"
+    :reverse="hasHeaderImage && !isMobileMenuVisible"
+    :scroll="hasHeaderImage && !isMobileMenuVisible"
+    :fix="hasHeaderImage && !isMobileMenuVisible"
     @click="toggleColorMode"
   >
     <SvgBase icon>
       <IconDark v-if="isDarkMode"></IconDark>
       <IconLight v-else></IconLight>
     </SvgBase>
-  </div>
+  </IconLink>
 </template>
 
 <script>
@@ -53,105 +51,5 @@ export default {
   z-index: 20;
   cursor: pointer;
   display: flex;
-
-  &.icon-link {
-    &.fix-light,
-    &.scrolled {
-      svg {
-        fill: black;
-      }
-      &:hover {
-        border: 2px solid rgba(black, 0.5);
-      }
-    }
-    &.fix-light {
-      svg {
-        fill: white;
-      }
-      &:hover {
-        border: 2px solid rgba(white, 0.5);
-      }
-      &:active {
-        border: 2px solid $color-secondary;
-
-        svg {
-          fill: $color-secondary;
-        }
-      }
-      &.mobile-menu {
-        svg {
-          fill: black;
-        }
-        &:hover {
-          border: 2px solid rgba(black, 0.5);
-        }
-        &:active {
-          border: 2px solid $color-primary;
-
-          svg {
-            fill: $color-primary;
-          }
-        }
-      }
-    }
-    &.scrolled {
-      svg {
-        fill: black;
-      }
-      &:hover {
-        border: 2px solid rgba(black, 0.5);
-      }
-      &:active {
-        border: 2px solid $color-primary;
-
-        svg {
-          fill: $color-primary;
-        }
-      }
-    }
-  }
-}
-.dark-mode .color-mode-toggle {
-  &.icon-link {
-    &.fix-light,
-    &.scrolled {
-      svg {
-        fill: white;
-      }
-      &:hover {
-        border: 2px solid rgba(white, 0.5);
-      }
-    }
-    &.fix-light {
-      svg {
-        fill: white;
-      }
-      &:hover {
-        border: 2px solid rgba(white, 0.5);
-      }
-      &:active {
-        border: 2px solid $color-secondary;
-
-        svg {
-          fill: $color-secondary;
-        }
-      }
-    }
-    &.scrolled {
-      svg {
-        fill: white;
-      }
-      &:hover {
-        border: 2px solid rgba(white, 0.5);
-      }
-      &:active {
-        border: 2px solid $color-secondary;
-
-        svg {
-          fill: $color-secondary;
-        }
-      }
-    }
-  }
 }
 </style>

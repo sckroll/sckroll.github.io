@@ -2,16 +2,16 @@
   <footer>
     <div class="footer-container">
       <div class="links">
-        <a href="mailto://kimsc0714@gmail.com" class="icon-link">
+        <IconLink to="mailto://kimsc0714@gmail.com">
           <SvgBase icon>
             <IconEmail></IconEmail>
           </SvgBase>
-        </a>
-        <a href="https://github.com/sckroll" class="icon-link">
+        </IconLink>
+        <IconLink to="https://github.com/sckroll">
           <SvgBase icon width="28" height="28">
             <IconGitHub></IconGitHub>
           </SvgBase>
-        </a>
+        </IconLink>
       </div>
       <div class="copyright">
         &copy; {{ new Date().getFullYear() }} Designed & developed by Sckroll.
