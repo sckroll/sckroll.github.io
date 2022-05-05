@@ -2,14 +2,14 @@
   <nav class="header-menu">
     <ul class="desktop-menu display">
       <li v-for="(item, index) in menu" :key="index">
-        <AnchorLink
+        <TextLink
           :to="item.path"
           :reverse="hasHeaderImage"
           :scroll="hasHeaderImage"
           :fix="hasHeaderImage"
         >
           {{ item.name }}
-        </AnchorLink>
+        </TextLink>
       </li>
     </ul>
     <ColorModeToggle></ColorModeToggle>

@@ -3,9 +3,9 @@
     <nav class="mobile-menu-nav">
       <ul class="display">
         <li v-for="item in menu" :key="item.name">
-          <AnchorLink :to="item.path" thick @click.native="closeMenu">
+          <TextLink :to="item.path" thick @click.native="closeMenu">
             {{ item.name }}
-          </AnchorLink>
+          </TextLink>
         </li>
       </ul>
     </nav>
