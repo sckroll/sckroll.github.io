@@ -41,12 +41,6 @@ export default {
     isScrolled() {
       return this.$store.state.isScrolled
     },
-    isMobileMenuVisible() {
-      return this.$store.state.isMobileMenuOpened
-    },
-  },
-  mounted() {
-    console.log(this.$colorMode.value)
   },
   methods: {
     isReversed() {
