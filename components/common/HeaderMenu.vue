@@ -2,14 +2,14 @@
   <nav class="header-menu">
     <ul class="desktop-menu display">
       <li v-for="(item, index) in menu" :key="index">
-        <nuxt-link
+        <AnchorLink
           :to="item.path"
-          :class="{
-            'fix-light': hasHeaderImage,
-            scrolled: isScrolled,
-          }"
-          >{{ item.name }}</nuxt-link
+          :reverse="hasHeaderImage"
+          :scroll="hasHeaderImage"
+          :fix="hasHeaderImage"
         >
+          {{ item.name }}
+        </AnchorLink>
       </li>
     </ul>
     <ColorModeToggle></ColorModeToggle>
@@ -74,36 +74,6 @@ ul {
 li {
   display: flex;
   align-items: center;
-
-  a {
-    padding: 4px 0;
-    border-top: 3px solid transparent;
-    border-bottom: 3px solid transparent;
-    transition: $fade-default;
-
-    &:hover {
-      border-bottom: 3px solid $color-primary;
-    }
-    &:active {
-      color: $color-primary;
-    }
-    &.fix-light {
-      &:hover {
-        border-bottom: 3px solid $color-secondary;
-      }
-      &:active {
-        color: $color-secondary;
-      }
-      &.scrolled {
-        &:hover {
-          border-bottom: 3px solid $color-primary;
-        }
-        &:active {
-          color: $color-primary;
-        }
-      }
-    }
-  }
 }
 .nuxt-link-active {
   color: $color-primary;
@@ -163,24 +133,6 @@ li {
   .nuxt-link-active {
     color: $color-secondary;
     border-bottom: 3px solid $color-secondary;
-  }
-  li {
-    a {
-      &:hover {
-        border-bottom: 3px solid $color-secondary;
-      }
-      &:active {
-        color: $color-secondary;
-      }
-      &.scrolled {
-        &:hover {
-          border-bottom: 3px solid $color-secondary;
-        }
-        &:active {
-          color: $color-secondary;
-        }
-      }
-    }
   }
   .mobile-menu-button {
     &.scrolled {
