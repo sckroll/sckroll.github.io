@@ -14,6 +14,7 @@
     </ul>
     <ColorModeToggle></ColorModeToggle>
     <IconLink
+      v-if="isMobile"
       class="mobile-menu-button"
       :reverse="hasHeaderImage && !isMobileMenuVisible"
       :scroll="hasHeaderImage && !isMobileMenuVisible"
@@ -28,12 +29,19 @@
 </template>
 
 <script>
+import { breakpointMd } from '@/assets/scss/main.scss'
+
 export default {
   props: {
     menu: {
       type: Array,
       required: true,
     },
+  },
+  data() {
+    return {
+      isMobile: false,
+    }
   },
   computed: {
     hasHeaderImage() {
@@ -46,9 +54,23 @@ export default {
       return this.$store.state.isMobileMenuOpened
     },
   },
+  mounted() {
+    window.addEventListener('resize', this.onResize)
+    this.onResize()
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
+  },
   methods: {
     toggleMenu() {
       this.$store.commit('SET_MOBILE_MENU_STATE', !this.isMobileMenuVisible)
+    },
+    onResize() {
+      if (window.innerWidth <= parseInt(breakpointMd.replace('px', ''))) {
+        this.isMobile = true
+      } else {
+        this.isMobile = false
+      }
     },
   },
 }
@@ -78,7 +100,6 @@ li {
   border-bottom: 3px solid $color-primary;
 }
 .mobile-menu-button {
-  display: none;
   z-index: 20;
 }
 .dark-mode {
@@ -92,16 +113,10 @@ li {
   .desktop-menu {
     display: none;
   }
-  .mobile-menu-button {
-    display: flex;
-  }
 }
 @include viewpoint-xs {
   .desktop-menu {
     display: none;
-  }
-  .mobile-menu-button {
-    display: flex;
   }
 }
 </style>
