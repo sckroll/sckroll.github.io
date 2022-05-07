@@ -105,6 +105,16 @@ a {
       height: 4px;
     }
   }
+  &.nuxt-link-active {
+    .underline-outer {
+      &.visible {
+        background-color: $color-primary;
+      }
+    }
+    .underline-inner {
+      width: 100%;
+    }
+  }
 }
 .dark-mode {
   a {
