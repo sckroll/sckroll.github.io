@@ -95,18 +95,8 @@ li {
   display: flex;
   align-items: center;
 }
-.nuxt-link-active {
-  color: $color-primary;
-  border-bottom: 3px solid $color-primary;
-}
 .mobile-menu-button {
   z-index: 20;
-}
-.dark-mode {
-  .nuxt-link-active {
-    color: $color-secondary;
-    border-bottom: 3px solid $color-secondary;
-  }
 }
 
 @include viewpoint-sm {
