@@ -1,14 +1,20 @@
 <template>
   <div class="pagination-container">
     <div class="pagination-center">
-      <span v-if="currPage === 1" class="pagination-button disabled">
+      <!-- <span v-if="currPage === 1" class="pagination-button disabled">
         <fa-icon :icon="['fa', 'angle-double-left']" />
       </span>
       <nuxt-link v-else :to="`/posts/page/1`" class="pagination-button">
         <fa-icon :icon="['fa', 'angle-double-left']" />
-      </nuxt-link>
+      </nuxt-link> -->
 
-      <span v-if="currPage === 1" class="pagination-button disabled">
+      <IconLink to="/posts/page/1">
+        <SvgBase icon>
+          <IconDoubleLeft></IconDoubleLeft>
+        </SvgBase>
+      </IconLink>
+
+      <!-- <span v-if="currPage === 1" class="pagination-button disabled">
         <fa-icon :icon="['fa', 'angle-left']" />
       </span>
       <nuxt-link
@@ -17,7 +23,13 @@
         class="pagination-button"
       >
         <fa-icon :icon="['fa', 'angle-left']" />
-      </nuxt-link>
+      </nuxt-link> -->
+
+      <IconLink :to="`/posts/page/${prevPage}`">
+        <SvgBase icon>
+          <IconLeft></IconLeft>
+        </SvgBase>
+      </IconLink>
 
       <span class="input-area">
         <input
@@ -33,7 +45,7 @@
         {{ totalPages }}
       </span>
 
-      <span v-if="currPage === totalPages" class="pagination-button disabled">
+      <!-- <span v-if="currPage === totalPages" class="pagination-button disabled">
         <fa-icon :icon="['fa', 'angle-right']" />
       </span>
       <nuxt-link
@@ -42,9 +54,15 @@
         class="pagination-button"
       >
         <fa-icon :icon="['fa', 'angle-right']" />
-      </nuxt-link>
+      </nuxt-link> -->
 
-      <span v-if="currPage === totalPages" class="pagination-button disabled">
+      <IconLink :to="`/posts/page/${nextPage}`">
+        <SvgBase icon>
+          <IconRight></IconRight>
+        </SvgBase>
+      </IconLink>
+
+      <!-- <span v-if="currPage === totalPages" class="pagination-button disabled">
         <fa-icon :icon="['fa', 'angle-double-right']" />
       </span>
       <nuxt-link
@@ -53,7 +71,13 @@
         class="pagination-button"
       >
         <fa-icon :icon="['fa', 'angle-double-right']" />
-      </nuxt-link>
+      </nuxt-link> -->
+
+      <IconLink :to="`/posts/page/${totalPages}`">
+        <SvgBase icon>
+          <IconDoubleRight></IconDoubleRight>
+        </SvgBase>
+      </IconLink>
     </div>
   </div>
 </template>
