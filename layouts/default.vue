@@ -34,4 +34,33 @@ main {
   display: flex;
   justify-content: center;
 }
+.page-container {
+  padding: 0 32px;
+}
+
+@include viewpoint-xl {
+  .page-container {
+    width: $breakpoint-xl;
+  }
+}
+@include viewpoint-lg {
+  .page-container {
+    width: $breakpoint-lg;
+  }
+}
+@include viewpoint-md {
+  .page-container {
+    width: $breakpoint-md;
+  }
+}
+@include viewpoint-sm {
+  .page-container {
+    width: $breakpoint-sm;
+  }
+}
+@include viewpoint-xs {
+  .page-container {
+    width: 100%;
+  }
+}
 </style>

@@ -46,9 +46,6 @@ export default {
 </script>
 
 <style lang="scss">
-.page-container {
-  padding: 0 32px;
-}
 section.header-area {
   height: calc(70vh - $header-height);
   display: flex;
@@ -57,31 +54,5 @@ section.header-area {
 }
 section.content-area {
   margin: 32px 0;
-}
-
-@include viewpoint-xl {
-  .page-container {
-    width: $breakpoint-xl;
-  }
-}
-@include viewpoint-lg {
-  .page-container {
-    width: $breakpoint-lg;
-  }
-}
-@include viewpoint-md {
-  .page-container {
-    width: $breakpoint-md;
-  }
-}
-@include viewpoint-sm {
-  .page-container {
-    width: $breakpoint-sm;
-  }
-}
-@include viewpoint-xs {
-  .page-container {
-    width: 100%;
-  }
 }
 </style>
