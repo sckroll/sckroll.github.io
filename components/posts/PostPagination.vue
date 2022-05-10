@@ -12,19 +12,16 @@
         </SvgBase>
       </IconLink>
 
-      <span class="input-area">
-        <input
-          v-model="page"
-          type="number"
-          class="page-input"
-          min="1"
-          :max="totalPages"
-          @keydown="onKeydown"
-          @blur="onBlur"
-        />
-        /
-        {{ totalPages }}
-      </span>
+      <div class="pages">
+        <IconLink
+          v-for="(_, index) in new Array(totalPages)"
+          :key="index"
+          :class="{ 'curr-page': isCurrPage(index + 1) }"
+          @click="moveToPage(index + 1)"
+        >
+          {{ index + 1 }}
+        </IconLink>
+      </div>
 
       <IconLink :disabled="!hasNextPage" @click="moveToNext">
         <SvgBase icon>
@@ -108,65 +105,43 @@ export default {
     moveToLast() {
       if (this.hasNextPage) this.$router.push(`/posts/page/${this.totalPages}`)
     },
+    moveToPage(page) {
+      this.$router.push(`/posts/page/${page}`)
+    },
+    isCurrPage(page) {
+      return this.currPage === page
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
 .pagination-container {
-  /* padding: 0 32px; */
   display: flex;
   justify-content: center;
 }
 .pagination-center {
-  width: 256px;
   display: flex;
   justify-content: space-between;
 }
-.input-area {
+.pages {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  font-size: 1.25em;
+}
+.curr-page {
+  border: 2px solid $color-primary;
 
-  input {
-    width: 16px;
-    border: none;
-    border-bottom: 3px solid $color-grey-600;
-    margin-right: 4px;
-    padding: 9px 0 2px;
-    font-size: 1em;
-    text-align: center;
-    background-color: transparent;
-    caret-color: black;
-    color: black;
-    transition: $fade-default;
-
-    &:hover {
-      border-bottom: 3px solid $color-primary;
-      transition: $fade-default;
-    }
-    &:focus {
-      outline: none;
-      border-bottom: 3px solid $color-primary;
-      transition: $fade-default;
-    }
-    /* Chrome, Safari, Edge, Opera */
-    &::-webkit-outer-spin-button,
-    &::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-    /* Firefox */
-    &[type='number'] {
-      -moz-appearance: textfield;
-    }
+  &:hover {
+    border: 2px solid $color-primary;
   }
 }
-.dark-mode .input-area {
-  input {
-    border-bottom: 3px solid $color-grey-300;
-    caret-color: white;
-    color: white;
+.dark-mode {
+  .curr-page {
+    border: 2px solid $color-secondary;
+
+    &:hover {
+      border: 2px solid $color-secondary;
+    }
   }
 }
 </style>
