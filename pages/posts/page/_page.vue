@@ -1,5 +1,5 @@
 <template>
-  <div class="post-list-page">
+  <div class="page-container post-list-page">
     <post-list :posts="paginatedPosts" search-button>
       <template v-slot:title>블로그 포스트</template>
     </post-list>
