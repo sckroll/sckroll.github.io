@@ -1,31 +1,12 @@
 <template>
   <div class="pagination-container">
     <div class="pagination-center">
-      <!-- <span v-if="currPage === 1" class="pagination-button disabled">
-        <fa-icon :icon="['fa', 'angle-double-left']" />
-      </span>
-      <nuxt-link v-else :to="`/posts/page/1`" class="pagination-button">
-        <fa-icon :icon="['fa', 'angle-double-left']" />
-      </nuxt-link> -->
-
-      <IconLink to="/posts/page/1">
+      <IconLink to="/posts/page/1" :disabled="currPage === 1">
         <SvgBase icon>
           <IconDoubleLeft></IconDoubleLeft>
         </SvgBase>
       </IconLink>
-
-      <!-- <span v-if="currPage === 1" class="pagination-button disabled">
-        <fa-icon :icon="['fa', 'angle-left']" />
-      </span>
-      <nuxt-link
-        v-else
-        :to="`/posts/page/${prevPage}`"
-        class="pagination-button"
-      >
-        <fa-icon :icon="['fa', 'angle-left']" />
-      </nuxt-link> -->
-
-      <IconLink :to="`/posts/page/${prevPage}`">
+      <IconLink :to="`/posts/page/${prevPage}`" :disabled="currPage === 1">
         <SvgBase icon>
           <IconLeft></IconLeft>
         </SvgBase>
@@ -45,35 +26,18 @@
         {{ totalPages }}
       </span>
 
-      <!-- <span v-if="currPage === totalPages" class="pagination-button disabled">
-        <fa-icon :icon="['fa', 'angle-right']" />
-      </span>
-      <nuxt-link
-        v-else
+      <IconLink
         :to="`/posts/page/${nextPage}`"
-        class="pagination-button"
+        :disabled="currPage === totalPages"
       >
-        <fa-icon :icon="['fa', 'angle-right']" />
-      </nuxt-link> -->
-
-      <IconLink :to="`/posts/page/${nextPage}`">
         <SvgBase icon>
           <IconRight></IconRight>
         </SvgBase>
       </IconLink>
-
-      <!-- <span v-if="currPage === totalPages" class="pagination-button disabled">
-        <fa-icon :icon="['fa', 'angle-double-right']" />
-      </span>
-      <nuxt-link
-        v-else
+      <IconLink
         :to="`/posts/page/${totalPages}`"
-        class="pagination-button"
+        :disabled="currPage === totalPages"
       >
-        <fa-icon :icon="['fa', 'angle-double-right']" />
-      </nuxt-link> -->
-
-      <IconLink :to="`/posts/page/${totalPages}`">
         <SvgBase icon>
           <IconDoubleRight></IconDoubleRight>
         </SvgBase>
@@ -146,33 +110,6 @@ export default {
   width: 256px;
   display: flex;
   justify-content: space-between;
-}
-.pagination-button {
-  cursor: pointer;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5em;
-  color: $color-grey-600;
-  transition: $fade-default;
-
-  &:hover {
-    color: $color-primary;
-    transition: $fade-default;
-  }
-  &.disabled {
-    cursor: default;
-    color: $color-grey-300;
-  }
-}
-.dark-mode .pagination-button {
-  color: $color-grey-300;
-
-  &.disabled {
-    color: $color-grey-600;
-  }
 }
 .input-area {
   display: flex;
