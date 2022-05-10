@@ -1,12 +1,12 @@
 <template>
   <div class="pagination-container">
     <div class="pagination-center">
-      <IconLink to="/posts/page/1" :disabled="currPage === 1">
+      <IconLink :disabled="!hasPrevPage" @click="moveToFirst">
         <SvgBase icon>
           <IconDoubleLeft></IconDoubleLeft>
         </SvgBase>
       </IconLink>
-      <IconLink :to="`/posts/page/${prevPage}`" :disabled="currPage === 1">
+      <IconLink :disabled="!hasPrevPage" @click="moveToPrev">
         <SvgBase icon>
           <IconLeft></IconLeft>
         </SvgBase>
@@ -26,18 +26,12 @@
         {{ totalPages }}
       </span>
 
-      <IconLink
-        :to="`/posts/page/${nextPage}`"
-        :disabled="currPage === totalPages"
-      >
+      <IconLink :disabled="!hasNextPage" @click="moveToNext">
         <SvgBase icon>
           <IconRight></IconRight>
         </SvgBase>
       </IconLink>
-      <IconLink
-        :to="`/posts/page/${totalPages}`"
-        :disabled="currPage === totalPages"
-      >
+      <IconLink :disabled="!hasNextPage" @click="moveToLast">
         <SvgBase icon>
           <IconDoubleRight></IconDoubleRight>
         </SvgBase>
@@ -78,6 +72,12 @@ export default {
         ? this.currPage + 1
         : this.totalPages
     },
+    hasPrevPage() {
+      return this.currPage !== 1
+    },
+    hasNextPage() {
+      return this.currPage !== this.totalPages
+    },
   },
   mounted() {
     this.page = this.currPage
@@ -96,13 +96,25 @@ export default {
         this.page = this.currPage
       }
     },
+    moveToFirst() {
+      if (this.hasPrevPage) this.$router.push('/posts/page/1')
+    },
+    moveToPrev() {
+      if (this.hasPrevPage) this.$router.push(`/posts/page/${this.prevPage}`)
+    },
+    moveToNext() {
+      if (this.hasNextPage) this.$router.push(`/posts/page/${this.nextPage}`)
+    },
+    moveToLast() {
+      if (this.hasNextPage) this.$router.push(`/posts/page/${this.totalPages}`)
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
 .pagination-container {
-  padding: 0 32px;
+  /* padding: 0 32px; */
   display: flex;
   justify-content: center;
 }
