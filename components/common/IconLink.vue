@@ -80,6 +80,7 @@ export default {
   }
   &:active {
     border: 2px solid $color-primary;
+    color: $color-primary;
 
     svg {
       fill: $color-primary;
@@ -94,6 +95,7 @@ export default {
     }
     &:active {
       border: 2px solid $color-secondary;
+      color: $color-secondary;
 
       svg {
         fill: $color-secondary;
@@ -123,6 +125,7 @@ export default {
     }
     &:active {
       border: 2px solid $color-secondary;
+      color: $color-secondary;
 
       svg {
         fill: $color-secondary;
@@ -137,6 +140,7 @@ export default {
       }
       &:active {
         border: 2px solid $color-primary;
+        color: $color-primary;
 
         svg {
           fill: $color-primary;
