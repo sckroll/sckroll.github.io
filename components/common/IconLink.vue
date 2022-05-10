@@ -1,20 +1,12 @@
 <template>
   <a
-    v-if="to && !disabled && !isInternalLink"
+    v-if="to && !disabled"
     :href="to"
     class="icon-link"
     :class="{ reversed: isReversed(), fix }"
   >
     <slot></slot>
   </a>
-  <nuxt-link
-    v-else-if="to && !disabled && isInternalLink"
-    :to="to"
-    class="icon-link"
-    :class="{ reversed: isReversed(), fix }"
-  >
-    <slot></slot>
-  </nuxt-link>
   <div
     v-else
     class="icon-link"
@@ -52,9 +44,6 @@ export default {
   computed: {
     isScrolled() {
       return this.$store.state.isScrolled
-    },
-    isInternalLink() {
-      return typeof this.to === 'string' && this.to.startsWith('/')
     },
   },
   methods: {
