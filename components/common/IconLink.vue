@@ -1,6 +1,6 @@
 <template>
   <a
-    v-if="to"
+    v-if="to && !disabled"
     :href="to"
     class="icon-link"
     :class="{ reversed: isReversed(), fix }"
@@ -10,7 +10,7 @@
   <div
     v-else
     class="icon-link"
-    :class="{ reversed: isReversed(), fix }"
+    :class="{ reversed: isReversed(), fix, disabled }"
     @click="handleClick"
   >
     <slot></slot>
@@ -36,6 +36,10 @@ export default {
       type: [String, Boolean],
       default: false,
     },
+    disabled: {
+      type: Boolean,
+      default: false,
+    },
   },
   computed: {
     isScrolled() {
@@ -51,7 +55,7 @@ export default {
       }
     },
     handleClick() {
-      this.$emit('click')
+      if (!this.disabled) this.$emit('click')
     },
   },
 }
@@ -96,6 +100,18 @@ export default {
       }
     }
   }
+  &.disabled {
+    cursor: default;
+    border: none;
+
+    svg {
+      fill: $color-grey-400;
+    }
+    &:hover,
+    &:active {
+      border: none;
+    }
+  }
 }
 .dark-mode {
   .icon-link {
@@ -125,6 +141,18 @@ export default {
         svg {
           fill: $color-primary;
         }
+      }
+    }
+    &.disabled {
+      cursor: default;
+      border: none;
+
+      svg {
+        fill: $color-grey-700;
+      }
+      &:hover,
+      &:active {
+        border: none;
       }
     }
   }
