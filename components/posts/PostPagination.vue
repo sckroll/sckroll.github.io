@@ -1,53 +1,95 @@
 <template>
   <div class="pagination-container">
     <div class="pagination-center">
-      <IconLink :disabled="!hasPrevPage" @click="moveToFirst">
-        <SvgBase icon>
-          <IconLastLeft></IconLastLeft>
-        </SvgBase>
-      </IconLink>
-      <IconLink :disabled="!hasPrevPages" @click="moveToPrevPages">
-        <SvgBase icon>
-          <IconDoubleLeft></IconDoubleLeft>
-        </SvgBase>
-      </IconLink>
-      <IconLink :disabled="!hasPrevPage" @click="moveToPrevPage">
-        <SvgBase icon>
-          <IconLeft></IconLeft>
-        </SvgBase>
-      </IconLink>
+      <div class="pagination-center-desktop">
+        <IconLink :disabled="!hasPrevPage" responsive @click="moveToFirst">
+          <SvgBase
+            icon
+            :width="isMobile ? 24 : 32"
+            :height="isMobile ? 24 : 32"
+          >
+            <IconLastLeft></IconLastLeft>
+          </SvgBase>
+        </IconLink>
+        <IconLink :disabled="!hasPrevPages" responsive @click="moveToPrevPages">
+          <SvgBase
+            icon
+            :width="isMobile ? 24 : 32"
+            :height="isMobile ? 24 : 32"
+          >
+            <IconDoubleLeft></IconDoubleLeft>
+          </SvgBase>
+        </IconLink>
+        <IconLink :disabled="!hasPrevPage" responsive @click="moveToPrevPage">
+          <SvgBase
+            icon
+            :width="isMobile ? 24 : 32"
+            :height="isMobile ? 24 : 32"
+          >
+            <IconLeft></IconLeft>
+          </SvgBase>
+        </IconLink>
 
-      <div class="pages">
-        <IconLink
-          v-for="pageNum in getPageRange()"
-          :key="pageNum"
-          :class="{ 'curr-page': isCurrPage(pageNum) }"
-          @click="moveToPage(pageNum)"
-        >
-          {{ pageNum }}
+        <div class="pages">
+          <IconLink
+            v-for="pageNum in getPageRange()"
+            :key="pageNum"
+            :class="{ 'curr-page': isCurrPage(pageNum) }"
+            responsive
+            @click="moveToPage(pageNum)"
+          >
+            {{ pageNum }}
+          </IconLink>
+        </div>
+
+        <IconLink :disabled="!hasNextPage" responsive @click="moveToNextPage">
+          <SvgBase
+            icon
+            :width="isMobile ? 24 : 32"
+            :height="isMobile ? 24 : 32"
+          >
+            <IconRight></IconRight>
+          </SvgBase>
+        </IconLink>
+        <IconLink :disabled="!hasNextPages" responsive @click="moveToNextPages">
+          <SvgBase
+            icon
+            :width="isMobile ? 24 : 32"
+            :height="isMobile ? 24 : 32"
+          >
+            <IconDoubleRight></IconDoubleRight>
+          </SvgBase>
+        </IconLink>
+        <IconLink :disabled="!hasNextPage" responsive @click="moveToLast">
+          <SvgBase
+            icon
+            :width="isMobile ? 24 : 32"
+            :height="isMobile ? 24 : 32"
+          >
+            <IconLastRight></IconLastRight>
+          </SvgBase>
         </IconLink>
       </div>
-
-      <IconLink :disabled="!hasNextPage" @click="moveToNextPage">
-        <SvgBase icon>
-          <IconRight></IconRight>
-        </SvgBase>
-      </IconLink>
-      <IconLink :disabled="!hasNextPages" @click="moveToNextPages">
-        <SvgBase icon>
-          <IconDoubleRight></IconDoubleRight>
-        </SvgBase>
-      </IconLink>
-      <IconLink :disabled="!hasNextPage" @click="moveToLast">
-        <SvgBase icon>
-          <IconLastRight></IconLastRight>
-        </SvgBase>
-      </IconLink>
+      <div class="pagination-center-mobile">
+        <div class="pages">
+          <IconLink
+            v-for="pageNum in getPageRange()"
+            :key="pageNum"
+            :class="{ 'curr-page': isCurrPage(pageNum) }"
+            responsive
+            @click="moveToPage(pageNum)"
+          >
+            {{ pageNum }}
+          </IconLink>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { breakpointLg, breakpointMd } from '@/assets/scss/main.scss'
+
 export default {
   props: {
     total: {
@@ -63,6 +105,7 @@ export default {
     return {
       page: 1,
       pageUnit: 10,
+      isMobile: false,
     }
   },
   computed: {
@@ -93,8 +136,26 @@ export default {
   },
   mounted() {
     this.page = parseInt(this.$route.params.page) || 1
+
+    this.onResize()
+    window.addEventListener('resize', this.onResize)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.onResize)
   },
   methods: {
+    onResize() {
+      if (window.innerWidth > parseInt(breakpointLg.replace('px', ''))) {
+        this.pageUnit = 10
+        this.isMobile = false
+      } else if (window.innerWidth > parseInt(breakpointMd.replace('px', ''))) {
+        this.pageUnit = 10
+        this.isMobile = true
+      } else {
+        this.pageUnit = 5
+        this.isMobile = true
+      }
+    },
     moveToFirst() {
       if (this.hasPrevPage) this.$router.push('/posts/page/1')
     },
@@ -147,7 +208,16 @@ export default {
 }
 .pagination-center {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+.pagination-center-desktop {
+  display: flex;
   justify-content: space-between;
+}
+.pagination-center-mobile {
+  display: none;
 }
 .pages {
   display: flex;
@@ -166,6 +236,46 @@ export default {
 
     &:hover {
       border: 2px solid $color-secondary;
+    }
+  }
+}
+
+@include viewpoint-md {
+  .pagination-center-desktop {
+    .pages {
+      /* display: none; */
+      font-size: 1em;
+    }
+  }
+  /* .pagination-center-mobile {
+    display: flex;
+    justify-content: space-between;
+  } */
+}
+@include viewpoint-sm {
+  .pagination-center-desktop {
+    .pages {
+      /* display: none; */
+      font-size: 1em;
+    }
+  }
+  /* .pagination-center-mobile {
+    display: flex;
+    justify-content: space-between;
+  } */
+}
+@include viewpoint-xs {
+  .pagination-center-desktop {
+    .pages {
+      display: none;
+    }
+  }
+  .pagination-center-mobile {
+    display: flex;
+    justify-content: space-between;
+
+    .pages {
+      font-size: 1em;
     }
   }
 }
