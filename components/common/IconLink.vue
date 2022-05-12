@@ -3,14 +3,14 @@
     v-if="to && !disabled"
     :href="to"
     class="icon-link"
-    :class="{ reversed: isReversed(), fix }"
+    :class="{ reversed: isReversed(), fix, responsive }"
   >
     <slot></slot>
   </a>
   <div
     v-else
     class="icon-link"
-    :class="{ reversed: isReversed(), fix, disabled }"
+    :class="{ reversed: isReversed(), fix, disabled, responsive }"
     @click="handleClick"
   >
     <slot></slot>
@@ -37,6 +37,10 @@ export default {
       default: false,
     },
     disabled: {
+      type: Boolean,
+      default: false,
+    },
+    responsive: {
       type: Boolean,
       default: false,
     },
@@ -159,6 +163,25 @@ export default {
         border: none;
       }
     }
+  }
+}
+
+@include viewpoint-md {
+  .icon-link.responsive {
+    width: 32px;
+    height: 32px;
+  }
+}
+@include viewpoint-sm {
+  .icon-link.responsive {
+    width: 32px;
+    height: 32px;
+  }
+}
+@include viewpoint-xs {
+  .icon-link.responsive {
+    width: 32px;
+    height: 32px;
   }
 }
 </style>
