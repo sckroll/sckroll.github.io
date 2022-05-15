@@ -73,6 +73,7 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 8px;
   padding: 16px;
   background-color: rgba(white, 0.7);
   backdrop-filter: blur(4px);
