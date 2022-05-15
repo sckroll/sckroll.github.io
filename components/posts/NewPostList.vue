@@ -2,19 +2,41 @@
   <section class="post-list">
     <div class="section-title-container" :class="{ searchable, searchButton }">
       <h1 class="section-title">
-        <!-- TODO: 검색 결과 개수 -->
-        <slot name="title"></slot>
+        <div v-if="searchable">
+          <template v-if="query">
+            {{ `${fieldKor} 검색 결과: "${query}" 총 ${posts.length}개` }}
+          </template>
+          <template v-else>포스트 검색</template>
+        </div>
+        <slot v-else name="title"></slot>
       </h1>
-      <!-- TODO: 검색창 -->
+
+      <PostSearch :initial-query="query" :initial-field="field"></PostSearch>
+
       <IconLink v-if="searchButton" to="/posts/search">
         <SvgBase icon>
           <IconSearch></IconSearch>
         </SvgBase>
       </IconLink>
     </div>
-    <template v-if="searchButton">
-      <!-- TODO: 검색 결과 & 검색 결과가 없는 경우 & 검색 결과 초기 메시지 -->
-      <NewPostListContents :posts="posts"></NewPostListContents>
+
+    <template v-if="searchable">
+      <div v-if="!query" class="search-message">
+        검색할 포스트를 입력하세요.
+      </div>
+      <template v-else>
+        <template v-if="posts.length > 0">
+          <NewPostListContents :posts="slicedPosts"></NewPostListContents>
+          <div v-if="lastIndex < posts.length" class="more-button-container">
+            <IconLink @click="showMoreResults">
+              <SvgBase icon>
+                <IconDown></IconDown>
+              </SvgBase>
+            </IconLink>
+          </div>
+        </template>
+        <div v-else class="search-message">검색 결과가 없습니다.</div>
+      </template>
     </template>
     <NewPostListContents v-else :posts="posts"></NewPostListContents>
   </section>
@@ -44,33 +66,45 @@ export default {
     return {
       query: '',
       field: '',
-      isEmpty: false,
-      allSearchResults: [],
-      searchResults: [],
-      lastIndex: 10,
+      fieldKor: '',
+      slicedPosts: [],
+      lastIndex: 0,
+      offset: 10,
     }
   },
+  mounted() {
+    const { q, field } = this.$router.currentRoute.query
+
+    this.query = q || ''
+    this.field = field || ''
+
+    this.getFieldKor()
+    this.showMoreResults()
+  },
   methods: {
-    getSearchResult({ query, field, isEmpty, results }) {
-      this.query = query
-      this.field = field
-      this.isEmpty = isEmpty
-      this.allSearchResults = results
-      this.searchResults = results.slice(0, this.lastIndex)
-    },
     showMoreResults() {
-      this.lastIndex += 10
-      this.searchResults = this.allSearchResults.slice(0, this.lastIndex)
+      this.lastIndex += this.offset
+      this.slicedPosts = this.posts.slice(0, this.lastIndex)
+    },
+    getFieldKor() {
+      if (this.field === 'tags') this.fieldKor = '태그'
+      else if (this.field === 'text') this.fieldKor = '내용'
+      else this.fieldKor = '제목'
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.component-title {
+.post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.section-title-container {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 32px;
+  align-items: center;
 
   h1 {
     font-size: 1.5em;
@@ -86,5 +120,9 @@ export default {
   align-items: center;
   font-size: 1.25em;
   color: $color-grey-500;
+}
+.more-button-container {
+  display: flex;
+  justify-content: center;
 }
 </style>

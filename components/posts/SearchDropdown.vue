@@ -3,12 +3,12 @@
     <div v-if="value" class="dropdown-container">
       <div class="dropdown-wrapper click-block">
         <TextLink
-          v-for="(item, index) in items"
-          :key="index"
-          :selected="selected === item"
+          v-for="item in items"
+          :key="item.value"
+          :selected="selected === item.value"
           @click="selectItem(item)"
         >
-          {{ item }}
+          {{ item.name }}
         </TextLink>
       </div>
     </div>

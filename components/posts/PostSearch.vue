@@ -5,8 +5,8 @@
     </SvgBase>
 
     <SearchInput
-      v-model="query"
-      :placeholder="`검색할 포스트의 ${currField} 입력 후 엔터`"
+      v-model.trim="query"
+      :placeholder="`검색할 포스트의 ${fieldKor} 입력 후 엔터`"
       @enter="onEnter"
     ></SearchInput>
 
@@ -18,8 +18,8 @@
     <SearchDropdown
       v-model="dropdown"
       :items="fields"
-      :selected="currField"
-      @item-select="setCurrField"
+      :selected="field"
+      @item-select="setField"
     ></SearchDropdown>
 
     <IconLink @click="clear">
@@ -32,28 +32,76 @@
 
 <script>
 export default {
+  props: {
+    initialQuery: {
+      type: String,
+      default: '',
+    },
+    initialField: {
+      type: String,
+      default: '',
+    },
+  },
   data() {
     return {
       query: '',
-      currField: '',
-      fields: ['제목', '태그', '내용'],
+      field: '',
+      fieldKor: '',
+      fields: [
+        {
+          name: '제목',
+          value: 'title',
+        },
+        {
+          name: '태그',
+          value: 'tags',
+        },
+        {
+          name: '내용',
+          value: 'text',
+        },
+      ],
       dropdown: false,
     }
   },
-  mounted() {
-    this.currField = this.fields[0]
+  watch: {
+    initialQuery: {
+      immediate: true,
+      handler(val) {
+        this.query = val
+      },
+    },
+    initialField: {
+      immediate: true,
+      handler(val) {
+        this.field = val || this.fields[0].value
+        this.getFieldKor()
+      },
+    },
   },
   methods: {
-    onEnter() {},
+    onEnter() {
+      if (!this.query) return
+
+      // this.$router.push(`/posts/search?q=${this.query}&field=${this.field}`)
+      location.href = `/posts/search?q=${this.query}&field=${this.field}`
+    },
     toggleDropdown() {
       this.dropdown = !this.dropdown
     },
     clear() {
       this.query = ''
+      // this.onEnter()
     },
-    setCurrField(item) {
-      this.currField = item
+    setField(item) {
+      this.field = item.value
+      this.fieldKor = item.name
       this.clear()
+    },
+    getFieldKor() {
+      if (this.field === 'tags') this.fieldKor = '태그'
+      else if (this.field === 'text') this.fieldKor = '내용'
+      else this.fieldKor = '제목'
     },
   },
 }

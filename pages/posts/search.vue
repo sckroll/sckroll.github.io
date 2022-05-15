@@ -1,28 +1,36 @@
 <template>
-  <div class="post-search-container">
-    <post-list :posts="posts" searchable>
+  <div class="page-container post-search-container">
+    <!-- <post-list :posts="posts" searchable>
       <template v-slot:title>포스트 검색</template>
-    </post-list>
+    </post-list> -->
+    <NewPostList :posts="posts" searchable>
+      <template v-slot:title>포스트 검색</template>
+    </NewPostList>
   </div>
 </template>
 
 <script>
 export default {
-  async asyncData({ $content }) {
+  async asyncData({ $content, query }) {
     try {
-      const posts = await $content('posts', { deep: true, text: true })
-        .only([
-          'title',
-          'description',
-          'img',
-          'slug',
-          'tags',
-          'createdAt',
-          'updatedAt',
-          'text',
-        ])
-        .sortBy('createdAt', 'desc')
-        .fetch()
+      let posts = await $content('posts', {
+        deep: true,
+        text: true,
+      }).only([
+        'title',
+        'description',
+        'img',
+        'slug',
+        'tags',
+        'createdAt',
+        'updatedAt',
+        'text',
+      ])
+
+      if (query.q && query.field) {
+        posts = await posts.search(query.field, query.q)
+      }
+      posts = await posts.sortBy('createdAt', 'desc').fetch()
 
       return {
         posts,
