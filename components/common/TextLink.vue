@@ -1,11 +1,27 @@
 <template>
-  <div class="underline-link">
-    <nuxt-link :to="to" :class="{ reversed: isReversed(), fix, thick }">
+  <div class="text-link">
+    <nuxt-link
+      v-if="to"
+      :to="to"
+      class="underline-link"
+      :class="{ reversed: isReversed(), fix, thick }"
+    >
       <slot></slot>
       <div class="underline-outer" :class="{ visible: underline }">
         <div class="underline-inner"></div>
       </div>
     </nuxt-link>
+    <div
+      v-else
+      class="underline-link"
+      :class="{ reversed: isReversed(), fix, thick }"
+      @click="onClick"
+    >
+      <slot></slot>
+      <div class="underline-outer" :class="{ visible: underline }">
+        <div class="underline-inner"></div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -14,7 +30,7 @@ export default {
   props: {
     to: {
       type: String,
-      required: true,
+      default: '',
     },
     underline: {
       type: Boolean,
@@ -50,15 +66,19 @@ export default {
         return this.scroll && this.isScrolled
       }
     },
+    onClick() {
+      this.$emit('click')
+    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.underline-link {
+.text-link {
   display: flex;
 }
-a {
+.underline-link {
+  cursor: pointer;
   border-bottom: none;
   margin-top: 6px;
 
@@ -71,6 +91,7 @@ a {
   }
   &:active {
     color: $color-primary;
+    transition: $fade-default;
   }
   .underline-outer {
     margin-top: 4px;
@@ -88,6 +109,7 @@ a {
   &.reversed {
     &:active {
       color: $color-secondary;
+      transition: $fade-default;
     }
     .underline-outer {
       &.visible {
@@ -117,7 +139,7 @@ a {
   }
 }
 .dark-mode {
-  a {
+  .underline-link {
     &:hover {
       border-bottom: none;
 
@@ -127,6 +149,7 @@ a {
     }
     &:active {
       color: $color-secondary;
+      transition: $fade-default;
     }
     .underline-outer {
       &.visible {
@@ -139,6 +162,7 @@ a {
     &.reversed:not(.fix) {
       &:active {
         color: $color-primary;
+        transition: $fade-default;
       }
       .underline-outer {
         &.visible {
