@@ -4,7 +4,7 @@
       v-if="to"
       :to="to"
       class="underline-link"
-      :class="{ reversed: isReversed(), fix, thick }"
+      :class="{ reversed: isReversed(), fix, thick, selected }"
     >
       <slot></slot>
       <div class="underline-outer" :class="{ visible: underline }">
@@ -14,7 +14,7 @@
     <div
       v-else
       class="underline-link"
-      :class="{ reversed: isReversed(), fix, thick }"
+      :class="{ reversed: isReversed(), fix, thick, selected }"
       @click="onClick"
     >
       <slot></slot>
@@ -49,6 +49,10 @@ export default {
       default: false,
     },
     thick: {
+      type: Boolean,
+      default: false,
+    },
+    selected: {
       type: Boolean,
       default: false,
     },
@@ -127,7 +131,8 @@ export default {
       height: 4px;
     }
   }
-  &.nuxt-link-active {
+  &.nuxt-link-active,
+  &.selected {
     .underline-outer {
       &.visible {
         background-color: $color-primary;
@@ -171,6 +176,16 @@ export default {
       }
       .underline-inner {
         background-color: $color-primary;
+      }
+    }
+    &.selected {
+      .underline-outer {
+        &.visible {
+          background-color: $color-secondary;
+        }
+      }
+      .underline-inner {
+        width: 100%;
       }
     }
   }
