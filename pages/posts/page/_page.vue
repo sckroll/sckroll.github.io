@@ -1,12 +1,12 @@
 <template>
   <div class="page-container post-list-page">
-    <post-list :posts="paginatedPosts" search-button>
+    <NewPostList :posts="paginatedPosts" search-button>
       <template v-slot:title>블로그 포스트</template>
-    </post-list>
-    <post-pagination
+    </NewPostList>
+    <PostPagination
       :total="totalPostCount"
       :per-page="perPage"
-    ></post-pagination>
+    ></PostPagination>
   </div>
 </template>
 
