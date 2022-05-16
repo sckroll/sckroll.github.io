@@ -1,5 +1,5 @@
 <template>
-  <div class="project-page">
+  <div class="project-page post-list-page">
     <post-list :posts="projects" project>
       <template v-slot:title>프로젝트 목록</template>
     </post-list>
@@ -28,9 +28,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.project-page {
-  margin: $header-height 0 64px;
-}
-</style>

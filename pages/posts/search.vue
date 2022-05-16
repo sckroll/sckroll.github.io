@@ -1,5 +1,5 @@
 <template>
-  <div class="page-container post-search-container">
+  <div class="page-container post-list-page">
     <!-- <post-list :posts="posts" searchable>
       <template v-slot:title>포스트 검색</template>
     </post-list> -->
@@ -46,9 +46,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.post-search-container {
-  margin: $header-height 0 64px;
-}
-</style>

@@ -91,9 +91,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss">
-.post-list-page {
-  margin: $header-height 0 64px;
-}
-</style>
