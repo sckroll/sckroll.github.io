@@ -3,9 +3,9 @@
     <!-- <post-list :posts="posts" searchable>
       <template v-slot:title>포스트 검색</template>
     </post-list> -->
-    <NewPostList :posts="posts" searchable>
+    <PostList :posts="posts" searchable>
       <template v-slot:title>포스트 검색</template>
-    </NewPostList>
+    </PostList>
   </div>
 </template>
 

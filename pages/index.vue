@@ -4,7 +4,7 @@
       <HeaderIntroMessage></HeaderIntroMessage>
     </section>
     <section class="content-area">
-      <NewPostListContents :posts="posts"></NewPostListContents>
+      <PostListContents :posts="posts"></PostListContents>
       <!-- <PostList featured :posts="posts">
         <template v-slot:title>최근 포스트</template>
       </PostList> -->

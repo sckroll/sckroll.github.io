@@ -1,8 +1,8 @@
 <template>
   <div class="page-container post-list-page">
-    <NewPostList :posts="posts" search-button>
+    <PostList :posts="posts" search-button>
       <template v-slot:title>블로그 포스트</template>
-    </NewPostList>
+    </PostList>
     <PostPagination
       :total="totalPostCount"
       :per-page="perPage"

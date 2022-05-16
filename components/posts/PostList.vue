@@ -30,7 +30,7 @@
       </div>
       <template v-else>
         <template v-if="posts.length > 0">
-          <NewPostListContents :posts="slicedPosts"></NewPostListContents>
+          <PostListContents :posts="slicedPosts"></PostListContents>
           <div v-if="lastIndex < posts.length" class="more-button-container">
             <IconLink @click="showMoreResults">
               <SvgBase icon>
@@ -42,11 +42,11 @@
         <div v-else class="search-message">검색 결과가 없습니다.</div>
       </template>
     </template>
-    <NewPostListContents
+    <PostListContents
       v-else
       :posts="posts"
       :project="project"
-    ></NewPostListContents>
+    ></PostListContents>
   </section>
 </template>
 
