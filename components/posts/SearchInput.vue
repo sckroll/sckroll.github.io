@@ -29,7 +29,7 @@ export default {
     value: {
       immediate: true,
       handler(val) {
-        this.query = this.value
+        this.query = val
       },
     },
     query: {
