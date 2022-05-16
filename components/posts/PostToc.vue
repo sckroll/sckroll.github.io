@@ -2,13 +2,13 @@
   <div class="toc-container">
     <nav class="post-toc">
       <div class="toc-header" @click="toggleToc">
-        <div>목차</div>
-        <span v-if="isExpanded">
-          <fa-icon :icon="['fa', 'chevron-up']" class="btn-icon" />
-        </span>
-        <span v-else>
-          <fa-icon :icon="['fa', 'chevron-down']" class="btn-icon" />
-        </span>
+        <div class="toc-header-text">목차</div>
+        <SvgBase v-if="isExpanded" icon width="24" height="24">
+          <IconUp></IconUp>
+        </SvgBase>
+        <SvgBase v-else icon width="24" height="24">
+          <IconDown></IconDown>
+        </SvgBase>
       </div>
       <div v-if="isExpanded" class="toc-body">
         <div v-for="link of toc" :key="link.id" class="toc-list">
@@ -68,19 +68,19 @@ export default {
     cursor: pointer;
     display: flex;
     align-items: center;
+    gap: 8px;
     transition: $fade-default;
 
     &:hover {
       color: $color-primary;
-      transition: $fade-default;
+
+      svg {
+        fill: $color-primary;
+      }
     }
-    div {
+    .toc-header-text {
       font-size: 1.25em;
       font-weight: 600;
-    }
-    .btn-icon {
-      font-size: 1.25em;
-      margin-left: 8px;
     }
   }
   .toc-body {
