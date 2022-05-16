@@ -11,7 +11,11 @@
         <slot v-else name="title"></slot>
       </h1>
 
-      <PostSearch :initial-query="query" :initial-field="field"></PostSearch>
+      <PostSearch
+        v-if="searchable"
+        :initial-query="query"
+        :initial-field="field"
+      ></PostSearch>
 
       <IconLink v-if="searchButton" to="/posts/search">
         <SvgBase icon>
