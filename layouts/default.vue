@@ -38,7 +38,7 @@ main {
   padding: 0 32px;
 }
 .post-list-page {
-  margin: $header-height 0 64px;
+  margin: 64px 0;
 }
 
 @include viewpoint-xl {
