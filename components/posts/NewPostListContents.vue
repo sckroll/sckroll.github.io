@@ -11,6 +11,10 @@ export default {
       type: Array,
       required: true,
     },
+    project: {
+      type: Boolean,
+      default: false,
+    },
   },
 }
 </script>

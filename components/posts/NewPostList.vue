@@ -42,7 +42,11 @@
         <div v-else class="search-message">검색 결과가 없습니다.</div>
       </template>
     </template>
-    <NewPostListContents v-else :posts="posts"></NewPostListContents>
+    <NewPostListContents
+      v-else
+      :posts="posts"
+      :project="project"
+    ></NewPostListContents>
   </section>
 </template>
 
