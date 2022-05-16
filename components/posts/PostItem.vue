@@ -169,11 +169,6 @@ article.post-item {
 }
 
 .dark-mode {
-  a {
-    &:hover {
-      border-bottom: none;
-    }
-  }
   article.post-item {
     background-color: $color-grey-800;
 

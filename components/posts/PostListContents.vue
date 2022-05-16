@@ -27,6 +27,10 @@ section.post-list-contents {
 
   a {
     border-bottom: none;
+
+    &:hover {
+      border-bottom: none;
+    }
   }
 }
 
