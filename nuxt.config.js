@@ -40,7 +40,6 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    '@nuxtjs/fontawesome',
     '@nuxtjs/style-resources',
     '@nuxtjs/color-mode',
   ],
@@ -81,24 +80,6 @@ export default {
           route: '/posts/' + file.slug,
         }
       })
-    },
-  },
-
-  fontawesome: {
-    component: 'Fa',
-    suffix: true,
-    icons: {
-      solid: [
-        'faSearch',
-        'faChevronUp',
-        'faChevronDown',
-        'faEllipsisV',
-        'faAngleLeft',
-        'faAngleRight',
-        'faAngleDoubleLeft',
-        'faAngleDoubleRight',
-        'faUndoAlt',
-      ],
     },
   },
 
