@@ -1,6 +1,6 @@
 <template>
   <div class="page-container post-list-page">
-    <NewPostList :posts="paginatedPosts" search-button>
+    <NewPostList :posts="posts" search-button>
       <template v-slot:title>블로그 포스트</template>
     </NewPostList>
     <PostPagination
@@ -38,7 +38,7 @@ export default {
       }
 
       // 현재 페이지의 포스트를 배열에 저장
-      const paginatedPosts = await $content('posts', { deep: true })
+      const posts = await $content('posts', { deep: true })
         .only([
           'title',
           'description',
@@ -72,7 +72,7 @@ export default {
 
       return {
         totalPostCount,
-        paginatedPosts,
+        posts,
         sortedTags,
       }
     } catch (e) {
