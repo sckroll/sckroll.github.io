@@ -10,7 +10,7 @@
       @enter="onEnter"
     ></SearchInput>
 
-    <IconLink class="click-block" @click="toggleDropdown">
+    <IconLink class="click-block" responsive @click="toggleDropdown">
       <SvgBase icon class="click-block">
         <IconEllipsisMenu class="click-block"></IconEllipsisMenu>
       </SvgBase>
@@ -22,7 +22,7 @@
       @item-select="setField"
     ></SearchDropdown>
 
-    <IconLink @click="clear">
+    <IconLink responsive @click="clear">
       <SvgBase icon>
         <IconUndo></IconUndo>
       </SvgBase>
@@ -115,5 +115,32 @@ input {
 .search-input {
   display: flex;
   align-items: center;
+}
+
+@include viewpoint-lg {
+  input {
+    width: 256px;
+  }
+}
+@include viewpoint-md {
+  .search-input {
+    width: 100%;
+  }
+}
+@include viewpoint-sm {
+  .search-input {
+    width: 100%;
+  }
+  input {
+    width: calc(100% - 96px);
+  }
+}
+@include viewpoint-xs {
+  .search-input {
+    width: 100%;
+  }
+  input {
+    width: calc(100% - 96px);
+  }
 }
 </style>

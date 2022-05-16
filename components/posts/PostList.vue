@@ -133,4 +133,35 @@ export default {
   display: flex;
   justify-content: center;
 }
+
+@include viewpoint-md {
+  .section-title-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .section-title {
+    display: flex;
+    width: 100%;
+  }
+}
+@include viewpoint-sm {
+  .section-title-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .section-title {
+    display: flex;
+    width: 100%;
+  }
+}
+@include viewpoint-xs {
+  .section-title-container {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .section-title {
+    display: flex;
+    width: 100%;
+  }
+}
 </style>
