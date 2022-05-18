@@ -6,6 +6,7 @@ export const state = () => ({
   isScrolled: false,
   hasHeaderImage: false,
   isMobileMenuOpened: false,
+  headerImage: '',
 })
 
 export const mutations = {
@@ -26,5 +27,8 @@ export const mutations = {
   },
   SET_MOBILE_MENU_STATE(state, isMobileMenuOpened) {
     state.isMobileMenuOpened = isMobileMenuOpened
+  },
+  SET_HEADER_IMAGE(state, headerImage) {
+    state.headerImage = headerImage
   },
 }
