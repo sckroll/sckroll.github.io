@@ -1,41 +1,28 @@
 <template>
   <article>
     <div class="post-background">
-      <div
-        class="post-background-img"
-        :style="`background: ${getPattern(post.title)};`"
-      >
-        <div class="post-background-overlay">
-          <section class="post-info">
-            <div class="info-main">
-              <h1>{{ post.title }}</h1>
-              <p>{{ post.description }}</p>
-            </div>
-            <div class="info-sub">
-              <div>
-                <div
-                  v-for="tag in post.tags.split(', ')"
-                  :key="tag"
-                  class="tags"
-                >
-                  <span class="tag">#{{ tag }}</span>
-                </div>
-              </div>
-              <div class="posted-date">
-                <span class="created-date">{{
-                  formatDate(post.createdAt)
-                }}</span>
-                <span
-                  v-if="diffDate(post.createdAt, post.updatedAt) > 0"
-                  class="updated-date"
-                >
-                  (수정: {{ formatDate(post.updatedAt) }})
-                </span>
-              </div>
-            </div>
-          </section>
+      <section class="post-info">
+        <div class="info-main">
+          <h1>{{ post.title }}</h1>
+          <p>{{ post.description }}</p>
         </div>
-      </div>
+        <div class="info-sub">
+          <div>
+            <div v-for="tag in post.tags.split(', ')" :key="tag" class="tags">
+              <span class="tag">#{{ tag }}</span>
+            </div>
+          </div>
+          <div class="posted-date">
+            <span class="created-date">{{ formatDate(post.createdAt) }}</span>
+            <span
+              v-if="diffDate(post.createdAt, post.updatedAt) > 0"
+              class="updated-date"
+            >
+              (수정: {{ formatDate(post.updatedAt) }})
+            </span>
+          </div>
+        </div>
+      </section>
     </div>
     <post-content-container :post="post"></post-content-container>
     <post-prev-next :prev="prev" :next="next" />
@@ -69,6 +56,9 @@ export default {
     } catch (e) {
       error({ statusCode: e.statusCode || e.status || 500 })
     }
+  },
+  created() {
+    this.$store.commit('SET_HEADER_IMAGE', getPattern(this.post.title))
   },
   methods: {
     getPattern,
@@ -104,20 +94,13 @@ article {
   margin-bottom: 32px;
 }
 .post-background {
-  &-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: $background-height;
-  }
-  &-overlay {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    background-color: rgba(black, 0.3);
-  }
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(#{$background-height} - #{$header-height});
+  display: flex;
+  justify-content: center;
 }
 .post-info {
   position: absolute;

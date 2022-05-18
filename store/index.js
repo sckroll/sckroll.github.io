@@ -31,4 +31,7 @@ export const mutations = {
   SET_HEADER_IMAGE(state, headerImage) {
     state.headerImage = headerImage
   },
+  CLEAR_HEADER_IMAGE(state) {
+    state.headerImage = ''
+  },
 }

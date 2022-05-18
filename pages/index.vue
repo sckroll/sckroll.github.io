@@ -36,6 +36,9 @@ export default {
       error({ statusCode: e.statusCode || e.status || 500 })
     }
   },
+  created() {
+    this.$store.commit('CLEAR_HEADER_IMAGE')
+  },
   head() {
     return {
       title: '홈',
