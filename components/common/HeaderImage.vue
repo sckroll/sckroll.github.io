@@ -22,7 +22,7 @@ export default {
 <style lang="scss" scoped>
 .header-image-container {
   width: 100%;
-  height: 70vh;
+  height: $header-image-height;
   position: absolute;
   display: flex;
   justify-content: center;

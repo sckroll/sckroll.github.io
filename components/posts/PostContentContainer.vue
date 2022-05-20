@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$background-height: 70vh;
+$background-height: calc(#{$header-image-height} - #{$header-height});
 
 .content-container {
   margin-top: $background-height;
