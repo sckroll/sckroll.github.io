@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { formatDate } from '@/utils/handleDate'
+import { formatDate, diffDate } from '@/utils/handleDate'
 
 export default {
   props: {
@@ -35,21 +35,7 @@ export default {
   },
   methods: {
     formatDate,
-    diffDate(createdAtString, updatedAtString) {
-      const createdAt = new Date(createdAtString)
-      const updatedAt = new Date(updatedAtString)
-      const createdDate = new Date(
-        createdAt.getYear(),
-        createdAt.getMonth(),
-        createdAt.getDate(),
-      )
-      const updatedDate = new Date(
-        updatedAt.getYear(),
-        updatedAt.getMonth(),
-        updatedAt.getDate(),
-      )
-      return updatedDate - createdDate
-    },
+    diffDate,
   },
 }
 </script>

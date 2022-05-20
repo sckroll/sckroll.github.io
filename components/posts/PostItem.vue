@@ -37,7 +37,7 @@
 
 <script>
 import { getPattern } from '@/utils/pattern'
-import { formatDate } from '@/utils/handleDate'
+import { formatDate, diffDate } from '@/utils/handleDate'
 import { trimTitle, trimTags, trimDescription } from '@/utils/handlePostInfo'
 
 export default {
@@ -67,21 +67,7 @@ export default {
     trimTitle,
     trimTags,
     trimDescription,
-    diffDate(createdAtString, updatedAtString) {
-      const createdAt = new Date(createdAtString)
-      const updatedAt = new Date(updatedAtString)
-      const createdDate = new Date(
-        createdAt.getYear(),
-        createdAt.getMonth(),
-        createdAt.getDate(),
-      )
-      const updatedDate = new Date(
-        updatedAt.getYear(),
-        updatedAt.getMonth(),
-        updatedAt.getDate(),
-      )
-      return updatedDate - createdDate
-    },
+    diffDate,
   },
 }
 </script>
