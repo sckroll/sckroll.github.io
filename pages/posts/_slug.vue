@@ -1,9 +1,9 @@
 <template>
   <article>
-    <PostInfo :post="post"></PostInfo>
-    <post-content-container :post="post"></post-content-container>
-    <post-prev-next :prev="prev" :next="next" />
-    <post-comment />
+    <PostInfo></PostInfo>
+    <PostContentContainer></PostContentContainer>
+    <PostPrevNext :prev="prev" :next="next"></PostPrevNext>
+    <PostComment></PostComment>
   </article>
 </template>
 
@@ -34,6 +34,7 @@ export default {
     }
   },
   created() {
+    this.$store.commit('SET_POST', this.post)
     this.$store.commit('SET_HEADER_IMAGE', getPattern(this.post.title))
   },
   methods: {

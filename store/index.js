@@ -1,6 +1,7 @@
 import { setMetaThemeColor } from '@/utils/metaThemeColor'
 
 export const state = () => ({
+  post: {},
   isErrorPage: false,
   isDarkMode: false,
   isScrolled: false,
@@ -10,6 +11,13 @@ export const state = () => ({
 })
 
 export const mutations = {
+  SET_POST(state, post) {
+    state.post = post
+  },
+  CLEAR_POST(state) {
+    state.post = {}
+  },
+
   SET_ERROR_PAGE(state, isErrorPage) {
     state.isErrorPage = isErrorPage
   },
@@ -19,6 +27,7 @@ export const mutations = {
       setMetaThemeColor()
     }
   },
+
   SET_SCROLL_STATE(state, isScrolled) {
     state.isScrolled = isScrolled
   },
@@ -28,6 +37,7 @@ export const mutations = {
   SET_MOBILE_MENU_STATE(state, isMobileMenuOpened) {
     state.isMobileMenuOpened = isMobileMenuOpened
   },
+
   SET_HEADER_IMAGE(state, headerImage) {
     state.headerImage = headerImage
   },

@@ -18,10 +18,6 @@ import { breakpointLg } from '@/assets/scss/main.scss'
 
 export default {
   props: {
-    post: {
-      type: Object,
-      required: true,
-    },
     project: {
       type: Boolean,
       default: false,
@@ -32,6 +28,11 @@ export default {
       isMobile: false,
       tocMenu: false,
     }
+  },
+  computed: {
+    post() {
+      return this.$store.state.post
+    },
   },
   mounted() {
     this.resizeListener()
