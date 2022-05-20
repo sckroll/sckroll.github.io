@@ -1,6 +1,6 @@
 <template>
   <div class="post-content">
-    <nuxt-content :document="post" />
+    <NuxtContent :document="post" />
   </div>
 </template>
 
@@ -17,8 +17,7 @@ export default {
 
 <style lang="scss">
 .post-content {
-  width: 80%;
-  padding-right: 32px;
+  flex: 4;
 }
 .nuxt-content {
   h3 {

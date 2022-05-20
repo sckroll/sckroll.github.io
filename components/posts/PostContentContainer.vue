@@ -53,14 +53,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$background-height: calc(#{$header-image-height} - #{$header-height});
-
 .content-container {
-  margin-top: $background-height;
-  position: relative;
   display: flex;
-  width: 100%;
   padding: 64px 32px;
+  gap: 32px;
 
   &.project {
     margin-top: 0;

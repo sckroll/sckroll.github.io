@@ -58,7 +58,7 @@ export default {
 
 <style lang="scss" scoped>
 .toc-container {
-  width: 20%;
+  flex: 1;
 }
 .post-toc {
   position: sticky;
