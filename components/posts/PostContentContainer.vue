@@ -1,15 +1,13 @@
 <template>
   <section class="content-container" :class="{ project }">
-    <post-content :post="post" />
+    <PostContent></PostContent>
     <template v-if="isMobile && post.toc.length > 1">
       <div class="toc-mobile-button click-block" @click="toggleTocMenu">
         목차
       </div>
-      <post-toc-mobile v-model="tocMenu" :toc="post.toc" />
+      <PostTocMobile v-model="tocMenu" :toc="post.toc"></PostTocMobile>
     </template>
-    <template v-else>
-      <post-toc v-if="post.toc.length > 1" :toc="post.toc" />
-    </template>
+    <PostToc v-else-if="post.toc.length > 1" :toc="post.toc"></PostToc>
   </section>
 </template>
 
@@ -58,11 +56,6 @@ export default {
   display: flex;
   padding: 64px 32px;
   gap: 32px;
-
-  &.project {
-    margin-top: 0;
-    padding-top: 0;
-  }
 }
 .toc-mobile-button {
   cursor: pointer;
@@ -71,18 +64,20 @@ export default {
   bottom: 32px;
   right: 32px;
   padding: 8px 16px;
-  background-color: white;
-  box-shadow: 0 1px 2px 1px rgba(black, 0.2);
+  background-color: rgba(white, 0.7);
+  backdrop-filter: blur(4px);
+  box-shadow: $shadow-default;
   font-size: 1.25em;
   transition: $fade-default;
 
   &:hover {
-    box-shadow: 0 2px 4px 2px rgba(black, 0.15);
+    box-shadow: $shadow-hover;
     transition: $fade-default;
   }
 }
 .dark-mode .toc-mobile-button {
-  background-color: $color-grey-800;
+  background-color: rgba(black, 0.7);
+  backdrop-filter: blur(4px);
 }
 
 @include viewpoint-xl {

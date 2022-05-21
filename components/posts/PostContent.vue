@@ -6,10 +6,9 @@
 
 <script>
 export default {
-  props: {
-    post: {
-      type: Object,
-      required: true,
+  computed: {
+    post() {
+      return this.$store.state.post
     },
   },
 }
