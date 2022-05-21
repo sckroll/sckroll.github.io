@@ -1,14 +1,12 @@
 <template>
   <section class="post-info">
-    <div class="info-main">
-      <h1>{{ post.title }}</h1>
-      <p>{{ post.description }}</p>
-    </div>
-    <div class="info-sub">
-      <div>
-        <div v-for="tag in post.tags.split(', ')" :key="tag" class="tags">
-          <span class="tag">#{{ tag }}</span>
-        </div>
+    <h1>{{ post.title }}</h1>
+    <p>{{ post.description }}</p>
+    <div class="info-footer">
+      <div class="tags">
+        <span v-for="tag in post.tags.split(', ')" :key="tag" class="tag">
+          #{{ tag }}
+        </span>
       </div>
       <div class="posted-date">
         <span class="created-date">{{ formatDate(post.createdAt) }}</span>
@@ -48,42 +46,30 @@ $background-height: calc(#{$header-image-height} - #{$header-height});
   flex-direction: column;
   justify-content: flex-end;
   color: white;
-  padding: 32px;
-
-  .info-main {
-    p {
-      margin-top: 8px;
-    }
-  }
-  .info-sub {
-    display: flex;
-    justify-content: space-between;
-    color: rgba(white, 0.5);
-    margin: 8px 0;
-  }
+  padding: 48px 32px;
+  gap: 16px;
+}
+.info-footer {
+  display: flex;
+  justify-content: space-between;
+  color: rgba(white, 0.5);
 }
 .tags {
-  display: inline;
-  margin-right: 8px;
-
-  &:last-child {
-    margin-right: 0;
-  }
+  display: flex;
+  gap: 8px;
 }
 
 @include viewpoint-xl {
   .post-info {
     width: $breakpoint-xl;
   }
-  .info-main {
-    h1 {
-      font-size: 2.5em;
-    }
-    p {
-      font-size: 1.5em;
-    }
+  h1 {
+    font-size: 2.5em;
   }
-  .info-sub {
+  p {
+    font-size: 1.5em;
+  }
+  .info-footer {
     font-size: 1em;
   }
 }
@@ -91,15 +77,13 @@ $background-height: calc(#{$header-image-height} - #{$header-height});
   .post-info {
     width: $breakpoint-lg;
   }
-  .info-main {
-    h1 {
-      font-size: 2.25em;
-    }
-    p {
-      font-size: 1.25em;
-    }
+  h1 {
+    font-size: 2.25em;
   }
-  .info-sub {
+  p {
+    font-size: 1.25em;
+  }
+  .info-footer {
     font-size: 1em;
   }
 }
@@ -107,51 +91,47 @@ $background-height: calc(#{$header-image-height} - #{$header-height});
   .post-info {
     width: $breakpoint-md;
   }
-  .info-main {
-    h1 {
-      font-size: 2em;
-    }
-    p {
-      font-size: 1.25em;
-    }
+  h1 {
+    font-size: 2em;
   }
-  .info-sub {
+  p {
+    font-size: 1.25em;
+  }
+  .info-footer {
     font-size: 0.9em;
   }
 }
 @include viewpoint-sm {
   .post-info {
     width: $breakpoint-sm;
+    gap: 8px;
   }
-  .info-main {
-    h1 {
-      font-size: 1.75em;
-    }
-    p {
-      font-size: 1.1em;
-    }
+  h1 {
+    font-size: 1.75em;
   }
-  .info-sub {
+  p {
+    font-size: 1.1em;
+  }
+  .info-footer {
+    flex-direction: column;
+    gap: 8px;
     font-size: 0.8em;
   }
 }
 @include viewpoint-xs {
   .post-info {
     width: 100vw;
-
-    .info-sub {
-      display: block;
-    }
+    gap: 8px;
   }
-  .info-main {
-    h1 {
-      font-size: 1.75em;
-    }
-    p {
-      font-size: 1.1em;
-    }
+  h1 {
+    font-size: 1.75em;
   }
-  .info-sub {
+  p {
+    font-size: 1.1em;
+  }
+  .info-footer {
+    flex-direction: column;
+    gap: 8px;
     font-size: 0.8em;
 
     .posted-date {
