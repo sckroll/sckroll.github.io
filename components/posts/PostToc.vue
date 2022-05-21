@@ -10,18 +10,20 @@
           <IconDown></IconDown>
         </SvgBase>
       </div>
-      <div v-if="isExpanded" class="toc-body">
-        <div v-for="link of toc" :key="link.id" class="toc-list">
-          <div
-            class="toc-item"
-            :class="{ toc2: link.depth === 2, toc3: link.depth === 3 }"
-          >
-            <nuxt-link :to="`#${link.id}`">
-              <span class="toc-text">{{ link.text }}</span>
-            </nuxt-link>
+      <transition name="fade">
+        <div v-if="isExpanded" class="toc-body">
+          <div v-for="link of toc" :key="link.id" class="toc-list">
+            <div
+              class="toc-item"
+              :class="{ toc2: link.depth === 2, toc3: link.depth === 3 }"
+            >
+              <TextLink :to="`#${link.id}`">
+                {{ link.text }}
+              </TextLink>
+            </div>
           </div>
         </div>
-      </div>
+      </transition>
     </nav>
   </div>
 </template>
@@ -63,57 +65,49 @@ export default {
 .post-toc {
   position: sticky;
   top: calc(#{$header-height} + 32px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.toc-header {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: $fade-default;
 
-  .toc-header {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: $fade-default;
+  &:hover {
+    color: $color-primary;
 
-    &:hover {
-      color: $color-primary;
-
-      svg {
-        fill: $color-primary;
-      }
-    }
-    .toc-header-text {
-      font-size: 1.25em;
-      font-weight: 600;
+    svg {
+      fill: $color-primary;
     }
   }
-  .toc-body {
-    margin-top: 13px;
+  .toc-header-text {
+    font-size: 1.25em;
+    font-weight: 600;
   }
 }
-.toc-list {
-  .toc-item {
-    width: 100%;
-    margin: 8px 0;
-  }
-  .toc-text {
-    padding: 2px 0;
-    border-bottom: 2px solid transparent;
-    transition: $fade-default;
+.toc-item {
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+.toc3 {
+  font-size: 0.8em;
+  margin-left: 16px;
 
-    &:hover {
-      border-bottom: 2px solid $color-primary;
-      transition: $fade-default;
-    }
-    &:active {
-      color: $color-primary;
-      transition: $fade-default;
-    }
+  &::before {
+    content: '-';
+    margin-right: 4px;
+    margin-bottom: 3px;
   }
-  .toc3 {
-    font-size: 0.8em;
-    margin-left: 16px;
+}
+.dark-mode .toc-header:hover {
+  color: $color-secondary;
 
-    &::before {
-      content: '-';
-      margin-right: 4px;
-    }
+  svg {
+    fill: $color-secondary;
   }
 }
 </style>
