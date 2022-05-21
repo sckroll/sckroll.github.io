@@ -102,6 +102,7 @@ header {
   &.scrolled {
     background-color: rgba(white, 0.7);
     color: black;
+    box-shadow: $shadow-default;
     backdrop-filter: blur(4px);
 
     &.blur-disabled {

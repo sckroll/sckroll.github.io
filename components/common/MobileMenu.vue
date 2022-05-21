@@ -45,7 +45,6 @@ export default {
   background-color: rgba(white, 0.7);
   backdrop-filter: blur(4px);
   color: black;
-  box-shadow: 0 2px 4px 2px rgba(black, 0.2);
   width: 100%;
   height: 100vh;
   transition: $fade-default;

@@ -63,7 +63,7 @@ export default {
   bottom: 96px;
   padding: 16px;
   background-color: white;
-  box-shadow: 0 1px 2px 1px rgba(black, 0.2);
+  box-shadow: $shadow-default;
 }
 .dark-mode .post-mobile-toc {
   background-color: $color-grey-800;
