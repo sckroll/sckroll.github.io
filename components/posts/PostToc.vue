@@ -17,7 +17,10 @@
               class="toc-item"
               :class="{ toc2: link.depth === 2, toc3: link.depth === 3 }"
             >
-              <TextLink :to="`#${link.id}`">
+              <TextLink
+                :to="`#${link.id}`"
+                @click.native="handleScroll(link.id)"
+              >
                 {{ link.text }}
               </TextLink>
             </div>
@@ -53,6 +56,21 @@ export default {
     toggleToc() {
       this.isExpanded = !this.isExpanded
       localStorage.setItem('sckroll-toc-state', this.isExpanded)
+    },
+    // nuxt-link의 앵커 스크롤 문제를 해결하는 메소드
+    // 출처: https://stackoverflow.com/questions/63732673/nuxt-link-redirect-to-the-same-anchor-with-hash
+    handleScroll(anchorId) {
+      if (this.$route.hash) {
+        const anchor = document.querySelector(`#${anchorId}`)
+
+        // Check if the anchor has been found
+        if (anchor) {
+          window.scrollTo({
+            // Scroll so that the anchor is at the top of the view
+            top: anchor.getBoundingClientRect().top + window.pageYOffset,
+          })
+        }
+      }
     },
   },
 }
