@@ -1,36 +1,29 @@
 <template>
-  <transition name="fade">
-    <nav v-if="value" class="post-mobile-toc click-block">
-      <div class="toc-body click-block">
-        <div v-for="link of toc" :key="link.id" class="toc-list">
-          <div
-            class="toc-item click-block"
-            :class="{ toc2: link.depth === 2, toc3: link.depth === 3 }"
-          >
-            <nuxt-link :to="`#${link.id}`">
-              <span class="toc-text">{{ link.text }}</span>
-            </nuxt-link>
-          </div>
-        </div>
+  <div class="toc-mobile-container">
+    <div class="toc-mobile-button click-block" @click="toggleTocMenu">목차</div>
+    <transition name="fade">
+      <div v-if="tocMenu" class="post-mobile-toc click-block">
+        <PostToc :toc="toc" mobile></PostToc>
       </div>
-    </nav>
-  </transition>
+    </transition>
+  </div>
 </template>
 
 <script>
 export default {
   props: {
-    value: {
-      type: Boolean,
-      default: false,
-    },
     toc: {
       type: Array,
       required: true,
     },
   },
+  data() {
+    return {
+      tocMenu: false,
+    }
+  },
   watch: {
-    value: {
+    tocMenu: {
       handler(val) {
         if (val) {
           window.addEventListener('click', this.clickListener)
@@ -48,25 +41,44 @@ export default {
       if (target.classList.contains('click-block')) return
       this.hideToc()
     },
+    toggleTocMenu() {
+      this.tocMenu = !this.tocMenu
+    },
     hideToc() {
-      this.$emit('input', false)
+      this.tocMenu = false
     },
   },
 }
 </script>
 
 <style lang="scss" scoped>
+.toc-mobile-button {
+  cursor: pointer;
+  z-index: 1;
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  padding: 8px 16px;
+  background-color: rgba(white, 0.7);
+  backdrop-filter: blur(4px);
+  box-shadow: $shadow-default;
+  font-size: 1.25em;
+  transition: $fade-default;
+
+  &:hover {
+    box-shadow: $shadow-hover;
+    transition: $fade-default;
+  }
+}
 .post-mobile-toc {
   z-index: 1;
   position: fixed;
   right: 32px;
   bottom: 96px;
   padding: 16px;
-  background-color: white;
+  background-color: rgba(white, 0.7);
+  backdrop-filter: blur(4px);
   box-shadow: $shadow-default;
-}
-.dark-mode .post-mobile-toc {
-  background-color: $color-grey-800;
 }
 .toc-list {
   .toc-item {
@@ -95,6 +107,13 @@ export default {
       content: '-';
       margin-right: 4px;
     }
+  }
+}
+.dark-mode {
+  .toc-mobile-button,
+  .post-mobile-toc {
+    background-color: rgba(black, 0.7);
+    backdrop-filter: blur(4px);
   }
 }
 </style>

@@ -1,13 +1,14 @@
 <template>
   <section class="content-container" :class="{ project }">
     <PostContent></PostContent>
-    <template v-if="isMobile && post.toc.length > 1">
-      <div class="toc-mobile-button click-block" @click="toggleTocMenu">
-        목차
-      </div>
-      <PostTocMobile v-model="tocMenu" :toc="post.toc"></PostTocMobile>
-    </template>
-    <PostToc v-else-if="post.toc.length > 1" :toc="post.toc"></PostToc>
+    <PostTocMobile
+      v-if="isMobile && post.toc.length > 1"
+      :toc="post.toc"
+    ></PostTocMobile>
+    <PostTocDesktop
+      v-else-if="post.toc.length > 1"
+      :toc="post.toc"
+    ></PostTocDesktop>
   </section>
 </template>
 
@@ -24,7 +25,6 @@ export default {
   data() {
     return {
       isMobile: false,
-      tocMenu: false,
     }
   },
   computed: {
@@ -44,9 +44,6 @@ export default {
       this.isMobile =
         window.innerWidth <= parseInt(breakpointLg.replace('px', ''))
     },
-    toggleTocMenu() {
-      this.tocMenu = !this.tocMenu
-    },
   },
 }
 </script>
@@ -56,28 +53,6 @@ export default {
   display: flex;
   padding: 64px 32px;
   gap: 32px;
-}
-.toc-mobile-button {
-  cursor: pointer;
-  z-index: 1;
-  position: fixed;
-  bottom: 32px;
-  right: 32px;
-  padding: 8px 16px;
-  background-color: rgba(white, 0.7);
-  backdrop-filter: blur(4px);
-  box-shadow: $shadow-default;
-  font-size: 1.25em;
-  transition: $fade-default;
-
-  &:hover {
-    box-shadow: $shadow-hover;
-    transition: $fade-default;
-  }
-}
-.dark-mode .toc-mobile-button {
-  background-color: rgba(black, 0.7);
-  backdrop-filter: blur(4px);
 }
 
 @include viewpoint-xl {
