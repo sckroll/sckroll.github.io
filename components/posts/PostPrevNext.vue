@@ -2,18 +2,22 @@
   <section class="prev-next-nav">
     <div class="wrapper">
       <span class="post-link">
-        <span class="post-label">&lt; 다음 |</span>
-        <nuxt-link v-if="next" :to="{ path: next.slug }">{{
-          next.title
-        }}</nuxt-link>
+        <SvgBase icon :class="{ disabled: !next }">
+          <IconLeft></IconLeft>
+        </SvgBase>
+        <TextLink v-if="next" :to="next.slug">
+          다음 | {{ next.title }}
+        </TextLink>
         <span v-else class="post-empty">다음 포스트가 없습니다.</span>
       </span>
       <span class="post-link">
-        <nuxt-link v-if="prev" :to="{ path: prev.slug }">{{
-          prev.title
-        }}</nuxt-link>
+        <TextLink v-if="prev" :to="prev.slug">
+          {{ prev.title }} | 이전
+        </TextLink>
         <span v-else class="post-empty">이전 포스트가 없습니다.</span>
-        <span class="post-label">| 이전 &gt;</span>
+        <SvgBase icon :class="{ disabled: !prev }">
+          <IconRight></IconRight>
+        </SvgBase>
       </span>
     </div>
   </section>
@@ -45,31 +49,24 @@ export default {
   justify-content: space-between;
   padding: 16px 32px;
   font-size: 1.25em;
-  line-height: 180%;
 }
 .post-link {
-  a {
-    padding: 4px 0;
-    border-bottom: 3px solid transparent;
-    transition: $fade-default;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 
-    &:hover {
-      border-bottom: 3px solid $color-primary;
-      transition: $fade-default;
+  svg {
+    margin-bottom: 2px;
+
+    &.disabled {
+      fill: $color-grey-500;
     }
-    &:active {
-      color: $color-primary;
-      transition: $fade-default;
-    }
-  }
-  .post-label {
-    font-weight: 700;
   }
   .post-empty {
     color: $color-grey-500;
   }
   &:last-of-type {
-    text-align: right;
+    justify-content: flex-end;
   }
 }
 
