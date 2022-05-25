@@ -1,7 +1,18 @@
 <template>
   <div class="text-link">
+    <a
+      v-if="anchor && to"
+      :href="to"
+      class="underline-link"
+      :class="{ reversed: isReversed(), fix, thick, selected }"
+    >
+      <slot></slot>
+      <div class="underline-outer" :class="{ visible: underline }">
+        <div class="underline-inner"></div>
+      </div>
+    </a>
     <nuxt-link
-      v-if="to"
+      v-else-if="to"
       :to="to"
       class="underline-link"
       :class="{ reversed: isReversed(), fix, thick, selected }"
@@ -53,6 +64,10 @@ export default {
       default: false,
     },
     selected: {
+      type: Boolean,
+      default: false,
+    },
+    anchor: {
       type: Boolean,
       default: false,
     },
