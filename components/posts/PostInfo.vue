@@ -56,7 +56,7 @@ $background-height: calc(#{$header-image-height} - #{$header-height});
 }
 .tags {
   display: flex;
-  gap: 8px;
+  gap: 16px;
 }
 
 @include viewpoint-xl {
