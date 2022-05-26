@@ -20,7 +20,7 @@ $hash-link-margin-top: $header-height + 32px;
     }
     code {
       padding: 2px;
-      background-color: $color-grey-600;
+      background-color: $color-grey-700;
       color: white;
     }
   }
@@ -38,6 +38,8 @@ $hash-link-margin-top: $header-height + 32px;
   p,
   ol,
   ul {
+    font-size: 1.1em;
+    font-weight: 500;
     line-height: 170%;
 
     code {
@@ -102,10 +104,11 @@ $hash-link-margin-top: $header-height + 32px;
   summary {
     cursor: pointer;
     transition: $fade-default;
+    font-size: 1.1em;
+    font-weight: 700;
 
     &:hover {
       color: $color-primary;
-      transition: $fade-default;
     }
   }
   .nuxt-content-highlight {
@@ -130,5 +133,10 @@ $hash-link-margin-top: $header-height + 32px;
 .dark-mode .nuxt-content {
   blockquote {
     background-color: $color-grey-700;
+  }
+  summary {
+    &:hover {
+      color: $color-secondary;
+    }
   }
 }
