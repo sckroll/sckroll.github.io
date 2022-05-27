@@ -1,8 +1,5 @@
 <template>
   <div class="page-container post-list-page">
-    <!-- <post-list :posts="posts" searchable>
-      <template v-slot:title>포스트 검색</template>
-    </post-list> -->
     <PostList :posts="posts" searchable>
       <template v-slot:title>포스트 검색</template>
     </PostList>
