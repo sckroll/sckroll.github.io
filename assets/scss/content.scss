@@ -111,6 +111,16 @@ $hash-link-margin-top: $header-height + 32px;
       color: $color-primary;
     }
   }
+  .text-link a {
+    font-size: 1.1em;
+    font-weight: 500;
+    line-height: 170%;
+    margin-top: 2px;
+
+    .underline-outer {
+      margin-top: 0;
+    }
+  }
   .nuxt-content-highlight {
     background-color: $color-grey-600;
     margin: 32px 0;
