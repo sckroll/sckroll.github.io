@@ -33,9 +33,16 @@ export default {
       error({ statusCode: e.statusCode || e.status || 500 })
     }
   },
+  computed: {
+    headerImage() {
+      return this.post.image
+        ? `url(/images/projects/${this.post.image})`
+        : this.getPattern(this.post.title)
+    },
+  },
   created() {
     this.$store.commit('SET_POST', this.post)
-    this.$store.commit('SET_HEADER_IMAGE', getPattern(this.post.title))
+    this.$store.commit('SET_HEADER_IMAGE', this.headerImage)
   },
   methods: {
     getPattern,
