@@ -103,11 +103,14 @@ $hash-link-margin-top: $header-height + 32px;
   }
   summary {
     cursor: pointer;
-    transition: $fade-default;
+    padding: 16px;
+    background-color: white;
     font-size: 1.1em;
     font-weight: 700;
+    transition: $fade-default;
 
     &:hover {
+      background-color: $color-grey-100;
       color: $color-primary;
     }
   }
@@ -145,7 +148,10 @@ $hash-link-margin-top: $header-height + 32px;
     background-color: $color-grey-700;
   }
   summary {
+    background-color: $color-grey-800;
+
     &:hover {
+      background-color: $color-grey-700;
       color: $color-secondary;
     }
   }
