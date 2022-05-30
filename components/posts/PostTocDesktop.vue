@@ -1,6 +1,6 @@
 <template>
   <div class="toc-desktop-container">
-    <div class="post-toc">
+    <div v-if="toc.length > 1" class="post-toc">
       <div class="toc-header" @click="toggleToc">
         <div class="toc-header-text">목차</div>
         <SvgBase v-if="isExpanded" icon width="24" height="24">

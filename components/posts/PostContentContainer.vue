@@ -5,10 +5,7 @@
       v-if="isMobile && post.toc.length > 1"
       :toc="post.toc"
     ></PostTocMobile>
-    <PostTocDesktop
-      v-else-if="post.toc.length > 1"
-      :toc="post.toc"
-    ></PostTocDesktop>
+    <PostTocDesktop v-if="!isMobile" :toc="post.toc"></PostTocDesktop>
   </section>
 </template>
 
