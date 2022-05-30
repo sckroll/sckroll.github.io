@@ -70,6 +70,11 @@ export default {
   }
 }
 
+@include viewpoint-lg {
+  .wrapper {
+    flex-direction: column;
+  }
+}
 @include viewpoint-md {
   .wrapper {
     flex-direction: column;
