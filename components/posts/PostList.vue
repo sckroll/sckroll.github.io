@@ -122,7 +122,7 @@ export default {
   }
 }
 .search-message {
-  height: 256px;
+  height: 55vh;
   display: flex;
   justify-content: center;
   align-items: center;
