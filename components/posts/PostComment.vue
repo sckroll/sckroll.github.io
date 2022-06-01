@@ -8,18 +8,17 @@
 // 참고: https://junilhwang.github.io/TIL/Vuepress/Utterances/
 export default {
   computed: {
-    isDarkMode() {
-      return this.$store.state.isDarkMode
+    colorMode() {
+      return this.$store.state.isDarkMode ? 'dark' : 'light'
     },
   },
   watch: {
-    isDarkMode(value) {
+    colorMode(value) {
       // iframe에 메시지를 전달하기 위해 postMessage 사용
       // 출처: https://github.com/utterance/utterances/issues/170
-      const colorMode = value ? 'dark' : 'light'
       const message = {
         type: 'set-theme',
-        theme: `github-${colorMode}`,
+        theme: `github-${value}`,
       }
 
       // Utterances가 마운트되기 전에 호출될 수 있기 때문에 아래와 같이 조치
@@ -38,7 +37,6 @@ export default {
     },
   },
   mounted() {
-    const colorMode = this.isDarkMode ? 'dark' : 'light'
     const utterances = document.createElement('script')
 
     utterances.type = 'text/javascript'
@@ -48,7 +46,7 @@ export default {
 
     utterances.setAttribute('issue-term', 'pathname')
     utterances.setAttribute('repo', 'sckroll/sckroll.github.io')
-    utterances.setAttribute('theme', `github-${colorMode}`)
+    utterances.setAttribute('theme', `github-${this.colorMode}`)
 
     this.$refs.comment.appendChild(utterances)
   },
