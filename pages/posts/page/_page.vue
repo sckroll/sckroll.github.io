@@ -1,5 +1,6 @@
 <template>
   <div class="page-container post-list-page">
+    <TagListSlider :tags="sortedTags"></TagListSlider>
     <PostList :posts="posts" search-button>
       <template v-slot:title>블로그 포스트</template>
     </PostList>
@@ -18,7 +19,9 @@ export default {
   async asyncData({ $content, params, error }) {
     try {
       // 총 포스트 개수
-      const allPosts = await $content('posts', { deep: true }).fetch()
+      const allPosts = await $content('posts', { deep: true })
+        .only('tags')
+        .fetch()
       const totalPostCount = allPosts.length
 
       // 현재 & 마지막 페이지
@@ -66,9 +69,7 @@ export default {
             }
           })
         })
-      const sortedTags = [...tagCounter]
-        .sort((a, b) => b[1] - a[1])
-        .map(item => item[0])
+      const sortedTags = [...tagCounter].sort((a, b) => b[1] - a[1])
 
       return {
         totalPostCount,
