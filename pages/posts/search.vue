@@ -10,7 +10,7 @@
 export default {
   async asyncData({ $content, query }) {
     try {
-      let posts = await $content('posts', {
+      let posts = $content('posts', {
         deep: true,
         text: true,
       }).only([
@@ -25,7 +25,11 @@ export default {
       ])
 
       if (query.q && query.field) {
-        posts = await posts.search(query.field, query.q)
+        // search()를 사용하면 한 글자만 달라도 검색 결과에 포함되므로
+        // (ex: tree를 검색했을 때 trie도 결과에 포함됨)
+        // where() 안에 MongoDB 문법인 $contains를 사용하여
+        // 검색어를 오타 없이 완전히 포함한 모든 결과를 쿼리
+        posts = posts.where({ [query.field]: { $contains: query.q } })
       }
       posts = await posts.sortBy('createdAt', 'desc').fetch()
 
