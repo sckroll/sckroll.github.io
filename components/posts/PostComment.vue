@@ -44,7 +44,7 @@ export default {
     utterances.crossOrigin = 'anonymous'
     utterances.src = 'https://utteranc.es/client.js'
 
-    utterances.setAttribute('issue-term', 'pathname')
+    utterances.setAttribute('issue-term', 'title')
     utterances.setAttribute('repo', 'sckroll/sckroll.github.io')
     utterances.setAttribute('theme', `github-${this.colorMode}`)
 
