@@ -1,14 +1,24 @@
 <template>
   <section class="tag-list-slider">
-    <nuxt-link
-      v-for="tag in tags"
-      :key="tag[0]"
-      :to="`/posts/search?q=${tag[0]}&field=tags`"
-      class="tag-item"
-    >
-      <div class="tag-name">#{{ tag[0] }}</div>
-      <div class="tag-count">{{ tag[1] }}</div>
-    </nuxt-link>
+    <div class="tag-list-header">
+      <h1>자주 사용한 태그</h1>
+      <IconLink @click="toggleHeight">
+        <SvgBase icon>
+          <IconPlus :extended="extended"></IconPlus>
+        </SvgBase>
+      </IconLink>
+    </div>
+    <div class="tag-list-container" :class="{ extended }">
+      <nuxt-link
+        v-for="tag in tags"
+        :key="tag[0]"
+        :to="`/posts/search?q=${tag[0]}&field=tags`"
+        class="tag-item"
+      >
+        <div class="tag-name">#{{ tag[0] }}</div>
+        <div class="tag-count">{{ tag[1] }}</div>
+      </nuxt-link>
+    </div>
   </section>
 </template>
 
@@ -20,14 +30,42 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      extended: false,
+    }
+  },
+  methods: {
+    toggleHeight() {
+      this.extended = !this.extended
+    },
+  },
 }
 </script>
 
 <style lang="scss" scoped>
 section.tag-list-slider {
   display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 64px;
+}
+.tag-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.tag-list-container {
+  height: 32px;
+  display: flex;
   gap: 8px;
-  margin-bottom: 32px;
+  flex-wrap: wrap;
+  overflow-y: hidden;
+  transition: height 0.3s ease;
+
+  &.extended {
+    height: 192px;
+  }
 }
 .tag-item {
   cursor: pointer;
