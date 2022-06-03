@@ -135,7 +135,7 @@ export default {
 }
 
 @include viewpoint-md {
-  .section-title-container {
+  .section-title-container.searchable {
     flex-direction: column;
     gap: 8px;
   }
@@ -145,7 +145,7 @@ export default {
   }
 }
 @include viewpoint-sm {
-  .section-title-container {
+  .section-title-container.searchable {
     flex-direction: column;
     gap: 8px;
   }
@@ -155,7 +155,7 @@ export default {
   }
 }
 @include viewpoint-xs {
-  .section-title-container {
+  .section-title-container.searchable {
     flex-direction: column;
     gap: 8px;
   }
