@@ -1,6 +1,14 @@
 <template>
+  <nuxt-link
+    v-if="internal && to && !disabled"
+    :to="to"
+    class="icon-link"
+    :class="{ reversed: isReversed(), fix, responsive }"
+  >
+    <slot></slot>
+  </nuxt-link>
   <a
-    v-if="to && !disabled"
+    v-else-if="to && !disabled"
     :href="to"
     class="icon-link"
     :class="{ reversed: isReversed(), fix, responsive }"
@@ -34,6 +42,10 @@ export default {
     },
     to: {
       type: [String, Boolean],
+      default: false,
+    },
+    internal: {
+      type: Boolean,
       default: false,
     },
     disabled: {
