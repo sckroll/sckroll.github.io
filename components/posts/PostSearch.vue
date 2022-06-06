@@ -83,20 +83,19 @@ export default {
     onEnter() {
       if (!this.query) return
 
-      // this.$router.push(`/posts/search?q=${this.query}&field=${this.field}`)
-      location.href = `/posts/search?q=${this.query}&field=${this.field}`
+      this.$router.push(`/posts/search?q=${this.query}&field=${this.field}`)
     },
     toggleDropdown() {
       this.dropdown = !this.dropdown
     },
     clear() {
       this.query = ''
-      // this.onEnter()
+      this.$router.push('/posts/search')
     },
     setField(item) {
       this.field = item.value
       this.fieldKor = item.name
-      this.clear()
+      this.query = ''
     },
     getFieldKor() {
       if (this.field === 'tags') this.fieldKor = '태그'

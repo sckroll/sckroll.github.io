@@ -40,6 +40,40 @@ export default {
       console.error(e)
     }
   },
+  computed: {
+    query() {
+      return this.$route.query.q || ''
+    },
+    field() {
+      return this.$route.query.field || ''
+    },
+  },
+  watch: {
+    async query(val) {
+      try {
+        let posts = this.$content('posts', {
+          deep: true,
+          text: true,
+        }).only([
+          'title',
+          'description',
+          'img',
+          'slug',
+          'tags',
+          'createdAt',
+          'updatedAt',
+          'text',
+        ])
+
+        if (val && this.field) {
+          posts = posts.where({ [this.field]: { $contains: val } })
+        }
+        this.posts = await posts.sortBy('createdAt', 'desc').fetch()
+      } catch (e) {
+        console.error(e)
+      }
+    },
+  },
   head() {
     return {
       title: '포스트 검색',

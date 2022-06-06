@@ -17,7 +17,7 @@
         :initial-field="field"
       ></PostSearch>
 
-      <IconLink v-if="searchButton" to="/posts/search">
+      <IconLink v-if="searchButton" internal to="/posts/search">
         <SvgBase icon>
           <IconSearch></IconSearch>
         </SvgBase>
@@ -72,20 +72,30 @@ export default {
   },
   data() {
     return {
-      query: '',
-      field: '',
       fieldKor: '',
       slicedPosts: [],
       lastIndex: 0,
       offset: 10,
     }
   },
+  computed: {
+    query() {
+      return this.$route.query.q || ''
+    },
+    field() {
+      return this.$route.query.field || ''
+    },
+  },
+  watch: {
+    posts: {
+      deep: true,
+      handler() {
+        this.lastIndex = 0
+        this.showMoreResults()
+      },
+    },
+  },
   mounted() {
-    const { q, field } = this.$router.currentRoute.query
-
-    this.query = q || ''
-    this.field = field || ''
-
     this.getFieldKor()
     this.showMoreResults()
   },
