@@ -29,7 +29,7 @@ export default {
         },
         {
           name: 'Posts',
-          path: '/posts',
+          path: '/posts?page=1',
         },
         {
           name: 'Projects',

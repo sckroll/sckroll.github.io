@@ -135,7 +135,7 @@ export default {
     },
   },
   mounted() {
-    this.page = parseInt(this.$route.params.page) || 1
+    this.page = parseInt(this.$route.query.page) || 1
 
     this.onResize()
     window.addEventListener('resize', this.onResize)
@@ -157,29 +157,29 @@ export default {
       }
     },
     moveToFirst() {
-      if (this.hasPrevPage) this.$router.push('/posts/page/1')
+      if (this.hasPrevPage) this.$router.push('/posts?page=1')
     },
     moveToPrevPage() {
-      if (this.hasPrevPage) this.$router.push(`/posts/page/${this.prevPage}`)
+      if (this.hasPrevPage) this.$router.push(`/posts?page=${this.prevPage}`)
     },
     moveToPrevPages() {
       const prevLastPage =
         Math.floor((this.page - 1) / this.pageUnit) * this.pageUnit
-      this.$router.push(`/posts/page/${prevLastPage}`)
+      this.$router.push(`/posts?page=${prevLastPage}`)
     },
     moveToNextPage() {
-      if (this.hasNextPage) this.$router.push(`/posts/page/${this.nextPage}`)
+      if (this.hasNextPage) this.$router.push(`/posts?page=${this.nextPage}`)
     },
     moveToNextPages() {
       const nextFirstPage =
         Math.floor((this.page - 1) / this.pageUnit + 1) * this.pageUnit + 1
-      this.$router.push(`/posts/page/${nextFirstPage}`)
+      this.$router.push(`/posts?page=${nextFirstPage}`)
     },
     moveToLast() {
-      if (this.hasNextPage) this.$router.push(`/posts/page/${this.totalPages}`)
+      if (this.hasNextPage) this.$router.push(`/posts?page=${this.totalPages}`)
     },
     moveToPage(page) {
-      this.$router.push(`/posts/page/${page}`)
+      this.$router.push(`/posts?page=${page}`)
     },
     isCurrPage(page) {
       return this.page === page
