@@ -27,13 +27,13 @@ export default {
         .fetch()
       const totalPostCount = allPosts.length
 
-      // 페이지 수를 넘으면 1페이지로 리다이렉트
-      if (query.page > totalPostCount) redirect('/posts?page=1')
-
       // 현재 & 마지막 페이지
       const currPage = parseInt(query.page)
       const lastPage = Math.ceil(totalPostCount / PER_PAGE)
       const lastPageCount = totalPostCount % PER_PAGE
+
+      // 페이지 범위 밖에 있으면 1페이지로 리다이렉트
+      if (query.page < 1 || query.page > lastPage) redirect('/posts?page=1')
 
       // 스킵할 포스트 개수
       const skipNumber = () => {
