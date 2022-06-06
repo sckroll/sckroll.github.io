@@ -157,29 +157,44 @@ export default {
       }
     },
     moveToFirst() {
-      if (this.hasPrevPage) this.$router.push('/posts?page=1')
+      if (this.hasPrevPage) {
+        this.$router.push('/posts?page=1')
+        this.page = 1
+      }
     },
     moveToPrevPage() {
-      if (this.hasPrevPage) this.$router.push(`/posts?page=${this.prevPage}`)
+      if (this.hasPrevPage) {
+        this.$router.push(`/posts?page=${this.prevPage}`)
+        this.page = this.prevPage
+      }
     },
     moveToPrevPages() {
       const prevLastPage =
         Math.floor((this.page - 1) / this.pageUnit) * this.pageUnit
       this.$router.push(`/posts?page=${prevLastPage}`)
+      this.page = prevLastPage
     },
     moveToNextPage() {
-      if (this.hasNextPage) this.$router.push(`/posts?page=${this.nextPage}`)
+      if (this.hasNextPage) {
+        this.$router.push(`/posts?page=${this.nextPage}`)
+        this.page = this.nextPage
+      }
     },
     moveToNextPages() {
       const nextFirstPage =
         Math.floor((this.page - 1) / this.pageUnit + 1) * this.pageUnit + 1
       this.$router.push(`/posts?page=${nextFirstPage}`)
+      this.page = this.nextFirstPage
     },
     moveToLast() {
-      if (this.hasNextPage) this.$router.push(`/posts?page=${this.totalPages}`)
+      if (this.hasNextPage) {
+        this.$router.push(`/posts?page=${this.totalPages}`)
+        this.page = this.totalPages
+      }
     },
     moveToPage(page) {
       this.$router.push(`/posts?page=${page}`)
+      this.page = page
     },
     isCurrPage(page) {
       return this.page === page

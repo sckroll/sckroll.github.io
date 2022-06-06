@@ -91,6 +91,56 @@ export default {
       perPage: PER_PAGE,
     }
   },
+  computed: {
+    page() {
+      return this.$route.query.page || 1
+    },
+  },
+  watch: {
+    async page(val) {
+      try {
+        // 총 포스트 개수
+        const allPosts = await this.$content('posts', { deep: true })
+          .only('tags')
+          .fetch()
+        const totalPostCount = allPosts.length
+
+        // 현재 & 마지막 페이지
+        const currPage = parseInt(val)
+        const lastPage = Math.ceil(totalPostCount / PER_PAGE)
+        const lastPageCount = totalPostCount % PER_PAGE
+
+        // 스킵할 포스트 개수
+        const skipNumber = () => {
+          if (currPage === 1) {
+            return 0
+          }
+          if (currPage === lastPage) {
+            return totalPostCount - lastPageCount
+          }
+          return (currPage - 1) * PER_PAGE
+        }
+
+        // 현재 페이지의 포스트를 배열에 저장
+        this.posts = await this.$content('posts', { deep: true })
+          .only([
+            'title',
+            'description',
+            'img',
+            'slug',
+            'tags',
+            'createdAt',
+            'updatedAt',
+          ])
+          .sortBy('createdAt', 'desc')
+          .limit(PER_PAGE)
+          .skip(skipNumber())
+          .fetch()
+      } catch (e) {
+        this.$nuxt.error({ statusCode: e.statusCode || e.status || 500 })
+      }
+    },
+  },
   head() {
     return {
       title: '포스트',
