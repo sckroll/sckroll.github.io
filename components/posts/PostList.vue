@@ -45,7 +45,7 @@
     <PostListContents
       v-else
       :posts="posts"
-      :project="project"
+      :projects="projects"
     ></PostListContents>
   </section>
 </template>
@@ -54,18 +54,18 @@
 export default {
   props: {
     posts: {
-      type: Array,
-      required: true,
+      type: [Array, null],
+      default: null,
+    },
+    projects: {
+      type: [Array, null],
+      default: null,
     },
     searchable: {
       type: Boolean,
       default: false,
     },
     searchButton: {
-      type: Boolean,
-      default: false,
-    },
-    project: {
       type: Boolean,
       default: false,
     },
@@ -97,7 +97,7 @@ export default {
   },
   mounted() {
     this.getFieldKor()
-    this.showMoreResults()
+    if (this.posts) this.showMoreResults()
   },
   methods: {
     showMoreResults() {

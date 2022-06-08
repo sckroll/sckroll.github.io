@@ -1,6 +1,15 @@
 <template>
-  <section class="post-list-contents">
-    <PostItem v-for="post in posts" :key="post.slug" :post="post"></PostItem>
+  <section class="post-list-contents" :class="{ projects }">
+    <template v-if="posts">
+      <PostItem v-for="post in posts" :key="post.slug" :post="post"></PostItem>
+    </template>
+    <template v-else-if="projects">
+      <ProjectItem
+        v-for="project in projects"
+        :key="project.slug"
+        :project="project"
+      ></ProjectItem>
+    </template>
   </section>
 </template>
 
@@ -8,12 +17,12 @@
 export default {
   props: {
     posts: {
-      type: Array,
-      required: true,
+      type: [Array, null],
+      default: null,
     },
-    project: {
-      type: Boolean,
-      default: false,
+    projects: {
+      type: [Array, null],
+      default: null,
     },
   },
 }
@@ -25,6 +34,9 @@ section.post-list-contents {
   gap: 32px;
   grid-template-columns: repeat(2, 1fr);
 
+  &.projects {
+    grid-template-columns: 1fr;
+  }
   a {
     border-bottom: none;
 

@@ -20,15 +20,15 @@ export default {
 
 <style lang="scss" scoped>
 span {
-  margin-right: 8px;
-  padding: 4px 0;
-  border-bottom: 3px solid $color-grey-400;
+  font-weight: 500;
+  padding: 4px 0 2px;
+  border-bottom: 2px solid $color-grey-400;
 
   &:last-child {
     margin-right: 0;
   }
   &.javascript {
-    border-image: linear-gradient(to right, #f0db4f 50%, #323330 50%) 1;
+    border-image: linear-gradient(to right, #f0db4f 50%, #f0db4f 50%) 1;
   }
   &.vue-js {
     border-image: linear-gradient(to right, #42b883 50%, #35495e 50%) 1;

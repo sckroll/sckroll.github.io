@@ -1,8 +1,8 @@
 <template>
-  <div class="project-page post-list-page">
-    <!-- <PostList :posts="projects" project>
+  <div class="page-container post-list-page">
+    <PostList :projects="projects">
       <template v-slot:title>프로젝트 목록</template>
-    </PostList> -->
+    </PostList>
   </div>
 </template>
 
