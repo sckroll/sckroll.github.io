@@ -45,10 +45,7 @@ export default {
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [
-    // https://go.nuxtjs.dev/content
-    '@nuxt/content',
-  ],
+  modules: ['nuxt-content-git', '@nuxt/content'],
 
   // Content module configuration (https://go.nuxtjs.dev/content-config)
   content: {

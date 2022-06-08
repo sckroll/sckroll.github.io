@@ -17,6 +17,7 @@
     "core-js": "^3.6.5",
     "geopattern": "^1.2.3",
     "nuxt": "^2.15.8",
+    "nuxt-content-git": "^2.0.14",
     "prism-themes": "^1.4.0",
     "vuex": "^3.6.2"
   },
