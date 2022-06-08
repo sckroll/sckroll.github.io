@@ -6,8 +6,8 @@
       </div>
       <div class="post-info-container">
         <div class="main-info">
-          <h2 class="title">{{ post.title }}</h2>
-          <h3 class="description">{{ post.description }}</h3>
+          <h1 class="title">{{ post.title }}</h1>
+          <h2 class="description">{{ post.description }}</h2>
         </div>
         <div class="other-info">
           <div class="posted-date">
