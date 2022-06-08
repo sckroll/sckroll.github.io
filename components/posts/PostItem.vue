@@ -38,7 +38,7 @@
 <script>
 import { getPattern } from '@/utils/pattern'
 import { formatDate, diffDate } from '@/utils/handleDate'
-import { trimTitle, trimTags, trimDescription } from '@/utils/handlePostInfo'
+import { trimTags } from '@/utils/handlePostInfo'
 
 export default {
   props: {
@@ -49,9 +49,7 @@ export default {
   },
   data() {
     return {
-      maxTitleLength: 35,
       maxTagsLength: 3,
-      maxDescriptionLength: 70,
     }
   },
   computed: {
@@ -64,9 +62,7 @@ export default {
   methods: {
     getPattern,
     formatDate,
-    trimTitle,
     trimTags,
-    trimDescription,
     diffDate,
   },
 }
