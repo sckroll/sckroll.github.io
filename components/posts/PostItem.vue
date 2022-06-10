@@ -125,6 +125,7 @@ article.post-item {
     -webkit-box-orient: vertical;
     color: $color-grey-600;
     font-size: 1.1em;
+    font-weight: 500;
   }
   .other-info {
     display: flex;
