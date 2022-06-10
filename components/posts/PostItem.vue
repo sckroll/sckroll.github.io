@@ -158,7 +158,7 @@ article.post-item {
       background-color: $color-grey-700;
 
       .title {
-        color: white;
+        color: $color-secondary;
       }
     }
   }
@@ -170,6 +170,9 @@ article.post-item {
   }
   .updated-date {
     color: $color-grey-600;
+  }
+  .bottom-border {
+    background-color: $color-secondary;
   }
 }
 
