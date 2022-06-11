@@ -15,7 +15,13 @@
       v-else-if="to"
       :to="to"
       class="underline-link"
-      :class="{ reversed: isReversed(), fix, thick, selected }"
+      :class="{
+        reversed: isReversed(),
+        fix,
+        thick,
+        selected,
+        error: isErrorPage,
+      }"
     >
       <slot></slot>
       <div class="underline-outer" :class="{ visible: underline }">
@@ -37,6 +43,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
+
 export default {
   props: {
     to: {
@@ -73,9 +81,7 @@ export default {
     },
   },
   computed: {
-    isScrolled() {
-      return this.$store.state.isScrolled
-    },
+    ...mapState(['isScrolled', 'isErrorPage']),
   },
   methods: {
     isReversed() {
@@ -146,7 +152,7 @@ export default {
       height: 4px;
     }
   }
-  &.nuxt-link-active,
+  &.nuxt-link-active:not(.error),
   &.selected {
     .underline-outer {
       &.visible {

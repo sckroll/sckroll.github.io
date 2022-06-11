@@ -148,8 +148,6 @@ article.project-item {
 }
 
 @include viewpoint-lg {
-  .project-info-inner {
-  }
   .title {
     font-size: 1.4em;
   }

@@ -1,5 +1,5 @@
 <template>
-  <section class="error-content">
+  <section class="error-container">
     <div class="error-code">
       <h1 v-if="error.statusCode">{{ error.statusCode }}</h1>
     </div>
@@ -9,7 +9,7 @@
       </h2>
       <h2 v-else>{{ message.other }}</h2>
     </div>
-    <nuxt-link to="/" class="homepage-link">홈으로</nuxt-link>
+    <TextLink to="/" class="homepage-link">홈으로</TextLink>
   </section>
 </template>
 
@@ -36,16 +36,18 @@ export default {
 </script>
 
 <style lang="scss">
-.error-content {
+section.error-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: $header-height;
   height: calc(100vh - #{$header-height} - #{$footer-height});
 
   h1 {
     font-size: 4em;
+    font-weight: 500;
+  }
+  h2 {
     font-weight: 500;
   }
   .error-message {
@@ -54,27 +56,28 @@ export default {
 }
 .homepage-link {
   font-size: 1.1em;
-  padding: 4px 0;
-  border-bottom: 3px solid transparent;
-  transition: $fade-default;
-
-  &:hover {
-    border-bottom: 3px solid $color-primary;
-    transition: $fade-default;
-  }
-  &:active {
-    color: $color-primary;
-    transition: $fade-default;
-  }
 }
 
-@include viewpoint-xs {
-  .error-content {
+@include viewpoint-sm {
+  section.error-container {
     h1 {
       font-size: 3em;
     }
     .error-message {
       font-size: 0.9em;
+    }
+  }
+  .homepage-link {
+    font-size: 1em;
+  }
+}
+@include viewpoint-xs {
+  section.error-container {
+    h1 {
+      font-size: 3em;
+    }
+    .error-message {
+      font-size: 0.8em;
     }
   }
   .homepage-link {
