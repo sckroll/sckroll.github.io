@@ -61,6 +61,7 @@ footer {
   .footer-container {
     width: 100%;
     flex-direction: column;
+    justify-content: flex-start;
     gap: 8px;
   }
   .copyright {
