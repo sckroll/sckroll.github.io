@@ -221,7 +221,6 @@ article.post-item {
     gap: 8px;
 
     .title {
-      padding-bottom: 2px;
       font-size: 1.25em;
     }
     .description {
@@ -243,7 +242,6 @@ article.post-item {
     gap: 8px;
 
     .title {
-      padding-bottom: 2px;
       font-size: 1.25em;
     }
     .description {
