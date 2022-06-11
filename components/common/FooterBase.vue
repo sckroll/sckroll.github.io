@@ -22,6 +22,7 @@
 
 <style lang="scss" scoped>
 footer {
+  height: $footer-height;
   display: flex;
   justify-content: center;
 }
@@ -29,7 +30,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 32px 32px 32px 24px;
+  padding: 0 32px 0 24px;
 }
 .links {
   display: flex;
