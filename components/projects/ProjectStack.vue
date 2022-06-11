@@ -1,5 +1,7 @@
 <template>
-  <span :class="{ [stackClassName]: stackClassName }">{{ stack }}</span>
+  <div class="project-stack" :class="{ [stackClassName]: stackClassName }">
+    {{ stack }}
+  </div>
 </template>
 
 <script>
@@ -19,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-span {
+.project-stack {
   font-weight: 500;
   padding: 4px 0 2px;
   border-bottom: 2px solid $color-grey-400;

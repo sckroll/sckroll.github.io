@@ -50,6 +50,11 @@ section.post-list-contents {
   section.post-list-contents {
     gap: 16px;
     grid-template-columns: repeat(2, 1fr);
+
+    &.projects {
+      gap: 32px;
+      grid-template-columns: 1fr;
+    }
   }
 }
 @include viewpoint-sm {

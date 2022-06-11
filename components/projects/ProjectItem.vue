@@ -91,17 +91,18 @@ article.project-item {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  font-size: 1.4em;
+  font-size: 1.5em;
   transition: $fade-default;
 }
 .description {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   color: $color-grey-600;
   font-size: 1.1em;
+  font-weight: 500;
 }
 .stacks-container {
   display: flex;
@@ -110,7 +111,7 @@ article.project-item {
 
   h2 {
     font-size: 1em;
-    font-weight: 400;
+    font-weight: 500;
   }
 }
 .stacks {
@@ -134,57 +135,95 @@ article.project-item {
       background-color: $color-grey-700;
 
       .title {
-        color: white;
+        color: $color-secondary;
       }
     }
   }
   .description {
     color: $color-grey-400;
   }
+  .bottom-border {
+    background-color: $color-secondary;
+  }
 }
 
 @include viewpoint-lg {
-  .project-info-container {
+  .project-info-inner {
+  }
+  .title {
+    font-size: 1.4em;
+  }
+  .description {
+    font-size: 1em;
   }
 }
 @include viewpoint-md {
-  .project-info-container {
+  .project-info-inner {
     padding: 24px;
+  }
+  .project-thumbnail {
+    aspect-ratio: 3 / 2;
+  }
+  .title {
+    font-size: 1.25em;
+  }
+  .description {
+    font-size: 0.9em;
+  }
+  .stacks-container {
+    gap: 4px;
 
-    .main-info {
-      gap: 4px;
+    h2 {
+      font-size: 0.9em;
     }
-    .title {
-      font-size: 1.2em;
-    }
-    .description {
-      font-size: 1em;
+    .stacks {
+      gap: 8px;
+      font-size: 0.9em;
     }
   }
 }
 @include viewpoint-sm {
-  .project-info-container {
+  article.project-item {
+    flex-direction: column;
+  }
+  .project-info-inner {
     gap: 8px;
-
-    .title {
-      padding-bottom: 2px;
-      font-size: 1.25em;
-    }
-    .description {
-      font-size: 1em;
-    }
+  }
+  .title {
+    font-size: 1.4em;
+  }
+  .description {
+    -webkit-line-clamp: 3;
+    font-size: 1em;
   }
 }
 @include viewpoint-xs {
-  .project-info-container {
+  article.project-item {
+    flex-direction: column;
+  }
+  .project-info-inner {
+    padding: 24px;
     gap: 8px;
+  }
+  .main-info {
+    gap: 4px;
+  }
+  .title {
+    font-size: 1.25em;
+  }
+  .description {
+    -webkit-line-clamp: 2;
+    font-size: 0.9em;
+  }
+  .stacks-container {
+    gap: 4px;
 
-    .title {
-      padding-bottom: 2px;
-      font-size: 1.25em;
+    h2 {
+      font-size: 0.9em;
     }
-    .description {
-      font-size: 1em;
+    .stacks {
+      gap: 8px;
+      font-size: 0.9em;
     }
   }
 }
