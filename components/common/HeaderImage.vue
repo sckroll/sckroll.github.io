@@ -3,9 +3,10 @@
     <div
       v-if="headerImage"
       class="post-background-image"
-      :style="`background: ${headerImage};`"
+      :style="`background-image: ${headerImage};`"
     ></div>
     <HeaderIntro v-else></HeaderIntro>
+    <div class="header-image-overlay"></div>
   </div>
 </template>
 
@@ -31,6 +32,14 @@ export default {
 .post-background-image {
   width: inherit;
   height: inherit;
-  filter: brightness(50%);
+  background-position: center;
+  background-size: cover;
+}
+.header-image-overlay {
+  position: absolute;
+  width: inherit;
+  height: inherit;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(2px);
 }
 </style>
