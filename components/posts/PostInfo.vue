@@ -2,13 +2,15 @@
   <section class="post-info">
     <h1>{{ post.title }}</h1>
     <p>{{ post.description }}</p>
-    <div class="info-footer">
-      <div class="tags">
+    <div class="info-footer" :class="{ project: isProject }">
+      <div v-if="post.tags" class="tags">
         <span v-for="tag in post.tags.split(', ')" :key="tag" class="tag">
           #{{ tag }}
         </span>
       </div>
-      <div class="posted-date">
+
+      <div v-if="post.period" class="period">개발 기간: {{ post.period }}</div>
+      <div v-else class="posted-date">
         <span class="created-date">{{ formatDate(post.createdAt) }}</span>
         <span
           v-if="diffDate(post.createdAt, post.updatedAt) > 0"
@@ -16,6 +18,15 @@
         >
           (수정: {{ formatDate(post.updatedAt) }})
         </span>
+      </div>
+
+      <div v-if="post.stacks" class="stacks">
+        사용 스택:
+        <ProjectStack
+          v-for="(stack, index) in post.stacks"
+          :key="index"
+          :stack="stack"
+        ></ProjectStack>
       </div>
     </div>
   </section>
@@ -28,6 +39,9 @@ export default {
   computed: {
     post() {
       return this.$store.state.post
+    },
+    isProject() {
+      return !!this.$store.state.post.stacks
     },
   },
   methods: {
@@ -52,11 +66,18 @@ $background-height: calc(#{$header-image-height} - #{$header-height});
 .info-footer {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   color: rgba(white, 0.5);
 }
 .tags {
   display: flex;
   gap: 16px;
+}
+.stacks {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
 }
 
 @include viewpoint-xl {
@@ -114,6 +135,7 @@ $background-height: calc(#{$header-image-height} - #{$header-height});
   }
   .info-footer {
     flex-direction: column;
+    align-items: flex-start;
     gap: 8px;
     font-size: 0.8em;
   }
@@ -131,6 +153,7 @@ $background-height: calc(#{$header-image-height} - #{$header-height});
   }
   .info-footer {
     flex-direction: column;
+    align-items: flex-start;
     gap: 8px;
     font-size: 0.8em;
 

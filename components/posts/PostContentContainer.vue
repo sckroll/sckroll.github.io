@@ -1,5 +1,5 @@
 <template>
-  <section class="content-container" :class="{ project }">
+  <section class="content-container">
     <PostContent></PostContent>
     <PostTocMobile
       v-if="isMobile && post.toc.length > 1"
@@ -13,12 +13,6 @@
 import { breakpointLg } from '@/assets/scss/main.scss'
 
 export default {
-  props: {
-    project: {
-      type: Boolean,
-      default: false,
-    },
-  },
   data() {
     return {
       isMobile: false,
@@ -49,7 +43,7 @@ export default {
 .content-container {
   display: flex;
   padding: 64px 32px;
-  gap: 32px;
+  gap: 48px;
 }
 
 @include viewpoint-xl {
@@ -65,16 +59,19 @@ export default {
 @include viewpoint-md {
   .content-container {
     width: $breakpoint-md;
+    gap: 0;
   }
 }
 @include viewpoint-sm {
   .content-container {
     width: $breakpoint-sm;
+    gap: 0;
   }
 }
 @include viewpoint-xs {
   .content-container {
     width: 100vw;
+    gap: 0;
   }
 }
 </style>

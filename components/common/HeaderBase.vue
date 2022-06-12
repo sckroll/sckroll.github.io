@@ -43,7 +43,9 @@ export default {
   },
   computed: {
     hasHeaderImage() {
-      const state = ['index', 'posts/slug'].includes(this.$route.name)
+      const state = ['index', 'posts/slug', 'projects/slug'].includes(
+        this.$route.name,
+      )
       this.$store.commit('SET_HEADER_IMAGE_STATE', state)
       return state
     },
