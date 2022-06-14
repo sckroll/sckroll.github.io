@@ -6,7 +6,7 @@
       :style="`background-image: ${headerImage};`"
     ></div>
     <HeaderIntro v-else></HeaderIntro>
-    <div class="header-image-overlay"></div>
+    <div v-if="!isMainPage" class="header-image-overlay"></div>
   </div>
 </template>
 
@@ -16,6 +16,9 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     ...mapState(['hasHeaderImage', 'headerImage']),
+    isMainPage() {
+      return this.$route.path === '/'
+    },
   },
 }
 </script>
