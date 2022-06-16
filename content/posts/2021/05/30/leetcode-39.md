@@ -58,10 +58,7 @@ class MySolution1:
 <summary>소스 코드</summary>
 <div markdown="1">
 
-```
-
-</div>
-</details>python
+```python
 from typing import List
 
 

@@ -83,7 +83,9 @@ class Solution:
 - 단, `zip` 함수와 별표(`*`)를 함께 사용하여 각 튜플의 `0`번 인덱스만 추출한다.
 - 리턴 타입은 튜플이지만, 리스트와 마찬가지로 정답으로 처리된다.
 
-
+<details>
+<summary>소스 코드</summary>
+<div markdown="1">
 
 ```python
 from typing import List
