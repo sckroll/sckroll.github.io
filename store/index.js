@@ -8,6 +8,7 @@ export const state = () => ({
   hasHeaderImage: false,
   isMobileMenuOpened: false,
   headerImage: '',
+  perPage: 10,
 })
 
 export const mutations = {
