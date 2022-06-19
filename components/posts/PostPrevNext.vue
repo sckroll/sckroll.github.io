@@ -48,12 +48,13 @@ export default {
   display: flex;
   justify-content: space-between;
   padding: 16px 32px;
-  font-size: 1.25em;
+  font-size: 1.1em;
 }
 .post-link {
   display: flex;
   align-items: center;
   gap: 8px;
+  font-weight: 500;
 
   svg {
     margin-bottom: 2px;
@@ -83,13 +84,13 @@ export default {
 @include viewpoint-sm {
   .wrapper {
     flex-direction: column;
-    font-size: 1.1em;
+    font-size: 1em;
   }
 }
 @include viewpoint-xs {
   .wrapper {
     flex-direction: column;
-    font-size: 1.1em;
+    font-size: 1em;
     width: 100%;
   }
 }
