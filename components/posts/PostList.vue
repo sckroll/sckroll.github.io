@@ -31,6 +31,13 @@
       <template v-else>
         <template v-if="posts.length > 0">
           <PostListContents :posts="slicedPosts"></PostListContents>
+          <div v-if="lastIndex < posts.length" class="more-button-container">
+            <IconLink @click="showMoreResults">
+              <SvgBase icon>
+                <IconDown></IconDown>
+              </SvgBase>
+            </IconLink>
+          </div>
         </template>
         <div v-else class="search-message">검색 결과가 없습니다.</div>
       </template>
@@ -79,10 +86,24 @@ export default {
       return this.$route.query.field || ''
     },
   },
+  watch: {
+    posts: {
+      deep: true,
+      handler() {
+        this.lastIndex = 0
+        this.showMoreResults()
+      },
+    },
+  },
   mounted() {
     this.getFieldKor()
+    if (this.posts) this.showMoreResults()
   },
   methods: {
+    showMoreResults() {
+      this.lastIndex += this.offset
+      this.slicedPosts = this.posts.slice(0, this.lastIndex)
+    },
     getFieldKor() {
       if (this.field === 'tags') this.fieldKor = '태그'
       else if (this.field === 'text') this.fieldKor = '내용'
@@ -117,6 +138,10 @@ export default {
   align-items: center;
   font-size: 1.25em;
   color: $color-grey-500;
+}
+.more-button-container {
+  display: flex;
+  justify-content: center;
 }
 
 @include viewpoint-md {
