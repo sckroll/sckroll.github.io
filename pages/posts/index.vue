@@ -37,12 +37,8 @@ export default {
 
       // 스킵할 포스트 개수
       const skipNumber = () => {
-        if (currPage === 1) {
-          return 0
-        }
-        if (currPage === lastPage) {
-          return totalPostCount - lastPageCount
-        }
+        if (currPage === 1) return 0
+        else if (currPage === lastPage) return totalPostCount - lastPageCount
         return (currPage - 1) * perPage
       }
 
@@ -97,16 +93,10 @@ export default {
   watch: {
     async page(val) {
       try {
-        // 총 포스트 개수
-        const allPosts = await this.$content('posts', { deep: true })
-          .only('tags')
-          .fetch()
-        const totalPostCount = allPosts.length
-
         // 현재 & 마지막 페이지
         const currPage = parseInt(val)
-        const lastPage = Math.ceil(totalPostCount / this.perPage)
-        const lastPageCount = totalPostCount % this.perPage
+        const lastPage = Math.ceil(this.totalPostCount / this.perPage)
+        const lastPageCount = this.totalPostCount % this.perPage
 
         // 스킵할 포스트 개수
         const skipNumber = () => {
@@ -114,7 +104,7 @@ export default {
             return 0
           }
           if (currPage === lastPage) {
-            return totalPostCount - lastPageCount
+            return this.totalPostCount - lastPageCount
           }
           return (currPage - 1) * this.perPage
         }
@@ -134,6 +124,8 @@ export default {
           .limit(this.perPage)
           .skip(skipNumber())
           .fetch()
+
+        window.scrollTo(0, 0)
       } catch (e) {
         this.$nuxt.error({ statusCode: e.statusCode || e.status || 500 })
       }
