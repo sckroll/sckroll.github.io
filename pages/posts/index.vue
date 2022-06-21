@@ -12,6 +12,8 @@
 </template>
 
 <script>
+import { skipPost, getLastPage } from '@/utils/postUtils'
+
 export default {
   async asyncData({ $content, query, error, redirect, store }) {
     try {
@@ -27,20 +29,9 @@ export default {
         .fetch()
       const totalPostCount = allPosts.length
 
-      // 현재 & 마지막 페이지
-      const currPage = parseInt(query.page)
-      const lastPage = Math.ceil(totalPostCount / perPage)
-      const lastPageCount = totalPostCount % perPage
-
       // 페이지 범위 밖에 있으면 1페이지로 리다이렉트
-      if (query.page < 1 || query.page > lastPage) redirect('/posts?page=1')
-
-      // 스킵할 포스트 개수
-      const skipNumber = () => {
-        if (currPage === 1) return 0
-        else if (currPage === lastPage) return totalPostCount - lastPageCount
-        return (currPage - 1) * perPage
-      }
+      if (query.page < 1 || query.page > getLastPage(totalPostCount))
+        redirect('/posts?page=1')
 
       // 현재 페이지의 포스트를 배열에 저장
       const posts = await $content('posts', { deep: true })
@@ -55,7 +46,7 @@ export default {
         ])
         .sortBy('createdAt', 'desc')
         .limit(perPage)
-        .skip(skipNumber())
+        .skip(skipPost(query.page, totalPostCount))
         .fetch()
 
       // 모든 포스트의 태그를 추출, 빈도 순으로 정렬
@@ -93,22 +84,6 @@ export default {
   watch: {
     async page(val) {
       try {
-        // 현재 & 마지막 페이지
-        const currPage = parseInt(val)
-        const lastPage = Math.ceil(this.totalPostCount / this.perPage)
-        const lastPageCount = this.totalPostCount % this.perPage
-
-        // 스킵할 포스트 개수
-        const skipNumber = () => {
-          if (currPage === 1) {
-            return 0
-          }
-          if (currPage === lastPage) {
-            return this.totalPostCount - lastPageCount
-          }
-          return (currPage - 1) * this.perPage
-        }
-
         // 현재 페이지의 포스트를 배열에 저장
         this.posts = await this.$content('posts', { deep: true })
           .only([
@@ -122,7 +97,7 @@ export default {
           ])
           .sortBy('createdAt', 'desc')
           .limit(this.perPage)
-          .skip(skipNumber())
+          .skip(skipPost(val, this.totalPostCount))
           .fetch()
 
         window.scrollTo(0, 0)
