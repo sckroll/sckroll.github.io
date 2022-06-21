@@ -83,7 +83,9 @@ export default {
     onEnter() {
       if (!this.query) return
 
-      this.$router.push(`/posts/search?q=${this.query}&field=${this.field}`)
+      this.$router.push(
+        `/posts/search?q=${this.query}&field=${this.field}&page=1`,
+      )
     },
     toggleDropdown() {
       this.dropdown = !this.dropdown

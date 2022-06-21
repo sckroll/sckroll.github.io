@@ -12,7 +12,7 @@
       <nuxt-link
         v-for="tag in tags"
         :key="tag[0]"
-        :to="`/posts/search?q=${tag[0]}&field=tags`"
+        :to="`/posts/search?q=${tag[0]}&field=tags&page=1`"
         class="tag-item"
       >
         <div class="tag-name">#{{ tag[0] }}</div>

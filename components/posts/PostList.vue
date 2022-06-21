@@ -4,7 +4,7 @@
       <h1 class="section-title">
         <div v-if="searchable">
           <template v-if="query">
-            {{ `${fieldKor} 검색 결과: "${query}" 총 ${posts.length}개` }}
+            {{ `${fieldKor} 검색 결과: "${query}" 총 ${total}개` }}
           </template>
           <template v-else>포스트 검색</template>
         </div>
@@ -28,19 +28,10 @@
       <div v-if="!query" class="search-message">
         검색할 포스트를 입력하세요.
       </div>
-      <template v-else>
-        <template v-if="posts.length > 0">
-          <PostListContents :posts="slicedPosts"></PostListContents>
-          <div v-if="lastIndex < posts.length" class="more-button-container">
-            <IconLink @click="showMoreResults">
-              <SvgBase icon>
-                <IconDown></IconDown>
-              </SvgBase>
-            </IconLink>
-          </div>
-        </template>
-        <div v-else class="search-message">검색 결과가 없습니다.</div>
-      </template>
+      <div v-else-if="posts.length === 0" class="search-message">
+        검색 결과가 없습니다.
+      </div>
+      <PostListContents v-else :posts="posts"></PostListContents>
     </template>
     <PostListContents
       v-else
@@ -69,13 +60,14 @@ export default {
       type: Boolean,
       default: false,
     },
+    total: {
+      type: Number,
+      default: 0,
+    },
   },
   data() {
     return {
       fieldKor: '',
-      slicedPosts: [],
-      lastIndex: 0,
-      offset: 10,
     }
   },
   computed: {
@@ -86,24 +78,10 @@ export default {
       return this.$route.query.field || ''
     },
   },
-  watch: {
-    posts: {
-      deep: true,
-      handler() {
-        this.lastIndex = 0
-        this.showMoreResults()
-      },
-    },
-  },
   mounted() {
     this.getFieldKor()
-    if (this.posts) this.showMoreResults()
   },
   methods: {
-    showMoreResults() {
-      this.lastIndex += this.offset
-      this.slicedPosts = this.posts.slice(0, this.lastIndex)
-    },
     getFieldKor() {
       if (this.field === 'tags') this.fieldKor = '태그'
       else if (this.field === 'text') this.fieldKor = '내용'
@@ -138,10 +116,6 @@ export default {
   align-items: center;
   font-size: 1.25em;
   color: $color-grey-500;
-}
-.more-button-container {
-  display: flex;
-  justify-content: center;
 }
 
 @include viewpoint-md {
