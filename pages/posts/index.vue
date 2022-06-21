@@ -4,10 +4,7 @@
     <PostList :posts="posts" search-button>
       <template v-slot:title>블로그 포스트</template>
     </PostList>
-    <PostPagination
-      :total="totalPostCount"
-      :per-page="perPage"
-    ></PostPagination>
+    <PostPagination :total="totalPostCount"></PostPagination>
   </div>
 </template>
 

@@ -96,10 +96,6 @@ export default {
       type: Number,
       default: 0,
     },
-    perPage: {
-      type: Number,
-      default: 15,
-    },
   },
   data() {
     return {
@@ -109,6 +105,9 @@ export default {
     }
   },
   computed: {
+    perPage() {
+      return this.$store.state.perPage
+    },
     totalPages() {
       return Math.ceil(this.total / this.perPage)
     },
