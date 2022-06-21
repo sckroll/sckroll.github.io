@@ -38,7 +38,7 @@
 <script>
 import { getPattern } from '@/utils/pattern'
 import { formatDate, diffDate } from '@/utils/handleDate'
-import { trimTags } from '@/utils/handlePostInfo'
+import { trimTags } from '~/utils/postUtils'
 
 export default {
   props: {
