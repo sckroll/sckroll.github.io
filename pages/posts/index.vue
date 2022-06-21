@@ -65,6 +65,7 @@ export default {
         totalPostCount,
         posts,
         sortedTags,
+        perPage,
       }
     } catch (e) {
       error({ statusCode: e.statusCode || e.status || 500 })
@@ -73,9 +74,6 @@ export default {
   computed: {
     page() {
       return this.$route.query.page || 1
-    },
-    perPage() {
-      return this.$store.state.perPage
     },
   },
   watch: {
