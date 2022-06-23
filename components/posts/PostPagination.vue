@@ -289,26 +289,16 @@ export default {
 @include viewpoint-md {
   .pagination-center-desktop {
     .pages {
-      /* display: none; */
       font-size: 1em;
     }
   }
-  /* .pagination-center-mobile {
-    display: flex;
-    justify-content: space-between;
-  } */
 }
 @include viewpoint-sm {
   .pagination-center-desktop {
     .pages {
-      /* display: none; */
       font-size: 1em;
     }
   }
-  /* .pagination-center-mobile {
-    display: flex;
-    justify-content: space-between;
-  } */
 }
 @include viewpoint-xs {
   .pagination-center-desktop {
