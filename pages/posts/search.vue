@@ -35,7 +35,8 @@ export default {
       const totalPostCount = allPosts.length
 
       // 페이지 범위 밖에 있으면 1페이지로 리다이렉트
-      if (query.page < 1 || query.page > getLastPage(totalPostCount))
+      const lastPage = getLastPage(totalPostCount)
+      if (query.page < 1 || (lastPage > 0 && query.page > lastPage))
         redirect(`/posts/search?q=${query.q}&field=${query.field}&page=1`)
 
       // search()를 사용하면 한 글자만 달라도 검색 결과에 포함되므로
