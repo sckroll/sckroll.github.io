@@ -102,56 +102,44 @@ export default {
           .fetch()
         this.totalPostCount = allPosts.length
 
-        this.posts = await this.$content('posts', {
-          deep: true,
-          text: true,
-        })
-          .only([
-            'title',
-            'description',
-            'img',
-            'slug',
-            'tags',
-            'createdAt',
-            'updatedAt',
-            'text',
-          ])
-          .where({ [this.field]: { $contains: val } })
-          .sortBy('createdAt', 'desc')
-          .limit(this.perPage)
-          .skip(skipPost(this.page, this.totalPostCount))
-          .fetch()
+        // 현재 페이지의 포스트를 배열에 저장
+        await this.updatePosts()
       } catch (e) {
         console.error(e)
       }
     },
-    async page(val) {
+    async page() {
       try {
         // 현재 페이지의 포스트를 배열에 저장
-        this.posts = await this.$content('posts', {
-          deep: true,
-          text: true,
-        })
-          .only([
-            'title',
-            'description',
-            'img',
-            'slug',
-            'tags',
-            'createdAt',
-            'updatedAt',
-            'text',
-          ])
-          .where({ [this.field]: { $contains: this.query } })
-          .sortBy('createdAt', 'desc')
-          .limit(this.perPage)
-          .skip(skipPost(val, this.totalPostCount))
-          .fetch()
+        await this.updatePosts()
 
         window.scrollTo(0, 0)
       } catch (e) {
         this.$nuxt.error({ statusCode: e.statusCode || e.status || 500 })
       }
+    },
+  },
+  methods: {
+    async updatePosts() {
+      this.posts = await this.$content('posts', {
+        deep: true,
+        text: true,
+      })
+        .only([
+          'title',
+          'description',
+          'img',
+          'slug',
+          'tags',
+          'createdAt',
+          'updatedAt',
+          'text',
+        ])
+        .where({ [this.field]: { $contains: this.query } })
+        .sortBy('createdAt', 'desc')
+        .limit(this.perPage)
+        .skip(skipPost(this.page, this.totalPostCount))
+        .fetch()
     },
   },
   head() {
