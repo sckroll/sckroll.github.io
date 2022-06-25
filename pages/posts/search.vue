@@ -86,6 +86,8 @@ export default {
   watch: {
     async query(val) {
       try {
+        this.$nuxt.$loading.start()
+
         // 검색 초기 페이지로 돌아갈 경우
         if (!val) {
           this.posts = null
@@ -105,17 +107,24 @@ export default {
 
         // 현재 페이지의 포스트를 배열에 저장
         await this.updatePosts()
+
+        this.$nuxt.$loading.finish()
       } catch (e) {
-        console.error(e)
+        this.$nuxt.$loading.finish()
+        this.$nuxt.error({ statusCode: e.statusCode || e.status || 500 })
       }
     },
     async page() {
       try {
+        this.$nuxt.$loading.start()
+
         // 현재 페이지의 포스트를 배열에 저장
         await this.updatePosts()
 
+        this.$nuxt.$loading.finish()
         window.scrollTo(0, 0)
       } catch (e) {
+        this.$nuxt.$loading.finish()
         this.$nuxt.error({ statusCode: e.statusCode || e.status || 500 })
       }
     },

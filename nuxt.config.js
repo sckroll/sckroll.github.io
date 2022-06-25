@@ -83,4 +83,9 @@ export default {
   styleResources: {
     scss: '~assets/scss/*.scss',
   },
+
+  loading: {
+    color: '#0a33b9',
+    height: '4px',
+  },
 }

@@ -61,6 +61,7 @@ export default {
         })
       const sortedTags = [...tagCounter].sort((a, b) => b[1] - a[1])
 
+      // this.$nuxt.$loading.finish()
       return {
         totalPostCount,
         posts,
@@ -68,6 +69,7 @@ export default {
         perPage,
       }
     } catch (e) {
+      // this.$nuxt.$loading.finish()
       error({ statusCode: e.statusCode || e.status || 500 })
     }
   },
@@ -79,6 +81,8 @@ export default {
   watch: {
     async page(val) {
       try {
+        this.$nuxt.$loading.start()
+
         // 현재 페이지의 포스트를 배열에 저장
         this.posts = await this.$content('posts', { deep: true })
           .only([
@@ -95,8 +99,10 @@ export default {
           .skip(skipPost(val, this.totalPostCount))
           .fetch()
 
+        this.$nuxt.$loading.finish()
         window.scrollTo(0, 0)
       } catch (e) {
+        this.$nuxt.$loading.finish()
         this.$nuxt.error({ statusCode: e.statusCode || e.status || 500 })
       }
     },
