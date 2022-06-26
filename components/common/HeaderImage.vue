@@ -5,20 +5,32 @@
       class="post-background-image"
       :style="`background-image: ${headerImage};`"
     ></div>
-    <HeaderIntro v-else></HeaderIntro>
+    <template v-else>
+      <PostDefaultThumbnail
+        v-if="post.tags"
+        class="post-background-image"
+        :tags="trimTags(post.tags, 3)"
+      ></PostDefaultThumbnail>
+      <HeaderIntro v-else></HeaderIntro>
+    </template>
+
     <div v-if="!isMainPage" class="header-image-overlay"></div>
   </div>
 </template>
 
 <script>
 import { mapState } from 'vuex'
+import { trimTags } from '@/utils/postUtils'
 
 export default {
   computed: {
-    ...mapState(['hasHeaderImage', 'headerImage']),
+    ...mapState(['hasHeaderImage', 'headerImage', 'post']),
     isMainPage() {
       return this.$route.path === '/'
     },
+  },
+  methods: {
+    trimTags,
   },
 }
 </script>
