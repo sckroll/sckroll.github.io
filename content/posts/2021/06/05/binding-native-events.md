@@ -1,7 +1,7 @@
 ---
 title: Vue 상위 컴포넌트 이벤트를 하위 컴포넌트에 바인딩하기
 description: <router-link>나 <nuxt-link>에 클릭 이벤트를 연결하는 법
-tags: frontend, vue, nuxt, router-link, nuxt-link
+tags: frontend, nuxt, vue, router-link, nuxt-link
 ---
 
 블로그의 모바일 환경에서는 상단 메뉴가 숨겨지고, 메뉴 아이콘을 누르면 아래 예시처럼 내비게이션 드로어 메뉴가 나타난다.

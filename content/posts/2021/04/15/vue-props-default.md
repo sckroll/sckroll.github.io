@@ -1,7 +1,7 @@
 ---
 title: Vue에서 props로 객체를 받을 때 default 값 정의
-description: TIL 210323
-tags: TIL, frontend, vue, vue-router, javascript, js
+description: 문자열이나 숫자와는 다르게 받아야 한다
+tags: frontend, javascript, vue, js
 ---
 
 `props`로 객체를 받을 경우 기본값은 반드시 **기본값을 반환하는 팩토리 함수**의 형태로 사용해야 한다.

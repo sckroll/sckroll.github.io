@@ -1,7 +1,7 @@
 ---
-title: Vue-meta를 사용하여 <head> 태그에 meta 정보 추가하기
-description: TIL 210413
-tags: TIL, frontend, vue, vue-meta, javascript, js
+title: Vue에서 <head> 태그에 meta 정보 추가하기
+description: Vue-meta를 사용해보자
+tags: frontend, vue-meta, vue, javascript, js
 ---
 
 ## 개요

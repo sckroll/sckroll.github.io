@@ -1,7 +1,7 @@
 ---
 title: Mongoose __v 필드
-description: TIL 210318
-tags: TIL, backend, database, db, mongodb, mongoose
+description: 이 필드의 정체는 무엇인가
+tags: backend, database, mongodb, db, mongoose
 ---
 
 ![mongoose-v-field](/images/210415-mongoose-v-field.jpg)
