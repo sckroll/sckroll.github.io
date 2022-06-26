@@ -1,7 +1,7 @@
 ---
 title: LeetCode 104번 문제
 description: Maximum Depth of Binary Tree
-tags: algorithm, python, leetcode, tree
+tags: algorithm, leetcode, python, tree
 ---
 
 ## 문제 링크

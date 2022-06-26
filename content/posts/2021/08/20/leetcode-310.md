@@ -1,7 +1,7 @@
 ---
 title: LeetCode 310번 문제
 description: Minimum Height Trees
-tags: algorithm, python, leetcode, tree
+tags: algorithm, leetcode, python, tree
 ---
 
 ## 문제 링크

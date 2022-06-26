@@ -1,7 +1,7 @@
 ---
 title: LeetCode 20번 문제
 description: Valid Parentheses
-tags: algorithm, python, leetcode, stack
+tags: algorithm, leetcode, python, stack
 ---
 
 ## 문제 링크

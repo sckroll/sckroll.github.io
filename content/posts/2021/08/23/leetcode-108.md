@@ -1,7 +1,7 @@
 ---
 title: LeetCode 108번 문제
 description: Convert Sorted Array to Binary Search Tree
-tags: algorithm, python, leetcode, tree, bst
+tags: algorithm, leetcode, python, tree, bst
 ---
 
 ## 문제 링크

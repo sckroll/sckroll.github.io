@@ -1,7 +1,7 @@
 ---
 title: LeetCode 739번 문제
 description: Daily Temperatures
-tags: algorithm, python, leetcode, stack
+tags: algorithm, leetcode, python, stack
 ---
 
 ## 문제 링크

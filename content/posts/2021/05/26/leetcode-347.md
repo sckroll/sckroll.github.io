@@ -1,7 +1,7 @@
 ---
 title: LeetCode 347번 문제
 description: Top K Frequent Elements
-tags: algorithm, python, leetcode, hash_table
+tags: algorithm, leetcode, python, hash_table
 ---
 
 ## 문제 링크

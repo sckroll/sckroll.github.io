@@ -1,7 +1,7 @@
 ---
 title: LeetCode 328번 문제
 description: Odd Even Linked List
-tags: algorithm, python, leetcode, linked_list
+tags: algorithm, leetcode, python, linked_list
 ---
 
 ## 문제 링크

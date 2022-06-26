@@ -1,7 +1,7 @@
 ---
 title: LeetCode 332번 문제
 description: Reconstruct Itinerary
-tags: algorithm, python, leetcode, dfs, graph, stack
+tags: algorithm, leetcode, python, dfs, graph, stack
 ---
 
 ## 문제 링크

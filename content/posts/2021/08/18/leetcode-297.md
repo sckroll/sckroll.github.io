@@ -1,7 +1,7 @@
 ---
 title: LeetCode 297번 문제
 description: Serialize and Deserialize Binary Tree
-tags: algorithm, python, leetcode, tree, bfs
+tags: algorithm, leetcode, python, tree, bfs
 ---
 
 ## 문제 링크

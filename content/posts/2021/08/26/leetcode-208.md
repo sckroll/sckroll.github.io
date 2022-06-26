@@ -1,7 +1,7 @@
 ---
 title: LeetCode 208번 문제
 description: Implement Trie (Prefix Tree)
-tags: algorithm, python, leetcode, trie
+tags: algorithm, leetcode, python, trie
 ---
 
 ## 문제 링크

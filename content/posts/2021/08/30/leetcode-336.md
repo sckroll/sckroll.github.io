@@ -1,7 +1,7 @@
 ---
 title: LeetCode 336번 문제
 description: Palindrome Pairs
-tags: algorithm, python, leetcode, trie
+tags: algorithm, leetcode, python, trie
 ---
 
 ## 문제 링크

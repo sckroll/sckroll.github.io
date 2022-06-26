@@ -1,7 +1,7 @@
 ---
 title: LeetCode 622번 문제
 description: Design Circular Queue
-tags: algorithm, python, leetcode, queue, circular_queue
+tags: algorithm, leetcode, python, queue, circular_queue
 ---
 
 ## 문제 링크

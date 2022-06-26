@@ -1,7 +1,7 @@
 ---
 title: LeetCode 125번 문제
 description: Valid Palindrome
-tags: algorithm, python, leetcode, string
+tags: algorithm, leetcode, python, string
 ---
 
 ## 문제 링크

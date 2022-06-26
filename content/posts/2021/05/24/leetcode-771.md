@@ -1,7 +1,7 @@
 ---
 title: LeetCode 771번 문제
 description: Jewels and Stones
-tags: algorithm, python, leetcode, hash_table
+tags: algorithm, leetcode, python, hash_table
 ---
 
 ## 문제 링크

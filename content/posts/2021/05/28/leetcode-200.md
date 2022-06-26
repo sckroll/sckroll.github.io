@@ -1,7 +1,7 @@
 ---
 title: LeetCode 200번 문제
 description: Number of Islands
-tags: algorithm, python, leetcode, dfs
+tags: algorithm, leetcode, python, dfs
 ---
 
 ## 문제 링크

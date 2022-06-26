@@ -1,7 +1,7 @@
 ---
 title: LeetCode 24번 문제
 description: Swap Nodes in Pairs
-tags: algorithm, python, leetcode, linked_list
+tags: algorithm, leetcode, python, linked_list
 ---
 
 ## 문제 링크

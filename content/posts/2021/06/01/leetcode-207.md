@@ -1,7 +1,7 @@
 ---
 title: LeetCode 207번 문제
 description: Course Schedule
-tags: algorithm, python, leetcode, dfs, graph
+tags: algorithm, leetcode, python, dfs, graph
 ---
 
 ## 문제 링크

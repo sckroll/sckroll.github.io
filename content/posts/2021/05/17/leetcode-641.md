@@ -1,7 +1,7 @@
 ---
 title: LeetCode 641번 문제
 description: Design Circular Deque
-tags: algorithm, python, leetcode, deque
+tags: algorithm, leetcode, python, deque
 ---
 
 ## 문제 링크

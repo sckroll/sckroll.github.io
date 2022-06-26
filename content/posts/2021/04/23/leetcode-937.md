@@ -1,7 +1,7 @@
 ---
 title: LeetCode 937번 문제
 description: Reorder Data in Log Files
-tags: algorithm, python, leetcode, string
+tags: algorithm, leetcode, python, string
 ---
 
 ## 문제 링크

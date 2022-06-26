@@ -1,7 +1,7 @@
 ---
 title: LeetCode 77번 문제
 description: Combinations
-tags: algorithm, python, leetcode, dfs
+tags: algorithm, leetcode, python, dfs
 ---
 
 ## 문제 링크

@@ -1,7 +1,7 @@
 ---
 title: LeetCode 3번 문제
 description: Longest Substring Without Repeating Characters
-tags: algorithm, python, leetcode, hash_table
+tags: algorithm, leetcode, python, hash_table
 ---
 
 ## 문제 링크

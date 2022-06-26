@@ -1,7 +1,7 @@
 ---
 title: LeetCode 2번 문제
 description: Add Two Numbers
-tags: algorithm, python, leetcode, linked_list
+tags: algorithm, leetcode, python, linked_list
 ---
 
 ## 문제 링크

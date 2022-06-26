@@ -1,7 +1,7 @@
 ---
 title: LeetCode 215번 문제
 description: Kth Largest Element in an Array
-tags: algorithm, python, leetcode, heap
+tags: algorithm, leetcode, python, heap
 ---
 
 ## 문제 링크

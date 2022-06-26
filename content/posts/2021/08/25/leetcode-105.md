@@ -1,7 +1,7 @@
 ---
 title: LeetCode 105번 문제
 description: Construct Binary Tree from Preorder and Inorder Traversal
-tags: algorithm, python, leetcode, tree, bst, divide_and_conquer
+tags: algorithm, leetcode, python, tree, bst, divide_and_conquer
 ---
 
 ## 문제 링크

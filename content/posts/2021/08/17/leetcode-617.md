@@ -1,7 +1,7 @@
 ---
 title: LeetCode 617번 문제
 description: Merge Two Binary Trees
-tags: algorithm, python, leetcode, tree, dfs
+tags: algorithm, leetcode, python, tree, dfs
 ---
 
 ## 문제 링크

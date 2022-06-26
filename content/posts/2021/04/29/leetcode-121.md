@@ -1,7 +1,7 @@
 ---
 title: LeetCode 121번 문제
 description: Best Time to Buy and Sell Stock
-tags: algorithm, python, leetcode, array
+tags: algorithm, leetcode, python, array
 ---
 
 ## 문제 링크

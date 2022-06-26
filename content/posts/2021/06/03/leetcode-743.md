@@ -1,7 +1,7 @@
 ---
 title: LeetCode 743번 문제
 description: Network Delay Time
-tags: algorithm, python, leetcode, bfs, dijkstra_algorithm
+tags: algorithm, leetcode, python, bfs, dijkstra_algorithm
 ---
 
 ## 문제 링크

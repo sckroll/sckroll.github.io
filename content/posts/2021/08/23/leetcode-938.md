@@ -1,7 +1,7 @@
 ---
 title: LeetCode 938번 문제
 description: Range Sum of BST
-tags: algorithm, python, leetcode, tree, bst
+tags: algorithm, leetcode, python, tree, bst
 ---
 
 ## 문제 링크

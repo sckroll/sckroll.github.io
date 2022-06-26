@@ -1,7 +1,7 @@
 ---
 title: LeetCode 110번 문제
 description: Balanced Binary Tree
-tags: algorithm, python, leetcode, tree, dfs
+tags: algorithm, leetcode, python, tree, dfs
 ---
 
 ## 문제 링크

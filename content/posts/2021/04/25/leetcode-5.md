@@ -1,7 +1,7 @@
 ---
 title: LeetCode 5번 문제
 description: Longest Palindromic Substring
-tags: algorithm, python, leetcode, string
+tags: algorithm, leetcode, python, string
 ---
 
 ## 문제 링크

@@ -1,7 +1,7 @@
 ---
 title: LeetCode 561번 문제
 description: Array Partition I
-tags: algorithm, python, leetcode, array
+tags: algorithm, leetcode, python, array
 ---
 
 ## 문제 링크

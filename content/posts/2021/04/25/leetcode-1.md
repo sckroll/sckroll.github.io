@@ -1,7 +1,7 @@
 ---
 title: LeetCode 1번 문제
 description: Two Sum
-tags: algorithm, python, leetcode, array
+tags: algorithm, leetcode, python, array
 ---
 
 ## 문제 링크

@@ -1,7 +1,7 @@
 ---
 title: LeetCode 46번 문제
 description: Permutations
-tags: algorithm, python, leetcode, dfs
+tags: algorithm, leetcode, python, dfs
 ---
 
 ## 문제 링크

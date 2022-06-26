@@ -1,7 +1,7 @@
 ---
 title: LeetCode 206번 문제
 description: Reverse Linked List
-tags: algorithm, python, leetcode, linked_list
+tags: algorithm, leetcode, python, linked_list
 ---
 
 ## 문제 링크

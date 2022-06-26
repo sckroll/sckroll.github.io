@@ -1,7 +1,7 @@
 ---
 title: LeetCode 23번 문제
 description: Merge k Sorted Lists
-tags: algorithm, python, leetcode, priority_queue, heap
+tags: algorithm, leetcode, python, priority_queue, heap
 ---
 
 ## 문제 링크

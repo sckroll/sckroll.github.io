@@ -1,7 +1,7 @@
 ---
 title: LeetCode 706번 문제
 description: Design HashMap
-tags: algorithm, python, leetcode, hash_table
+tags: algorithm, leetcode, python, hash_table
 ---
 
 ## 문제 링크

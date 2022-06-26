@@ -1,7 +1,7 @@
 ---
 title: LeetCode 1038번 문제
 description: Binary Search Tree to Greater Sum Tree
-tags: algorithm, python, leetcode, tree, bst
+tags: algorithm, leetcode, python, tree, bst
 ---
 
 ## 문제 링크

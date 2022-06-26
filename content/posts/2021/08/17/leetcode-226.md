@@ -1,7 +1,7 @@
 ---
 title: LeetCode 226번 문제
 description: Invert Binary Tree
-tags: algorithm, python, leetcode, tree, dfs, bfs
+tags: algorithm, leetcode, python, tree, dfs, bfs
 ---
 
 ## 문제 링크

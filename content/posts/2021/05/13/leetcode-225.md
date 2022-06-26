@@ -1,7 +1,7 @@
 ---
 title: LeetCode 225번 문제
 description: Implement Stack using Queues
-tags: algorithm, python, leetcode, queue, stack
+tags: algorithm, leetcode, python, queue, stack
 ---
 
 ## 문제 링크

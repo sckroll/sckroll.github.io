@@ -1,7 +1,7 @@
 ---
 title: LeetCode 78번 문제
 description: Subsets
-tags: algorithm, python, leetcode, dfs, backtracking
+tags: algorithm, leetcode, python, dfs, backtracking
 ---
 
 ## 문제 링크

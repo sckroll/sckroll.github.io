@@ -1,7 +1,7 @@
 ---
 title: LeetCode 687번 문제
 description: Longest Univalue Path
-tags: algorithm, python, leetcode, dfs, tree
+tags: algorithm, leetcode, python, dfs, tree
 ---
 
 ## 문제 링크

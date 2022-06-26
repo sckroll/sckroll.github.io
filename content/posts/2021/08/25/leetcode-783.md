@@ -1,7 +1,7 @@
 ---
 title: LeetCode 783번 문제
 description: Minimum Distance Between BST Nodes
-tags: algorithm, python, leetcode, tree, bst
+tags: algorithm, leetcode, python, tree, bst
 ---
 
 ## 문제 링크

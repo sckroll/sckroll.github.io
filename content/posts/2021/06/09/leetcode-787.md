@@ -1,7 +1,7 @@
 ---
 title: LeetCode 787번 문제
 description: Cheapest Flights Within K Stops
-tags: algorithm, python, leetcode, bfs, dijkstra_algorithm
+tags: algorithm, leetcode, python, bfs, dijkstra_algorithm
 ---
 
 ## 문제 링크

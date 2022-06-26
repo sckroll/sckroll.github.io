@@ -1,7 +1,7 @@
 ---
 title: LeetCode 17번 문제
 description: Letter Combinations of a Phone Number
-tags: algorithm, python, leetcode, dfs
+tags: algorithm, leetcode, python, dfs
 ---
 
 ## 문제 링크

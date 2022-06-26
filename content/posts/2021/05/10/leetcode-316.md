@@ -1,7 +1,7 @@
 ---
 title: LeetCode 316번 문제
 description: Remove Duplicate Letters
-tags: algorithm, python, leetcode, stack
+tags: algorithm, leetcode, python, stack
 ---
 
 ## 문제 링크

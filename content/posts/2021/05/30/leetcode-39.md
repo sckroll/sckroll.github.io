@@ -1,7 +1,7 @@
 ---
 title: LeetCode 39번 문제
 description: Combination Sum
-tags: algorithm, python, leetcode, dfs, backtracking
+tags: algorithm, leetcode, python, dfs, backtracking
 ---
 
 ## 문제 링크
