@@ -66,5 +66,11 @@ $sector: 16;
   &.javascript {
     @include get-linear-pattern(#f7df1e);
   }
+  &.vue {
+    @include get-linear-pattern(#41b883);
+  }
+  &.nodejs {
+    @include get-linear-pattern(#3c873a);
+  }
 }
 </style>
