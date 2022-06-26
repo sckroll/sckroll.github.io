@@ -1,9 +1,18 @@
 <template>
   <nuxt-link :to="`/posts/${post.slug}`">
     <article class="post-item">
-      <div class="post-thumbnail" :style="`background-image: ${thumbnail};`">
+      <div
+        v-if="post.img"
+        class="post-thumbnail"
+        :style="`background-image: url(images/${post.img});`"
+      >
         <div class="thumbnail-overlay"></div>
       </div>
+      <PostDefaultThumbnail
+        v-else
+        class="post-thumbnail"
+        :tags="trimTags(post.tags, 3)"
+      ></PostDefaultThumbnail>
       <div class="post-info-container">
         <div class="main-info">
           <h1 class="title">{{ post.title }}</h1>
@@ -36,7 +45,6 @@
 </template>
 
 <script>
-import { getPattern } from '@/utils/pattern'
 import { formatDate, diffDate } from '@/utils/handleDate'
 import { trimTags } from '@/utils/postUtils'
 
@@ -52,15 +60,7 @@ export default {
       maxTagsLength: 3,
     }
   },
-  computed: {
-    thumbnail() {
-      return this.post.image
-        ? `url(/images/projects/${this.post.image})`
-        : this.getPattern(this.post.title)
-    },
-  },
   methods: {
-    getPattern,
     formatDate,
     trimTags,
     diffDate,
@@ -89,8 +89,10 @@ article.post-item {
 }
 .post-thumbnail {
   aspect-ratio: 16 / 9;
-  flex: 3;
   background-position: center;
+  background-size: cover;
+  width: 100%;
+  flex: 3;
 }
 .thumbnail-overlay {
   height: 100%;
