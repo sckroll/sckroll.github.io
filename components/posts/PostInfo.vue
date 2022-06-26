@@ -71,7 +71,9 @@ $background-height: calc(#{$header-image-height} - #{$header-height});
 }
 .tags {
   display: flex;
-  gap: 16px;
+  flex-wrap: wrap;
+  column-gap: 16px;
+  row-gap: 4px;
 }
 .stacks {
   display: flex;
