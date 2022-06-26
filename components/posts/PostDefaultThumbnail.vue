@@ -1,6 +1,8 @@
 <template>
-  <!-- <canvas ref="canvas" :width="width" :height="height"></canvas> -->
-  <div class="default-background">
+  <div
+    class="default-background"
+    :class="{ vertical: tags[0] !== 'algorithm' }"
+  >
     <div
       v-for="num in numArray"
       :key="num"
@@ -47,14 +49,21 @@ $sector: 16;
 .default-background {
   width: inherit;
   height: inherit;
-  display: flex;
   background-color: white;
+
+  &:not(.vertical) {
+    display: flex;
+  }
+  &.vertical {
+    .default-pattern {
+      width: inherit;
+      height: calc(100% / #{$sector});
+    }
+  }
 }
 .default-pattern {
   width: calc(100% / #{$sector});
   height: inherit;
-  /* width: inherit;
-  height: calc(100% / #{$sector}); */
 
   @include get-linear-pattern($color-primary);
   &.java {
