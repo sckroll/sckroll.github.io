@@ -8,8 +8,6 @@
 </template>
 
 <script>
-import { getPattern } from '@/utils/pattern'
-
 export default {
   async asyncData({ $content, params, error, store }) {
     try {
@@ -39,9 +37,6 @@ export default {
   },
   beforeDestroy() {
     this.$store.commit('CLEAR_POST')
-  },
-  methods: {
-    getPattern,
   },
   head() {
     return {
