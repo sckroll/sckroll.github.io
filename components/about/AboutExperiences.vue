@@ -1,5 +1,6 @@
 <template>
   <div class="timeline">
+    <h1>저는 지금까지 다음과 같은 경험을 했습니다.</h1>
     <div class="graph-container">
       <div class="graph"></div>
     </div>
