@@ -1,13 +1,12 @@
 <template>
-  <section class="about">
-    <div class="section-content">
-      <h2>Etc.</h2>
-      <p>
-        왜 Sckroll임? Scroll 오타 아님? => 제 이니셜(SCK)과 Scroll의
-        합성어입니다. 처음 닉네임을 지을 때 제 이름의 이니셜이 들어가야 한다는
-        것을 전제로 지었는데, 적절한 단어를 찾다 보니 어감도 괜찮고, '스크롤'과
-        발음이 같아서 자연스럽게 지금의 닉네임이 되었습니다.
-      </p>
-    </div>
+  <section class="about-content">
+    <h1>Etc.</h1>
+    <h2>왜 Sckroll임? Scroll 오타 아님?</h2>
+    <p>
+      제 이니셜(SCK)과 Scroll의 합성어입니다. 처음 닉네임을 지을 때 제 이름의
+      이니셜이 들어가야 한다는 것을 전제로 지었는데, 적절한 단어를 찾다 보니
+      어감도 괜찮고, '스크롤'과 발음이 같아서 자연스럽게 지금의 닉네임이
+      되었습니다.
+    </p>
   </section>
 </template>

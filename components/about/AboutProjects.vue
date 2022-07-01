@@ -1,16 +1,13 @@
 <template>
-  <section class="about">
-    <div class="section-content">
-      <h2>다음과 같은 프로젝트를 개발했습니다.</h2>
-      <p>
-        - 2048 클론 - 개인 홈페이지 및 블로그 - 졸업 작품 및 스타트업 아이템
-        프로토타입(DoTS) - 서비스지향컴퓨팅및실습 텀 프로젝트 -
-        웹프로그래밍(창업)
-      </p>
-      <p>
-        텀 프로젝트 각 프로젝트의 자세한 정보는
-        <nuxt-link to="projects">여기</nuxt-link>서 확인하실 수 있습니다.
-      </p>
-    </div>
+  <section class="about-content">
+    <h1>다음과 같은 프로젝트를 개발했습니다.</h1>
+    <p>
+      - 2048 클론 - 개인 홈페이지 및 블로그 - 졸업 작품 및 스타트업 아이템
+      프로토타입(DoTS) - 서비스지향컴퓨팅및실습 텀 프로젝트 - 웹프로그래밍(창업)
+    </p>
+    <p>
+      텀 프로젝트 각 프로젝트의 자세한 정보는
+      <nuxt-link to="projects">여기</nuxt-link>서 확인하실 수 있습니다.
+    </p>
   </section>
 </template>
