@@ -21,6 +21,14 @@ html {
   box-sizing: border-box;
   margin: 0;
 }
+::selection {
+  background-color: $color-primary;
+  color: white;
+}
+::-moz-selection {
+  background-color: $color-primary;
+  color: white;
+}
 body {
   background-color: $color-grey-200;
   color: black;
@@ -64,6 +72,14 @@ a {
     &:active {
       color: $color-secondary;
     }
+  }
+  ::selection {
+    background-color: $color-secondary;
+    color: black;
+  }
+  ::-moz-selection {
+    background-color: $color-secondary;
+    color: black;
   }
 }
 
