@@ -45,7 +45,8 @@ section.about-content {
 .about-content-container {
   display: flex;
   flex-direction: column;
-  gap: 96px;
+  gap: 128px;
+  margin-bottom: 64px;
 }
 
 @include viewpoint-lg {
