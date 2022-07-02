@@ -57,8 +57,9 @@ p {
     font-weight: 500;
   }
   p {
-    font-size: 1em;
+    font-size: 1.1em;
     font-weight: 500;
+    line-height: 1.5em;
   }
 }
 @include viewpoint-xs {
@@ -71,7 +72,7 @@ p {
     line-height: 1.25em;
   }
   p {
-    font-size: 1em;
+    font-size: 1.1em;
     font-weight: 500;
     line-height: 1.5em;
   }
