@@ -5,11 +5,15 @@
       안녕하세요! 게으르지만 꾸준한 예비 프론트엔드 개발자 김성찬(Sckroll)
       입니다.
     </p>
+    <SvgBase class="scroll-icon-animation" width="48" height="48" icon>
+      <IconScroll></IconScroll>
+    </SvgBase>
   </section>
 </template>
 
 <style lang="scss" scoped>
 section {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -24,5 +28,52 @@ h1 {
 p {
   font-size: 1.5em;
   font-weight: 500;
+}
+.scroll-icon-animation {
+  position: absolute;
+  bottom: calc(-#{$header-height} / 2);
+  right: 0;
+}
+
+@include viewpoint-md {
+  section {
+    gap: 8px;
+  }
+  h1 {
+    font-size: 2em;
+    font-weight: 500;
+  }
+  p {
+    font-size: 1.25em;
+    font-weight: 500;
+  }
+}
+@include viewpoint-sm {
+  section {
+    gap: 8px;
+  }
+  h1 {
+    font-size: 1.75em;
+    font-weight: 500;
+  }
+  p {
+    font-size: 1em;
+    font-weight: 500;
+  }
+}
+@include viewpoint-xs {
+  section {
+    gap: 8px;
+  }
+  h1 {
+    font-size: 1.75em;
+    font-weight: 500;
+    line-height: 1.25em;
+  }
+  p {
+    font-size: 1em;
+    font-weight: 500;
+    line-height: 1.5em;
+  }
 }
 </style>
