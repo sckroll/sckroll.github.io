@@ -49,6 +49,10 @@ export default {
               name: 'Sass (SCSS)',
               level: 2,
             },
+            {
+              name: 'SVG',
+              level: 1,
+            },
           ],
         },
         {
