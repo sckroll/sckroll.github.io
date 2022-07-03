@@ -41,6 +41,7 @@
 }
 .description {
   margin-bottom: 4px;
+  line-height: 1.75em;
 }
 .more-link {
   font-size: 1.25em;
