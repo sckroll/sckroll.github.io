@@ -1,24 +1,28 @@
 <template>
-  <div class="timeline">
-    <h1>저는 지금까지 다음과 같은 경험을 했습니다.</h1>
-    <div class="graph-container">
-      <div class="graph"></div>
-    </div>
-    <div class="timeline-content">
-      <div
-        v-for="(exp, index) of experiences"
-        :key="index"
-        class="timeline-item"
-      >
-        <div class="pointer"></div>
-        <div class="content">
-          <div class="time">{{ exp.time }}</div>
-          <div class="divider"></div>
-          <div class="text">{{ exp.text }}</div>
+  <section class="about-content">
+    <h1>지금까지 다음과 같은 경험을 했습니다.</h1>
+    <div class="timeline-container">
+      <div class="timeline-items">
+        <div
+          v-for="(exp, index) of experiences"
+          :key="index"
+          class="timeline-item"
+        >
+          <ExperienceItem :exp="index % 2 === 0 ? null : exp"></ExperienceItem>
+          <div class="graph-area">
+            <div class="timeline-point"></div>
+          </div>
+          <ExperienceItem
+            :exp="index % 2 === 0 ? exp : null"
+            right
+          ></ExperienceItem>
         </div>
       </div>
+      <div class="graph-core-container">
+        <div class="graph-core"></div>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -27,36 +31,36 @@ export default {
     return {
       experiences: [
         {
+          time: '2022.05',
+          content: 'SSAFY 7기 1학기 관통(종합) 프로젝트 최우수상',
+        },
+        {
           time: '2022.01 ~',
-          text: '삼성 청년 SW 아카데미 (SSAFY) 7기 입과',
+          content: '삼성 청년 SW 아카데미 (SSAFY) 7기 입과',
         },
         {
           time: '2021.08',
-          text: '한국기술교육대학교 (KOREATECH) 컴퓨터공학부 졸업',
+          content: '한국기술교육대학교 (KOREATECH) 컴퓨터공학부 졸업',
         },
         {
           time: '2021.01 ~',
-          text: '다수의 Joomla! 기반 정적 웹 사이트 서버 구축 참여',
+          content: '다수의 Joomla! 기반 정적 웹 사이트 서버 구축 참여',
         },
         {
           time: '2020.09 ~ 2021.06',
-          text: '스타트업 아이템 프로토타입 개발 참여',
+          content: '스타트업 아이템 프로토타입 개발 참여',
         },
         {
           time: '2020.08 ~ 09',
-          text: '프로그래머스 FE 취업스터디',
-        },
-        {
-          time: '2020.07 ~ 08 ',
-          text: 'E8IGHT 홈페이지 리뉴얼 참여',
+          content: '프로그래머스 FE 취업스터디',
         },
         {
           time: '2019.08',
-          text: '정보처리기사 취득',
+          content: '정보처리기사 취득',
         },
         {
           time: '2019.04 ~ 10',
-          text: '창업동아리 아이템 및 졸업작품 제작',
+          content: '창업동아리 아이템 및 졸업작품 제작',
         },
       ],
     }
@@ -65,106 +69,56 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.timeline {
+.timeline-container {
+  position: relative;
+}
+.timeline-items {
   display: flex;
-  margin: -16px 0 24px;
-
-  .graph-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 32px;
-
-    .graph {
-      width: 8px;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      margin: 24px 0;
-      background-color: $color-grey-300;
-    }
+  flex-direction: column;
+  gap: 32px;
+  margin: 32px 0;
+}
+.timeline-item {
+  display: flex;
+  gap: 16px;
+}
+.graph-area {
+  display: flex;
+  justify-content: center;
+}
+.timeline-point {
+  width: 24px;
+  height: 24px;
+  box-sizing: border-box;
+  border: 4px solid $color-primary;
+  background-color: $color-grey-200;
+}
+.graph-core-container {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.graph-core {
+  width: 4px;
+  background-color: $color-grey-400;
+}
+.dark-mode {
+  .timeline-point {
+    border: 4px solid $color-secondary;
+    background-color: $color-grey-900;
   }
-  &-content {
-    margin-left: -32px;
-  }
-  &-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 48px;
-
-    &:last-child {
-      margin-bottom: 0;
-    }
-    .pointer {
-      width: 32px;
-      height: 32px;
-      border-radius: 16px;
-      background-color: $color-primary;
-    }
-    .content {
-      position: relative;
-      top: 24px;
-      margin-left: 32px;
-    }
-    .time {
-      font-size: 1.25em;
-      font-weight: 700;
-    }
-    .divider {
-      width: 32px;
-      height: 2px;
-      background-color: $color-grey-600;
-      margin: 8px 0;
-    }
+  .graph-core {
+    background-color: $color-grey-700;
   }
 }
 
 @include viewpoint-sm {
-  .timeline {
-    &-item {
-      margin-bottom: 32px;
-
-      .content {
-        top: 20px;
-        flex: 1;
-      }
-      .time {
-        font-size: 1.1em;
-      }
-      .text {
-        font-size: 0.9em;
-      }
-    }
-  }
 }
 @include viewpoint-xs {
-  .timeline {
-    display: flex;
-    justify-content: space-between;
-
-    .graph-container {
-      .graph {
-        margin: 44px 0;
-      }
-    }
-    &-content {
-      width: 100%;
-    }
-    &-item {
-      margin-bottom: 32px;
-
-      .content {
-        top: 20px;
-        margin-left: 16px;
-        flex: 1;
-      }
-      .time {
-        font-size: 1.1em;
-      }
-      .text {
-        font-size: 0.9em;
-      }
-    }
-  }
 }
 </style>
