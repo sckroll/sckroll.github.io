@@ -8,11 +8,16 @@
           :key="index"
           class="timeline-item"
         >
-          <ExperienceItem :exp="index % 2 === 0 ? null : exp"></ExperienceItem>
+          <ExperienceItem
+            v-if="!isMobile"
+            :exp="index % 2 === 0 ? null : exp"
+          ></ExperienceItem>
           <div class="graph-area">
             <div class="timeline-point"></div>
           </div>
+          <ExperienceItem v-if="isMobile" :exp="exp" right></ExperienceItem>
           <ExperienceItem
+            v-else
             :exp="index % 2 === 0 ? exp : null"
             right
           ></ExperienceItem>
@@ -64,6 +69,11 @@ export default {
         },
       ],
     }
+  },
+  computed: {
+    isMobile() {
+      return this.$store.state.isMobile
+    },
   },
 }
 </script>
@@ -118,7 +128,15 @@ export default {
 }
 
 @include viewpoint-sm {
+  .graph-core-container {
+    justify-content: flex-start;
+    margin-left: 10px;
+  }
 }
 @include viewpoint-xs {
+  .graph-core-container {
+    justify-content: flex-start;
+    margin-left: 10px;
+  }
 }
 </style>

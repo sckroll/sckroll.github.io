@@ -50,17 +50,19 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  text-align: right;
   gap: 8px;
 
   &.right {
     align-items: flex-start;
+    text-align: left;
   }
   .time {
     font-size: 1.25em;
     font-weight: 600;
   }
   .content {
-    font-size: 1.25em;
+    font-size: 1.1em;
   }
 }
 </style>
