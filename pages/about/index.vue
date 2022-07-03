@@ -100,11 +100,11 @@ section.about-content {
 @include viewpoint-xs {
   section.about-content {
     h1 {
-      font-size: 1.75em;
+      font-size: 1.5em;
       font-weight: 600;
     }
     h2 {
-      font-size: 1.5em;
+      font-size: 1.25em;
       font-weight: 600;
     }
     p {
