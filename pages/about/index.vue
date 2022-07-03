@@ -6,7 +6,7 @@
       <AboutSkills></AboutSkills>
       <AboutExperiences></AboutExperiences>
       <AboutProjects></AboutProjects>
-      <AboutEtc></AboutEtc>
+      <AboutQna></AboutQna>
       <AboutContacts></AboutContacts>
     </div>
   </div>
