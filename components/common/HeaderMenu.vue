@@ -16,20 +16,20 @@
     <IconLink
       v-if="isMobile"
       class="mobile-menu-button"
-      :reverse="hasHeaderImage && !isMobileMenuVisible"
-      :scroll="hasHeaderImage && !isMobileMenuVisible"
-      :fix="hasHeaderImage && !isMobileMenuVisible"
+      :reverse="hasHeaderImage && !isMobileMenuOpened"
+      :scroll="hasHeaderImage && !isMobileMenuOpened"
+      :fix="hasHeaderImage && !isMobileMenuOpened"
       @click="toggleMenu"
     >
       <SvgBase icon>
-        <IconMenu :opened="isMobileMenuVisible"></IconMenu>
+        <IconMenu :opened="isMobileMenuOpened"></IconMenu>
       </SvgBase>
     </IconLink>
   </nav>
 </template>
 
 <script>
-import { breakpointMd } from '@/assets/scss/main.scss'
+import { mapState } from 'vuex'
 
 export default {
   props: {
@@ -38,39 +38,17 @@ export default {
       required: true,
     },
   },
-  data() {
-    return {
-      isMobile: false,
-    }
-  },
   computed: {
-    hasHeaderImage() {
-      return this.$store.state.hasHeaderImage
-    },
-    isScrolled() {
-      return this.$store.state.isScrolled
-    },
-    isMobileMenuVisible() {
-      return this.$store.state.isMobileMenuOpened
-    },
-  },
-  mounted() {
-    window.addEventListener('resize', this.onResize)
-    this.onResize()
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.onResize)
+    ...mapState([
+      'isMobile',
+      'hasHeaderImage',
+      'isScrolled',
+      'isMobileMenuOpened',
+    ]),
   },
   methods: {
     toggleMenu() {
-      this.$store.commit('SET_MOBILE_MENU_STATE', !this.isMobileMenuVisible)
-    },
-    onResize() {
-      if (window.innerWidth <= parseInt(breakpointMd.replace('px', ''))) {
-        this.isMobile = true
-      } else {
-        this.isMobile = false
-      }
+      this.$store.commit('SET_MOBILE_MENU_STATE', !this.isMobileMenuOpened)
     },
   },
 }

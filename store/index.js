@@ -5,6 +5,8 @@ export const state = () => ({
   isErrorPage: false,
   isDarkMode: false,
   isScrolled: false,
+  isMobile: false,
+  isTablet: false,
   hasHeaderImage: false,
   isMobileMenuOpened: false,
   headerImage: '',
@@ -32,6 +34,13 @@ export const mutations = {
   SET_SCROLL_STATE(state, isScrolled) {
     state.isScrolled = isScrolled
   },
+  SET_TABLET_STATE(state, isTablet) {
+    state.isTablet = isTablet
+  },
+  SET_MOBILE_STATE(state, isMobile) {
+    state.isMobile = isMobile
+  },
+
   SET_HEADER_IMAGE_STATE(state, hasHeaderImage) {
     state.hasHeaderImage = hasHeaderImage
   },

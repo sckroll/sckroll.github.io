@@ -2,39 +2,19 @@
   <section class="content-container">
     <PostContent></PostContent>
     <PostTocMobile
-      v-if="isMobile && post.toc.length > 1"
+      v-if="isTablet && post.toc.length > 1"
       :toc="post.toc"
     ></PostTocMobile>
-    <PostTocDesktop v-if="!isMobile" :toc="post.toc"></PostTocDesktop>
+    <PostTocDesktop v-if="!isTablet" :toc="post.toc"></PostTocDesktop>
   </section>
 </template>
 
 <script>
-import { breakpointLg } from '@/assets/scss/main.scss'
+import { mapState } from 'vuex'
 
 export default {
-  data() {
-    return {
-      isMobile: false,
-    }
-  },
   computed: {
-    post() {
-      return this.$store.state.post
-    },
-  },
-  mounted() {
-    this.resizeListener()
-    window.addEventListener('resize', this.resizeListener)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.resizeListener)
-  },
-  methods: {
-    resizeListener() {
-      this.isMobile =
-        window.innerWidth <= parseInt(breakpointLg.replace('px', ''))
-    },
+    ...mapState(['post', 'isTablet']),
   },
 }
 </script>

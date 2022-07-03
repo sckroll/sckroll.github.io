@@ -5,8 +5,8 @@
         <IconLink :disabled="!hasPrevPage" responsive @click="moveToFirst">
           <SvgBase
             icon
-            :width="isMobile ? 24 : 32"
-            :height="isMobile ? 24 : 32"
+            :width="isTablet ? 24 : 32"
+            :height="isTablet ? 24 : 32"
           >
             <IconLastLeft></IconLastLeft>
           </SvgBase>
@@ -14,8 +14,8 @@
         <IconLink :disabled="!hasPrevPages" responsive @click="moveToPrevPages">
           <SvgBase
             icon
-            :width="isMobile ? 24 : 32"
-            :height="isMobile ? 24 : 32"
+            :width="isTablet ? 24 : 32"
+            :height="isTablet ? 24 : 32"
           >
             <IconDoubleLeft></IconDoubleLeft>
           </SvgBase>
@@ -23,8 +23,8 @@
         <IconLink :disabled="!hasPrevPage" responsive @click="moveToPrevPage">
           <SvgBase
             icon
-            :width="isMobile ? 24 : 32"
-            :height="isMobile ? 24 : 32"
+            :width="isTablet ? 24 : 32"
+            :height="isTablet ? 24 : 32"
           >
             <IconLeft></IconLeft>
           </SvgBase>
@@ -45,8 +45,8 @@
         <IconLink :disabled="!hasNextPage" responsive @click="moveToNextPage">
           <SvgBase
             icon
-            :width="isMobile ? 24 : 32"
-            :height="isMobile ? 24 : 32"
+            :width="isTablet ? 24 : 32"
+            :height="isTablet ? 24 : 32"
           >
             <IconRight></IconRight>
           </SvgBase>
@@ -54,8 +54,8 @@
         <IconLink :disabled="!hasNextPages" responsive @click="moveToNextPages">
           <SvgBase
             icon
-            :width="isMobile ? 24 : 32"
-            :height="isMobile ? 24 : 32"
+            :width="isTablet ? 24 : 32"
+            :height="isTablet ? 24 : 32"
           >
             <IconDoubleRight></IconDoubleRight>
           </SvgBase>
@@ -63,8 +63,8 @@
         <IconLink :disabled="!hasNextPage" responsive @click="moveToLast">
           <SvgBase
             icon
-            :width="isMobile ? 24 : 32"
-            :height="isMobile ? 24 : 32"
+            :width="isTablet ? 24 : 32"
+            :height="isTablet ? 24 : 32"
           >
             <IconLastRight></IconLastRight>
           </SvgBase>
@@ -88,7 +88,7 @@
 </template>
 
 <script>
-import { breakpointLg, breakpointMd } from '@/assets/scss/main.scss'
+import { mapState } from 'vuex'
 
 export default {
   props: {
@@ -101,10 +101,10 @@ export default {
     return {
       page: 1,
       pageUnit: 10,
-      isMobile: false,
     }
   },
   computed: {
+    ...mapState(['isTablet', 'isMobile']),
     pageFromQuery() {
       return this.$route.query.page || 1
     },
@@ -151,29 +151,14 @@ export default {
         this.page = parseInt(val)
       },
     },
-  },
-  mounted() {
-    // this.page = parseInt(this.$route.query.page) || 1
-
-    this.onResize()
-    window.addEventListener('resize', this.onResize)
-  },
-  beforeDestroy() {
-    window.removeEventListener('resize', this.onResize)
+    isMobile: {
+      immediate: true,
+      handler(val) {
+        this.pageUnit = val ? 5 : 10
+      },
+    },
   },
   methods: {
-    onResize() {
-      if (window.innerWidth > parseInt(breakpointLg.replace('px', ''))) {
-        this.pageUnit = 10
-        this.isMobile = false
-      } else if (window.innerWidth > parseInt(breakpointMd.replace('px', ''))) {
-        this.pageUnit = 10
-        this.isMobile = true
-      } else {
-        this.pageUnit = 5
-        this.isMobile = true
-      }
-    },
     moveToFirst() {
       if (this.hasPrevPage) {
         this.$router.push(`/posts${this.searchPath}?${this.searchQuery}page=1`)
