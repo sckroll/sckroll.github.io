@@ -33,4 +33,25 @@
   font-weight: 700;
   margin-bottom: 2px;
 }
+
+@include viewpoint-lg {
+  .contact {
+    font-size: 1.1em;
+  }
+}
+@include viewpoint-md {
+  .contact {
+    font-size: 1.1em;
+  }
+}
+@include viewpoint-sm {
+  .contact {
+    font-size: 1.1em;
+  }
+}
+@include viewpoint-xs {
+  .contact {
+    font-size: 1.1em;
+  }
+}
 </style>
