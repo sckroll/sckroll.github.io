@@ -96,8 +96,12 @@ export default {
               level: 2,
             },
             {
-              name: 'Joomla!',
+              name: 'Figma',
               level: 2,
+            },
+            {
+              name: 'Joomla!',
+              level: 1,
             },
           ],
         },
