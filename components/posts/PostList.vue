@@ -98,6 +98,7 @@ export default {
   gap: 32px;
 }
 .section-title-container {
+  height: 48px;
   display: flex;
   justify-content: space-between;
   align-items: center;
