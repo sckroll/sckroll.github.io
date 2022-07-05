@@ -2,10 +2,13 @@
   <section class="content-container">
     <PostContent></PostContent>
     <PostTocMobile
-      v-if="isTablet && post.toc.length > 1"
+      v-if="(isTablet || isMobile) && post.toc.length > 1"
       :toc="post.toc"
     ></PostTocMobile>
-    <PostTocDesktop v-if="!isTablet" :toc="post.toc"></PostTocDesktop>
+    <PostTocDesktop
+      v-if="!isTablet && !isMobile"
+      :toc="post.toc"
+    ></PostTocDesktop>
   </section>
 </template>
 
@@ -14,7 +17,7 @@ import { mapState } from 'vuex'
 
 export default {
   computed: {
-    ...mapState(['post', 'isTablet']),
+    ...mapState(['post', 'isTablet', 'isMobile']),
   },
 }
 </script>
