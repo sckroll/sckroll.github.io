@@ -63,6 +63,7 @@ export default {
   router: {
     routeNameSplitter: '/',
     middleware: 'routeCheck',
+    trailingSlash: false,
   },
 
   generate: {
