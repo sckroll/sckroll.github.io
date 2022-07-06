@@ -68,6 +68,7 @@ export default {
 
   generate: {
     fallback: true,
+    subFolders: false,
     async routes() {
       const { $content } = require('@nuxt/content')
       const files = await $content('posts', { deep: true })
