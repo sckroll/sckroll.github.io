@@ -62,8 +62,7 @@ export default {
 
   router: {
     routeNameSplitter: '/',
-    middleware: ['trailingSlashRedirect', 'routeCheck'],
-    trailingSlash: false,
+    middleware: 'routeCheck',
   },
 
   generate: {
