@@ -78,6 +78,11 @@ export default {
       return this.$route.query.field || ''
     },
   },
+  watch: {
+    field() {
+      this.getFieldKor()
+    },
+  },
   mounted() {
     this.getFieldKor()
   },
