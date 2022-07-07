@@ -17,12 +17,15 @@ export default {
   async fetch() {
     try {
       // 검색 초기 페이지일 경우
-      if (!this.page && !this.query && !this.field)
+      if (
+        this.$route.path === '/posts/search' &&
+        Object.keys(this.$route.query).length === 0
+      )
         return { posts: [], totalPostCount: 0 }
 
-      // 쿼리스트링이 하나라도 없거나 올바른 형식이 아니면 초기 페이지로 리다이렉트
-      if (!this.page || isNaN(this.page) || !this.query || !this.field) {
-        this.$router.replace({ path: '/posts/search', query: {} })
+      // 쿼리스트링에 모든 쿼리가 없으면 검색 초기 페이지로 리다이렉트
+      if (!this.query || !this.page || isNaN(this.page) || !this.field) {
+        this.$nuxt.context.redirect('/posts/search')
         return
       }
 
@@ -36,12 +39,19 @@ export default {
         .fetch()
       this.totalPostCount = allPosts.length
 
-      // 페이지 범위 밖에 있으면 1페이지로 리다이렉트
+      // 페이지 범위 밖에 있으면 1페이지로 고정 & 리다이렉트
       const lastPage = getLastPage(this.totalPostCount)
-      if (this.page < 1 || (lastPage > 0 && this.page > lastPage))
-        this.$router.replace(
-          `/posts/search?q=${this.query}&field=${this.field}&page=1`,
-        )
+      if (this.page < 1 || (lastPage > 0 && this.page > lastPage)) {
+        this.$nuxt.context.redirect({
+          path: '/posts/search',
+          query: {
+            q: this.query,
+            field: this.field,
+            page: 1,
+          },
+        })
+        return
+      }
 
       // search()를 사용하면 한 글자만 달라도 검색 결과에 포함되므로
       // (ex: tree를 검색했을 때 trie도 결과에 포함됨)
@@ -79,13 +89,13 @@ export default {
   },
   computed: {
     query() {
-      return this.$route.query.q || ''
+      return this.$route.query.q
     },
     field() {
-      return this.$route.query.field || ''
+      return this.$route.query.field
     },
     page() {
-      return this.$route.query.page || ''
+      return this.$route.query.page
     },
   },
   watch: {
