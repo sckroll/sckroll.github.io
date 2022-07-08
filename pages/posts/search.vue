@@ -103,7 +103,7 @@ export default {
     query: {
       immediate: true,
       handler() {
-        this.$fetch()
+        if (this.$fetch) this.$fetch()
       },
     },
     page() {
