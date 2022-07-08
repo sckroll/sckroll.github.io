@@ -100,6 +100,12 @@ export default {
   },
   watch: {
     '$route.query': '$fetch',
+    query: {
+      immediate: true,
+      handler() {
+        this.$fetch()
+      },
+    },
     page() {
       window.scrollTo(0, 0)
     },
