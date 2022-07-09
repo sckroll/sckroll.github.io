@@ -1,0 +1,1 @@
+__NUXT_JSONP__("/about", (function(a){return {data:[{}],fetch:{},mutations:[["SET_HEADER_IMAGE_STATE",a],["SET_SCROLL_STATE",a]]}}(false)));
