@@ -50,5 +50,11 @@ export default {
   &.mongodb {
     border-image: linear-gradient(to right, #4db33d 50%, #3fa037 50%) 1;
   }
+  &.spring {
+    border-image: linear-gradient(to right, #6db33f 50%, #6db33f 50%) 1;
+  }
+  &.mysql {
+    border-image: linear-gradient(to right, #00758f 50%, #f29111 50%) 1;
+  }
 }
 </style>
