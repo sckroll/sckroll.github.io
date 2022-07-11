@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/projects", (function(a){return {data:[{projects:[{slug:"2048",description:"2048 게임을 클론하여 구현한 프로젝트",title:2048,image:"2048\u002Fmain.png",period:"2021\u002F09\u002F03 ~ 2021\u002F09\u002F22 (약 3주)",stacks:["JavaScript (Vanilla JS)"]}]}],fetch:{},mutations:[["SET_HEADER_IMAGE_STATE",a],["SET_SCROLL_STATE",a]]}}(false)));
