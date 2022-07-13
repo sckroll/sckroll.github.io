@@ -1,7 +1,10 @@
 <template>
   <div class="page-container post-list-page">
-    <PostList :projects="projects">
-      <template v-slot:title>프로젝트 목록</template>
+    <PostList :projects="teamProjects">
+      <template v-slot:title>팀 프로젝트</template>
+    </PostList>
+    <PostList :projects="personalProjects">
+      <template v-slot:title>개인 프로젝트</template>
     </PostList>
   </div>
 </template>
@@ -10,12 +13,36 @@
 export default {
   async asyncData({ $content, error }) {
     try {
-      const projects = await $content('projects')
-        .only(['title', 'slug', 'description', 'image', 'stacks', 'period'])
+      const teamProjects = await $content('projects')
+        .only([
+          'title',
+          'slug',
+          'description',
+          'image',
+          'stacks',
+          'period',
+          'isTeamProject',
+        ])
+        .where({ isTeamProject: true })
         .sortBy('period', 'desc')
         .fetch()
+      const personalProjects = await $content('projects')
+        .only([
+          'title',
+          'slug',
+          'description',
+          'image',
+          'stacks',
+          'period',
+          'isTeamProject',
+        ])
+        .where({ isTeamProject: false })
+        .sortBy('period', 'desc')
+        .fetch()
+
       return {
-        projects,
+        teamProjects,
+        personalProjects,
       }
     } catch (e) {
       error({ statusCode: e.statusCode || e.status || 500 })
