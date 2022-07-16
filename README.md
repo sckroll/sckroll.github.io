@@ -1,9 +1,19 @@
 # sckroll.github.io
 
-포트폴리오 겸 블로그 사이트 리포지토리  
-([Nuxt](https://nuxtjs.org/)와 [nuxt/content](https://content.nuxtjs.org/)로 개발했으며, [push-dir](https://github.com/L33T-KR3W/push-dir)로 GitHub Pages에 배포)
+## 개요
 
-### Yarn 사용법
+개발 블로그 겸 포트폴리오 리포지토리  
+
+## 기술 스택
+
+- [Nuxt](https://nuxtjs.org/) & [nuxt/content](https://content.nuxtjs.org/)
+- [Sass(SCSS)](https://sass-lang.com/)로 스타일링
+- [push-dir](https://github.com/L33T-KR3W/push-dir) & [GitHub Actions](https://github.com/features/actions)로 푸시할 때마다 GitHub Pages에 배포
+
+## 설치
+
+### Yarn을 사용한 Nuxt 명령 수행
+
 ```bash
 # dependencies 설치
 $ yarn install
@@ -20,6 +30,7 @@ $ yarn generate
 ```
 
 ### push-dir를 통한 정적 웹 페이지 배포
+
 ```bash
 # push-dir 설치
 $ yarn add push-dir --dev
@@ -42,12 +53,14 @@ $ git checkout master
 $ yarn deploy
 ```
 
-### 이후 웹 사이트 배포 방법
+### 이후 웹 사이트 배포 방법 (GitHub Actions 미사용 시)
+
 ```bash
 $ yarn deploy
 ```
 
-### 주의할 점
+## 주의사항
+
 - `dist` 브랜치 생성 후 배포할 것
 - 배포하기 전에 변경 내용을 `master` 브랜치에 커밋 & 푸시 후 배포할 것
   - 그렇지 않으면 `aborted: git not clean` 에러가 뜨면서 배포가 중단됨
