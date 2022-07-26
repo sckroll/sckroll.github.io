@@ -62,7 +62,10 @@ main {
   padding: 0 32px;
 }
 .post-list-page {
+  display: flex;
+  flex-direction: column;
   margin: 64px 0;
+  gap: 64px;
 }
 
 @include viewpoint-xl {

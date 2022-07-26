@@ -4,6 +4,7 @@ description: 사용자 맞춤형 주택 실거래가 정보 서비스 프로젝�
 image: happyhouse/main.png
 period: 2022/05/18 ~ 2022/05/26 (9일)
 stacks: [Vue.js, Spring (Spring Boot), MySQL]
+isTeamProject: true
 ---
 
 ## 개요

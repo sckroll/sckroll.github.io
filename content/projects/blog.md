@@ -1,9 +1,10 @@
 ---
-title: 개인 홈페이지 겸 블로그
+title: 개발 블로그
 description: 지금 여러분이 보고 계신 사이트가 맞습니다
-image: 2048/main.png
+image: blog/main.png
 period: 2022/02 ~ 2022/07 (약 5개월)
 stacks: [Nuxt.js, SCSS]
+isTeamProject: false
 ---
 
 ## 개요

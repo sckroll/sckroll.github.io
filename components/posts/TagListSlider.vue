@@ -48,7 +48,6 @@ section.tag-list-slider {
   display: flex;
   flex-direction: column;
   gap: 32px;
-  margin-bottom: 64px;
 }
 .tag-list-header {
   display: flex;

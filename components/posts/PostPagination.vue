@@ -235,7 +235,6 @@ export default {
 .pagination-container {
   display: flex;
   justify-content: center;
-  margin-top: 32px;
 }
 .pagination-center {
   display: flex;
