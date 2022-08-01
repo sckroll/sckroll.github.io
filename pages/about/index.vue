@@ -45,7 +45,7 @@ section.about-content {
 .about-content-container {
   display: flex;
   flex-direction: column;
-  gap: 128px;
+  gap: 256px;
   margin-bottom: 64px;
 }
 
