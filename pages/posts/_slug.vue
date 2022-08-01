@@ -22,6 +22,7 @@ export default {
 
       // 스토어 업데이트
       store.commit('SET_POST', post)
+      store.commit('CLEAR_HEADER_IMAGE')
       if (post.img) store.commit('SET_HEADER_IMAGE', post.img)
 
       const [prev, next] = await $content('posts', { deep: true })
