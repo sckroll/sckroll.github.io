@@ -1,3 +1,4 @@
+<!--
 <template>
   <div class="page-container">
     <section class="header-area">
@@ -58,3 +59,12 @@ section.content-area {
   margin: 32px 0;
 }
 </style>
+-->
+
+<script>
+export default {
+  asyncData({ redirect }) {
+    redirect('/about')
+  },
+}
+</script>
