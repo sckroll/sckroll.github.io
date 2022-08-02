@@ -35,6 +35,18 @@ export default {
   head() {
     return {
       title: `${this.post.title} | 프로젝트`,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.post.description,
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: this.post.stacks.join(', '),
+        },
+      ],
     }
   },
 }

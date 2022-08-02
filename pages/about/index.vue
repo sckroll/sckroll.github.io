@@ -17,6 +17,13 @@ export default {
   head() {
     return {
       title: '소개',
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: 'Welcome to Sckroll`s website',
+        },
+      ],
     }
   },
 }
