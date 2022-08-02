@@ -23,6 +23,18 @@ export default {
           name: 'description',
           content: 'Welcome to Sckroll`s website',
         },
+        {
+          property: 'og:title',
+          content: '소개 - Sckroll',
+        },
+        {
+          property: 'og:url',
+          content: 'https://sckroll.github.io/about',
+        },
+        {
+          property: 'og:description',
+          content: 'Welcome to Sckroll`s website',
+        },
       ],
     }
   },
