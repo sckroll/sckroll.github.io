@@ -51,6 +51,20 @@ export default {
   head() {
     return {
       title: '프로젝트',
+      meta: [
+        {
+          property: 'og:title',
+          content: '프로젝트 - Sckroll',
+        },
+        {
+          property: 'og:url',
+          content: 'https://sckroll.github.io/projects',
+        },
+        {
+          property: 'og:description',
+          content: 'Sckroll의 프로젝트 목록 페이지입니다.',
+        },
+      ],
     }
   },
 }

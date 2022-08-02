@@ -46,6 +46,18 @@ export default {
           name: 'keywords',
           content: this.post.stacks.join(', '),
         },
+        {
+          property: 'og:title',
+          content: `${this.post.title} | 프로젝트 - Sckroll`,
+        },
+        {
+          property: 'og:url',
+          content: `https://sckroll.github.io/projects/${this.post.slug}`,
+        },
+        {
+          property: 'og:description',
+          content: this.post.description,
+        },
       ],
     }
   },

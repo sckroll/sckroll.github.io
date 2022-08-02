@@ -113,6 +113,20 @@ export default {
   head() {
     return {
       title: '포스트 검색',
+      meta: [
+        {
+          property: 'og:title',
+          content: '포스트 검색 - Sckroll',
+        },
+        {
+          property: 'og:url',
+          content: 'https://sckroll.github.io/posts/search',
+        },
+        {
+          property: 'og:description',
+          content: 'Sckroll의 포스트 검색 페이지입니다.',
+        },
+      ],
     }
   },
 }

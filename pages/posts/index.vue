@@ -110,6 +110,20 @@ export default {
   head() {
     return {
       title: '포스트',
+      meta: [
+        {
+          property: 'og:title',
+          content: '포스트 - Sckroll',
+        },
+        {
+          property: 'og:url',
+          content: 'https://sckroll.github.io/posts',
+        },
+        {
+          property: 'og:description',
+          content: 'Sckroll의 포스트 목록 페이지입니다.',
+        },
+      ],
     }
   },
 }

@@ -17,6 +17,14 @@ export default {
         content: 'Welcome to Sckroll`s website',
       },
       { name: 'theme-color', content: 'white' },
+      {
+        property: 'og:type',
+        content: 'website',
+      },
+      {
+        property: 'og:image',
+        content: 'https://sckroll.github.io/sckroll-og.png',
+      },
     ],
     link: [
       { rel: 'icon', href: '/favicon.svg' },

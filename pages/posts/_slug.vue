@@ -53,6 +53,18 @@ export default {
           name: 'keywords',
           content: this.post.tags,
         },
+        {
+          property: 'og:title',
+          content: `${this.post.title} | 포스트 - Sckroll`,
+        },
+        {
+          property: 'og:url',
+          content: `https://sckroll.github.io/posts/${this.post.slug}`,
+        },
+        {
+          property: 'og:description',
+          content: this.post.description,
+        },
       ],
     }
   },
