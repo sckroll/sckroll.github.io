@@ -56,6 +56,11 @@ Roboto,
 "Malgun Gothic",
 sans-serif;
 
+/* Etc. */
+$hash-link-margin-top: $header-height + 32px;
+$code-background-light: $color-grey-300;
+$code-background-dark: $color-grey-800;
+
 :export {
   breakpointXl: $breakpoint-xl;
   breakpointLg: $breakpoint-lg;

@@ -1,5 +1,3 @@
-@import './variables';
-
 @mixin viewpoint-xl {
   @media (min-width: #{$breakpoint-xl}) {
     @content;
