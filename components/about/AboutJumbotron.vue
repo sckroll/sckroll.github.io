@@ -2,8 +2,8 @@
   <section class="about-jumbotron">
     <h1>Hi! I'm Seongchan Kim, a.k.a. Sckroll.</h1>
     <p>
-      안녕하세요! 게으르지만 꾸준한 예비 프론트엔드 개발자 김성찬(Sckroll)
-      입니다.
+      안녕하세요! 오늘도 코드 한 줄을 더 적는, 프론트엔드 개발자를 지망하는
+      김성찬(Sckroll) 입니다.
     </p>
     <SvgBase class="scroll-icon-animation" width="48" height="48" icon>
       <IconScroll></IconScroll>
