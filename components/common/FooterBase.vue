@@ -27,39 +27,19 @@ footer {
   justify-content: center;
 }
 .footer-container {
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 32px 0 24px;
+  padding: 0 48px 0 40px;
 }
 .links {
   display: flex;
   padding: 0;
 }
 
-@include viewpoint-xl {
-  .footer-container {
-    width: $breakpoint-xl;
-  }
-}
-@include viewpoint-lg {
-  .footer-container {
-    width: $breakpoint-lg;
-  }
-}
-@include viewpoint-md {
-  .footer-container {
-    width: $breakpoint-md;
-  }
-}
-@include viewpoint-sm {
-  .footer-container {
-    width: $breakpoint-sm;
-  }
-}
 @include viewpoint-xs {
   .footer-container {
-    width: 100%;
     flex-direction: column;
     justify-content: flex-start;
     gap: 8px;

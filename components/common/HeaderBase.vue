@@ -86,10 +86,11 @@ header {
   transition: $fade-default;
 
   .header-container {
+    width: 100%;
     height: $header-height;
     display: flex;
     align-items: flex-end;
-    padding: 0 24px 8px 32px;
+    padding: 0 40px 8px 48px;
   }
   .header-center {
     width: 100%;
@@ -116,32 +117,6 @@ header {
   header.scrolled {
     background-color: rgba(black, 0.7);
     color: white;
-  }
-}
-
-@include viewpoint-xl {
-  .header-container {
-    width: $breakpoint-xl;
-  }
-}
-@include viewpoint-lg {
-  .header-container {
-    width: $breakpoint-lg;
-  }
-}
-@include viewpoint-md {
-  .header-container {
-    width: $breakpoint-md;
-  }
-}
-@include viewpoint-sm {
-  .header-container {
-    width: $breakpoint-sm;
-  }
-}
-@include viewpoint-xs {
-  .header-container {
-    width: 100%;
   }
 }
 </style>
