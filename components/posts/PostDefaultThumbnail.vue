@@ -1,13 +1,8 @@
 <template>
-  <div
-    class="default-background"
-    :class="{ vertical: tags[0] !== 'algorithm' }"
-  >
+  <div class="default-background">
     <div
-      v-for="num in numArray"
-      :key="num"
       class="default-pattern"
-      :class="[`pattern-bar-${num}`, `${tags[2]}`]"
+      :class="{ [tags[2]]: tags[2], vertical: tags[0] !== 'algorithm' }"
     ></div>
   </div>
 </template>
@@ -20,66 +15,92 @@ export default {
       default: () => [],
     },
   },
-  data() {
-    return {
-      sector: 16,
-    }
-  },
-  computed: {
-    numArray() {
-      return new Array(this.sector).fill(0).map((_, index) => index + 1)
-    },
-  },
 }
 </script>
 
 <style lang="scss" scoped>
-$sector: 16;
+$java: #f89820;
+$python: #306998;
+$javascript: #f7df1e;
+$vue: #41b883;
+$nodejs: #3c873a;
 
-@mixin get-linear-pattern($color) {
-  &.pattern-bar {
-    @for $i from 1 through $sector {
-      &-#{$i} {
-        background-color: rgba($color, calc(#{$i} / #{$sector}));
-      }
-    }
-  }
+@mixin get-horizontal-linear-pattern($color) {
+  background: linear-gradient(
+    to right,
+    rgba($color, 0.1) 10%,
+    rgba($color, 0.2) 10% 20%,
+    rgba($color, 0.3) 20% 30%,
+    rgba($color, 0.4) 30% 40%,
+    rgba($color, 0.5) 40% 50%,
+    rgba($color, 0.6) 50% 60%,
+    rgba($color, 0.7) 60% 70%,
+    rgba($color, 0.8) 70% 80%,
+    rgba($color, 0.9) 80% 90%,
+    rgba($color, 1) 90%
+  );
+}
+@mixin get-vertical-linear-pattern($color) {
+  background: linear-gradient(
+    to bottom,
+    rgba($color, 0.1) 10%,
+    rgba($color, 0.2) 10% 20%,
+    rgba($color, 0.3) 20% 30%,
+    rgba($color, 0.4) 30% 40%,
+    rgba($color, 0.5) 40% 50%,
+    rgba($color, 0.6) 50% 60%,
+    rgba($color, 0.7) 60% 70%,
+    rgba($color, 0.8) 70% 80%,
+    rgba($color, 0.9) 80% 90%,
+    rgba($color, 1) 90%
+  );
 }
 
 .default-background {
-  width: inherit;
-  height: inherit;
+  height: 100%;
   background-color: white;
-
-  &:not(.vertical) {
-    display: flex;
-  }
-  &.vertical {
-    .default-pattern {
-      width: inherit;
-      height: calc(100% / #{$sector});
-    }
-  }
 }
 .default-pattern {
-  width: calc(100% / #{$sector});
-  height: inherit;
+  height: 100%;
+  @include get-horizontal-linear-pattern($color-primary);
 
-  @include get-linear-pattern($color-primary);
+  &.vertical {
+    @include get-vertical-linear-pattern($color-primary);
+  }
   &.java {
-    @include get-linear-pattern(#f89820);
+    @include get-horizontal-linear-pattern($java);
+
+    &.vertical {
+      @include get-vertical-linear-pattern($java);
+    }
   }
   &.python {
-    @include get-linear-pattern(#306998);
+    @include get-horizontal-linear-pattern($python);
+
+    &.vertical {
+      @include get-vertical-linear-pattern($python);
+    }
   }
   &.javascript {
-    @include get-linear-pattern(#f7df1e);
+    @include get-horizontal-linear-pattern($javascript);
+
+    &.vertical {
+      @include get-vertical-linear-pattern($javascript);
+    }
   }
   &.vue {
-    @include get-linear-pattern(#41b883);
+    @include get-horizontal-linear-pattern($vue);
+
+    &.vertical {
+      @include get-vertical-linear-pattern($vue);
+    }
   }
   &.nodejs {
-    @include get-linear-pattern(#3c873a);
+    @include get-horizontal-linear-pattern($nodejs);
+
+    &.vertical {
+      @include get-vertical-linear-pattern($nodejs);
+    }
   }
 }
 </style>
