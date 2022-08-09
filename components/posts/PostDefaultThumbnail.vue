@@ -57,7 +57,6 @@ $nodejs: #3c873a;
 }
 
 .default-background {
-  height: 100%;
   background-color: white;
 }
 .default-pattern {
