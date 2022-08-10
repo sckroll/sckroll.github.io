@@ -50,7 +50,7 @@ export default {
   transition: $fade-default;
 }
 nav {
-  padding: 0 32px;
+  padding: 0 48px;
   width: $breakpoint-sm;
 }
 ul {

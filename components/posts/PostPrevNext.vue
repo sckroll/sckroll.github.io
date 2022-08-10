@@ -47,7 +47,7 @@ export default {
   width: 100%;
   display: flex;
   justify-content: space-between;
-  padding: 16px 32px;
+  padding: 16px 48px;
   font-size: 1.1em;
 }
 .post-link {

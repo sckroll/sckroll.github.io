@@ -25,7 +25,7 @@ export default {
 <style lang="scss" scoped>
 .content-container {
   display: flex;
-  padding: 64px 32px;
+  padding: 64px 48px;
   gap: 48px;
 }
 

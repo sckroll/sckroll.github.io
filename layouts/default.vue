@@ -62,7 +62,7 @@ main {
   justify-content: center;
 }
 .page-container {
-  padding: 0 32px;
+  padding: 0 48px;
 }
 .post-list-page {
   display: flex;

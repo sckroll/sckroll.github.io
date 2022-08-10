@@ -60,7 +60,7 @@ export default {
 }
 .comment-center {
   width: 100%;
-  padding: 0 32px;
+  padding: 0 48px;
 }
 .utterances {
   max-width: 100%;

@@ -60,7 +60,7 @@ $background-height: calc(#{$header-image-height} - #{$header-height});
   flex-direction: column;
   justify-content: flex-end;
   color: white;
-  padding: 48px 32px;
+  padding: 48px;
   gap: 16px;
 }
 .info-footer {
