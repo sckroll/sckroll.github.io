@@ -9,8 +9,7 @@ export const formatDate = date => {
     month: '2-digit',
     day: '2-digit',
   }
-  const formattedTime = new Date(date).toLocaleDateString('kr', options)
-  return formattedTime.replace(/. /g, '/').slice(0, -1)
+  return new Date(date).toLocaleDateString('kr', options)
 }
 
 /**

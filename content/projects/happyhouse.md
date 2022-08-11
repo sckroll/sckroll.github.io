@@ -2,7 +2,7 @@
 title: HAPPY HOUSE
 description: 사용자 맞춤형 주택 실거래가 정보 서비스 프로젝트
 image: happyhouse/main.png
-period: 2022/05/18 ~ 2022/05/26 (9일)
+period: 2022. 05. 18. ~ 2022. 05. 26. (9일)
 stacks: [Vue.js, Spring (Spring Boot), MySQL]
 isTeamProject: true
 ---
