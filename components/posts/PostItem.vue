@@ -132,11 +132,13 @@ article.post-item {
   .other-info {
     display: flex;
     justify-content: space-between;
+    align-items: flex-end;
     color: $color-grey-600;
   }
   .posted-date {
     display: flex;
-    gap: 8px;
+    flex-direction: column;
+    gap: 4px;
   }
   .updated-date {
     color: $color-grey-400;
@@ -185,6 +187,10 @@ article.post-item {
       flex-direction: column;
       gap: 8px;
     }
+    .posted-date {
+      align-items: flex-end;
+      gap: 2px;
+    }
     .tags {
       justify-content: flex-end;
       gap: 8px;
@@ -210,7 +216,8 @@ article.post-item {
       font-size: 0.8em;
     }
     .posted-date {
-      gap: 4px;
+      align-items: flex-end;
+      gap: 2px;
     }
     .tags {
       justify-content: flex-end;
@@ -233,6 +240,10 @@ article.post-item {
       gap: 4px;
       font-size: 0.9em;
     }
+    .posted-date {
+      align-items: flex-end;
+      gap: 2px;
+    }
     .tags {
       justify-content: flex-end;
       gap: 8px;
@@ -253,6 +264,10 @@ article.post-item {
       flex-direction: column;
       gap: 4px;
       font-size: 0.8em;
+    }
+    .posted-date {
+      align-items: flex-end;
+      gap: 2px;
     }
     .tags {
       justify-content: flex-end;
