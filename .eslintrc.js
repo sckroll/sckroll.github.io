@@ -19,5 +19,18 @@ module.exports = {
   rules: {
     'no-unused-vars': 'warn',
     'no-console': 'off',
+    'prettier/prettier': [
+      'error',
+      {
+        singleQuote: true,
+        semi: false,
+        useTabs: false,
+        tabWidth: 2,
+        trailingComma: 'all',
+        printWidth: 80,
+        arrowParens: 'avoid',
+        endOfLine: 'auto',
+      },
+    ],
   },
 }
