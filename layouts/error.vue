@@ -1,13 +1,15 @@
 <template>
   <section class="error-container">
-    <div class="error-code">
-      <h1 v-if="error.statusCode">{{ error.statusCode }}</h1>
-    </div>
-    <div class="error-message">
-      <h2 v-if="error.statusCode === 404">
-        {{ message.notFound }}
-      </h2>
-      <h2 v-else>{{ message.other }}</h2>
+    <div class="error-content">
+      <div class="error-code">
+        <h1 v-if="error.statusCode">{{ error.statusCode }}</h1>
+      </div>
+      <div class="error-message">
+        <h2 v-if="error.statusCode === 404">
+          {{ message.notFound }}
+        </h2>
+        <h2 v-else>{{ message.other }}</h2>
+      </div>
     </div>
     <TextLink to="/" class="homepage-link">홈으로</TextLink>
   </section>
@@ -41,8 +43,15 @@ section.error-container {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 24px;
   height: calc(100vh - #{$header-height} - #{$footer-height});
 
+  .error-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
   h1 {
     font-size: 4em;
     font-weight: 500;
@@ -50,12 +59,10 @@ section.error-container {
   h2 {
     font-weight: 500;
   }
-  .error-message {
-    margin: 8px 0;
-  }
 }
 .homepage-link {
   font-size: 1.1em;
+  font-weight: 600;
 }
 
 @include viewpoint-sm {
