@@ -56,5 +56,11 @@ export default {
   &.mysql {
     border-image: linear-gradient(to right, #00758f 50%, #f29111 50%) 1;
   }
+  &.react {
+    border-image: linear-gradient(to right, #61dafb 50%, #61dafb 50%) 1;
+  }
+  &.redux {
+    border-image: linear-gradient(to right, #764abc 50%, #764abc 50%) 1;
+  }
 }
 </style>
