@@ -43,8 +43,10 @@ export default {
 
 <style lang="scss">
 section.about-content {
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 32px;
 
   h1 {
