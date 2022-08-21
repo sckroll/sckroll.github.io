@@ -35,6 +35,19 @@ p {
   right: 0;
 }
 
+@include viewpoint-lg {
+  section {
+    gap: 8px;
+  }
+  h1 {
+    font-size: 2.25em;
+    font-weight: 500;
+  }
+  p {
+    font-size: 1.25em;
+    font-weight: 500;
+  }
+}
 @include viewpoint-md {
   section {
     gap: 8px;
