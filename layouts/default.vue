@@ -83,12 +83,12 @@ main {
 }
 @include viewpoint-md {
   .page-container {
-    width: $breakpoint-md;
+    width: 100%;
   }
 }
 @include viewpoint-sm {
   .page-container {
-    width: $breakpoint-sm;
+    width: 100%;
   }
 }
 @include viewpoint-xs {
