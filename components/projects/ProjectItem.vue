@@ -117,7 +117,8 @@ article.project-item {
 .stacks {
   display: flex;
   align-items: center;
-  gap: 16px;
+  column-gap: 16px;
+  row-gap: 8px;
   flex-wrap: wrap;
 }
 .bottom-border {
@@ -175,7 +176,8 @@ article.project-item {
       font-size: 0.9em;
     }
     .stacks {
-      gap: 8px;
+      column-gap: 8px;
+      row-gap: 4px;
       font-size: 0.9em;
     }
   }
