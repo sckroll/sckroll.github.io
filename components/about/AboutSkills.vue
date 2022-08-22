@@ -38,6 +38,10 @@ export default {
               level: 3,
             },
             {
+              name: 'React',
+              level: 2,
+            },
+            {
               name: 'TypeScript',
               level: 2,
             },
