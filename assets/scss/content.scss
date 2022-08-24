@@ -26,7 +26,6 @@
   ol,
   ul {
     font-size: 1.1em;
-    font-weight: 500;
     line-height: 170%;
 
     img {
@@ -102,9 +101,12 @@
       color: $color-primary;
     }
   }
+  strong {
+    color: $color-primary;
+    transition: $fade-default;
+  }
   .text-link a {
     font-size: 1.1em;
-    font-weight: 500;
     line-height: 170%;
     margin-top: 2px;
 
@@ -152,5 +154,8 @@
       padding: 0;
       background-color: transparent;
     }
+  }
+  strong {
+    color: $color-secondary;
   }
 }
