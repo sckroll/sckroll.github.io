@@ -9,7 +9,7 @@ isTeamProject: true
 
 ## 개요
 
-![검색 화면 1](/images/projects/happyhouse/search1.png)
+![주택 실거래가 조회 화면 1](/images/projects/happyhouse/search1.png)
 
 **사용자 맞춤형 주택 실거래가 정보 서비스**를 만드는 것을 목표로 프로젝트를 수행했습니다. 
 
@@ -21,29 +21,47 @@ isTeamProject: true
 
 ### 주택 실거래가 조회
 
+![주택 실거래가 조회 화면 2](/images/projects/happyhouse/search2.png)
+
+![주택 상세 정보 화면](/images/projects/happyhouse/details.png)
+
 작성 중
 
 ### 가격대 기준 검색
+
+![가격대 기준 검색 화면](/images/projects/happyhouse/price-filter.png)
 
 작성 중
 
 ### 주변 상권 정보 조회
 
+![주변 상권 정보 조회 화면](/images/projects/happyhouse/range.png)
+
 작성 중
 
 ### 주택 거래 변동량 조회
+
+![주택 거래 변동량 조회 화면](/images/projects/happyhouse/change-ratio.png)
 
 작성 중
 
 ### 관심 지역 및 주택 관리
 
+![관심 지역 및 주택 관리 화면](/images/projects/happyhouse/favorites.png)
+
 작성 중
 
 ### 관심 주택 추가 횟수에 따른 인기 주택 랭킹
 
+![관심 주택 추가 횟수에 따른 인기 주택 랭킹 화면](/images/projects/happyhouse/ranking.png)
+
 작성 중
 
 ### 공지사항 및 QnA 게시판
+
+![공지사항 화면](/images/projects/happyhouse/notice.png)
+
+![QnA 화면](/images/projects/happyhouse/qna.png)
 
 작성 중
 
