@@ -6,7 +6,7 @@
 
 ## 기술 스택
 
-- [Nuxt v2](https://nuxtjs.org/) & [nuxt/content v1](https://content.nuxtjs.org/)
+- [Nuxt v2](https://nuxtjs.org/)(Vue 2) & [Nuxt/content v1](https://content.nuxtjs.org/)
 - [Sass(SCSS)](https://sass-lang.com/)로 스타일링
 - [push-dir](https://github.com/L33T-KR3W/push-dir) & [GitHub Actions](https://github.com/features/actions)로 푸시할 때마다 GitHub Pages에 배포
 
