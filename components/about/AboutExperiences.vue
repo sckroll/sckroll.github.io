@@ -41,7 +41,7 @@ export default {
         },
         {
           time: '2022.01 ~',
-          content: '삼성 청년 SW 아카데미 (SSAFY) 7기 입과',
+          content: '삼성 청년 SW 아카데미 (SSAFY) 7기 입학',
         },
         {
           time: '2021.08',
