@@ -47,7 +47,9 @@ isTeamProject: true
 
 ![주택 거래 변동량 조회 화면](/images/projects/happyhouse/change-ratio.png)
 
-작성 중
+주택 상세 정보 모달 창에서 확인할 수 있는 주택 거래 변동량 조회 기능입니다.
+
+가격은 만원 단위로 구분했으며, 날짜의 경우 API에서 추출한 날짜가 불규칙적이었기 때문에, 1개월 단위로 묶은 후 1개월 내에 거래량이 많을 경우 평균 실거래가를 계산하여 화면에 표시했습니다. 그래프는 [chart.js](https://www.chartjs.org/)를 사용했습니다.
 
 ### 관심 지역 및 주택 관리
 
