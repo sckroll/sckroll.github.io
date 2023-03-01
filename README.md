@@ -1,66 +1,42 @@
-# sckroll.github.io
+# Nuxt 3 Minimal Starter
 
-## 개요
+Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-개발 블로그 겸 포트폴리오 리포지토리  
+## Setup
 
-## 기술 스택
-
-- [Nuxt v2](https://nuxtjs.org/)(Vue 2) & [Nuxt/content v1](https://content.nuxtjs.org/)
-- [Sass(SCSS)](https://sass-lang.com/)로 스타일링
-- [push-dir](https://github.com/L33T-KR3W/push-dir) & [GitHub Actions](https://github.com/features/actions)로 푸시할 때마다 GitHub Pages에 배포
-
-## 설치
-
-### Yarn을 사용한 Nuxt 명령 수행
+Make sure to install the dependencies:
 
 ```bash
-# dependencies 설치
-$ yarn install
+# yarn
+yarn install
 
-# localhost:3000 서버 실행
-$ yarn dev
+# npm
+npm install
 
-# 프로덕션 빌드 & 서버 실행
-$ yarn build
-$ yarn start
-
-# 정적 사이트 생성
-$ yarn generate
+# pnpm
+pnpm install
 ```
 
-### push-dir를 통한 정적 웹 페이지 배포
+## Development Server
+
+Start the development server on http://localhost:3000
 
 ```bash
-# push-dir 설치
-$ yarn add push-dir --dev
-
-# package.json 파일 scripts 객체에 다음 요소 추가
-"deploy": "nuxt generate && push-dir --dir=dist --branch=dist --cleanup"
-
-# git 초기화 후 커밋, 푸시
-$ git init
-$ git add .
-$ git commit -m "init"
-$ git remote add origin https://github.com/sckroll/sckroll.github.io.git
-$ git push -u origin master
-
-# 브랜치 생성
-$ git checkout -b dist
-$ git checkout master
-
-# 정적 사이트 생성 및 배포
-$ yarn deploy
+npm run dev
 ```
 
-### 이후 웹 사이트 배포 방법 (GitHub Actions 미사용 시)
+## Production
+
+Build the application for production:
 
 ```bash
-$ yarn deploy
+npm run build
 ```
 
-## 주의사항
+Locally preview production build:
 
-- `dist` 브랜치 생성 후 배포할 것
-- 배포하기 전에 변경 내용을 `master` 브랜치에 커밋 & 푸시 후 배포할 것
-  - 그렇지 않으면 `aborted: git not clean` 에러가 뜨면서 배포가 중단됨
+```bash
+npm run preview
+```
+
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
