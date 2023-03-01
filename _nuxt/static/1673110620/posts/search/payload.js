@@ -1,1 +1,0 @@
-__NUXT_JSONP__("/posts/search", (function(a,b){return {data:[{}],fetch:{"0":{posts:[],totalPostCount:a,perPage:a}},mutations:[["SET_HEADER_IMAGE_STATE",b],["SET_SCROLL_STATE",b]]}}(0,false)));
