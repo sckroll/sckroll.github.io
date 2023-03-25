@@ -11,5 +11,11 @@ export default defineNuxtConfig({
         }
       }
     }
-  }
+  },
+  components: [
+    { path: '~/components/common' },
+    { path: '~/components/about' },
+    { path: '~/components/posts' },
+    { path: '~/components/projects' },
+  ]
 })
