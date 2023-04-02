@@ -13,9 +13,9 @@ export default defineNuxtConfig({
     }
   },
   components: [
-    { path: '~/components/common' },
-    { path: '~/components/about' },
-    { path: '~/components/posts' },
-    { path: '~/components/projects' },
+    { path: '~/components/common', pathPrefix: false },
+    { path: '~/components/about', pathPrefix: false },
+    { path: '~/components/posts', pathPrefix: false },
+    { path: '~/components/projects', pathPrefix: false },
   ]
 })
