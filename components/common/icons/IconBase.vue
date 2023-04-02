@@ -1,7 +1,7 @@
 <script setup lang="ts">
 type PropTypes = {
-  size: number
-  fill: string
+  size?: number
+  fill?: string
 }
 
 withDefaults(defineProps<PropTypes>(), {
@@ -24,7 +24,7 @@ withDefaults(defineProps<PropTypes>(), {
 
 <style lang="scss" scoped>
 svg {
-  transition: all 0.15s ease;
+  transition: all 0.15s;
 }
 .dark-mode svg {
   fill: white;
