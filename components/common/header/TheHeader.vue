@@ -1,26 +1,26 @@
 <template>
-  <footer>
-    <div class="footer-container">
-      <FooterLinks />
-      <TheCopyright />
+  <header>
+    <div class="header-container">
+      <TheLogo />
+      <TheMenuNav />
     </div>
-  </footer>
+  </header>
 </template>
 
 <style lang="scss" scoped>
-footer {
+header {
   display: flex;
   justify-content: center;
 }
-.footer-container {
+.header-container {
+  height: 6rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2rem 0;
 }
 
 @include viewport-xl {
-  .footer-container {
+  .header-container {
     width: $breakpoint-xl;
   }
 }

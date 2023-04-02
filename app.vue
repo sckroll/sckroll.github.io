@@ -1,9 +1,3 @@
-
-import TheFooter from './components/common/TheFooter.vue';
-
-
-import TheHeader from './components/common/TheHeader.vue';
-
 <template>
   <TheHeader />
   <NuxtPage />
