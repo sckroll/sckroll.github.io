@@ -1,17 +1,8 @@
 <template>
   <footer>
     <div class="footer-container">
-      <div class="links">
-        <IconBase>
-          <IconEmail />
-        </IconBase>
-        <IconBase>
-          <IconGitHub />
-        </IconBase>
-      </div>
-      <p class="copyright">
-        &copy; {{ new Date().getFullYear() }} Designed & developed by Sckroll.
-      </p>
+      <FooterLinks />
+      <TheCopyright />
     </div>
   </footer>
 </template>
@@ -20,10 +11,6 @@
 footer {
   display: flex;
   justify-content: center;
-}
-.links {
-  display: flex;
-  gap: 1rem;
 }
 .footer-container {
   display: flex;

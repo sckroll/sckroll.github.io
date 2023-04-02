@@ -18,7 +18,7 @@ withDefaults(defineProps<PropTypes>(), {
     :fill="fill"
     xmlns="http://www.w3.org/2000/svg"
   >
-    <slot></slot>
+    <slot />
   </svg>
 </template>
 
