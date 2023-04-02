@@ -1,4 +1,6 @@
-on: [push]
+on:
+  push:
+    branches: ['master']
 
 jobs:
   cd:
@@ -7,7 +9,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        node: [16]
+        node: [18]
 
     steps:
       - name: Checkout
