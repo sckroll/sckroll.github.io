@@ -1,5 +1,0 @@
-<template>
-  <path
-    d="M11 16L24.6364 2L26 3.4L13.7273 16L26 28.6L24.6364 30L11 16Z M7 2H9V30H7V2Z"
-  />
-</template>

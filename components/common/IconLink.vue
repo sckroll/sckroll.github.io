@@ -19,21 +19,15 @@ const handleClick = () => {
 <template>
   <template v-if="disabled || !to">
     <div class="icon-link" :class="{ disabled }" @click="handleClick">
-      <IconBase>
         <slot />
-      </IconBase>
     </div>
   </template>
   <template v-else>
     <nuxtLink v-if="external" :href="to" class="icon-link">
-      <IconBase>
         <slot />
-      </IconBase>
     </nuxtLink>
     <a v-else :to="to" class="icon-link">
-      <IconBase>
         <slot />
-      </IconBase>
     </a>
   </template>
 </template>

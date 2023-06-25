@@ -1,7 +1,11 @@
+<script setup lang="ts">
+import IconLogo from '@/assets/images/icons/IconLogo.svg'
+</script>
+
 <template>
   <header>
     <div class="header-container">
-      <TheLogo />
+      <IconLogo />
       <TheMenuNav />
     </div>
   </header>
